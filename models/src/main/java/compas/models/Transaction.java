@@ -16,20 +16,21 @@ import java.util.Date;
 public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer Id;
-	private Integer transaction_type_id;
-    private Integer operational_id;
-    private Integer mode_id;
-    private String account_number;
-    private String card_number;
-    private String amount;
-    private String card_iccid;
-    private String agent_code;
-    private String transaction_date;
-    private String receipt_number;
-    private String currency;
-    private String latitude;
-    private String longitude;
+    public Integer Id;
+    public Integer operational_id;
+    public Integer mode_id;
+    public String account_number;
+    public Double amount;
+    public Double agent_commision;
+    public Double bank_income;
+    public Double excise_duty;
+    public String card_iccid;
+    public Integer agent_id;
+    public String transaction_date;
+    public String receipt_number;
+    public Integer currency_id;
+    public String latitude;
+    public String longitude;
 
     public Transaction(){}
 
@@ -41,24 +42,16 @@ public class Transaction {
         Id = id;
     }
 
-    public Integer getTransaction_type_id() {
-        return transaction_type_id;
-    }
-
-    public void setTransaction_type_id(Integer transaction_type_id) {
-        this.transaction_type_id = transaction_type_id;
-    }
-
     public Integer getOperational_id() {
         return operational_id;
     }
 
-    public String getCurrency() {
-        return currency;
+    public Integer getCurrency_id() {
+        return currency_id;
     }
 
-    public void setCurrency(String currency) {
-        this.currency = currency;
+    public void setCurrency_id(String currency) {
+        this.currency_id = currency_id;
     }
 
     public void setOperational_id(Integer operational_id) {
@@ -81,19 +74,11 @@ public class Transaction {
         this.account_number = account_number;
     }
 
-    public String getCard_number() {
-        return card_number;
-    }
-
-    public void setCard_number(String card_number) {
-        this.card_number = card_number;
-    }
-
-    public String getAmount() {
+    public Double getAmount() {
         return amount;
     }
 
-    public void setAmount(String amount) {
+    public void setAmount(Double amount) {
         this.amount = amount;
     }
 
@@ -105,12 +90,12 @@ public class Transaction {
         this.card_iccid = card_iccid;
     }
 
-    public String getAgent_code() {
-        return agent_code;
+    public Integer getAgent_id() {
+        return agent_id;
     }
 
-    public void setAgent_code(String agent_code) {
-        this.agent_code = agent_code;
+    public void setAgent_id(Integer agent_Id) {
+        this.agent_id = agent_id;
     }
 
     public String getTransaction_date() {
@@ -145,7 +130,31 @@ public class Transaction {
         this.longitude = longitude;
     }
 
+    public Double getAgent_commision() {
+        return agent_commision;
+    }
+
+    public void setAgent_commision(Double agent_commision) {
+        this.agent_commision = agent_commision;
+    }
+
+    public Double getBank_income() {
+        return bank_income;
+    }
+
+    public void setBank_income(Double bank_income) {
+        this.bank_income = bank_income;
+    }
+
+    public Double getExcise_duty() {
+        return excise_duty;
+    }
+
+    public void setExcise_duty(Double excise_duty) {
+        this.excise_duty = excise_duty;
+    }
+
     public String getString(){
-        return String.format("[transaction[transaction_type_id = %d account_number = %s card_number = %s]",transaction_type_id,account_number,card_number);
+        return String.format("[transaction[operational_id = %d account_number = %s agent_id  = %d]",operational_id,account_number,agent_id);
     }
 }

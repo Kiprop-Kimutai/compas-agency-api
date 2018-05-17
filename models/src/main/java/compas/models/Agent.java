@@ -22,6 +22,8 @@ public class Agent {
     private String town;
     private Integer branch_id;
     private Boolean status;
+    private Double deposit_limit;
+    private Double withdrawal_limit;
     private Integer  created_by;
     //default constructor
     public Agent() {
@@ -113,6 +115,22 @@ public class Agent {
 
     public void setCreated_by(Integer created_by) {
         this.created_by = created_by;
+    }
+
+    public Double getDeposit_limit() {
+        return deposit_limit;
+    }
+
+    public void setDeposit_limit(Double deposit_limit) {
+        this.deposit_limit = deposit_limit;
+    }
+
+    public Double getWithdrawal_limit() {
+        return withdrawal_limit;
+    }
+
+    public void setWithdrawal_limit(Double withdrawal_limit) {
+        this.withdrawal_limit = withdrawal_limit;
     }
 
     public String getString(){

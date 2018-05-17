@@ -1,4 +1,6 @@
 compas\bank\BranchRepository.class
+compas\transaction\passwordpolicy\OTPRepository.class
+compas\user\TransactionEnum.class
 compas\transaction\Application.class
 compas\transaction\TransactionRDBMSRepository.class
 compas\Application$1.class
@@ -14,14 +16,18 @@ compas\accounts\AccountsController.class
 compas\agent\AgentResponse.class
 compas\transaction\passwordpolicy\OTPController$1.class
 compas\transaction\TransactionAuth.class
+compas\transaction\passwordpolicy\OTPController.class
 compas\authentication\TransactionsAuthentication.class
 compas\next_of_kin\NextOfKinController.class
 compas\accounts\AccountsRequest.class
 compas\bank\BranchController.class
 compas\device\DeviceRepository.class
+compas\user\TransactionEnum$Staff.class
 compas\transaction\TransactionController.class
 compas\transaction\TransactionEnum.class
 compas\MongoConfig\MongoConfiguration.class
+compas\user\Application.class
+compas\accounts\GenerateAccountNumber.class
 compas\agent\AgentRepository.class
 compas\Application.class
 compas\customer\CustomerController.class

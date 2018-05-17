@@ -8,9 +8,9 @@ import compas.models.Device;
 public interface TransactionsAuthInterface {
     public Boolean authenticateDevice(Device device);
     public Boolean authenticateIssuedDevice(Integer deviceId,Integer agentId);
-    public Boolean authenticateAgent();
-    public Boolean authenticateAccount();
-    public Boolean authenticateLimits();
+    public Boolean authenticateAgent(Integer agentId);
+    //public Boolean authenticateAccount();
+    public Boolean authenticateTransactionLimits(Integer operationId);
     public Boolean authenticateGPSCoordinates(String longitude,String latitude);
 }
 

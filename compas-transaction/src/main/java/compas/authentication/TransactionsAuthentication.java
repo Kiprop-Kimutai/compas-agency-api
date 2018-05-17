@@ -45,13 +45,13 @@ public class TransactionsAuthentication  implements TransactionsAuthInterface {
         }
         return false;
     }
-    public Boolean authenticateAgent(){
+    public Boolean authenticateAgent(Integer agentId){
         return true;
     }
     public Boolean authenticateAccount(){
         return true;
     }
-    public Boolean authenticateLimits(){
+    public Boolean authenticateTransactionLimits(Integer operationId){
         return true;
     }
     public Boolean authenticateGPSCoordinates(String longitude,String latitude){
