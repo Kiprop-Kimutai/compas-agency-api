@@ -1,375 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a6adb14b-e5c9-495c-afb2-fe2b9e99e4ee" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/artifacts/PBU_Agency_war.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/artifacts/PBU_Agency_war_exploded.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/artifacts/application_war.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/artifacts/application_war_exploded.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/artifacts/compas_transaction_war.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/artifacts/compas_transaction_war_exploded.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/artifacts/library_war.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/artifacts/library_war_exploded.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__antlr_antlr_2_7_7.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_1_11.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_1_11.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_classmate_1_3_4.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_8_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_8_10.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_8_10.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_8_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__dom4j_dom4j_1_6_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_transaction_javax_transaction_api_1_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_validation_validation_api_1_1_0_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_44.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_core_8_5_20.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_el_8_5_20.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_websocket_8_5_20.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_tomcat_jdbc_8_5_20.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_tomcat_juli_8_5_20.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_8_10.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_atteo_evo_inflector_1_2_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_common_hibernate_commons_annotations_5_0_1_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_core_5_0_12_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_entitymanager_5_0_12_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_validator_5_3_5_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_javax_persistence_hibernate_jpa_2_1_api_1_0_0_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_javassist_javassist_3_21_0_GA.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_jandex_2_0_0_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_3_1_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mongodb_bson_3_4_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mongodb_mongodb_driver_3_4_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mongodb_mongodb_driver_core_3_4_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jcl_over_slf4j_1_7_25.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jul_to_slf4j_1_7_25.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_log4j_over_slf4j_1_7_25.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_25.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_1_5_7_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_1_5_7_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_1_5_7_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_aop_1_5_7_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_jpa_1_5_7_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_mongodb_1_5_7_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_rest_1_5_7_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jdbc_1_5_7_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_1_5_7_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_1_5_7_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_1_5_7_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_commons_1_13_7_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_jpa_1_11_7_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_mongodb_1_10_7_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_rest_core_2_6_7_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_rest_webmvc_2_6_7_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_hateoas_spring_hateoas_0_23_0_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_plugin_spring_plugin_core_1_2_0_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_4_3_11_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aspects_4_3_11_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_4_3_11_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_4_3_11_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_4_3_11_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_4_3_11_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_4_3_11_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_orm_4_3_11_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_oxm_4_3_11_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_4_3_11_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_4_3_11_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_4_3_11_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_ws_spring_ws_core_2_4_0_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_ws_spring_xml_2_4_0_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_17.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/SBT__aopalliance_aopalliance_1_0_jar.xml___jb_tmp___" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/pom.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/hello/abc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/hello/app/DemoApplication.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/hello/app/DemoController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/resources/application.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/target/app-1.0-SNAPSHOT.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/target/classes/application.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/target/classes/hello/app/DemoApplication.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/target/classes/hello/app/DemoController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/target/maven-archiver/pom.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-agency-api.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-rest-service/compas-rest-service.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-rest-service/pom.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-rest-service/src/main/java/compas/abc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-rest-service/src/main/java/compas/restservice/RestServiceConfig.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-rest-service/target/classes/compas/restservice/RestServiceConfig.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-rest-service/target/compas-rest-service-1.0-SNAPSHOT.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-rest-service/target/maven-archiver/pom.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-rest-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-rest-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-rest-service/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/compas-transaction.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/pom.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/Application.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/MongoConfig/MongoConfiguration.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/abc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/accounts/AccountsController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/accounts/AccountsRepository.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/accounts/AccountsRequest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/accounts/AccountsResponse.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/accounts/GenerateAccountNumber.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/agent/AgentController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/agent/AgentRepository.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/agent/AgentResponse.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/authentication/TransactionsAuthInterface.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/authentication/TransactionsAuthentication.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/bank/BankController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/bank/BankRepository.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/bank/BranchController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/bank/BranchRepository.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/customer/CustomerController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/customer/CustomerRepository.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/customer/abc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/device/DeviceController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/device/DeviceRepository.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/device/Issued_DeviceRepository.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/next_of_kin/NextOfKinController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/next_of_kin/NextOfKinRepository.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/transaction/Application.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/transaction/TransactionAuth.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/transaction/TransactionController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/transaction/TransactionEnum.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/transaction/TransactionRDBMSRepository.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/transaction/TransactionRepository.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/transaction/passwordpolicy/OTPController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/transaction/passwordpolicy/OTPRepository.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/transaction/passwordpolicy/PasswordValidityManager.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/user/Application.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/user/TransactionEnum.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/user/UserController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/user/UserRepository.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/src/main/resources/application.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/application.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/Application$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/Application.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/MongoConfig/MongoConfiguration.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/accounts/AccountsController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/accounts/AccountsRepository.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/accounts/AccountsRequest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/accounts/AccountsResponse.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/accounts/GenerateAccountNumber.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/agent/AgentController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/agent/AgentRepository.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/agent/AgentResponse.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/authentication/TransactionsAuthInterface.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/authentication/TransactionsAuthentication.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/bank/BankController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/bank/BankRepository.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/bank/BranchController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/bank/BranchRepository.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/customer/CustomerController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/customer/CustomerRepository.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/device/DeviceController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/device/DeviceRepository.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/device/Issued_DeviceRepository.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/next_of_kin/NextOfKinController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/next_of_kin/NextOfKinRepository.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/transaction/Application$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/transaction/Application.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/transaction/TransactionAuth.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/transaction/TransactionController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/transaction/TransactionEnum$TransactionTypes.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/transaction/TransactionEnum.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/transaction/TransactionRDBMSRepository.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/transaction/TransactionRepository.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/transaction/passwordpolicy/OTPController$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/transaction/passwordpolicy/OTPController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/transaction/passwordpolicy/OTPRepository.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/transaction/passwordpolicy/PasswordValidityManager.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/user/Application.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/user/TransactionEnum$Staff.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/user/TransactionEnum.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/user/UserController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/user/UserRepository.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT.war" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT.war.original" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/application.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/Application.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/MongoConfig/MongoConfiguration.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/accounts/AccountsController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/accounts/AccountsRepository.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/accounts/AccountsRequest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/accounts/AccountsResponse.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/accounts/GenerateAccountNumber.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/accounts/Kenndisa.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/agent/AgentController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/agent/AgentRepository.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/agent/AgentResponse.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/authentication/TransactionsAuthInterface.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/authentication/TransactionsAuthentication.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/bank/BankController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/bank/BankRepository.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/bank/BranchController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/bank/BranchRepository.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/customer/CustomerController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/customer/CustomerRepository.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/device/DeviceController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/device/DeviceRepository.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/device/Issued_DeviceRepository.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/next_of_kin/NextOfKinController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/next_of_kin/NextOfKinRepository.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/transaction/Application.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/transaction/TransactionAuth.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/transaction/TransactionController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/transaction/TransactionRDBMSRepository.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/transaction/TransactionRepository.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/user/UserController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/user/UserRepository.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/antlr-2.7.7.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/aspectjweaver-1.8.10.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/bson-3.4.3.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/compas-rest-service-1.0-SNAPSHOT.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/dom4j-1.6.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/gson-2.8.2.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/hibernate-commons-annotations-5.0.1.Final.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/hibernate-core-5.0.12.Final.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/hibernate-entitymanager-5.0.12.Final.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/hibernate-jpa-2.1-api-1.0.0.Final.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/jandex-2.0.0.Final.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/javassist-3.21.0-GA.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/javax.transaction-api-1.2.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/jboss-logging-3.3.1.Final.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/jcl-over-slf4j-1.7.25.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/jul-to-slf4j-1.7.25.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/log4j-over-slf4j-1.7.25.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/logback-classic-1.1.11.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/logback-core-1.1.11.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/models-1.0-SNAPSHOT.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/mongodb-driver-3.4.3.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/mongodb-driver-core-3.4.3.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/mysql-connector-java-5.1.44.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/slf4j-api-1.7.25.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/snakeyaml-1.17.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/spring-aop-4.3.11.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/spring-aspects-4.3.11.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/spring-beans-4.3.11.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/spring-boot-1.5.7.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/spring-boot-autoconfigure-1.5.7.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/spring-boot-starter-1.5.7.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/spring-boot-starter-aop-1.5.7.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/spring-boot-starter-data-jpa-1.5.7.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/spring-boot-starter-data-mongodb-1.5.7.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/spring-boot-starter-jdbc-1.5.7.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/spring-boot-starter-logging-1.5.7.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/spring-context-4.3.11.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/spring-core-4.3.11.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/spring-data-commons-1.13.7.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/spring-data-jpa-1.11.7.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/spring-data-mongodb-1.10.7.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/spring-expression-4.3.11.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/spring-jdbc-4.3.11.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/spring-orm-4.3.11.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/spring-oxm-4.3.11.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/spring-tx-4.3.11.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/spring-web-4.3.11.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/spring-webmvc-4.3.11.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/spring-ws-core-2.4.0.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/spring-xml-2.4.0.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/tomcat-jdbc-8.5.20.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/tomcat-juli-8.5.20.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/maven-archiver/pom.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/librarry/librarry.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/librarry/pom.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/librarry/src/main/java/hello/abc.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/librarry/src/main/java/hello/service/MyService.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/librarry/src/main/java/hello/service/ServiceProperties.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/librarry/target/classes/hello/service/MyService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/librarry/target/classes/hello/service/ServiceProperties.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/librarry/target/librarry-1.0-SNAPSHOT.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/librarry/target/maven-archiver/pom.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/librarry/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/librarry/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/librarry/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/models.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/pom.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/src/main/java/abc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/src/main/java/compas/abc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/src/main/java/compas/models/Account.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/src/main/java/compas/models/Account_Type.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/src/main/java/compas/models/Agent.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/src/main/java/compas/models/Bank.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/src/main/java/compas/models/Bank_Branch.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/src/main/java/compas/models/Card.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/src/main/java/compas/models/Card_Scheme.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/src/main/java/compas/models/Card_Type.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/src/main/java/compas/models/Country.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/src/main/java/compas/models/Currency.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/src/main/java/compas/models/Customer.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/src/main/java/compas/models/CustomerRequests.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/src/main/java/compas/models/Device.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/src/main/java/compas/models/District.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/src/main/java/compas/models/Issued_Device.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/src/main/java/compas/models/Next_of_Kin.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/src/main/java/compas/models/OTP.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/src/main/java/compas/models/Transaction.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/src/main/java/compas/models/Transaction_Mode.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/src/main/java/compas/models/Transaction_Operation.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/src/main/java/compas/models/Transaction_Type.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/src/main/java/compas/models/User.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/src/main/java/compas/models/User_Group_Type.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/target/classes/compas/models/Account.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/target/classes/compas/models/Account_Type.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/target/classes/compas/models/Agent.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/target/classes/compas/models/Bank.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/target/classes/compas/models/Bank_Branch.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/target/classes/compas/models/Card.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/target/classes/compas/models/Card_Scheme.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/target/classes/compas/models/Card_Type.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/target/classes/compas/models/Country.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/target/classes/compas/models/Currency.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/target/classes/compas/models/Customer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/target/classes/compas/models/CustomerRequests.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/target/classes/compas/models/Device.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/target/classes/compas/models/District.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/target/classes/compas/models/Issued_Device.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/target/classes/compas/models/Next_of_Kin.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/target/classes/compas/models/OTP.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/target/classes/compas/models/Transaction.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/target/classes/compas/models/Transaction_Mode.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/target/classes/compas/models/Transaction_Operation.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/target/classes/compas/models/Transaction_Type.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/target/classes/compas/models/User.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/target/classes/compas/models/User_Group_Type.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/target/maven-archiver/pom.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/target/models-1.0-SNAPSHOT.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pom.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/pom.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/src/main/java/abc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/src/main/java/hello/abc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/src/main/java/hello/test/Application.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/src/main/java/hello/test/TestController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/src/main/resources/application.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/target/classes/application.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/target/classes/hello/test/Application.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/target/classes/hello/test/TestController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/target/maven-archiver/pom.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/target/test-1.0-SNAPSHOT.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/target/test-1.0-SNAPSHOT.jar.original" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/test.iml" afterPath="" />
-    </list>
+    <list default="true" id="a6adb14b-e5c9-495c-afb2-fe2b9e99e4ee" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/AgencyService/target/" />
@@ -424,18 +56,9 @@
             <state relative-caret-position="408">
               <caret line="35" column="28" lean-forward="false" selection-start-line="35" selection-start-column="28" selection-end-line="35" selection-end-column="28" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#2425#2426#0" expanded="false" />
+                <element signature="e#2484#2485#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="13" lean-forward="true" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -444,27 +67,17 @@
         <entry file="file://$PROJECT_DIR$/models/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="323">
-              <caret line="19" column="20" lean-forward="true" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
+              <caret line="19" column="20" lean-forward="false" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Application.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Application.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/Application.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="42">
               <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="7" lean-forward="true" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -475,9 +88,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="459">
               <caret line="43" column="39" lean-forward="false" selection-start-line="43" selection-start-column="39" selection-end-line="43" selection-end-column="39" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -487,7 +98,11 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
               <caret line="29" column="65" lean-forward="false" selection-start-line="29" selection-start-column="65" selection-end-line="29" selection-end-column="65" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#1411#1412#0" expanded="false" />
+                <element signature="e#1470#1471#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -1268,7 +883,7 @@
       <workItem from="1525935936513" duration="68119000" />
       <workItem from="1526366755147" duration="43457000" />
       <workItem from="1526562436119" duration="200000" />
-      <workItem from="1526562772308" duration="1402000" />
+      <workItem from="1526562772308" duration="2000000" />
     </task>
     <servers />
   </component>
@@ -1278,7 +893,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="262368000" />
+    <option name="totallyTimeSpent" value="262966000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="3" y="0" width="1370" height="735" extended-state="0" />
@@ -1672,7 +1287,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="29" column="65" lean-forward="false" selection-start-line="29" selection-start-column="65" selection-end-line="29" selection-end-column="65" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1411#1412#0" expanded="false" />
+            <element signature="e#1470#1471#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1688,9 +1307,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="43" column="39" lean-forward="false" selection-start-line="43" selection-start-column="39" selection-end-line="43" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1699,7 +1316,8 @@
         <state relative-caret-position="408">
           <caret line="35" column="28" lean-forward="false" selection-start-line="35" selection-start-column="28" selection-end-line="35" selection-end-column="28" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#2425#2426#0" expanded="false" />
+            <element signature="e#2484#2485#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1715,7 +1333,7 @@
     <entry file="file://$PROJECT_DIR$/models/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
-          <caret line="19" column="20" lean-forward="true" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
+          <caret line="19" column="20" lean-forward="false" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
           <folding />
         </state>
       </provider>
@@ -1740,18 +1358,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/Application.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="7" lean-forward="true" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
           <folding />
         </state>
       </provider>
