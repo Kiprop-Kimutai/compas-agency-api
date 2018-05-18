@@ -23,7 +23,9 @@ public class Customer {
     private Integer branch_id;
     private String phone;
     private String email;
-    private String address;
+    private String postal_address;
+    private String postal_code;
+    private String town;
 
     public Customer(){}
 
@@ -107,12 +109,28 @@ public class Customer {
         this.email = email;
     }
 
-    public String getAddress() {
-        return address;
+    public String getPostal_address() {
+        return postal_address;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setPostal_address(String postal_address) {
+        this.postal_address = postal_address;
+    }
+
+    public String getPostal_code() {
+        return postal_code;
+    }
+
+    public void setPostal_code(String postal_code) {
+        this.postal_code = postal_code;
+    }
+
+    public String getTown() {
+        return town;
+    }
+
+    public void setTown(String town) {
+        this.town = town;
     }
 
     public String  getString(){

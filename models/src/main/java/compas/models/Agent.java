@@ -18,24 +18,22 @@ public class Agent {
     private String agent_code;
     private String agent_description;
     private String agent_id_number;
-    private String address;
+    private String postal_address;
+    private String postal_code;
     private String town;
+    private String gender;
     private Integer branch_id;
     private Boolean status;
     private Double deposit_limit;
     private Double withdrawal_limit;
     private Integer  created_by;
+    private Integer verified_by;
+    private Boolean verified;
     //default constructor
     public Agent() {
     }
 
-    public String getAddress() {
-        return address;
-    }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
 
     public String getTown() {
         return town;
@@ -77,12 +75,20 @@ public class Agent {
         this.agent_id_number = agent_id_number;
     }
 
-    public String getaddress() {
-        return address;
+    public String getPostal_address() {
+        return postal_address;
     }
 
-    public void setaddress(String address) {
-        this.address = address;
+    public void setPostal_address(String postal_address) {
+        this.postal_address = postal_address;
+    }
+
+    public String getPostal_code() {
+        return postal_code;
+    }
+
+    public void setPostal_code(String postal_code) {
+        this.postal_code = postal_code;
     }
 
     public String gettown() {
@@ -131,6 +137,30 @@ public class Agent {
 
     public void setWithdrawal_limit(Double withdrawal_limit) {
         this.withdrawal_limit = withdrawal_limit;
+    }
+
+    public Integer getVerified_by() {
+        return verified_by;
+    }
+
+    public void setVerified_by(Integer verified_by) {
+        this.verified_by = verified_by;
+    }
+
+    public Boolean getVerified() {
+        return verified;
+    }
+
+    public void setVerified(Boolean verified) {
+        this.verified = verified;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public String getString(){

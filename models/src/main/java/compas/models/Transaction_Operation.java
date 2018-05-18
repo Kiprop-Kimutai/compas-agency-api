@@ -14,6 +14,7 @@ public class Transaction_Operation {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer Id;
     private String name;
+    public Integer transaction_type_id;
 
     //default constructor
     public Transaction_Operation(){}
@@ -22,8 +23,8 @@ public class Transaction_Operation {
         return Id;
     }
 
-    public void setId(Integer id) {
-        Id = id;
+    public void setId(Integer Id) {
+        Id = Id;
     }
 
     public String getName() {
@@ -32,5 +33,13 @@ public class Transaction_Operation {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Integer getTransaction_type_id() {
+        return transaction_type_id;
+    }
+
+    public void setTransaction_type_id(Integer transaction_type_id) {
+        this.transaction_type_id = transaction_type_id;
     }
 }
