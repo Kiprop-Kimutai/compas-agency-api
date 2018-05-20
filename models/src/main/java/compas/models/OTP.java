@@ -14,14 +14,16 @@ public class OTP {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer Id;
-    public String transaction_type;
-    public String operation;
-    public String account_no;
+    public Integer operation_id;
+    public String account_from;
+    public String account_to;
     public Integer  deviceId;
     public Integer agentId;
     public String password;
     public Date request_time;
+    public String receipt_number;
     public Boolean active;
+    public Boolean success;
 
     //default constructor
     public OTP(){}
@@ -34,28 +36,28 @@ public class OTP {
         Id = id;
     }
 
-    public String getTransaction_type() {
-        return transaction_type;
+    public Integer getOperation_id() {
+        return operation_id;
     }
 
-    public void setTransaction_type(String transaction_type) {
-        this.transaction_type = transaction_type;
+    public void setOperation_id(Integer operation_id) {
+        this.operation_id = operation_id;
     }
 
-    public String getOperation() {
-        return operation;
+    public String getAccount_from() {
+        return account_from;
     }
 
-    public void setOperation(String operation) {
-        this.operation = operation;
+    public void setAccount_from(String account_from) {
+        this.account_from = account_from;
     }
 
-    public String getAccount_no() {
-        return account_no;
+    public String getAccount_to() {
+        return account_to;
     }
 
-    public void setAccount_no(String account_no) {
-        this.account_no = account_no;
+    public void setAccount_to(String account_to) {
+        this.account_to = account_to;
     }
 
     public Integer getDeviceId() {
@@ -96,5 +98,21 @@ public class OTP {
 
     public void setActive(Boolean active) {
         this.active = active;
+    }
+
+    public String getReceipt_number() {
+        return receipt_number;
+    }
+
+    public void setReceipt_number(String receipt_number) {
+        this.receipt_number = receipt_number;
+    }
+
+    public Boolean getSuccess() {
+        return success;
+    }
+
+    public void setSuccess(Boolean success) {
+        this.success = success;
     }
 }

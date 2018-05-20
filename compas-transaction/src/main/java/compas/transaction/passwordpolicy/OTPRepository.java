@@ -4,6 +4,7 @@ import com.mongodb.Mongo;
 import com.mongodb.MongoException;
 import compas.MongoConfig.MongoConfiguration;
 import compas.models.OTP;
+import compas.models.Transaction;
 import compas.transaction.TransactionRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,7 +39,7 @@ public class OTPRepository  {
     }
     public List<OTP> fetchActiveOTPs(){
         Query query = new Query();
-        query.addCriteria(Criteria.where("active").is(true));
+        query.addCriteria(Criteria.where("active").is(true).and("success").is(false));
         try{
             List<OTP> retrievedActiveOTPs = mongoOperations.find(query,OTP.class);
             return retrievedActiveOTPs;
@@ -48,14 +49,43 @@ public class OTPRepository  {
         }
         return new ArrayList<>();
     }
-    public void updateOTPStatus(String password){
+    public List<OTP> updateOTPStatus(String password){
+        OTP placeHolderOTP = new OTP();
         Query query = new Query();
-        query.addCriteria(Criteria.where("password").is(password));
+        placeHolderOTP.setPassword(password);
+        query.addCriteria(Criteria.where("password").is(placeHolderOTP.getPassword()));
         try{
-            mongoOperations.updateFirst(query, Update.update("active",false),OTP.class);
+            mongoOperations.updateFirst(new Query(Criteria.where("password").is(placeHolderOTP.getPassword())), Update.update("active",false),OTP.class);
+            mongoOperations.updateFirst(new Query(Criteria.where("password").is(placeHolderOTP.getPassword())), Update.update("success",true),OTP.class);
+            List<OTP> updatedOTP = mongoOperations.find(new Query(Criteria.where("password").is(password)),OTP.class);
+            return updatedOTP;
+        }
+        catch (MongoException e){
+            e.printStackTrace();
+        }
+        return new ArrayList<>();
+    }
+
+    public void updateUnusedOTPs(OTP otp){
+        try{
+            mongoOperations.updateFirst(new Query(Criteria.where("receipt_number").is(otp.getReceipt_number())),Update.update("success",false),OTP.class);
+            mongoOperations.updateFirst(new Query(Criteria.where("receipt_number").is(otp.getReceipt_number())),Update.update("active",false),OTP.class);
         }
         catch (MongoException e){
             e.printStackTrace();
         }
     }
+    public List<OTP> getSuccessfulOTPByReceiptNumber(String receipt_number){
+        Query query= new Query();
+        query.addCriteria(Criteria.where("active").is(false).and("success").is(true).and("receipt_number").is(receipt_number));
+        try{
+            List<OTP> verifiedORUsedOTPS = mongoOperations.find(query,OTP.class);
+            return verifiedORUsedOTPS;
+        }
+        catch(MongoException e){
+            e.printStackTrace();
+        }
+        return new ArrayList<>();
+    }
+
 }

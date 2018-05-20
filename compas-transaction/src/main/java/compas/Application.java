@@ -39,7 +39,8 @@ public class Application extends SpringBootServletInitializer{
                 activeOTPS.forEach((activeOTP)->{
                     Long timelapsed = activeOTP.getRequest_time().getTime();
                     if((currentTimeLapse-timelapsed)>60000){
-                        otpRepository.updateOTPStatus(activeOTP.getPassword());
+                        //otpRepository.updateOTPStatus(activeOTP.getPassword());
+                        otpRepository.updateUnusedOTPs(activeOTP);
                     }
                 });
             }

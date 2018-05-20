@@ -47,8 +47,8 @@ public class Agent {
         return Id;
     }
 
-    public void setId(Integer Id) {
-        Id = Id;
+    public void setId(Integer id) {
+        Id = id;
     }
 
     public String getAgent_code() {

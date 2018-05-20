@@ -15,6 +15,11 @@ public class AgentResponse {
     private Bank bank;
     private Bank_Branch branch;
     private List<Account> accounts;
+    private List<Transaction_Type>transaction_types;
+    private List<Transaction_Operation> transaction_operations;
+    private List<Transaction_Mode> transaction_modes;
+    private List<Auth_Mode> auth_modes;
+    private List<Currency> currencies;
 
     //default constructor
     public AgentResponse(){}
@@ -73,5 +78,45 @@ public class AgentResponse {
 
     public void setAccounts(List<Account> accounts) {
         this.accounts = accounts;
+    }
+
+    public List<Transaction_Type> getTransaction_types() {
+        return transaction_types;
+    }
+
+    public void setTransaction_types(List<Transaction_Type> transaction_types) {
+        this.transaction_types = transaction_types;
+    }
+
+    public List<Transaction_Mode> getTransaction_modes() {
+        return transaction_modes;
+    }
+
+    public List<Transaction_Operation> getTransaction_operations() {
+        return transaction_operations;
+    }
+
+    public void setTransaction_operations(List<Transaction_Operation> transaction_operations) {
+        this.transaction_operations = transaction_operations;
+    }
+
+    public void setTransaction_modes(List<Transaction_Mode> transaction_modes) {
+        this.transaction_modes = transaction_modes;
+    }
+
+    public List<Auth_Mode> getAuth_modes() {
+        return auth_modes;
+    }
+
+    public void setAuth_modes(List<Auth_Mode> auth_modes) {
+        this.auth_modes = auth_modes;
+    }
+
+    public List<Currency> getCurrencies() {
+        return currencies;
+    }
+
+    public void setCurrencies(List<Currency> currencies) {
+        this.currencies = currencies;
     }
 }

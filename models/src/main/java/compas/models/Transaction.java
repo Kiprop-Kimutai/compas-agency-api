@@ -19,18 +19,24 @@ public class Transaction {
     public Integer Id;
     public Integer operational_id;
     public Integer mode_id;
-    public String account_number;
+    public String account_from;
+    public String account_to;
     public Double amount;
     public Double agent_commision;
     public Double bank_income;
     public Double excise_duty;
     public String card_iccid;
     public Integer agent_id;
+    public Integer auth_mode;
+    public String authentication;
     public String transaction_date;
     public String receipt_number;
     public Integer currency_id;
+    public Double cash_in;
+    public Double cash_out;
     public String latitude;
     public String longitude;
+    public String  status;
 
     public Transaction(){}
 
@@ -50,7 +56,7 @@ public class Transaction {
         return currency_id;
     }
 
-    public void setCurrency_id(String currency) {
+    public void setCurrency_id(Integer currency_id) {
         this.currency_id = currency_id;
     }
 
@@ -64,14 +70,6 @@ public class Transaction {
 
     public void setMode_id(Integer mode_id) {
         this.mode_id = mode_id;
-    }
-
-    public String getAccount_number() {
-        return account_number;
-    }
-
-    public void setAccount_number(String account_number) {
-        this.account_number = account_number;
     }
 
     public Double getAmount() {
@@ -154,7 +152,67 @@ public class Transaction {
         this.excise_duty = excise_duty;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String  status) {
+        this.status = status;
+    }
+
+    public Integer getAuth_mode() {
+        return auth_mode;
+    }
+
+    public void setAuth_mode(Integer auth_mode) {
+        this.auth_mode = auth_mode;
+    }
+
+    public String getAuthentication() {
+        return authentication;
+    }
+
+    public void setAuthenticatation(String authentication) {
+        this.authentication = authentication;
+    }
+
+    public void setAuthentication(String authentication) {
+        this.authentication = authentication;
+    }
+
+    public Double getCash_in() {
+        return cash_in;
+    }
+
+    public void setCash_in(Double cash_in) {
+        this.cash_in = cash_in;
+    }
+
+    public Double getCash_out() {
+        return cash_out;
+    }
+
+    public void setCash_out(Double cash_out) {
+        this.cash_out = cash_out;
+    }
+
+    public String getAccount_from() {
+        return account_from;
+    }
+
+    public void setAccount_from(String account_from) {
+        this.account_from = account_from;
+    }
+
+    public String getAccount_to() {
+        return account_to;
+    }
+
+    public void setAccount_to(String account_to) {
+        this.account_to = account_to;
+    }
+
     public String getString(){
-        return String.format("[transaction[operational_id = %d account_number = %s agent_id  = %d]",operational_id,account_number,agent_id);
+        return String.format("[transaction[operational_id = %d account_to = %s  account_from  = %s agent_id  = %d receipt_number = %s]",operational_id,account_to,account_from,agent_id,receipt_number);
     }
 }
