@@ -2,28 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a6adb14b-e5c9-495c-afb2-fe2b9e99e4ee" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/target/classes/compas/models/CustomerRequests.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-rest-service/target/classes/compas/restservice/RestServiceConfig.class" afterPath="$PROJECT_DIR$/compas-rest-service/target/classes/compas/restservice/RestServiceConfig.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-rest-service/target/compas-rest-service-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/compas-rest-service/target/compas-rest-service-1.0-SNAPSHOT.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/customer/CustomerController.class" afterPath="$PROJECT_DIR$/compas-transaction/target/classes/compas/customer/CustomerController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/transaction/TransactionController.class" afterPath="$PROJECT_DIR$/compas-transaction/target/classes/compas/transaction/TransactionController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/target/models-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/models/target/models-1.0-SNAPSHOT.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT.war" afterPath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT.war" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT.war.original" afterPath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT.war.original" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/Application.class" afterPath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/Application.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/agent/AgentRepository.class" afterPath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/agent/AgentRepository.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/customer/CustomerController.class" afterPath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/customer/CustomerController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/device/Issued_DeviceRepository.class" afterPath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/device/Issued_DeviceRepository.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/transaction/TransactionController.class" afterPath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/transaction/TransactionController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/transaction/TransactionRDBMSRepository.class" afterPath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/transaction/TransactionRDBMSRepository.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/transaction/TransactionRepository.class" afterPath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/transaction/TransactionRepository.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/compas-rest-service-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/compas-rest-service-1.0-SNAPSHOT.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/models-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/models-1.0-SNAPSHOT.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-rest-service/src/main/java/compas/restservice/RestServiceConfig.java" afterPath="$PROJECT_DIR$/compas-rest-service/src/main/java/compas/restservice/RestServiceConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-rest-service/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/compas-rest-service/target/maven-archiver/pom.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/authentications/ValidateTransactions.java" afterPath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/authentications/ValidateTransactions.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/customer/CustomerController.java" afterPath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/customer/CustomerController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/customer/CustomerRepository.java" afterPath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/customer/CustomerRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/transaction/TransactionController.java" afterPath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/transaction/TransactionController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/transaction/agencyreceipt/ReceiptManager.java" afterPath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/transaction/agencyreceipt/ReceiptManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/compas-transaction/src/main/resources/application.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/application.properties" afterPath="$PROJECT_DIR$/compas-transaction/target/classes/application.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/compas-transaction/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/compas-transaction/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/models/target/maven-archiver/pom.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/models/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/models/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/models/src/main/java/compas/models/CustomerRequests.java" afterPath="$PROJECT_DIR$/models/src/main/java/compas/models/CustomerRequest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/application.properties" afterPath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/application.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/compas-transaction/target/maven-archiver/pom.properties" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -478,6 +470,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="compas-transaction" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="compas-agency-api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="compas-agency-api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="compas-transaction" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="target" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1293,7 +1303,7 @@
       <workItem from="1526578794483" duration="19875000" />
       <workItem from="1526738125380" duration="1581000" />
       <workItem from="1526739761584" duration="146000" />
-      <workItem from="1526743334695" duration="67448000" />
+      <workItem from="1526743334695" duration="68277000" />
     </task>
     <servers />
   </component>
@@ -1303,7 +1313,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="392972000" />
+    <option name="totallyTimeSpent" value="393801000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
