@@ -125,7 +125,7 @@ public class ValidateTransactions implements ValidateTransactionsInterface {
             Integer cash_flow_id = transactionOperationRepository.selectCashFlowId(operationId);
             if(cash_flow_id == 1){
                 //compare limits
-                if(transactionRDBMSRepository.selectCashInTotalsByAgentId(agentId) < (agentRepository.findAgentDepositLimitsByAgentId(agentId) + amount)){
+                if(agentRepository.findAgentDepositLimitsByAgentId(agentId) < transactionRDBMSRepository.selectCashInTotalsByAgentId(agentId)  + amount){
                     logger.info("AUTH FAILURE::CASH IN Transaction Limits for agent[%d] exceeded",agentId);
                     return false;
                 }

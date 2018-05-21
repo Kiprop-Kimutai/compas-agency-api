@@ -2,8 +2,8 @@ compas\models\Bank_Branch.class
 compas\models\Transaction_Type.class
 compas\models\Currency.class
 compas\models\Transaction.class
+compas\models\CustomerRequest.class
 compas\models\Device.class
-compas\models\CustomerRequests.class
 compas\models\Tariff.class
 compas\models\Transaction_Operation.class
 compas\models\Card.class
@@ -23,5 +23,6 @@ compas\models\User_Group_Type.class
 compas\models\Bank.class
 compas\models\Auth_Mode.class
 compas\models\User.class
+compas\models\Fingerprints.class
 compas\models\Card_Scheme.class
 compas\models\Customer.class

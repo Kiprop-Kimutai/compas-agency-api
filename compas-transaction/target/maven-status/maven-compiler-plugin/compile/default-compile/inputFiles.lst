@@ -1,6 +1,7 @@
 D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\customer\CustomerRepository.java
 D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\transaction\Application.java
 D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\authentications\AuthenticationModeRepository.java
+D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\customer\FingerPrintRepository.java
 D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\user\Application.java
 D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\user\TransactionEnum.java
 D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\currency\CurrencyRepository.java

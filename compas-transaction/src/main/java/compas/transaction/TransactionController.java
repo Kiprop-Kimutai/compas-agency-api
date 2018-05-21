@@ -79,7 +79,7 @@ public class TransactionController {
              else{
                  responseMessage.setMessage("DEVICE ISSUANCE ERROR.Device not issued to agemt");
                  logger.info(responseMessage.getMessage());
-                 return ResponseEntity.status(400).body(responseMessage.getMessage());
+                 return ResponseEntity.status(403).body(responseMessage.getMessage());
              }
         }
         catch (Exception e){
@@ -97,7 +97,7 @@ public class TransactionController {
         else {
             logger.info("TRANSACTION AUTH FAILED::::OVERALL FAILURE");
             responseMessage.setMessage("TRANSACTION AUTH FAILED");
-            return ResponseEntity.status(400).body(gson.toJson(responseMessage));
+            return ResponseEntity.status(403).body(gson.toJson(responseMessage));
         }
                     //GENERATE receipt number
         transaction.setReceipt_number(receipt_number);

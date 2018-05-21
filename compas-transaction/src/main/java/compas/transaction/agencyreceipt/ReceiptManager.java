@@ -36,7 +36,8 @@ public class ReceiptManager {
         logger.info(agent.getString());
         Date date = new Date();
         String dateStamp = sdf.format(date);
-        String receiptNumber = agent.getAgent_code().substring(agent.getAgent_code().length()-3,agent.getAgent_code().length()).concat("-").concat(dateStamp.substring(dateStamp.length()-3)).concat(":").concat(generateThreeDigitRandomNumbers(1000,100).toString());
+        Integer lastThreeDigits = generateThreeDigitRandomNumbers(1000,100).intValue();
+        String receiptNumber = agent.getAgent_code().substring(agent.getAgent_code().length()-3,agent.getAgent_code().length()).concat(dateStamp.substring(dateStamp.length()-3)).concat(lastThreeDigits.toString());
         logger.info(receiptNumber);
         return receiptNumber;
     }

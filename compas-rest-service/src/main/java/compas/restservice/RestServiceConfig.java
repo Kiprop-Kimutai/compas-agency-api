@@ -18,7 +18,7 @@ import java.net.URLConnection;
  */
 @Configuration
 public class RestServiceConfig {
-    @Value("http://192.168.43.49:2000")
+    @Value("http://192.168.13.170:2000")
     public String SERVICE_IP_PORT;
 
     private Logger logger= LoggerFactory.getLogger(RestServiceConfig.class);

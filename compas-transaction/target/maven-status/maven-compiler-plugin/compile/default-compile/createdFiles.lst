@@ -37,6 +37,7 @@ compas\txn_params\TransactionOperationRepository.class
 compas\transaction\TransactionRepository.class
 compas\transaction\TransactionEnum$TransactionTypes.class
 compas\accounts\AccountsRepository.class
+compas\customer\FingerPrintRepository.class
 compas\transaction\passwordpolicy\OTPController$1.class
 compas\currency\CurrencyRepository.class
 compas\txn_params\TransactionOperationController.class
