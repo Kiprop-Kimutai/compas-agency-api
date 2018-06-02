@@ -16,16 +16,19 @@ import compas.user.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.awt.print.Pageable;
 import java.util.List;
 
 /**
  * Created by CLLSDJACKT013 on 10/05/2018.
  */
 @RestController
-@RequestMapping(path="/api/agent")
+@RequestMapping(path="/agent")
 public class AgentController {
     private Logger logger = LoggerFactory.getLogger(AgentController.class);
     private Gson gson = new Gson();
@@ -43,9 +46,9 @@ public class AgentController {
     private BankRepository bankRepository;
     @Autowired
     private AccountsRepository accountsRepository;
-    @Autowired
+    @Autowired(required = false)
     private TransactionTypeRepository transactionTypeRepository;
-    @Autowired
+    @Autowired(required = false)
     private TransactionOperationRepository transactionOperationRepository;
     @Autowired
     private TransactionModeRepository transactionModeRepository;
@@ -56,6 +59,7 @@ public class AgentController {
 
     @RequestMapping(path="/fetchUsers",method = RequestMethod.POST,produces = "application/json",consumes = "application/json")
     public ResponseEntity getAgent(@RequestBody String queryString){
+        logger.info(queryString);
         Device device = gson.fromJson(queryString,Device.class);
         /*
         -extract Device from DeviceRepository using  mac address
@@ -76,7 +80,7 @@ public class AgentController {
        logger.info(issued_device.getString());
        //String agentString = agentRepository.findAgentById(issued_device.getAgent_id());
         //         Agent agent = agentRepository.findById(issued_device.getAgent_id());
-        Agent agent = agentRepository.findById(1);
+        Agent agent = agentRepository.findById(issued_device.getAgent_id());
        logger.info(agent.getString());
         User user = userRepository.findByAgentId(agent.getId());
         logger.info(user.getString());
@@ -87,10 +91,13 @@ public class AgentController {
         List<Account> accounts = accountsRepository.findByIdNumber(agent.getAgent_id_number());
         accounts.forEach((acc) ->{logger.info(acc.getString());});
         List<Transaction_Type> transaction_types = transactionTypeRepository.findAll();
+        transaction_types.forEach((txn) ->{logger.info(txn.getString());});;
         List<Transaction_Operation> transaction_operations = transactionOperationRepository.findAll();
+        transaction_operations.forEach((ops) ->{logger.info(ops.getString());});
         List<Transaction_Mode> transaction_modes = transactionModeRepository.findAll();
         List<Currency> currencies = currencyRepository.findAll();
         List<Auth_Mode> auth_modes = authenticationModeRepository.findAll();
+        auth_modes.forEach((auth_mode) ->{logger.info(auth_mode.getString());});
         AgentResponse agentResponse = new AgentResponse();
         agentResponse.setAccounts(accounts);
         agentResponse.setAgent(agent);
@@ -113,5 +120,12 @@ public class AgentController {
         Agent agent = gson.fromJson(agentString,Agent.class);
         Agent savedAgent = agentRepository.save(agent);
         return ResponseEntity.status(201).body(gson.toJson(savedAgent));
+    }
+
+    @RequestMapping("/test/paging")
+    @ResponseBody
+    public List<Agent> getAllPosts(@PageableDefault(value=10, page=0) Pageable pageable)  {
+        List<Agent> agents = agentRepository.findAllPaginatedAgents(pageable);
+        return agents;
     }
 }

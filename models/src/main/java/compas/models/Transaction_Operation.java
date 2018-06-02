@@ -16,6 +16,7 @@ public class Transaction_Operation {
     private String name;
     public Integer transaction_type_id;
     private Integer cash_flow_id;
+    private String action;
 
     //default constructor
     public Transaction_Operation(){}
@@ -50,5 +51,17 @@ public class Transaction_Operation {
 
     public void setCash_flow_id(Integer cash_flow_id) {
         this.cash_flow_id = cash_flow_id;
+    }
+
+    public String getAction() {
+        return action;
+    }
+
+    public void setAction(String action) {
+        this.action = action;
+    }
+
+    public String getString(){
+        return String.format("trans_operation[Id::: = %d   name = %s]",Id,name);
     }
 }

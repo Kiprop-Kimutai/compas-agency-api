@@ -1,1 +1,6 @@
 D:\projects\compas-agency-api\compas-rest-service\src\main\java\compas\restservice\RestServiceConfig.java
+D:\projects\compas-agency-api\compas-rest-service\src\main\java\compas\security\Hash256Encode.java
+D:\projects\compas-agency-api\compas-rest-service\src\main\java\compas\security\Sha256HmacEncode.java
+D:\projects\compas-agency-api\compas-rest-service\src\main\java\compas\security\GenerateSignature.java
+D:\projects\compas-agency-api\compas-rest-service\src\main\java\compas\restservice\HttpClientconfig.java
+D:\projects\compas-agency-api\compas-rest-service\src\main\java\compas\restservice\ServerResponse.java

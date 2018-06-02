@@ -14,9 +14,9 @@ import org.springframework.stereotype.Controller;
  */
 @Controller
 public class TariffManager {
-    @Autowired
+    @Autowired(required = false)
     private TariffsRepository tariffsRepository;
-    @Autowired
+    @Autowired(required = false)
     private TransactionOperationRepository transactionOperationRepository;
     private Logger logger = LoggerFactory.getLogger(TariffManager.class);
 

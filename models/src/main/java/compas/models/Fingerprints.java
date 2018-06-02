@@ -1,9 +1,6 @@
 package compas.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by CLLSDJACKT013 on 20/05/2018.
@@ -13,17 +10,30 @@ public class Fingerprints {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer Id;
+    @Column(nullable = false)
     private String customer_id_number;
+    @Column(nullable = false)
     private String rt;
+    @Column(nullable = false)
     private String ri;
-    private String rm;
+    @Column(nullable = false)
+    private String  rm;
+    @Column(nullable = false)
     private String rr;
+    @Column(nullable = false)
     private String rs;
+    @Column(nullable = false)
     private String lt;
+    @Column(nullable = false)
     private String li;
+    @Column(nullable = false)
     private String lm;
+    @Column(nullable = false)
     private String lr;
+    @Column(nullable = false)
     private String ls;
+    @Column(nullable = false)
+    private String photo;
 
     //default constructor for JPA
     public Fingerprints(){}
@@ -122,6 +132,14 @@ public class Fingerprints {
 
     public void setLs(String ls) {
         this.ls = ls;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 
     public String getString(){

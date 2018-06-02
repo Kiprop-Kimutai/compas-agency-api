@@ -4,9 +4,13 @@ import compas.models.OTP;
 import compas.transaction.passwordpolicy.OTPRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 
@@ -19,13 +23,17 @@ import java.util.TimerTask;
  * Created by CLLSDJACKT013 on 08/05/2018.
  */
 @SpringBootApplication(scanBasePackages = "compas")
-public class Application extends SpringBootServletInitializer{
+@EnableConfigurationProperties(ApplicationService.class)
+public class Application  extends SpringBootServletInitializer{
+    @Autowired
+    private ApplicationService applicationService;
     private OTPRepository otpRepository = new OTPRepository();
     private Logger logger = LoggerFactory.getLogger(Application.class);
     public static void main(String [] args){
         SpringApplication.run(Application.class,args);
     }
     public void managePasswordPolicy(){
+        //applicationService.printApplicationProperties();
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override

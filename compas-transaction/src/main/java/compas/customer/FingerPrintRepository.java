@@ -7,6 +7,6 @@ import org.springframework.data.repository.CrudRepository;
  * Created by CLLSDJACKT013 on 20/05/2018.
  */
 
-public interface  FingerPrintRepository extends CrudRepository<Fingerprints,Long> {
+public interface FingerPrintRepository extends CrudRepository<Fingerprints,Long> {
 
 }

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  * Created by CLLSDJACKT013 on 10/05/2018.
  */
 @RestController
-@RequestMapping(path="/api/bank")
+@RequestMapping(path="/bank")
 public class BankController {
     private Logger logger = LoggerFactory.getLogger(BankController.class);
     private Gson gson = new Gson();

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
  * Created by CLLSDJACKT013 on 10/05/2018.
  */
 @RestController
-@RequestMapping(path = "/api/device")
+@RequestMapping(path = "/device")
 public class DeviceController {
 
     private Logger logger = LoggerFactory.getLogger(Device.class);

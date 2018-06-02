@@ -26,4 +26,7 @@ public interface Issued_DeviceRepository extends CrudRepository<Issued_Device,Lo
     @Query("select issued_device from Issued_Device  issued_device where issued_device.agent_id=:agent_id")
     List<Issued_Device> findIssued_DeviceByAgentId(@Param("agent_id") Integer agent_id);
 
+    @Query("select issued_device from Issued_Device  issued_device where issued_device.agent_id =:agent_id")
+    Issued_Device  findOneIssued_DeviceByAgent_id(@Param("agent_id")Integer agent_id);
+
 }

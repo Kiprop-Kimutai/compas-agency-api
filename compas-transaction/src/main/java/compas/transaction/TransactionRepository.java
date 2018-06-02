@@ -54,4 +54,17 @@ public class TransactionRepository {
         return new ArrayList<>();
     }
 
+    public Transaction updateProcessedTransaction(String receipt_number){
+        try{
+            mongoOperations.updateFirst(new Query(Criteria.where("receipt_number").is(receipt_number)),Update.update("status","S"),Transaction.class);
+            List<Transaction> successFulTxns = mongoOperations.find(new Query(Criteria.where("receipt_number").is(receipt_number).and("status").is("S")),Transaction.class);
+            return  successFulTxns.get(0);
+
+        }
+        catch (MongoException e){
+            e.printStackTrace();
+        }
+        return new Transaction();
+    }
+
 }

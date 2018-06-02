@@ -14,6 +14,7 @@ public interface DeviceRepository extends CrudRepository<Device,Long> {
      public List<Device> findByStatus(Boolean status);
      public Device findByMacAddress(String mac_address);
 
+
      @Query("select d from Device d  where d.macAddress = :macAddress and d.status = true")
      public List<Device> findActiveDeviceByMacAddress(@Param("macAddress") String macAddress);
 

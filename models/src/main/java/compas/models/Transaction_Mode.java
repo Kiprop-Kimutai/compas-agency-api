@@ -33,4 +33,8 @@ public class Transaction_Mode {
     public void setName(String name) {
         this.name = name;
     }
+
+    public String  getString(){
+        return String.format("transaction_mode[ID :::=%d    name::::: = s]",Id,name);
+    }
 }

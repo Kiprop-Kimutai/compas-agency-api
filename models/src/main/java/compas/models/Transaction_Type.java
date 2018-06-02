@@ -34,4 +34,7 @@ public class Transaction_Type {
     public void setName(String name) {
         this.name = name;
     }
+    public String getString(){
+        return String.format("transaction_type[ID:: = %d   Name :::: = %s]",Id,name);
+    }
 }

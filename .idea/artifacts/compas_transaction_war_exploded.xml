@@ -63,6 +63,7 @@
             <element id="module-output" name="compas-rest-service" />
           </element>
           <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.25" />
+          <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.10" />
         </element>
       </element>
       <element id="directory" name="META-INF">

@@ -2,10 +2,7 @@ package compas.models;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -21,6 +18,7 @@ public class Transaction {
     public Integer mode_id;
     public String account_from;
     public String account_to;
+    public String reference_account;
     public Double amount;
     public Double agent_commision;
     public Double bank_income;
@@ -36,6 +34,7 @@ public class Transaction {
     public Double cash_out;
     public String latitude;
     public String longitude;
+    @Column(updatable = true)
     public String  status;
 
     public Transaction(){}
@@ -210,6 +209,14 @@ public class Transaction {
 
     public void setAccount_to(String account_to) {
         this.account_to = account_to;
+    }
+
+    public String getReference_account() {
+        return reference_account;
+    }
+
+    public void setReference_account(String reference_account) {
+        this.reference_account = reference_account;
     }
 
     public String getString(){

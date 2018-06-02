@@ -23,15 +23,15 @@ import java.util.List;
 @Controller
 public class ValidateTransactions implements ValidateTransactionsInterface {
     private Logger logger = LoggerFactory.getLogger(ValidateTransactions.class);
-    @Autowired
+    @Autowired(required = false)
     private DeviceRepository deviceRepository;
-    @Autowired
+    @Autowired(required = false)
     private Issued_DeviceRepository issued_deviceRepository;
-    @Autowired
+    @Autowired(required = false)
     private AgentRepository agentRepository;
     @Autowired
     private TransactionOperationRepository transactionOperationRepository;
-    @Autowired
+    @Autowired(required = false)
     private TransactionRDBMSRepository transactionRDBMSRepository;
 
     public Boolean authenticateDevice(Integer deviceId){
@@ -72,14 +72,18 @@ public class ValidateTransactions implements ValidateTransactionsInterface {
     }
     public Boolean authenticateAgent(Integer agentId){
         logger.info("authenticate agent init...");
+        logger.info(""+agentId);
         try {
-            List<Agent> activeAgents = agentRepository.findActiveAgentById(1);
+            List<Agent> activeAgents = agentRepository.findActiveAgentById(agentId);
                 activeAgents.forEach((agent -> {logger.info(agent.getAgent_description());}));
+                logger.info("size><"+activeAgents.size());
             if (activeAgents.size()>0) {
+                logger.info(">>>>");
                 return true;
             }
             else{
-                logger.info("AUTH FAILURE::: AGENT[%d] inactive or NOT registered",agentId);
+                logger.info("AUTH FAILURE::: AGENT == %d  inactive or NOT registered",agentId);
+                logger.info("<<<>>>");
                 return false;
             }
         }
@@ -134,7 +138,7 @@ public class ValidateTransactions implements ValidateTransactionsInterface {
                 }
             }
             else if(cash_flow_id ==2){
-                if((agentRepository.findAgentWithdrawalLimitsByAgentId(agentId) < (transactionRDBMSRepository.selectCashOutTotalsByAgentId(agentId))+0  + amount)){
+                if((agentRepository.findAgentWithdrawalLimitsByAgentId(agentId) < (transactionRDBMSRepository.selectCashOutTotalsByAgentId(agentId))  + amount)){
                     logger.info("AUTH FAILURE::CASH OUT Transaction Limits for agent[%d] exceeded",agentId);
                     return false;
                 }

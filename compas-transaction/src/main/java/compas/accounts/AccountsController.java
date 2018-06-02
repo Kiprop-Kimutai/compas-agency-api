@@ -14,7 +14,7 @@ import java.util.List;
  * Created by CLLSDJACKT013 on 08/05/2018.
  */
 @RestController
-@RequestMapping(path = "/api/accounts")
+@RequestMapping(path = "/accounts")
 public class AccountsController {
     private Logger logger  = LoggerFactory.getLogger(AccountsController.class);
     private Gson gson = new Gson();

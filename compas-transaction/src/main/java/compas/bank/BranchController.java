@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
  * Created by CLLSDJACKT013 on 10/05/2018.
  */
 @RestController
-@RequestMapping(path="/api/branch")
+@RequestMapping(path="/branch")
 public class BranchController {
     private Logger logger = LoggerFactory.getLogger(BranchController.class);
     private Gson gson = new Gson();

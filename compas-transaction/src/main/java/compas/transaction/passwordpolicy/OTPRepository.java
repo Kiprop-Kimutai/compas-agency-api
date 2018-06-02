@@ -18,6 +18,7 @@ import org.springframework.data.mongodb.core.query.Update;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Created by CLLSDJACKT013 on 17/05/2018.
@@ -77,15 +78,20 @@ public class OTPRepository  {
     }
     public List<OTP> getSuccessfulOTPByReceiptNumber(String receipt_number){
         Query query= new Query();
+        logger.info("MUTWOL");
+        List<OTP> verifiedORUsedOTPS = new ArrayList<>();
         query.addCriteria(Criteria.where("active").is(false).and("success").is(true).and("receipt_number").is(receipt_number));
         try{
-            List<OTP> verifiedORUsedOTPS = mongoOperations.find(query,OTP.class);
+            logger.info("Init.... repo");
+            logger.info("RECORD SIZE::"+mongoOperations.find(query,OTP.class).size());
+            verifiedORUsedOTPS = mongoOperations.find(query,OTP.class);
             return verifiedORUsedOTPS;
         }
         catch(MongoException e){
             e.printStackTrace();
+            //return verifiedORUsedOTPS;
         }
-        return new ArrayList<>();
+        return  verifiedORUsedOTPS;
     }
 
 }

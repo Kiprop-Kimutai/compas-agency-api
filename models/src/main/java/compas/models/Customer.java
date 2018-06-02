@@ -17,11 +17,13 @@ public class Customer {
     private String first_name;
     private String surname;
     private String other_names;
+    @Column(unique = true,nullable = false)
     private String id_number;
     private String occupation;
     private Integer bank_id;
     private Integer branch_id;
     private String phone;
+    @Column(unique = true,nullable = false)
     private String email;
     private String postal_address;
     private String postal_code;

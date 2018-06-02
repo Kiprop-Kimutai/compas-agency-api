@@ -34,4 +34,8 @@ public class Auth_Mode {
     public void setMode(String mode) {
         this.mode = mode;
     }
+
+    public String getString(){
+        return String.format("Auth_Mode[ID::=%d  name  = %s]",Id,mode);
+    }
 }
