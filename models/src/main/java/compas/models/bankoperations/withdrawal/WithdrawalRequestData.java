@@ -7,7 +7,7 @@ public class WithdrawalRequestData {
     private String TransId;
     private String Narration;
     private String Account;
-    private String Amount;
+    private Integer Amount;
     private String DeviceId;
     private String TellerId;
     private String BranchId;
@@ -40,11 +40,11 @@ public class WithdrawalRequestData {
         Account = account;
     }
 
-    public String getAmount() {
+    public Integer getAmount() {
         return Amount;
     }
 
-    public void setAmount(String amount) {
+    public void setAmount(Integer amount) {
         Amount = amount;
     }
 

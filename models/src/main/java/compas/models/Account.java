@@ -2,6 +2,7 @@ package compas.models;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.Date;
 
 /**
@@ -19,6 +20,7 @@ public class Account {
     private String customer_id_number;
     private Integer created_by;
     private Boolean status;
+    private Timestamp created_at;
 
     //default constructor
     public Account(){}

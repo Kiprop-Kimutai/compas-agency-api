@@ -1,5 +1,7 @@
 package compas.authentications;
 
+import compas.models.Customer;
+
 /**
  * Created by CLLSDJACKT013 on 15/05/2018.
  */
@@ -10,5 +12,7 @@ public interface ValidateTransactionsInterface {
     public Boolean authenticateAccount(String account);
     public Boolean authenticateTransactionLimits(Double amount,Integer operationId,Integer agentId);
     public Boolean authenticateGPSCoordinates(String longitude,String latitude);
+    public Boolean authenticateCustomer(Customer transactingCustomer);
+    public Boolean authenticatePIN(Integer ModeId,String auth,String account);
 }
 

@@ -1,0 +1,17 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "compas.ApplicationService",
+      "name": "",
+      "type": "compas.ApplicationService"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "compas.ApplicationService",
+      "name": "p-o-r-t",
+      "type": "java.lang.String"
+    }
+  ]
+}

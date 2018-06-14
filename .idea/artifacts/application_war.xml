@@ -3,6 +3,7 @@
     <output-path>$PROJECT_DIR$/application/target</output-path>
     <root id="archive" name="PBU_Agency-1.0-SNAPSHOT.war">
       <element id="artifact" artifact-name="application:war exploded" />
+      <element id="artifact" artifact-name="compas-transaction:war" />
     </root>
   </artifact>
 </component>

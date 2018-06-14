@@ -2,7 +2,7 @@ package compas.transaction;
 
 import com.mongodb.MongoException;
 import compas.MongoConfig.MongoConfiguration;
-import compas.models.Transaction;
+import compas.models.Transactions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
@@ -24,29 +24,29 @@ public class TransactionRepository {
     MongoOperations mongoOperations = (MongoOperations) context.getBean("mongoTemplate");
     private Logger logger = LoggerFactory.getLogger(TransactionRepository.class);
 
-    public Transaction saveTransaction(Transaction transactionRequest){
+    public Transactions saveTransaction(Transactions transactionsRequest){
         logger.info("Repository init...");
         try{
-            mongoOperations.save(transactionRequest);
-            return transactionRequest;
+            mongoOperations.save(transactionsRequest);
+            return transactionsRequest;
         }
         catch(MongoException e){
             e.printStackTrace();
         }
-        return new Transaction();
+        return new Transactions();
     }
 
-    public List<Transaction> updateTransactionFlagWithMatchingReceipt(String receipt_number,String authentication){
+    public List<Transactions> updateTransactionFlagWithMatchingReceipt(String receipt_number, String authentication){
         Query query = new Query();
-        Transaction modelTransaction = new Transaction();
-        modelTransaction.setReceipt_number(receipt_number);
-        modelTransaction.setAuthenticatation(authentication);
+        Transactions modelTransactions = new Transactions();
+        modelTransactions.setReceipt_number(receipt_number);
+        modelTransactions.setAuthenticatation(authentication);
         query.addCriteria(Criteria.where("receipt_number").is(receipt_number));
         try{
-            mongoOperations.updateFirst(new Query(Criteria.where("receipt_number").is(modelTransaction.getReceipt_number())), Update.update("status","I"),Transaction.class);
-            mongoOperations.updateFirst(query, Update.update("authentication",authentication),Transaction.class);
-            List<Transaction> transaction = mongoOperations.find(new Query(Criteria.where("receipt_number").is(modelTransaction.getReceipt_number())),Transaction.class);
-            return transaction;
+            mongoOperations.updateFirst(new Query(Criteria.where("receipt_number").is(modelTransactions.getReceipt_number())), Update.update("status","I"),Transactions.class);
+            mongoOperations.updateFirst(query, Update.update("authentication",authentication),Transactions.class);
+            List<Transactions> transactions = mongoOperations.find(new Query(Criteria.where("receipt_number").is(modelTransactions.getReceipt_number())),Transactions.class);
+            return transactions;
         }
         catch (MongoException e){
             e.printStackTrace();
@@ -54,17 +54,17 @@ public class TransactionRepository {
         return new ArrayList<>();
     }
 
-    public Transaction updateProcessedTransaction(String receipt_number){
+    public Transactions updateProcessedTransaction(String receipt_number){
         try{
-            mongoOperations.updateFirst(new Query(Criteria.where("receipt_number").is(receipt_number)),Update.update("status","S"),Transaction.class);
-            List<Transaction> successFulTxns = mongoOperations.find(new Query(Criteria.where("receipt_number").is(receipt_number).and("status").is("S")),Transaction.class);
+            mongoOperations.updateFirst(new Query(Criteria.where("receipt_number").is(receipt_number)),Update.update("status","S"),Transactions.class);
+            List<Transactions> successFulTxns = mongoOperations.find(new Query(Criteria.where("receipt_number").is(receipt_number).and("status").is("S")),Transactions.class);
             return  successFulTxns.get(0);
 
         }
         catch (MongoException e){
             e.printStackTrace();
         }
-        return new Transaction();
+        return new Transactions();
     }
 
 }

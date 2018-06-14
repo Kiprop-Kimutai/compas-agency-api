@@ -21,7 +21,7 @@ import java.util.List;
 @RequestMapping(path = "/cool")
 public class ReceiptManager {
 
-    @Autowired
+    @Autowired(required = false)
     private AgentRepository agentRepository;
 
     private SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");

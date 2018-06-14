@@ -19,10 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class BankController {
     private Logger logger = LoggerFactory.getLogger(BankController.class);
     private Gson gson = new Gson();
-    @Autowired
+    @Autowired(required = false)
     private BankRepository bankRepository;
-    @Autowired
-    private BranchRepository branchRepository;
 
     @RequestMapping(path="/addBank", method = RequestMethod.POST, produces = "application/json",consumes = "application/json")
     public ResponseEntity saveBank(@RequestBody String bankString){

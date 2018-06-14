@@ -1,9 +1,9 @@
 package compas.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.hibernate.annotations.CreationTimestamp;
+
+import javax.persistence.*;
+import java.sql.Timestamp;
 
 /**
  * Created by CLLSDJACKT013 on 17/05/2018.
@@ -13,12 +13,16 @@ public class Tariff {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer Id;
+    private String name;
     public Integer transaction_type_id;
+    private Integer operation_id;
     public Double min_amount;
     public Double max_amount;
     public Double  bank_income;
     public Double agent_income;
     public Double excise_duty;
+    private Integer created_by;
+    private Boolean status;
 
     //default constructor
     public Tariff(){
@@ -39,6 +43,14 @@ public class Tariff {
 
     public void setTransaction_type_id(Integer transaction_type_id) {
         this.transaction_type_id = transaction_type_id;
+    }
+
+    public Integer getOperation_id() {
+        return operation_id;
+    }
+
+    public void setOperation_id(Integer operation_id) {
+        this.operation_id = operation_id;
     }
 
     public Double getMin_amount() {
@@ -79,5 +91,29 @@ public class Tariff {
 
     public void setExcise_duty(Double excise_duty) {
         this.excise_duty = excise_duty;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getCreated_by() {
+        return created_by;
+    }
+
+    public void setCreated_by(Integer created_by) {
+        this.created_by = created_by;
+    }
+
+    public Boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
     }
 }

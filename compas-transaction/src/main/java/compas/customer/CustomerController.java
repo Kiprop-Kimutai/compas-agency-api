@@ -30,7 +30,8 @@ public class CustomerController {
     private NextOfKinRepository nextOfKinRepository;
     private CustomerRepository customerRepository = new CustomerRepository();
     private Gson gson = new Gson();
-    private Logger logger = LoggerFactory.getLogger(CustomerController.class);
+    //private static final Logger logger = LoggerFactory.getLogger(CustomerController.class);
+    private static  final org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(CustomerController.class);
     Message responseMessage = new Message();
 
     @RequestMapping(path="/saveCustomer",method = RequestMethod.POST,consumes = "application/json",produces = "application/json")
@@ -66,8 +67,15 @@ public class CustomerController {
         customerRequest.getAccounts().forEach((account -> {accountsRepository.save(account);}));
                 //SAVE NEXT OF KINS
         customerRequest.getNext_of_kins().forEach((next_of_kin -> {nextOfKinRepository.save(next_of_kin);}));
+                //CACHE CUSTOMER REQUEST in Mongo
+        customerRepository.saveCustomer(customerRequest);
 
         responseMessage.setMessage("capture success");
         return ResponseEntity.status(201).body(gson.toJson(responseMessage));
+    }
+
+    //GET ACTIVE CUSTOMER BY ID NUMBER
+    public Customer findActiveCustomerByIdNumber(String id_number){
+        return customerRDBMSRepository.findActiveCustomerByIDNumber(id_number);
     }
 }

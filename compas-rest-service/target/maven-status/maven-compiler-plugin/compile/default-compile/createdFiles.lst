@@ -1,6 +1,4 @@
-compas\restservice\HttpClientconfig.class
-compas\restservice\RestServiceConfig.class
-compas\restservice\ServerResponse.class
 compas\security\GenerateSignature.class
 compas\security\Sha256HmacEncode.class
 compas\security\Hash256Encode.class
+compas\security\SignatureGenerator.class

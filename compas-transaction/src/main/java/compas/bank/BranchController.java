@@ -5,6 +5,7 @@ import compas.models.Bank_Branch;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 public class BranchController {
     private Logger logger = LoggerFactory.getLogger(BranchController.class);
     private Gson gson = new Gson();
-    @Autowired
+    @Autowired(required = false)
     private BranchRepository branchRepository;
 
     @RequestMapping(path="/addBranch",method = RequestMethod.POST,consumes = "application/json",produces = "application/json")

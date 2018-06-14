@@ -17,9 +17,9 @@ import org.springframework.web.bind.annotation.*;
 public class DeviceController {
 
     private Logger logger = LoggerFactory.getLogger(Device.class);
-    @Autowired
+    @Autowired(required = false)
     private DeviceRepository deviceRepository;
-    @Autowired
+    @Autowired(required = false)
     private Issued_DeviceRepository issuedDeviceRepository;
     private Gson gson = new Gson();
 

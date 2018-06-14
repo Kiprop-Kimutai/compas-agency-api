@@ -1,9 +1,12 @@
 package compas.agent;
 
 import compas.models.Agent;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.Id;
 import java.awt.print.Pageable;
@@ -12,6 +15,8 @@ import java.util.List;
 /**
  * Created by CLLSDJACKT013 on 10/05/2018.
  */
+
+
 public interface AgentRepository extends CrudRepository<Agent,Long>{
      @Query("select a from Agent a where a.id = :Id")
     public Agent  findById( @Param("Id") Integer Id);
@@ -31,9 +36,9 @@ public interface AgentRepository extends CrudRepository<Agent,Long>{
      @Query("select agent.branch_id from Agent agent where agent.id =:Id")
      Integer findBranchIdByAgentId(@Param("Id")Integer Id);
 
-     //try pagination here
-    @Query("select '*' from Agent agent order by agent.id DESC")
-    List<Agent> findAllPaginatedAgents(Pageable pageable);
+
+    @Query("select agent  from Agent agent where agent.id = :Id and agent.status =true")
+    Agent findTransactingAgentById(@Param("Id")Integer Id);
 
 
 

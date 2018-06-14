@@ -11,13 +11,14 @@ public class AgentResponse {
     private  Device device;
     private Issued_Device issued_device;
     private Agent agent;
-    private User  user;
+    private Users users;
     private Bank bank;
     private Bank_Branch branch;
     private List<Account> accounts;
     private List<Transaction_Type>transaction_types;
     private List<Transaction_Operation> transaction_operations;
     private List<Transaction_Mode> transaction_modes;
+    private List<Utilities> utilities;
     private List<Auth_Mode> auth_modes;
     private List<Currency> currencies;
 
@@ -48,12 +49,12 @@ public class AgentResponse {
         this.agent = agent;
     }
 
-    public User getUser() {
-        return user;
+    public Users getUsers() {
+        return users;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUsers(Users users) {
+        this.users = users;
     }
 
     public Bank getBank() {
@@ -102,6 +103,14 @@ public class AgentResponse {
 
     public void setTransaction_modes(List<Transaction_Mode> transaction_modes) {
         this.transaction_modes = transaction_modes;
+    }
+
+    public List<Utilities> getUtilities() {
+        return utilities;
+    }
+
+    public void setUtilities(List<Utilities> utilities) {
+        this.utilities = utilities;
     }
 
     public List<Auth_Mode> getAuth_modes() {

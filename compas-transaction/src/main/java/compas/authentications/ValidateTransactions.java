@@ -4,15 +4,15 @@ import compas.agent.AgentRepository;
 import compas.device.DeviceRepository;
 import compas.device.Issued_DeviceRepository;
 import compas.models.Agent;
+import compas.models.Customer;
 import compas.models.Device;
 import compas.models.Issued_Device;
 import compas.transaction.TransactionRDBMSRepository;
-import compas.txn_params.TransactionOperationRepository;
+import compas.txn_params.TransactionOperationsRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Controller;
 
 import java.util.List;
@@ -21,17 +21,18 @@ import java.util.List;
  * Created by CLLSDJACKT013 on 15/05/2018.
  */
 @Controller
+@EnableJpaRepositories("compas.models")
 public class ValidateTransactions implements ValidateTransactionsInterface {
     private Logger logger = LoggerFactory.getLogger(ValidateTransactions.class);
-    @Autowired(required = false)
+    @Autowired
     private DeviceRepository deviceRepository;
-    @Autowired(required = false)
+    @Autowired
     private Issued_DeviceRepository issued_deviceRepository;
-    @Autowired(required = false)
+    @Autowired
     private AgentRepository agentRepository;
     @Autowired
-    private TransactionOperationRepository transactionOperationRepository;
-    @Autowired(required = false)
+    private TransactionOperationsRepository transactionOperationsRepository;
+    @Autowired
     private TransactionRDBMSRepository transactionRDBMSRepository;
 
     public Boolean authenticateDevice(Integer deviceId){
@@ -121,16 +122,20 @@ public class ValidateTransactions implements ValidateTransactionsInterface {
     }
     public Boolean authenticateTransactionLimits(Double amount,Integer operationId,Integer agentId){
         logger.info("authenticate double limits");
+        logger.info("Amount"+amount);
+        logger.info("Operation ID"+operationId);
+        logger.info("Agent ID"+agentId);
         /*
          -determine whether operation is cash_in or cash_out
          -compare limits
          */
         try{
-            Integer cash_flow_id = transactionOperationRepository.selectCashFlowId(operationId);
+            Integer cash_flow_id = transactionOperationsRepository.selectCashFlowId(operationId);
+            logger.info("cash flow ID::"+cash_flow_id);
             if(cash_flow_id == 1){
                 //compare limits
                 if(agentRepository.findAgentDepositLimitsByAgentId(agentId) < transactionRDBMSRepository.selectCashInTotalsByAgentId(agentId)  + amount){
-                    logger.info("AUTH FAILURE::CASH IN Transaction Limits for agent[%d] exceeded",agentId);
+                    logger.info("AUTH FAILURE::CASH IN Transactions Limits for agent[%d] exceeded",agentId);
                     return false;
                 }
                 else{
@@ -139,7 +144,7 @@ public class ValidateTransactions implements ValidateTransactionsInterface {
             }
             else if(cash_flow_id ==2){
                 if((agentRepository.findAgentWithdrawalLimitsByAgentId(agentId) < (transactionRDBMSRepository.selectCashOutTotalsByAgentId(agentId))  + amount)){
-                    logger.info("AUTH FAILURE::CASH OUT Transaction Limits for agent[%d] exceeded",agentId);
+                    logger.info("AUTH FAILURE::CASH OUT Transactions Limits for agent[%d] exceeded",agentId);
                     return false;
                 }
                 else{
@@ -166,4 +171,35 @@ public class ValidateTransactions implements ValidateTransactionsInterface {
         }
         return false;
     }
+
+
+    public Boolean authenticateCustomer(Customer customer){
+        return true;
+    }
+    public Boolean authenticatePIN(Integer ModeId,String auth,String account){
+        switch (ModeId){
+            case 1:
+                return processAuthentication(1,auth,account);
+            case 2:
+                return processAuthentication(2,auth,account);
+            case 3:
+                return processAuthentication(3,auth,account);
+
+             }
+        return false;
+    }
+    public Boolean processAuthentication(Integer mode,String authString,String account){
+        if(mode == 1){
+            //process PASS PIN to PIN validation server and Observe response
+            return true;
+        }
+        else if(mode == 2){
+            return true;
+        }
+        else if(mode == 3){
+            return true;
+        }
+        return false;
+    }
+
 }

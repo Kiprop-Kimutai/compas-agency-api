@@ -27,7 +27,7 @@
       <module name="compas-agency-api" target="1.6" />
       <module name="compas-models" target="1.6" />
       <module name="compas-mongo-config" target="1.6" />
-      <module name="compas-rest-service" target="1.6" />
+      <module name="compas-rest-service" target="1.7" />
       <module name="compas-transaction" target="1.8" />
       <module name="librarry" target="1.6" />
       <module name="library" target="1.6" />

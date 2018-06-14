@@ -1,9 +1,15 @@
 package compas.models;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by CLLSDJACKT013 on 07/05/2018.
@@ -28,6 +34,8 @@ public class Customer {
     private String postal_address;
     private String postal_code;
     private String town;
+    private Integer created_by;
+    private Boolean status;
 
     public Customer(){}
 
@@ -134,6 +142,24 @@ public class Customer {
     public void setTown(String town) {
         this.town = town;
     }
+
+    public Integer getCreated_by() {
+        return created_by;
+    }
+
+    public void setCreated_by(Integer created_by) {
+        this.created_by = created_by;
+    }
+
+    public Boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
+    }
+
+
 
     public String  getString(){
         return String.format("customer[firstname = %s  other names = %s   customer id = %s  occupation = %s bank = %d]",first_name,other_names,id_number,occupation,bank_id);

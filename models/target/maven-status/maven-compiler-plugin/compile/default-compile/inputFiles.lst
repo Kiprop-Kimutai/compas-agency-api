@@ -2,6 +2,8 @@ D:\projects\compas-agency-api\models\src\main\java\compas\models\Transaction_Mod
 D:\projects\compas-agency-api\models\src\main\java\compas\models\bankoperations\deposit\DepositRequest.java
 D:\projects\compas-agency-api\models\src\main\java\compas\models\apiresponse\Message.java
 D:\projects\compas-agency-api\models\src\main\java\compas\models\Card.java
+D:\projects\compas-agency-api\models\src\main\java\compas\models\bankoperations\OperationEnums.java
+D:\projects\compas-agency-api\models\src\main\java\compas\models\Utilities.java
 D:\projects\compas-agency-api\models\src\main\java\compas\models\CashFlow.java
 D:\projects\compas-agency-api\models\src\main\java\compas\models\bankoperations\AccountInquiry\AccountInquiryResponse.java
 D:\projects\compas-agency-api\models\src\main\java\compas\models\Bank_Branch.java
@@ -27,10 +29,8 @@ D:\projects\compas-agency-api\models\src\main\java\compas\models\Agent.java
 D:\projects\compas-agency-api\models\src\main\java\compas\models\apiresponse\ApiResponse.java
 D:\projects\compas-agency-api\models\src\main\java\compas\models\bankoperations\reversals\ReversalRequestData.java
 D:\projects\compas-agency-api\models\src\main\java\compas\models\bankoperations\withdrawal\WithdrawalRequest.java
-D:\projects\compas-agency-api\models\src\main\java\compas\models\User.java
 D:\projects\compas-agency-api\models\src\main\java\compas\models\bankoperations\withdrawal\WithdrawalResponseData.java
 D:\projects\compas-agency-api\models\src\main\java\compas\models\bankoperations\AccountInquiry\ACRequestData.java
-D:\projects\compas-agency-api\models\src\main\java\compas\models\Transaction.java
 D:\projects\compas-agency-api\models\src\main\java\compas\models\Account.java
 D:\projects\compas-agency-api\models\src\main\java\compas\models\bankoperations\AccountInquiry\AccountInquiryRequest.java
 D:\projects\compas-agency-api\models\src\main\java\compas\models\bankoperations\deposit\DepositResponse.java
@@ -39,14 +39,17 @@ D:\projects\compas-agency-api\models\src\main\java\compas\models\Transaction_Ope
 D:\projects\compas-agency-api\models\src\main\java\compas\models\CustomerRequest.java
 D:\projects\compas-agency-api\models\src\main\java\compas\models\bankoperations\transfers\TransferRequest.java
 D:\projects\compas-agency-api\models\src\main\java\compas\models\Card_Type.java
+D:\projects\compas-agency-api\models\src\main\java\compas\models\LocalDateTimeConverter.java
 D:\projects\compas-agency-api\models\src\main\java\compas\models\Fingerprints.java
 D:\projects\compas-agency-api\models\src\main\java\compas\models\bankoperations\deposit\DepositResponseData.java
 D:\projects\compas-agency-api\models\src\main\java\compas\models\Tariff.java
+D:\projects\compas-agency-api\models\src\main\java\compas\models\Users.java
 D:\projects\compas-agency-api\models\src\main\java\compas\models\Transaction_Type.java
 D:\projects\compas-agency-api\models\src\main\java\compas\models\bankoperations\transfers\TransferResponseData.java
 D:\projects\compas-agency-api\models\src\main\java\compas\models\Bank.java
 D:\projects\compas-agency-api\models\src\main\java\compas\models\bankoperations\deposit\DepositRequestData.java
 D:\projects\compas-agency-api\models\src\main\java\compas\models\bankoperations\reversals\ReversalResponseData.java
+D:\projects\compas-agency-api\models\src\main\java\compas\models\Transactions.java
 D:\projects\compas-agency-api\models\src\main\java\compas\models\Device.java
 D:\projects\compas-agency-api\models\src\main\java\compas\models\Account_Type.java
 D:\projects\compas-agency-api\models\src\main\java\compas\models\bankoperations\transfers\TransferResponse.java

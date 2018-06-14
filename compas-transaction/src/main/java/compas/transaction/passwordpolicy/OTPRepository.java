@@ -1,10 +1,8 @@
 package compas.transaction.passwordpolicy;
 
-import com.mongodb.Mongo;
 import com.mongodb.MongoException;
 import compas.MongoConfig.MongoConfiguration;
 import compas.models.OTP;
-import compas.models.Transaction;
 import compas.transaction.TransactionRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,9 +14,7 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 /**
  * Created by CLLSDJACKT013 on 17/05/2018.

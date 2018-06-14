@@ -12,6 +12,7 @@ import java.util.Optional;
 /**
  * Created by CLLSDJACKT013 on 10/05/2018.
  */
+@org.springframework.stereotype.Repository
 public interface Issued_DeviceRepository extends CrudRepository<Issued_Device,Long> {
 
     public List<Issued_Device> findByCreatedBy(String created_by);

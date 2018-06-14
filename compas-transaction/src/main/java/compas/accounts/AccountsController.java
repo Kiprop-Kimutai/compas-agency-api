@@ -35,4 +35,9 @@ public class AccountsController {
 
         return "";
     }
+
+    //FIND ACCOUNT BY ACCOUNT NUMBER
+    public Account findActiveAccountByAccountNumber(String account_number){
+        return accountsRepository.findActiveAccountByAccountNumber(account_number);
+    }
 }

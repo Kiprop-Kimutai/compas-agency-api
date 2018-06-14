@@ -60,8 +60,7 @@ public class Transaction_Operation {
     public void setAction(String action) {
         this.action = action;
     }
-
-    public String getString(){
+    public String logString(){
         return String.format("trans_operation[Id::: = %d   name = %s]",Id,name);
     }
 }

@@ -21,7 +21,8 @@ public class Bank {
         private String url;
         private String city;
         private String phone;
-        private String address;
+        private String postal_code;
+        private String postal_address;
         private Integer created_by;
 
     //default constructor
@@ -75,12 +76,20 @@ public class Bank {
         this.phone = phone;
     }
 
-    public String getAddress() {
-        return address;
+    public String getPostal_code() {
+        return postal_code;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setPostal_code(String postal_code) {
+        this.postal_code = postal_code;
+    }
+
+    public String getPostal_address() {
+        return postal_address;
+    }
+
+    public void setPostal_address(String postal_address) {
+        this.postal_address = postal_address;
     }
 
     public Integer getCreated_by() {

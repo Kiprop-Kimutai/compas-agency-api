@@ -1,9 +1,10 @@
 compas\models\Bank_Branch.class
 compas\models\bankoperations\transfers\TransferRequest.class
 compas\models\bankoperations\transfers\TransferResponseData.class
-compas\models\Transaction.class
+compas\models\LocalDateTimeConverter.class
 compas\models\bankoperations\reversals\ReversalResponseData.class
 compas\models\CustomerRequest.class
+compas\models\Users.class
 compas\models\bankoperations\reversals\ReversalRequestData.class
 compas\models\Device.class
 compas\models\bankoperations\Inquiries\InquiriesResponseData.class
@@ -19,8 +20,10 @@ compas\models\bankoperations\transfers\TransferResponse.class
 compas\models\OTP.class
 compas\models\CashFlow.class
 compas\models\bankoperations\deposit\DepositResponse.class
+compas\models\bankoperations\OperationEnums.class
 compas\models\Account_Type.class
 compas\models\Agent.class
+compas\models\Transactions.class
 compas\models\Issued_Device.class
 compas\models\Next_of_Kin.class
 compas\models\bankoperations\deposit\DepositResponseData.class
@@ -30,8 +33,8 @@ compas\models\User_Group_Type.class
 compas\models\Bank.class
 compas\models\Auth_Mode.class
 compas\models\bankoperations\AccountInquiry\ACResponseData.class
-compas\models\User.class
 compas\models\Fingerprints.class
+compas\models\Utilities.class
 compas\models\Card_Scheme.class
 compas\models\Transaction_Type.class
 compas\models\bankoperations\AccountInquiry\AccountInquiryRequest.class
