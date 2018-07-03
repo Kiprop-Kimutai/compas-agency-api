@@ -16,7 +16,6 @@ compas\device\DeviceController.class
 compas\restservice\ServerResponse.class
 compas\repositories\UtilitiesOperations.class
 compas\accounts\AccountsController.class
-compas\agent\AgentResponse.class
 compas\utilities\UtilitiesRepository.class
 compas\customer\CustomerRDBMSRepository.class
 compas\transaction\TransactionAuth.class

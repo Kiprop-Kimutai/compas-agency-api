@@ -31,6 +31,7 @@ public class Transactions {
     public String authentication;
     public String transaction_date;
     public String receipt_number;
+    public String cbs_trans_id;
     public String narration;
     public Integer currency_id;
     public Double cash_in;
@@ -38,6 +39,7 @@ public class Transactions {
     public String latitude;
     public String longitude;
     public String macaddress;
+    public String phone;
     private Integer created_by;
     @Column(updatable = true)
     public String  status;
@@ -114,6 +116,14 @@ public class Transactions {
 
     public void setReceipt_number(String receipt_number) {
         this.receipt_number = receipt_number;
+    }
+
+    public String getCbs_trans_id() {
+        return cbs_trans_id;
+    }
+
+    public void setCbs_trans_id(String cbs_trans_id) {
+        this.cbs_trans_id = cbs_trans_id;
     }
 
     public String getLatitude() {
@@ -242,6 +252,14 @@ public class Transactions {
 
     public String getMacaddress() {
         return macaddress;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public void setMacaddress(String macaddress) {

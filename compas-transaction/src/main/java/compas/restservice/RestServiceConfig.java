@@ -1,6 +1,7 @@
 package compas.restservice;
 
 import com.google.gson.Gson;
+import compas.models.apiresponse.ApiResponse;
 import compas.security.GenerateSignature;
 import compas.security.SignatureGenerator;
 import org.slf4j.LoggerFactory;
@@ -37,29 +38,33 @@ public class RestServiceConfig {
     private String security_key;
 
     ServerResponse serverResponse = new ServerResponse();
+    ApiResponse apiResponse = new ApiResponse();
     private Logger logger= LoggerFactory.getLogger(RestServiceConfig.class);
     private Gson gson = new Gson();
     private GenerateSignature  generateSignature = new GenerateSignature();
     private SignatureGenerator signatureGenerator = new SignatureGenerator();
 
     public String RestServiceConfiguration(String protocol,String IP,String PORT,String endpoint,String requestMethod,String input,String transId,String action){
-        if(protocol.equalsIgnoreCase("http")){
+   /*     if(protocol.equalsIgnoreCase("http")){
             disableSslVerification();
-        }
+        }*/
+        disableSslVerification();
         logger.info("POST REQUEST PAYLOAD::::"+input);
         String fullURL = String.format(protocol+"://"+IP.concat(":").concat(PORT)+""+endpoint);
         logger.info("REST SERVICE URL:::"+fullURL);
         String responseString = "";
         String current;
-        if(pingHost(IP,Integer.parseInt(PORT),30)){
+        /**********DISABLE THIS PIECE, SOME FIREWALLS CAN BLOCK PING************************/
+/*        if(pingHost(IP,Integer.parseInt(PORT),30)){
             logger.info("SERVER UP AND RUNNING");
         }
         else{
             logger.info("SERVER IS DOWN");
-            serverResponse.setCode(500);
+            serverResponse.setCode(100);
             serverResponse.setMessage("Internal Server error: Server not reachable");
             return gson.toJson(serverResponse);
-        }
+        }*/
+/**************************************************************/
         try{
             URL url = new URL(fullURL);
             /*****Get some basic info of the supplied url********/
@@ -87,9 +92,11 @@ public class RestServiceConfig {
                     if(httpsURLConnection.getResponseCode() <200 && httpsURLConnection.getResponseCode() >299){
                         //throw new RuntimeException("Failed: Http Error code::"+httpURLConnection.getResponseCode());
                         logger.info("HTTP CALL FAILED:::CODE"+httpsURLConnection.getResponseCode());
-                        serverResponse.setCode(httpsURLConnection.getResponseCode());
-                        serverResponse.setMessage(httpsURLConnection.getResponseMessage());
-                        return gson.toJson(serverResponse);
+/*                        serverResponse.setCode(httpsURLConnection.getResponseCode());
+                        serverResponse.setMessage(httpsURLConnection.getResponseMessage());*/
+                        apiResponse.setCode(httpsURLConnection.getResponseCode());
+                        apiResponse.setMessage(httpsURLConnection.getResponseMessage());
+                        return gson.toJson(apiResponse);
                     }
 
                     BufferedReader dataIn = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
@@ -113,9 +120,13 @@ public class RestServiceConfig {
                     if(httpsURLConnection.getResponseCode() <200 ||  httpsURLConnection.getResponseCode() >299){
                         //throw new RuntimeException("Failed::Http Error code::" +httpURLConnection.getResponseCode());
                         logger.info("HTTPS CALL FAILED:::"+httpsURLConnection.getResponseCode());
-                        serverResponse.setCode(httpsURLConnection.getResponseCode());
+/*                        serverResponse.setCode(httpsURLConnection.getResponseCode());
+                        serverResponse.setMessage(httpsURLConnection.getResponseMessage());*/
+                        apiResponse.setCode(httpsURLConnection.getResponseCode());
                         serverResponse.setMessage(httpsURLConnection.getResponseMessage());
-                        return gson.toJson(serverResponse);
+                       // return gson.toJson(serverResponse);
+                        return gson.toJson(apiResponse);
+
                     }
                     BufferedReader dataIn = new BufferedReader(new InputStreamReader(httpsURLConnection.getInputStream()));
                     while((current = dataIn.readLine()) != null){
@@ -123,9 +134,12 @@ public class RestServiceConfig {
                     }
                     logger.info("Response from URL >>>>>" +responseString);
                     httpsURLConnection.disconnect();
-                    serverResponse.setCode(201);
+/*                    serverResponse.setCode(201);
                     serverResponse.setMessage(responseString);
-                    return gson.toJson(serverResponse);
+                    return gson.toJson(serverResponse);*/
+                    apiResponse = gson.fromJson(responseString,ApiResponse.class);
+                    apiResponse.setCode(201);
+                    return gson.toJson(apiResponse);
                     //return responseString;
                 }
                 httpsURLConnection.disconnect();
@@ -172,11 +186,13 @@ public class RestServiceConfig {
                     //httpURLConnection.getResponseCode() != HttpURLConnection.HTTP_CREATED
                    // httpsURLConnection.getResponseCode() <200 ||  httpsURLConnection.getResponseCode() >299
                     if(httpURLConnection.getResponseCode() <200 ||  httpURLConnection.getResponseCode() >299){
-                       // throw new RuntimeException("Failed::Http Error code::" +httpURLConnection.getResponseCode());
                         logger.info("HTTP CALL FAILED::CODE"+httpURLConnection.getResponseCode());
-                        serverResponse.setCode(httpURLConnection.getResponseCode());;
+/*                        serverResponse.setCode(httpURLConnection.getResponseCode());;
                         serverResponse.setMessage(httpURLConnection.getResponseMessage());
-                        return gson.toJson(serverResponse);
+                        return gson.toJson(serverResponse);*/
+                        apiResponse.setCode(httpURLConnection.getResponseCode());
+                        apiResponse.setMessage(httpURLConnection.getResponseMessage());
+                        return gson.toJson(apiResponse);
                     }
                     BufferedReader dataIn = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
                     while((current = dataIn.readLine()) != null){
@@ -184,17 +200,23 @@ public class RestServiceConfig {
                     }
                     logger.info("Response from URL >>>>>" +responseString);
                     httpURLConnection.disconnect();
-                    serverResponse.setCode(201);
-                    serverResponse.setMessage(responseString);
-                    return gson.toJson(serverResponse);
-                    //return responseString;
+/*                    serverResponse.setCode(201);
+                    serverResponse.setMessage(responseString);*/
+                    //return gson.toJson(serverResponse);
+                    apiResponse = gson.fromJson(responseString,ApiResponse.class);
+                    apiResponse.setCode(201);
+                    return gson.toJson(apiResponse);
                 }
                 httpURLConnection.disconnect();
                 //return responseString;
             }
         }
         catch (Exception e){
-            e.printStackTrace();
+            //e.printStackTrace();
+            logger.info("SERVER IS DOWN");
+            apiResponse.setCode(151);
+            apiResponse.setMessage("Internal Server error: Server not reachable");
+            return gson.toJson(apiResponse);
         }
         return "";
     }
@@ -299,6 +321,10 @@ public class RestServiceConfig {
         }
         catch (Exception e){
             e.printStackTrace();
+            logger.info("SERVER IS DOWN");
+            serverResponse.setCode(100);
+            serverResponse.setMessage(" Internal Server error: Server not reachable");
+            return gson.toJson(serverResponse);
         }
         return "";
     }

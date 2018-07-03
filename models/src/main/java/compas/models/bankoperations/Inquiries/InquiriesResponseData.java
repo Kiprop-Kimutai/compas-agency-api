@@ -6,7 +6,10 @@ package compas.models.bankoperations.Inquiries;
 public class InquiriesResponseData {
     private String TransId;
     private String Balance;
+    private String Amount;
     private String Account;
+    private String FromAccount;
+    private String ToAccount;
     private String [] Transactions;
 
     //default constructor
@@ -42,6 +45,30 @@ public class InquiriesResponseData {
 
     public void setTransactions(String[] transactions) {
         Transactions = transactions;
+    }
+
+    public String getAmount() {
+        return Amount;
+    }
+
+    public void setAmount(String amount) {
+        Amount = amount;
+    }
+
+    public String getFromAccount() {
+        return FromAccount;
+    }
+
+    public void setFromAccount(String fromAccount) {
+        FromAccount = fromAccount;
+    }
+
+    public String getToAccount() {
+        return ToAccount;
+    }
+
+    public void setToAccount(String toAccount) {
+        ToAccount = toAccount;
     }
 
     public String getString(){

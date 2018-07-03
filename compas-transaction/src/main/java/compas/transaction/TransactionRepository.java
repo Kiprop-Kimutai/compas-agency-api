@@ -54,9 +54,9 @@ public class TransactionRepository {
         return new ArrayList<>();
     }
 
-    public Transactions updateProcessedTransaction(String receipt_number){
+    public Transactions updateProcessedTransaction(String receipt_number,String cbs_trans_id){
         try{
-            mongoOperations.updateFirst(new Query(Criteria.where("receipt_number").is(receipt_number)),Update.update("status","S"),Transactions.class);
+            mongoOperations.updateFirst(new Query(Criteria.where("receipt_number").is(receipt_number)),Update.update("status","S").addToSet("cbs_trans_id",cbs_trans_id),Transactions.class);
             List<Transactions> successFulTxns = mongoOperations.find(new Query(Criteria.where("receipt_number").is(receipt_number).and("status").is("S")),Transactions.class);
             return  successFulTxns.get(0);
 

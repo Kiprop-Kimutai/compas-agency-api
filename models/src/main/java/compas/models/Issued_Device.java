@@ -19,6 +19,13 @@ public class Issued_Device {
     //default constructor
     public Issued_Device(){}
 
+    public Issued_Device(Integer deviceId, Integer agent_id, Integer branch_id, Integer createdBy) {
+        this.deviceId = deviceId;
+        this.agent_id = agent_id;
+        this.branch_id = branch_id;
+        this.createdBy = createdBy;
+    }
+
     public Integer getId() {
         return Id;
     }

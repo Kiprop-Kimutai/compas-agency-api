@@ -38,8 +38,13 @@ public class Application  extends SpringBootServletInitializer{
     public static void main(String [] args){
         System.out.println(FILES_PATH);
         Properties p = System.getProperties();
-        p.setProperty("logging.level.compas","INFO");
-        p.setProperty("logging.file","C:\\Program Files\\apache-tomcat-8.5.20\\conf\\test.log");
+        //System.setProperty(ContextInitializer.CONFIG_FILE_PROPERTY, /path/to/config.xml); //TRY THIS PROP
+        p.setProperty("logging.level.compas.transaction","INFO");
+        //p.setProperty("spring.output.ansi.enabled","ALWAYS");
+        //p.setProperty("logging.level.compas.MongoConfig","SEVERE");
+        p.setProperty("logging.level.org.springframework.data","ERROR");
+        p.setProperty("logging.file","C:\\Program Files\\apache-tomcat-8.5.20\\conf\\testing.log");
+        p.setProperty("logging.config","${catalina.home}\\conf\\logback-test.xml");
         SpringApplication.run(Application.class,args);
     }
     public void managePasswordPolicy(){
@@ -56,7 +61,7 @@ public class Application  extends SpringBootServletInitializer{
                 List<OTP> activeOTPS = otpRepository.fetchActiveOTPs();
                 activeOTPS.forEach((activeOTP)->{
                     Long timelapsed = activeOTP.getRequest_time().getTime();
-                    if((currentTimeLapse-timelapsed)>60000){
+                    if((currentTimeLapse-timelapsed)>300000){
                         //otpRepository.updateOTPStatus(activeOTP.getPassword());
                         otpRepository.updateUnusedOTPs(activeOTP);
                     }

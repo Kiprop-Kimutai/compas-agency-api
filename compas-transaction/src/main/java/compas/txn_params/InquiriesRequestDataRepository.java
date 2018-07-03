@@ -12,7 +12,10 @@ import org.springframework.stereotype.Repository;
  */
 public interface InquiriesRequestDataRepository extends CrudRepository<InquiriesRequestData,Long> {
     @Modifying
-    @Query("update InquiriesRequestData inquiriesrequestdata set inquiriesrequestdata.status ='S' where inquiriesrequestdata.transId =:transId")
-    void updateSuccessfulInquiryRequestData(@Param("transId") String transId);
+    @Query("update InquiriesRequestData inquiriesrequestdata set inquiriesrequestdata.status ='S',inquiriesrequestdata.cbs_trans_id = :cbs_trans_id where inquiriesrequestdata.transId =:transId")
+    int updateSuccessfulInquiryRequestData(@Param("transId") String transId,@Param("cbs_trans_id")String cbs_trans_id);
 
+    @Modifying
+    @Query("update InquiriesRequestData inquiriesrequestdata set inquiriesrequestdata.status ='F' where inquiriesrequestdata.transId =:transId")
+    int  updateFailedInquiryRequestData(@Param("transId") String transId);
 }

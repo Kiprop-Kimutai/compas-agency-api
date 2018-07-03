@@ -20,6 +20,13 @@ public class Device {
     //default constructor
     public Device(){}
 
+    public Device(String serial_no, String macAddress, Boolean status, Integer created_by) {
+        this.serial_no = serial_no;
+        this.macAddress = macAddress;
+        this.status = status;
+        this.created_by = created_by;
+    }
+
     public Integer getId() {
         return Id;
     }

@@ -22,4 +22,7 @@ public interface AccountsRepository extends CrudRepository<Account,Long> {
 
     @Query("select acc from Account acc where acc.account_number=:account_number and acc.status=true")
     Account findActiveAccountByAccountNumber(@Param("account_number") String account_number);
+
+    @Query("select acc.account_number from Account acc where acc.customer_id_number=:customer_id_number")
+    String findAccountByIdNumber(@Param("customer_id_number")String customer_id_number);
 }

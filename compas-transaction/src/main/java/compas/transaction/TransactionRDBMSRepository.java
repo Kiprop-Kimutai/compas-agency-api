@@ -22,7 +22,10 @@ public interface TransactionRDBMSRepository extends CrudRepository<Transactions,
     @Query("update Transactions  transactions set transactions.status = 'I' where transactions.receipt_number = :receipt_number")
     void updateAuthenticatedTransactionsByReceiptNumber(@Param("receipt_number") String receipt_number);
     @Modifying
-    @Query("update Transactions transactions set transactions.status = 'S' where transactions.receipt_number = :receipt_number")
-    void updateProcessedTransactionsByReceiptNumber(@Param("receipt_number") String receipt_number);
+    @Query("update Transactions transactions set transactions.status = 'S' , transactions.cbs_trans_id = :cbs_trans_id where transactions.receipt_number = :receipt_number")
+    int  updateProcessedTransactionsByReceiptNumber(@Param("receipt_number") String receipt_number, @Param("cbs_trans_id") String cbs_trans_id);
 
+    @Modifying
+    @Query("update Transactions transactions set transactions.status ='F' where transactions.receipt_number =:receipt_number")
+    int updateFailedTransactions(@Param("receipt_number") String receipt_number);
 }

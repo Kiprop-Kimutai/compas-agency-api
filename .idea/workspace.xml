@@ -2,199 +2,98 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a6adb14b-e5c9-495c-afb2-fe2b9e99e4ee" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-rest-service/src/main/java/compas/restservice/HttpClientconfig.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-rest-service/src/main/java/compas/restservice/RestServiceConfig.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-rest-service/src/main/java/compas/restservice/ServerResponse.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-rest-service/target/classes/compas/restservice/RestServiceConfig.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/transaction/Application.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/txn_params/TransactionOperationRepository.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/user/ExampleUser.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/user/ExampleUserRepository.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/user/ListExampleUsers.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/transaction/Application.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT.war" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT.war.original" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/Application.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/MongoConfig/MongoConfiguration.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/accounts/AccountsController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/accounts/AccountsRepository.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/accounts/AccountsRequest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/accounts/AccountsResponse.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/accounts/GenerateAccountNumber.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/agent/AgentController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/agent/AgentRepository.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/agent/AgentResponse.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/bank/BankController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/bank/BankRepository.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/bank/BranchController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/bank/BranchRepository.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/customer/CustomerController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/customer/CustomerRepository.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/device/DeviceController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/device/DeviceRepository.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/device/Issued_DeviceRepository.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/next_of_kin/NextOfKinController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/next_of_kin/NextOfKinRepository.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/transaction/Application.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/transaction/TransactionAuth.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/transaction/TransactionController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/transaction/TransactionRDBMSRepository.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/transaction/TransactionRepository.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/user/UserController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/classes/compas/user/UserRepository.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/antlr-2.7.7.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/aspectjweaver-1.8.10.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/bson-3.4.3.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/compas-rest-service-1.0-SNAPSHOT.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/dom4j-1.6.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/gson-2.8.2.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/hibernate-commons-annotations-5.0.1.Final.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/hibernate-core-5.0.12.Final.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/hibernate-entitymanager-5.0.12.Final.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/hibernate-jpa-2.1-api-1.0.0.Final.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/jandex-2.0.0.Final.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/javassist-3.21.0-GA.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/javax.transaction-api-1.2.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/jboss-logging-3.3.1.Final.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/jcl-over-slf4j-1.7.25.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/jul-to-slf4j-1.7.25.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/log4j-over-slf4j-1.7.25.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/logback-classic-1.1.11.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/logback-core-1.1.11.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/models-1.0-SNAPSHOT.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/mongodb-driver-3.4.3.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/mongodb-driver-core-3.4.3.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/mysql-connector-java-5.1.44.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/slf4j-api-1.7.25.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/snakeyaml-1.17.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/spring-aop-4.3.11.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/spring-aspects-4.3.11.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/spring-beans-4.3.11.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/spring-boot-1.5.7.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/spring-boot-autoconfigure-1.5.7.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/spring-boot-starter-1.5.7.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/spring-boot-starter-aop-1.5.7.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/spring-boot-starter-data-jpa-1.5.7.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/spring-boot-starter-data-mongodb-1.5.7.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/spring-boot-starter-jdbc-1.5.7.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/spring-boot-starter-logging-1.5.7.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/spring-context-4.3.11.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/spring-core-4.3.11.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/spring-data-commons-1.13.7.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/spring-data-jpa-1.11.7.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/spring-data-mongodb-1.10.7.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/spring-expression-4.3.11.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/spring-jdbc-4.3.11.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/spring-orm-4.3.11.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/spring-oxm-4.3.11.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/spring-tx-4.3.11.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/spring-web-4.3.11.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/spring-webmvc-4.3.11.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/spring-ws-core-2.4.0.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/spring-xml-2.4.0.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/tomcat-jdbc-8.5.20.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transaction-1.0-SNAPSHOT/WEB-INF/lib/tomcat-juli-8.5.20.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/target/classes/compas/models/Transaction.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/target/classes/compas/models/User.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/agent/AgentResponse.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/src/main/resources/logging.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/agent/AgentResponse.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/logging.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transactions-1.0-SNAPSHOT/WEB-INF/classes/compas/agent/AgentResponse.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transactions-1.0-SNAPSHOT/WEB-INF/classes/logging.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transactions-1.0-SNAPSHOT/WEB-INF/lib/logback-classic-1.1.11.jar" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/target/app-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/app/target/app-1.0-SNAPSHOT.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-rest-service/target/compas-rest-service-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/compas-rest-service/target/compas-rest-service-1.0-SNAPSHOT.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/Application$1.class" afterPath="$PROJECT_DIR$/compas-transaction/target/classes/compas/Application$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/Application.class" afterPath="$PROJECT_DIR$/compas-transaction/target/classes/compas/Application.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/accounts/AccountsController.class" afterPath="$PROJECT_DIR$/compas-transaction/target/classes/compas/accounts/AccountsController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/MongoConfig/MongoConfiguration.class" afterPath="$PROJECT_DIR$/compas-transaction/target/classes/compas/MongoConfig/MongoConfiguration.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/accounts/AccountsRepository.class" afterPath="$PROJECT_DIR$/compas-transaction/target/classes/compas/accounts/AccountsRepository.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/agent/AgentController.class" afterPath="$PROJECT_DIR$/compas-transaction/target/classes/compas/agent/AgentController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/agent/AgentRepository.class" afterPath="$PROJECT_DIR$/compas-transaction/target/classes/compas/agent/AgentRepository.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/agent/AgentResponse.class" afterPath="$PROJECT_DIR$/compas-transaction/target/classes/compas/agent/AgentResponse.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/bank/BankController.class" afterPath="$PROJECT_DIR$/compas-transaction/target/classes/compas/bank/BankController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/bank/BankRepository.class" afterPath="$PROJECT_DIR$/compas-transaction/target/classes/compas/bank/BankRepository.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/bank/BranchController.class" afterPath="$PROJECT_DIR$/compas-transaction/target/classes/compas/bank/BranchController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/bank/BranchRepository.class" afterPath="$PROJECT_DIR$/compas-transaction/target/classes/compas/bank/BranchRepository.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/customer/CustomerController.class" afterPath="$PROJECT_DIR$/compas-transaction/target/classes/compas/customer/CustomerController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/customer/CustomerRepository.class" afterPath="$PROJECT_DIR$/compas-transaction/target/classes/compas/customer/CustomerRepository.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/device/DeviceController.class" afterPath="$PROJECT_DIR$/compas-transaction/target/classes/compas/device/DeviceController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/device/DeviceRepository.class" afterPath="$PROJECT_DIR$/compas-transaction/target/classes/compas/device/DeviceRepository.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/device/Issued_DeviceRepository.class" afterPath="$PROJECT_DIR$/compas-transaction/target/classes/compas/device/Issued_DeviceRepository.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/next_of_kin/NextOfKinRepository.class" afterPath="$PROJECT_DIR$/compas-transaction/target/classes/compas/next_of_kin/NextOfKinRepository.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/repositories/TransactionOperations.class" afterPath="$PROJECT_DIR$/compas-transaction/target/classes/compas/repositories/TransactionOperations.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/restservice/RestServiceConfig$1.class" afterPath="$PROJECT_DIR$/compas-transaction/target/classes/compas/restservice/RestServiceConfig$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/restservice/RestServiceConfig$2.class" afterPath="$PROJECT_DIR$/compas-transaction/target/classes/compas/restservice/RestServiceConfig$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/restservice/RestServiceConfig.class" afterPath="$PROJECT_DIR$/compas-transaction/target/classes/compas/restservice/RestServiceConfig.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/transaction/TransactionController$1.class" afterPath="$PROJECT_DIR$/compas-transaction/target/classes/compas/transaction/TransactionController$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/transaction/TransactionController.class" afterPath="$PROJECT_DIR$/compas-transaction/target/classes/compas/transaction/TransactionController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/transaction/TransactionRDBMSRepository.class" afterPath="$PROJECT_DIR$/compas-transaction/target/classes/compas/transaction/TransactionRDBMSRepository.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/transaction/TransactionRepository.class" afterPath="$PROJECT_DIR$/compas-transaction/target/classes/compas/transaction/TransactionRepository.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/transaction/passwordpolicy/OTPController$1.class" afterPath="$PROJECT_DIR$/compas-transaction/target/classes/compas/transaction/passwordpolicy/OTPController$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/transaction/passwordpolicy/OTPController.class" afterPath="$PROJECT_DIR$/compas-transaction/target/classes/compas/transaction/passwordpolicy/OTPController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/transaction/passwordpolicy/OTPRepository.class" afterPath="$PROJECT_DIR$/compas-transaction/target/classes/compas/transaction/passwordpolicy/OTPRepository.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/user/UserController.class" afterPath="$PROJECT_DIR$/compas-transaction/target/classes/compas/user/UserController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/user/UserRepository.class" afterPath="$PROJECT_DIR$/compas-transaction/target/classes/compas/user/UserRepository.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/target/classes/compas/models/Account.class" afterPath="$PROJECT_DIR$/models/target/classes/compas/models/Account.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/target/classes/compas/models/Bank.class" afterPath="$PROJECT_DIR$/models/target/classes/compas/models/Bank.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/target/classes/compas/models/Customer.class" afterPath="$PROJECT_DIR$/models/target/classes/compas/models/Customer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/target/classes/compas/models/Transaction_Operation.class" afterPath="$PROJECT_DIR$/models/target/classes/compas/models/Transaction_Operation.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/transactionschannel/TransactionsToBank.class" afterPath="$PROJECT_DIR$/compas-transaction/target/classes/compas/transactionschannel/TransactionsToBank.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/classes/compas/txn_params/InquiriesRequestDataRepository.class" afterPath="$PROJECT_DIR$/compas-transaction/target/classes/compas/txn_params/InquiriesRequestDataRepository.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transactions-1.0-SNAPSHOT.war" afterPath="$PROJECT_DIR$/compas-transaction/target/compas-transactions-1.0-SNAPSHOT.war" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transactions-1.0-SNAPSHOT.war.original" afterPath="$PROJECT_DIR$/compas-transaction/target/compas-transactions-1.0-SNAPSHOT.war.original" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transactions-1.0-SNAPSHOT/WEB-INF/classes/compas/Application$1.class" afterPath="$PROJECT_DIR$/compas-transaction/target/compas-transactions-1.0-SNAPSHOT/WEB-INF/classes/compas/Application$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transactions-1.0-SNAPSHOT/WEB-INF/classes/compas/Application.class" afterPath="$PROJECT_DIR$/compas-transaction/target/compas-transactions-1.0-SNAPSHOT/WEB-INF/classes/compas/Application.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transactions-1.0-SNAPSHOT/WEB-INF/classes/compas/MongoConfig/MongoConfiguration.class" afterPath="$PROJECT_DIR$/compas-transaction/target/compas-transactions-1.0-SNAPSHOT/WEB-INF/classes/compas/MongoConfig/MongoConfiguration.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transactions-1.0-SNAPSHOT/WEB-INF/classes/compas/accounts/AccountsRepository.class" afterPath="$PROJECT_DIR$/compas-transaction/target/compas-transactions-1.0-SNAPSHOT/WEB-INF/classes/compas/accounts/AccountsRepository.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transactions-1.0-SNAPSHOT/WEB-INF/classes/compas/agent/AgentController.class" afterPath="$PROJECT_DIR$/compas-transaction/target/compas-transactions-1.0-SNAPSHOT/WEB-INF/classes/compas/agent/AgentController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transactions-1.0-SNAPSHOT/WEB-INF/classes/compas/device/Issued_DeviceRepository.class" afterPath="$PROJECT_DIR$/compas-transaction/target/compas-transactions-1.0-SNAPSHOT/WEB-INF/classes/compas/device/Issued_DeviceRepository.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transactions-1.0-SNAPSHOT/WEB-INF/classes/compas/repositories/TransactionOperations.class" afterPath="$PROJECT_DIR$/compas-transaction/target/compas-transactions-1.0-SNAPSHOT/WEB-INF/classes/compas/repositories/TransactionOperations.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transactions-1.0-SNAPSHOT/WEB-INF/classes/compas/restservice/RestServiceConfig$1.class" afterPath="$PROJECT_DIR$/compas-transaction/target/compas-transactions-1.0-SNAPSHOT/WEB-INF/classes/compas/restservice/RestServiceConfig$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transactions-1.0-SNAPSHOT/WEB-INF/classes/compas/restservice/RestServiceConfig$2.class" afterPath="$PROJECT_DIR$/compas-transaction/target/compas-transactions-1.0-SNAPSHOT/WEB-INF/classes/compas/restservice/RestServiceConfig$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transactions-1.0-SNAPSHOT/WEB-INF/classes/compas/restservice/RestServiceConfig.class" afterPath="$PROJECT_DIR$/compas-transaction/target/compas-transactions-1.0-SNAPSHOT/WEB-INF/classes/compas/restservice/RestServiceConfig.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transactions-1.0-SNAPSHOT/WEB-INF/classes/compas/transaction/TransactionController$1.class" afterPath="$PROJECT_DIR$/compas-transaction/target/compas-transactions-1.0-SNAPSHOT/WEB-INF/classes/compas/transaction/TransactionController$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transactions-1.0-SNAPSHOT/WEB-INF/classes/compas/transaction/TransactionController.class" afterPath="$PROJECT_DIR$/compas-transaction/target/compas-transactions-1.0-SNAPSHOT/WEB-INF/classes/compas/transaction/TransactionController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transactions-1.0-SNAPSHOT/WEB-INF/classes/compas/transaction/TransactionRDBMSRepository.class" afterPath="$PROJECT_DIR$/compas-transaction/target/compas-transactions-1.0-SNAPSHOT/WEB-INF/classes/compas/transaction/TransactionRDBMSRepository.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transactions-1.0-SNAPSHOT/WEB-INF/classes/compas/transaction/TransactionRepository.class" afterPath="$PROJECT_DIR$/compas-transaction/target/compas-transactions-1.0-SNAPSHOT/WEB-INF/classes/compas/transaction/TransactionRepository.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transactions-1.0-SNAPSHOT/WEB-INF/classes/compas/transaction/passwordpolicy/OTPController$1.class" afterPath="$PROJECT_DIR$/compas-transaction/target/compas-transactions-1.0-SNAPSHOT/WEB-INF/classes/compas/transaction/passwordpolicy/OTPController$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transactions-1.0-SNAPSHOT/WEB-INF/classes/compas/transaction/passwordpolicy/OTPController.class" afterPath="$PROJECT_DIR$/compas-transaction/target/compas-transactions-1.0-SNAPSHOT/WEB-INF/classes/compas/transaction/passwordpolicy/OTPController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transactions-1.0-SNAPSHOT/WEB-INF/classes/compas/transaction/passwordpolicy/OTPRepository.class" afterPath="$PROJECT_DIR$/compas-transaction/target/compas-transactions-1.0-SNAPSHOT/WEB-INF/classes/compas/transaction/passwordpolicy/OTPRepository.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transactions-1.0-SNAPSHOT/WEB-INF/classes/compas/transactionschannel/TransactionsToBank.class" afterPath="$PROJECT_DIR$/compas-transaction/target/compas-transactions-1.0-SNAPSHOT/WEB-INF/classes/compas/transactionschannel/TransactionsToBank.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transactions-1.0-SNAPSHOT/WEB-INF/classes/compas/txn_params/InquiriesRequestDataRepository.class" afterPath="$PROJECT_DIR$/compas-transaction/target/compas-transactions-1.0-SNAPSHOT/WEB-INF/classes/compas/txn_params/InquiriesRequestDataRepository.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transactions-1.0-SNAPSHOT/WEB-INF/lib/compas-rest-service-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/compas-transaction/target/compas-transactions-1.0-SNAPSHOT/WEB-INF/lib/compas-rest-service-1.0-SNAPSHOT.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/compas-transactions-1.0-SNAPSHOT/WEB-INF/lib/models-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/compas-transaction/target/compas-transactions-1.0-SNAPSHOT/WEB-INF/lib/models-1.0-SNAPSHOT.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/librarry/target/librarry-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/librarry/target/librarry-1.0-SNAPSHOT.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/target/classes/compas/models/Device.class" afterPath="$PROJECT_DIR$/models/target/classes/compas/models/Device.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/target/classes/compas/models/Issued_Device.class" afterPath="$PROJECT_DIR$/models/target/classes/compas/models/Issued_Device.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/target/models-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/models/target/models-1.0-SNAPSHOT.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/application_war.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/application_war.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/compas_transaction_war.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/compas_transaction_war.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/target/test-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/test/target/test-1.0-SNAPSHOT.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/target/test-1.0-SNAPSHOT.jar.original" afterPath="$PROJECT_DIR$/test/target/test-1.0-SNAPSHOT.jar.original" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/compas_transaction_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/compas_transaction_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-rest-service/compas-rest-service.iml" afterPath="$PROJECT_DIR$/compas-rest-service/compas-rest-service.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-rest-service/pom.xml" afterPath="$PROJECT_DIR$/compas-rest-service/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/app/target/maven-archiver/pom.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-rest-service/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/compas-rest-service/target/maven-archiver/pom.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-rest-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/compas-rest-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-rest-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/compas-rest-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/compas-transaction.iml" afterPath="$PROJECT_DIR$/compas-transaction/compas-transaction.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/pom.xml" afterPath="$PROJECT_DIR$/compas-transaction/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/Application.java" afterPath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/Application.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/ApplicationService.java" afterPath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/ApplicationService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/accounts/AccountsController.java" afterPath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/accounts/AccountsController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/MongoConfig/MongoConfiguration.java" afterPath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/MongoConfig/MongoConfiguration.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/accounts/AccountsRepository.java" afterPath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/accounts/AccountsRepository.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/agent/AgentController.java" afterPath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/agent/AgentController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/agent/AgentRepository.java" afterPath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/agent/AgentRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/agent/AgentResponse.java" afterPath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/agent/AgentResponse.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/authentications/AuthenticationModeRepository.java" afterPath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/authentications/AuthenticationModeRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/authentications/ValidateTransactions.java" afterPath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/authentications/ValidateTransactions.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/authentications/ValidateTransactionsInterface.java" afterPath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/authentications/ValidateTransactionsInterface.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/bank/BankController.java" afterPath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/bank/BankController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/bank/BankRepository.java" afterPath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/bank/BankRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/bank/BranchController.java" afterPath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/bank/BranchController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/bank/BranchRepository.java" afterPath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/bank/BranchRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/currency/CurrencyRepository.java" afterPath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/currency/CurrencyRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/customer/CustomerController.java" afterPath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/customer/CustomerController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/customer/CustomerRDBMSRepository.java" afterPath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/customer/CustomerRDBMSRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/customer/CustomerRepository.java" afterPath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/customer/CustomerRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/customer/FingerPrintRepository.java" afterPath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/customer/FingerPrintRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/device/DeviceController.java" afterPath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/device/DeviceController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/device/DeviceRepository.java" afterPath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/device/DeviceRepository.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/device/Issued_DeviceRepository.java" afterPath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/device/Issued_DeviceRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/next_of_kin/NextOfKinRepository.java" afterPath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/next_of_kin/NextOfKinRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/tariffs/TariffManager.java" afterPath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/tariffs/TariffManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/tariffs/TariffsRepository.java" afterPath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/tariffs/TariffsRepository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/repositories/TransactionOperations.java" afterPath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/repositories/TransactionOperations.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/restservice/RestServiceConfig.java" afterPath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/restservice/RestServiceConfig.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/transaction/TransactionController.java" afterPath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/transaction/TransactionController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/transaction/TransactionRDBMSRepository.java" afterPath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/transaction/TransactionRDBMSRepository.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/transaction/TransactionRepository.java" afterPath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/transaction/TransactionRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/transaction/agencyreceipt/ReceiptManager.java" afterPath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/transaction/agencyreceipt/ReceiptManager.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/transaction/passwordpolicy/OTPController.java" afterPath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/transaction/passwordpolicy/OTPController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/transaction/passwordpolicy/OTPRepository.java" afterPath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/transaction/passwordpolicy/OTPRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/transactionschannel/TransactionOperationRepository.java" afterPath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/transactionschannel/TransactionOperationRepository.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/transactionschannel/TransactionsToBank.java" afterPath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/transactionschannel/TransactionsToBank.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/txn_params/TransactionModeRepository.java" afterPath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/txn_params/TransactionModeRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/txn_params/TransactionOperationController.java" afterPath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/txn_params/TransactionOperationController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/txn_params/TransactionTypeController.java" afterPath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/txn_params/TransactionTypeController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/txn_params/TransactionTypeRepository.java" afterPath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/txn_params/TransactionTypeRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/user/UserController.java" afterPath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/user/UserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/user/UserRepository.java" afterPath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/user/UserRepository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/txn_params/InquiriesRequestDataRepository.java" afterPath="$PROJECT_DIR$/compas-transaction/src/main/java/compas/txn_params/InquiriesRequestDataRepository.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/compas-transaction/target/maven-archiver/pom.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/compas-transaction/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compas-transaction/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/compas-transaction/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/src/main/java/compas/models/Account.java" afterPath="$PROJECT_DIR$/models/src/main/java/compas/models/Account.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/src/main/java/compas/models/Bank.java" afterPath="$PROJECT_DIR$/models/src/main/java/compas/models/Bank.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/src/main/java/compas/models/Customer.java" afterPath="$PROJECT_DIR$/models/src/main/java/compas/models/Customer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/src/main/java/compas/models/Tariff.java" afterPath="$PROJECT_DIR$/models/src/main/java/compas/models/Tariff.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/src/main/java/compas/models/Transaction_Operation.java" afterPath="$PROJECT_DIR$/models/src/main/java/compas/models/Transaction_Operation.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/librarry/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/librarry/target/maven-archiver/pom.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/src/main/java/compas/models/Device.java" afterPath="$PROJECT_DIR$/models/src/main/java/compas/models/Device.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/src/main/java/compas/models/Issued_Device.java" afterPath="$PROJECT_DIR$/models/src/main/java/compas/models/Issued_Device.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/src/main/java/compas/models/Transactions.java" afterPath="$PROJECT_DIR$/models/src/main/java/compas/models/Transactions.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/src/main/java/compas/models/apiresponse/ApiResponse.java" afterPath="$PROJECT_DIR$/models/src/main/java/compas/models/apiresponse/ApiResponse.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/src/main/java/compas/models/bankoperations/Inquiries/InquiriesRequestData.java" afterPath="$PROJECT_DIR$/models/src/main/java/compas/models/bankoperations/Inquiries/InquiriesRequestData.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/src/main/java/compas/models/bankoperations/withdrawal/WithdrawalRequestData.java" afterPath="$PROJECT_DIR$/models/src/main/java/compas/models/bankoperations/withdrawal/WithdrawalRequestData.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/src/main/java/compas/models/bankoperations/Inquiries/InquiriesResponseData.java" afterPath="$PROJECT_DIR$/models/src/main/java/compas/models/bankoperations/Inquiries/InquiriesResponseData.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/models/target/maven-archiver/pom.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/models/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/models/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/models/src/main/java/compas/models/Transaction.java" afterPath="$PROJECT_DIR$/models/src/main/java/compas/models/Transactions.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/models/src/main/java/compas/models/User.java" afterPath="$PROJECT_DIR$/models/src/main/java/compas/models/Users.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/test/target/maven-archiver/pom.properties" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -237,21 +136,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TransactionController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TransactionController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/transaction/TransactionController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="114" column="40" lean-forward="false" selection-start-line="114" selection-start-column="40" selection-end-line="114" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ValidateTransactions.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/authentications/ValidateTransactions.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="122" column="56" lean-forward="false" selection-start-line="122" selection-start-column="56" selection-end-line="122" selection-end-column="56" />
+            <state relative-caret-position="840">
+              <caret line="283" column="45" lean-forward="true" selection-start-line="283" selection-start-column="45" selection-end-line="283" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -260,223 +149,119 @@
       <file leaf-file-name="Transactions.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/src/main/java/compas/models/Transactions.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="23" column="23" lean-forward="false" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="23" />
+            <state relative-caret-position="2533">
+              <caret line="258" column="5" lean-forward="false" selection-start-line="258" selection-start-column="5" selection-end-line="258" selection-end-column="5" />
               <folding>
-                <element signature="e#1258#1259#0" expanded="false" />
-                <element signature="e#1283#1284#0" expanded="false" />
-                <element signature="e#1320#1321#0" expanded="false" />
-                <element signature="e#1343#1344#0" expanded="false" />
-                <element signature="e#1385#1386#0" expanded="false" />
-                <element signature="e#1422#1423#0" expanded="false" />
-                <element signature="e#1461#1462#0" expanded="false" />
-                <element signature="e#1495#1496#0" expanded="false" />
-                <element signature="e#1550#1551#0" expanded="false" />
-                <element signature="e#1596#1597#0" expanded="false" />
-                <element signature="e#1657#1658#0" expanded="false" />
-                <element signature="e#1709#1710#0" expanded="false" />
-                <element signature="e#1744#1745#0" expanded="false" />
-                <element signature="e#1774#1775#0" expanded="false" />
-                <element signature="e#1821#1822#0" expanded="false" />
-                <element signature="e#1859#1860#0" expanded="false" />
-                <element signature="e#1893#1894#0" expanded="false" />
-                <element signature="e#1922#1923#0" expanded="false" />
-                <element signature="e#1967#1968#0" expanded="false" />
-                <element signature="e#2003#2004#0" expanded="false" />
-                <element signature="e#2040#2041#0" expanded="false" />
-                <element signature="e#2073#2074#0" expanded="false" />
-                <element signature="e#2125#2126#0" expanded="false" />
-                <element signature="e#2169#2170#0" expanded="false" />
-                <element signature="e#2205#2206#0" expanded="false" />
-                <element signature="e#2236#2237#0" expanded="false" />
-                <element signature="e#2285#2286#0" expanded="false" />
-                <element signature="e#2325#2326#0" expanded="false" />
-                <element signature="e#2368#2369#0" expanded="false" />
-                <element signature="e#2407#2408#0" expanded="false" />
-                <element signature="e#2471#2472#0" expanded="false" />
-                <element signature="e#2527#2528#0" expanded="false" />
-                <element signature="e#2568#2569#0" expanded="false" />
-                <element signature="e#2605#2606#0" expanded="false" />
-                <element signature="e#2665#2666#0" expanded="false" />
-                <element signature="e#2717#2718#0" expanded="false" />
-                <element signature="e#2752#2753#0" expanded="false" />
-                <element signature="e#2783#2784#0" expanded="false" />
-                <element signature="e#2831#2832#0" expanded="false" />
-                <element signature="e#2871#2872#0" expanded="false" />
-                <element signature="e#2907#2908#0" expanded="false" />
-                <element signature="e#2939#2940#0" expanded="false" />
-                <element signature="e#2989#2990#0" expanded="false" />
-                <element signature="e#3031#3032#0" expanded="false" />
-                <element signature="e#3073#3074#0" expanded="false" />
-                <element signature="e#3111#3112#0" expanded="false" />
-                <element signature="e#3173#3174#0" expanded="false" />
-                <element signature="e#3227#3228#0" expanded="false" />
-                <element signature="e#3265#3266#0" expanded="false" />
-                <element signature="e#3299#3300#0" expanded="false" />
-                <element signature="e#3353#3354#0" expanded="false" />
-                <element signature="e#3399#3400#0" expanded="false" />
-                <element signature="e#3437#3438#0" expanded="false" />
-                <element signature="e#3471#3472#0" expanded="false" />
-                <element signature="e#3525#3526#0" expanded="false" />
-                <element signature="e#3571#3572#0" expanded="false" />
-                <element signature="e#3604#3605#0" expanded="false" />
-                <element signature="e#3633#3634#0" expanded="false" />
-                <element signature="e#3678#3679#0" expanded="false" />
-                <element signature="e#3714#3715#0" expanded="false" />
-                <element signature="e#3751#3752#0" expanded="false" />
-                <element signature="e#3783#3784#0" expanded="false" />
-                <element signature="e#3834#3835#0" expanded="false" />
-                <element signature="e#3876#3877#0" expanded="false" />
-                <element signature="e#3917#3918#0" expanded="false" />
-                <element signature="e#3954#3955#0" expanded="false" />
-                <element signature="e#4016#4017#0" expanded="false" />
-                <element signature="e#4068#4069#0" expanded="false" />
-                <element signature="e#4128#4129#0" expanded="false" />
-                <element signature="e#4180#4181#0" expanded="false" />
-                <element signature="e#4214#4215#0" expanded="false" />
-                <element signature="e#4244#4245#0" expanded="false" />
-                <element signature="e#4290#4291#0" expanded="false" />
-                <element signature="e#4328#4329#0" expanded="false" />
-                <element signature="e#4363#4364#0" expanded="false" />
-                <element signature="e#4394#4395#0" expanded="false" />
-                <element signature="e#4442#4443#0" expanded="false" />
-                <element signature="e#4482#4483#0" expanded="false" />
-                <element signature="e#4521#4522#0" expanded="false" />
-                <element signature="e#4556#4557#0" expanded="false" />
-                <element signature="e#4612#4613#0" expanded="false" />
-                <element signature="e#4660#4661#0" expanded="false" />
-                <element signature="e#4697#4698#0" expanded="false" />
-                <element signature="e#4730#4731#0" expanded="false" />
-                <element signature="e#4782#4783#0" expanded="false" />
-                <element signature="e#4826#4827#0" expanded="false" />
-                <element signature="e#4870#4871#0" expanded="false" />
-                <element signature="e#4910#4911#0" expanded="false" />
-                <element signature="e#4976#4977#0" expanded="false" />
-                <element signature="e#5034#5035#0" expanded="false" />
-                <element signature="e#5072#5073#0" expanded="false" />
-                <element signature="e#5105#5106#0" expanded="false" />
-                <element signature="e#5158#5159#0" expanded="false" />
-                <element signature="e#5202#5203#0" expanded="false" />
-                <element signature="e#5238#5239#0" expanded="false" />
-                <element signature="e#5270#5271#0" expanded="false" />
-                <element signature="e#5320#5321#0" expanded="false" />
-                <element signature="e#5362#5363#0" expanded="false" />
-                <element signature="e#5399#5400#0" expanded="false" />
-                <element signature="e#5432#5433#0" expanded="false" />
-                <element signature="e#5484#5485#0" expanded="false" />
-                <element signature="e#5528#5529#0" expanded="false" />
+                <element signature="e#5699#5700#0" expanded="true" />
+                <element signature="e#5727#5728#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="InquiriesRequestData.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/src/main/java/compas/models/bankoperations/Inquiries/InquiriesRequestData.java">
+      <file leaf-file-name="SMS.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/src/main/java/compas/models/SMS.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="25" column="10" lean-forward="false" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
+            <state relative-caret-position="168">
+              <caret line="15" column="50" lean-forward="false" selection-start-line="15" selection-start-column="50" selection-end-line="15" selection-end-column="50" />
               <folding>
-                <element signature="e#786#787#0" expanded="false" />
-                <element signature="e#811#812#0" expanded="false" />
-                <element signature="e#848#849#0" expanded="false" />
-                <element signature="e#876#877#0" expanded="false" />
-                <element signature="e#910#911#0" expanded="false" />
-                <element signature="e#940#941#0" expanded="false" />
-                <element signature="e#986#987#0" expanded="false" />
-                <element signature="e#1024#1025#0" expanded="false" />
-                <element signature="e#1060#1061#0" expanded="false" />
-                <element signature="e#1092#1093#0" expanded="false" />
-                <element signature="e#1142#1143#0" expanded="false" />
-                <element signature="e#1184#1185#0" expanded="false" />
-                <element signature="e#1218#1219#0" expanded="false" />
-                <element signature="e#1248#1249#0" expanded="false" />
-                <element signature="e#1294#1295#0" expanded="false" />
-                <element signature="e#1332#1333#0" expanded="false" />
-                <element signature="e#1367#1368#0" expanded="false" />
-                <element signature="e#1398#1399#0" expanded="false" />
-                <element signature="e#1446#1447#0" expanded="false" />
-                <element signature="e#1486#1487#0" expanded="false" />
-                <element signature="e#1521#1522#0" expanded="false" />
-                <element signature="e#1552#1553#0" expanded="false" />
-                <element signature="e#1600#1601#0" expanded="false" />
-                <element signature="e#1640#1641#0" expanded="false" />
-                <element signature="e#1676#1677#0" expanded="false" />
-                <element signature="e#1707#1708#0" expanded="false" />
-                <element signature="e#1756#1757#0" expanded="false" />
-                <element signature="e#1796#1797#0" expanded="false" />
-                <element signature="e#1835#1836#0" expanded="false" />
-                <element signature="e#1870#1871#0" expanded="false" />
-                <element signature="e#1926#1927#0" expanded="false" />
-                <element signature="e#1974#1975#0" expanded="false" />
-                <element signature="e#2007#2008#0" expanded="false" />
-                <element signature="e#2036#2037#0" expanded="false" />
-                <element signature="e#2080#2081#0" expanded="false" />
-                <element signature="e#2116#2117#0" expanded="false" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RestServiceConfig.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/restservice/RestServiceConfig.java">
+      <file leaf-file-name="ApiResponse.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/src/main/java/compas/models/apiresponse/ApiResponse.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="44" column="39" lean-forward="false" selection-start-line="44" selection-start-column="39" selection-end-line="44" selection-end-column="39" />
+            <state relative-caret-position="136">
+              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MasterDataResponse.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/src/main/java/compas/models/apiresponse/MasterDataResponse.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="33" lean-forward="false" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SmsResponse.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/src/main/java/compas/models/apiresponse/SmsResponse.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="24" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="24" />
               <folding>
-                <element signature="e#17443#17444#0" expanded="false" />
-                <element signature="e#17494#17495#0" expanded="false" />
-                <element signature="e#18215#18216#0" expanded="false" />
-                <element signature="e#18266#18267#0" expanded="false" />
+                <element signature="e#319#320#0" expanded="true" />
+                <element signature="e#346#347#0" expanded="true" />
+                <element signature="e#387#388#0" expanded="true" />
+                <element signature="e#419#420#0" expanded="true" />
+                <element signature="e#459#460#0" expanded="true" />
+                <element signature="e#495#496#0" expanded="true" />
+                <element signature="e#553#554#0" expanded="true" />
+                <element signature="e#603#604#0" expanded="true" />
+                <element signature="e#646#647#0" expanded="true" />
+                <element signature="e#685#686#0" expanded="true" />
+                <element signature="e#749#750#0" expanded="true" />
+                <element signature="e#805#806#0" expanded="true" />
+                <element signature="e#837#838#0" expanded="true" />
+                <element signature="e#864#865#0" expanded="true" />
+                <element signature="e#905#906#0" expanded="true" />
+                <element signature="e#932#933#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ApplicationService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/ApplicationService.java">
+      <file leaf-file-name="SmsData.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/src/main/java/compas/models/apiresponse/SmsData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="22" column="35" lean-forward="false" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
+            <state relative-caret-position="170">
+              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+              <folding>
+                <element signature="e#230#231#0" expanded="true" />
+                <element signature="e#263#264#0" expanded="true" />
+                <element signature="e#315#316#0" expanded="true" />
+                <element signature="e#354#355#0" expanded="true" />
+                <element signature="e#388#389#0" expanded="true" />
+                <element signature="e#418#419#0" expanded="true" />
+                <element signature="e#464#465#0" expanded="true" />
+                <element signature="e#497#498#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InquiriesResponseData.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/src/main/java/compas/models/bankoperations/Inquiries/InquiriesResponseData.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Application.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/Application.java">
+      <file leaf-file-name="OTPController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/transaction/passwordpolicy/OTPController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="40" column="43" lean-forward="false" selection-start-line="40" selection-start-column="43" selection-end-line="40" selection-end-column="43" />
+            <state relative-caret-position="1418">
+              <caret line="194" column="27" lean-forward="false" selection-start-line="194" selection-start-column="15" selection-end-line="194" selection-end-column="27" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="logging.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/resources/logging.properties">
+      <file leaf-file-name="MongoConfiguration.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/MongoConfig/MongoConfiguration.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="68" lean-forward="false" selection-start-line="1" selection-start-column="68" selection-end-line="1" selection-end-column="68" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TransactionsToBank.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/transactionschannel/TransactionsToBank.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" column="21" lean-forward="false" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/compas-transaction/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1394">
-              <caret line="82" column="20" lean-forward="false" selection-start-line="82" selection-start-column="20" selection-end-line="82" selection-end-column="20" />
+            <state relative-caret-position="119">
+              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -498,6 +283,7 @@
       <find>postal_town</find>
       <find>est</find>
       <find>private</find>
+      <find>action</find>
     </findStrings>
     <replaceStrings>
       <replace>public</replace>
@@ -518,28 +304,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/compas-transaction/src/main/java/compas/bank/BranchRepository.java" />
-        <option value="$PROJECT_DIR$/compas-transaction/src/main/java/compas/bank/BankController.java" />
-        <option value="$PROJECT_DIR$/compas-transaction/src/main/java/compas/bank/BranchController.java" />
-        <option value="$PROJECT_DIR$/compas-transaction/src/main/java/compas/user/UserController.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/compas-transaction/src/main/java/compas/transaction/Application.java" />
-        <option value="$PROJECT_DIR$/compas-transaction/src/main/java/compas/utilities/UtilitiesController.java" />
-        <option value="$PROJECT_DIR$/compas-transaction/src/main/java/compas/ApplicationProperties.java" />
-        <option value="$PROJECT_DIR$/compas-transaction/src/main/java/compas/ApplicationService.java" />
-        <option value="$PROJECT_DIR$/models/src/main/java/compas/models/Tariff.java" />
-        <option value="$PROJECT_DIR$/compas-transaction/src/main/java/compas/tariffs/TariffsRepository.java" />
-        <option value="$PROJECT_DIR$/compas-transaction/src/main/java/compas/accounts/AccountsRepository.java" />
-        <option value="$PROJECT_DIR$/compas-transaction/src/main/java/compas/customer/CustomerRDBMSRepository.java" />
-        <option value="$PROJECT_DIR$/compas-transaction/src/main/java/compas/customer/CustomerController.java" />
-        <option value="$PROJECT_DIR$/compas-transaction/src/main/java/compas/authentications/ValidateTransactionsInterface.java" />
-        <option value="$PROJECT_DIR$/compas-transaction/src/main/java/compas/txn_params/TransactionParamsCenter.java" />
-        <option value="$PROJECT_DIR$/compas-transaction/src/main/java/compas/agent/AgentRepository.java" />
-        <option value="$PROJECT_DIR$/compas-transaction/src/main/java/compas/repositories/AgentOperations.java" />
-        <option value="$PROJECT_DIR$/compas-transaction/src/main/java/compas/agent/AgentController.java" />
-        <option value="$PROJECT_DIR$/compas-transaction/src/main/java/compas/repositories/AccountsOperations.java" />
-        <option value="$PROJECT_DIR$/compas-transaction/src/main/java/compas/repositories/AuthenticationOperations.java" />
-        <option value="$PROJECT_DIR$/compas-transaction/src/main/java/compas/repositories/BankOperations.java" />
         <option value="$PROJECT_DIR$/compas-transaction/src/main/java/compas/repositories/CurrencyOperations.java" />
         <option value="$PROJECT_DIR$/compas-transaction/src/main/java/compas/repositories/CustomerOperations.java" />
         <option value="$PROJECT_DIR$/compas-transaction/src/main/java/compas/repositories/DeviceOperations.java" />
@@ -549,26 +313,48 @@
         <option value="$PROJECT_DIR$/compas-transaction/src/main/java/compas/repositories/UtilitiesOperations.java" />
         <option value="$PROJECT_DIR$/compas-transaction/src/main/java/compas/transactionschannel/TransactionOperationRepository.java" />
         <option value="$PROJECT_DIR$/compas-transaction/src/main/java/compas/repositories/RepositoryOperations.java" />
-        <option value="$PROJECT_DIR$/compas-transaction/src/main/java/compas/repositories/TransactionOperations.java" />
         <option value="$PROJECT_DIR$/compas-transaction/src/main/java/compas/accounts/AccountsController.java" />
-        <option value="$PROJECT_DIR$/compas-transaction/src/main/java/compas/txn_params/InquiriesRequestDataRepository.java" />
-        <option value="$PROJECT_DIR$/models/src/main/java/compas/models/bankoperations/Inquiries/InquiriesRequestData.java" />
         <option value="$PROJECT_DIR$/compas-transaction/src/main/java/compas/txn_params/TransactionOperationsRepository.java" />
         <option value="$PROJECT_DIR$/compas-rest-service/src/main/java/compas/security/SignatureGenerator.java" />
         <option value="$PROJECT_DIR$/models/src/main/java/compas/models/bankoperations/OperationEnums.java" />
-        <option value="$PROJECT_DIR$/compas-transaction/src/main/java/compas/transaction/passwordpolicy/OTPController.java" />
-        <option value="$PROJECT_DIR$/compas-transaction/src/main/java/compas/transactionschannel/TransactionsToBank.java" />
-        <option value="$PROJECT_DIR$/models/src/main/java/compas/models/Transactions.java" />
         <option value="$PROJECT_DIR$/compas-transaction/src/main/java/compas/authentications/ValidateTransactions.java" />
         <option value="$PROJECT_DIR$/compas-transaction/src/main/java/compas/tariffs/TariffManager.java" />
         <option value="$PROJECT_DIR$/models/src/main/java/compas/models/bankoperations/withdrawal/WithdrawalRequestData.java" />
-        <option value="$PROJECT_DIR$/compas-transaction/src/main/java/compas/restservice/RestServiceConfig.java" />
-        <option value="$PROJECT_DIR$/compas-transaction/pom.xml" />
         <option value="$PROJECT_DIR$/compas-transaction/src/main/resources/log4j.properties" />
         <option value="$PROJECT_DIR$/compas-transaction/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/compas-transaction/src/main/resources/logging.properties" />
-        <option value="$PROJECT_DIR$/compas-transaction/src/main/java/compas/transaction/TransactionController.java" />
+        <option value="$PROJECT_DIR$/compas-transaction/src/main/java/compas/agent/AgentRepository.java" />
+        <option value="$PROJECT_DIR$/compas-transaction/src/main/java/compas/accounts/AccountsRepository.java" />
+        <option value="$PROJECT_DIR$/compas-transaction/pom.xml" />
+        <option value="$PROJECT_DIR$/compas-transaction/log-2018-06-14.log" />
+        <option value="$PROJECT_DIR$/compas-transaction/src/main/resources/logback-test.xml" />
+        <option value="$PROJECT_DIR$/models/src/main/java/compas/models/bankoperations/Inquiries/InquiriesResponseMessage.java" />
+        <option value="$PROJECT_DIR$/models/src/main/java/compas/models/bankoperations/Inquiries/InquiriesResponseData.java" />
+        <option value="$PROJECT_DIR$/models/src/main/java/compas/models/apiresponse/ApiResponse.java" />
+        <option value="$PROJECT_DIR$/compas-transaction/src/main/java/compas/transaction/passwordpolicy/OTPRepository.java" />
+        <option value="$PROJECT_DIR$/compas-transaction/src/main/java/compas/transaction/TransactionRepository.java" />
+        <option value="$PROJECT_DIR$/models/src/main/java/compas/models/bankoperations/Inquiries/InquiriesRequestData.java" />
+        <option value="$PROJECT_DIR$/compas-transaction/src/main/java/compas/repositories/TransactionOperations.java" />
+        <option value="$PROJECT_DIR$/compas-transaction/src/main/java/compas/txn_params/InquiriesRequestDataRepository.java" />
+        <option value="$PROJECT_DIR$/compas-transaction/src/main/java/compas/transaction/TransactionRDBMSRepository.java" />
+        <option value="$PROJECT_DIR$/compas-transaction/src/main/java/compas/ApplicationService.java" />
+        <option value="$PROJECT_DIR$/compas-transaction/src/main/java/compas/restservice/RestServiceConfig.java" />
+        <option value="$PROJECT_DIR$/models/src/main/java/compas/models/Device.java" />
+        <option value="$PROJECT_DIR$/models/src/main/java/compas/models/Issued_Device.java" />
+        <option value="$PROJECT_DIR$/models/src/main/java/compas/models/apiresponse/AgentResponse.java" />
+        <option value="$PROJECT_DIR$/models/src/main/java/compas/models/apiresponse/MasterDataResponse.java" />
+        <option value="$PROJECT_DIR$/compas-transaction/src/main/java/compas/agent/AgentController.java" />
+        <option value="$PROJECT_DIR$/compas-transaction/src/main/java/compas/device/Issued_DeviceRepository.java" />
         <option value="$PROJECT_DIR$/compas-transaction/src/main/java/compas/Application.java" />
+        <option value="$PROJECT_DIR$/models/src/main/java/compas/models/Transactions.java" />
+        <option value="$PROJECT_DIR$/models/src/main/java/compas/models/bankoperations/sms/SmsRequest.java" />
+        <option value="$PROJECT_DIR$/compas-transaction/src/main/java/compas/transactionschannel/TransactionsToBank.java" />
+        <option value="$PROJECT_DIR$/compas-transaction/src/main/java/compas/transaction/passwordpolicy/OTPController.java" />
+        <option value="$PROJECT_DIR$/models/src/main/java/compas/models/apiresponse/SmsData.java" />
+        <option value="$PROJECT_DIR$/models/src/main/java/compas/models/apiresponse/SmsResponse.java" />
+        <option value="$PROJECT_DIR$/models/src/main/java/compas/models/SMS.java" />
+        <option value="$PROJECT_DIR$/compas-transaction/src/main/java/compas/MongoConfig/MongoConfiguration.java" />
+        <option value="$PROJECT_DIR$/compas-transaction/src/main/java/compas/transaction/TransactionController.java" />
       </list>
     </option>
   </component>
@@ -617,9 +403,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="13" />
-    <option name="width" value="1360" />
-    <option name="height" value="735" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -639,6 +426,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -872,7 +660,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="transfers" />
+              <option name="myItemId" value="sms" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -952,11 +740,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="bankoperations" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Inquiries" />
+              <option name="myItemId" value="apiresponse" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -971,6 +755,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="compas-transaction" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="compas-agency-api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="compas-agency-api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="compas-transaction" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="target" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1041,6 +843,40 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="compas" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="compas-agency-api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="compas-agency-api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="compas-transaction" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="compas" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="transactionschannel" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1078,9 +914,148 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="compas-agency-api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="compas-agency-api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="compas-transaction" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="compas" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="transaction" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="passwordpolicy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="compas-agency-api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="compas-agency-api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="compas-transaction" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="compas" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="restservice" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="compas-agency-api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="compas-agency-api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="compas-transaction" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="compas" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MongoConfig" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="compas-agency-api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="compas-agency-api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="compas-transaction" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="compas" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="agent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -1729,7 +1704,18 @@
       <workItem from="1528708636675" duration="8219000" />
       <workItem from="1528793536613" duration="22542000" />
       <workItem from="1528874347576" duration="29352000" />
-      <workItem from="1528923854781" duration="2639000" />
+      <workItem from="1528923854781" duration="57398000" />
+      <workItem from="1529303371378" duration="11874000" />
+      <workItem from="1529413502255" duration="12599000" />
+      <workItem from="1529659623498" duration="40051000" />
+      <workItem from="1529917261678" duration="3039000" />
+      <workItem from="1530090098401" duration="13624000" />
+      <workItem from="1530189849208" duration="4453000" />
+      <workItem from="1530258434803" duration="4078000" />
+      <workItem from="1530265846503" duration="7861000" />
+      <workItem from="1530278717280" duration="1165000" />
+      <workItem from="1530353369694" duration="5042000" />
+      <workItem from="1530622693309" duration="8786000" />
     </task>
     <servers />
   </component>
@@ -1739,7 +1725,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="842940000" />
+    <option name="totallyTimeSpent" value="1010271000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -1751,20 +1737,21 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="13" y="0" width="1360" height="735" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.54531" sideWeight="0.50610685" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6413044" sideWeight="0.5092308" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2653846" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977098" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="SBT Execute" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="true" content_ui="tabs" />
+      <window_info id="SBT Execute" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24923077" sideWeight="0.4880763" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290938" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="SBT Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1772,9 +1759,10 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290938" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290938" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5246423" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31796503" sideWeight="0.4970458" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.9046105" sideWeight="0.49389312" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34384614" sideWeight="0.82829887" order="0" side_tool="false" content_ui="combo" x="489" y="222" width="397" height="291" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.63009405" sideWeight="0.49076924" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36081696" sideWeight="0.82829887" order="0" side_tool="false" content_ui="combo" x="489" y="222" width="397" height="291" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977098" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3223077" sideWeight="0.17170112" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -1785,10 +1773,8 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24961832" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290938" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Module Dependencies" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977098" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290938" sideWeight="0.49694657" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5246423" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3290938" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -1848,8 +1834,14 @@
           </properties>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/transactionschannel/TransactionsToBank.java</url>
+          <line>55</line>
+          <properties />
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="5" />
+      <option name="time" value="6" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1858,516 +1850,450 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/txn_params/TransactionTypeRepository.java">
+    <entry file="file://$PROJECT_DIR$/compas-rest-service/src/main/java/compas/security/SignatureGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="35" column="30" lean-forward="false" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/transaction/agencyreceipt/ReceiptManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="46" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compas-transaction/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1105">
+          <caret line="65" column="43" lean-forward="false" selection-start-line="65" selection-start-column="43" selection-end-line="65" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/src/main/java/compas/models/Fingerprints.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-989">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/src/main/java/compas/models/CustomerRequest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
-          <caret line="14" column="27" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <caret line="9" column="18" lean-forward="false" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/user/UserRepository.java">
+    <entry file="file://$PROJECT_DIR$/compas-transaction/logback.USER_HOME_IS_UNDEFINEDlog-2018-06-15.log" />
+    <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/resources/logging.properties" />
+    <entry file="file://$PROJECT_DIR$/compas-transaction/log-2018-06-14.log" />
+    <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/resources/logback-test.xml" />
+    <entry file="file://$PROJECT_DIR$/models/src/main/java/compas/models/apiresponse/Message.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="12" column="17" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+        <state relative-caret-position="187">
+          <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/agent/AgentController.java">
+    <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/bank/BankRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-42">
-          <caret line="59" column="47" lean-forward="false" selection-start-line="59" selection-start-column="30" selection-end-line="59" selection-end-column="47" />
+        <state relative-caret-position="136">
+          <caret line="12" column="17" lean-forward="false" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/repositories/UtilitiesOperations.java">
+    <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/bank/BankController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+        <state relative-caret-position="136">
+          <caret line="17" column="29" lean-forward="true" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/repositories/UserOperations.java">
+    <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/bank/BranchRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="53" lean-forward="false" selection-start-line="16" selection-start-column="53" selection-end-line="16" selection-end-column="53" />
+        <state relative-caret-position="136">
+          <caret line="14" column="18" lean-forward="false" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/utilities/UtilitiesRepository.java">
+    <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/bank/BranchController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="22" column="30" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/repositories/RepositoryOperations.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="50" column="49" lean-forward="false" selection-start-line="50" selection-start-column="49" selection-end-line="50" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/src/main/java/compas/models/apiresponse/ApiResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/agent/TransOpRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/agent/AgentRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="40" column="19" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+        <state relative-caret-position="153">
+          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/customer/CustomerRDBMSRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+        <state relative-caret-position="187">
+          <caret line="22" column="11" lean-forward="false" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/customer/CustomerRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="20" column="22" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/authentications/AuthenticationModeRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="18" column="29" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/txn_params/TransactionModeRepository.java">
+    <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/customer/CustomerController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
-          <caret line="13" column="23" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/src/main/java/compas/models/bankoperations/Inquiries/InquiriesResponseMessage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/src/main/java/compas/models/bankoperations/Inquiries/InquiriesResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="35" lean-forward="false" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/transaction/passwordpolicy/OTPRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="68" column="52" lean-forward="false" selection-start-line="68" selection-start-column="51" selection-end-line="68" selection-end-column="52" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/transaction/TransactionRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="618">
-          <caret line="56" column="37" lean-forward="true" selection-start-line="56" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+        <state relative-caret-position="323">
+          <caret line="32" column="32" lean-forward="false" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/repositories/TransactionOperations.java">
+    <entry file="file://$PROJECT_DIR$/models/src/main/java/compas/models/bankoperations/Inquiries/InquiriesRequestData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="36" column="2" lean-forward="false" selection-start-line="36" selection-start-column="2" selection-end-line="37" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/accounts/AccountsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="40" column="19" lean-forward="false" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/transactionschannel/TransactionOperationRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="22" column="29" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/src/main/java/compas/models/Device.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-17">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/accounts/AccountsRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="23" column="67" lean-forward="false" selection-start-line="23" selection-start-column="53" selection-end-line="23" selection-end-column="67" />
+        <state relative-caret-position="449">
+          <caret line="41" column="18" lean-forward="false" selection-start-line="41" selection-start-column="18" selection-end-line="41" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/txn_params/InquiriesRequestDataRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="8" lean-forward="false" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
+        <state relative-caret-position="170">
+          <caret line="15" column="7" lean-forward="false" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/transaction/TransactionRDBMSRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
-          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="25" selection-end-column="100" />
-          <folding />
+          <caret line="23" column="14" lean-forward="false" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/compas-rest-service/src/main/java/compas/security/Sha256HmacEncode.java">
+    <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/repositories/TransactionOperations.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="22" column="53" lean-forward="false" selection-start-line="22" selection-start-column="53" selection-end-line="22" selection-end-column="53" />
+        <state relative-caret-position="340">
+          <caret line="114" column="16" lean-forward="true" selection-start-line="114" selection-start-column="16" selection-end-line="114" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/txn_params/TransactionOperationController.java">
+    <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/txn_params/TransactionParamsCenter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="14" column="22" lean-forward="true" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/compas-rest-service/src/main/java/compas/security/GenerateSignature.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="39" lean-forward="false" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/compas-rest-service/src/main/java/compas/security/Hash256Encode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="27" lean-forward="false" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/compas-rest-service/src/main/java/compas/security/SignatureGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="32" column="68" lean-forward="false" selection-start-line="32" selection-start-column="68" selection-end-line="32" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/src/main/java/compas/models/Transaction_Type.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/src/main/java/compas/models/bankoperations/AccountInquiry/ACResponseData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/src/main/java/compas/models/bankoperations/OperationEnums.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="4" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/src/main/java/compas/models/bankoperations/Inquiries/InquiriesResponseData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="26" lean-forward="false" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/src/main/java/compas/models/bankoperations/Inquiries/InquiriesResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="26" lean-forward="false" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/txn_params/TransactionOperationsRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="33" column="47" lean-forward="false" selection-start-line="33" selection-start-column="47" selection-end-line="33" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/src/main/java/compas/models/bankoperations/withdrawal/WithdrawalResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="31" lean-forward="false" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/transaction/passwordpolicy/OTPController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="127" column="54" lean-forward="false" selection-start-line="127" selection-start-column="54" selection-end-line="127" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/src/main/java/compas/models/bankoperations/withdrawal/WithdrawalResponseData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/authentications/ValidateTransactionsInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="31" lean-forward="false" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/tariffs/TariffManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="32" column="322" lean-forward="false" selection-start-line="32" selection-start-column="322" selection-end-line="32" selection-end-column="322" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/src/main/java/compas/models/bankoperations/withdrawal/WithdrawalRequestData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="18" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/src/main/java/compas/models/bankoperations/Inquiries/InquiriesRequestData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="10" lean-forward="false" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
-          <folding>
-            <element signature="e#786#787#0" expanded="false" />
-            <element signature="e#811#812#0" expanded="false" />
-            <element signature="e#848#849#0" expanded="false" />
-            <element signature="e#876#877#0" expanded="false" />
-            <element signature="e#910#911#0" expanded="false" />
-            <element signature="e#940#941#0" expanded="false" />
-            <element signature="e#986#987#0" expanded="false" />
-            <element signature="e#1024#1025#0" expanded="false" />
-            <element signature="e#1060#1061#0" expanded="false" />
-            <element signature="e#1092#1093#0" expanded="false" />
-            <element signature="e#1142#1143#0" expanded="false" />
-            <element signature="e#1184#1185#0" expanded="false" />
-            <element signature="e#1218#1219#0" expanded="false" />
-            <element signature="e#1248#1249#0" expanded="false" />
-            <element signature="e#1294#1295#0" expanded="false" />
-            <element signature="e#1332#1333#0" expanded="false" />
-            <element signature="e#1367#1368#0" expanded="false" />
-            <element signature="e#1398#1399#0" expanded="false" />
-            <element signature="e#1446#1447#0" expanded="false" />
-            <element signature="e#1486#1487#0" expanded="false" />
-            <element signature="e#1521#1522#0" expanded="false" />
-            <element signature="e#1552#1553#0" expanded="false" />
-            <element signature="e#1600#1601#0" expanded="false" />
-            <element signature="e#1640#1641#0" expanded="false" />
-            <element signature="e#1676#1677#0" expanded="false" />
-            <element signature="e#1707#1708#0" expanded="false" />
-            <element signature="e#1756#1757#0" expanded="false" />
-            <element signature="e#1796#1797#0" expanded="false" />
-            <element signature="e#1835#1836#0" expanded="false" />
-            <element signature="e#1870#1871#0" expanded="false" />
-            <element signature="e#1926#1927#0" expanded="false" />
-            <element signature="e#1974#1975#0" expanded="false" />
-            <element signature="e#2007#2008#0" expanded="false" />
-            <element signature="e#2036#2037#0" expanded="false" />
-            <element signature="e#2080#2081#0" expanded="false" />
-            <element signature="e#2116#2117#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/src/main/java/compas/models/Transactions.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="23" column="23" lean-forward="false" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="23" />
-          <folding>
-            <element signature="e#1258#1259#0" expanded="false" />
-            <element signature="e#1283#1284#0" expanded="false" />
-            <element signature="e#1320#1321#0" expanded="false" />
-            <element signature="e#1343#1344#0" expanded="false" />
-            <element signature="e#1385#1386#0" expanded="false" />
-            <element signature="e#1422#1423#0" expanded="false" />
-            <element signature="e#1461#1462#0" expanded="false" />
-            <element signature="e#1495#1496#0" expanded="false" />
-            <element signature="e#1550#1551#0" expanded="false" />
-            <element signature="e#1596#1597#0" expanded="false" />
-            <element signature="e#1657#1658#0" expanded="false" />
-            <element signature="e#1709#1710#0" expanded="false" />
-            <element signature="e#1744#1745#0" expanded="false" />
-            <element signature="e#1774#1775#0" expanded="false" />
-            <element signature="e#1821#1822#0" expanded="false" />
-            <element signature="e#1859#1860#0" expanded="false" />
-            <element signature="e#1893#1894#0" expanded="false" />
-            <element signature="e#1922#1923#0" expanded="false" />
-            <element signature="e#1967#1968#0" expanded="false" />
-            <element signature="e#2003#2004#0" expanded="false" />
-            <element signature="e#2040#2041#0" expanded="false" />
-            <element signature="e#2073#2074#0" expanded="false" />
-            <element signature="e#2125#2126#0" expanded="false" />
-            <element signature="e#2169#2170#0" expanded="false" />
-            <element signature="e#2205#2206#0" expanded="false" />
-            <element signature="e#2236#2237#0" expanded="false" />
-            <element signature="e#2285#2286#0" expanded="false" />
-            <element signature="e#2325#2326#0" expanded="false" />
-            <element signature="e#2368#2369#0" expanded="false" />
-            <element signature="e#2407#2408#0" expanded="false" />
-            <element signature="e#2471#2472#0" expanded="false" />
-            <element signature="e#2527#2528#0" expanded="false" />
-            <element signature="e#2568#2569#0" expanded="false" />
-            <element signature="e#2605#2606#0" expanded="false" />
-            <element signature="e#2665#2666#0" expanded="false" />
-            <element signature="e#2717#2718#0" expanded="false" />
-            <element signature="e#2752#2753#0" expanded="false" />
-            <element signature="e#2783#2784#0" expanded="false" />
-            <element signature="e#2831#2832#0" expanded="false" />
-            <element signature="e#2871#2872#0" expanded="false" />
-            <element signature="e#2907#2908#0" expanded="false" />
-            <element signature="e#2939#2940#0" expanded="false" />
-            <element signature="e#2989#2990#0" expanded="false" />
-            <element signature="e#3031#3032#0" expanded="false" />
-            <element signature="e#3073#3074#0" expanded="false" />
-            <element signature="e#3111#3112#0" expanded="false" />
-            <element signature="e#3173#3174#0" expanded="false" />
-            <element signature="e#3227#3228#0" expanded="false" />
-            <element signature="e#3265#3266#0" expanded="false" />
-            <element signature="e#3299#3300#0" expanded="false" />
-            <element signature="e#3353#3354#0" expanded="false" />
-            <element signature="e#3399#3400#0" expanded="false" />
-            <element signature="e#3437#3438#0" expanded="false" />
-            <element signature="e#3471#3472#0" expanded="false" />
-            <element signature="e#3525#3526#0" expanded="false" />
-            <element signature="e#3571#3572#0" expanded="false" />
-            <element signature="e#3604#3605#0" expanded="false" />
-            <element signature="e#3633#3634#0" expanded="false" />
-            <element signature="e#3678#3679#0" expanded="false" />
-            <element signature="e#3714#3715#0" expanded="false" />
-            <element signature="e#3751#3752#0" expanded="false" />
-            <element signature="e#3783#3784#0" expanded="false" />
-            <element signature="e#3834#3835#0" expanded="false" />
-            <element signature="e#3876#3877#0" expanded="false" />
-            <element signature="e#3917#3918#0" expanded="false" />
-            <element signature="e#3954#3955#0" expanded="false" />
-            <element signature="e#4016#4017#0" expanded="false" />
-            <element signature="e#4068#4069#0" expanded="false" />
-            <element signature="e#4128#4129#0" expanded="false" />
-            <element signature="e#4180#4181#0" expanded="false" />
-            <element signature="e#4214#4215#0" expanded="false" />
-            <element signature="e#4244#4245#0" expanded="false" />
-            <element signature="e#4290#4291#0" expanded="false" />
-            <element signature="e#4328#4329#0" expanded="false" />
-            <element signature="e#4363#4364#0" expanded="false" />
-            <element signature="e#4394#4395#0" expanded="false" />
-            <element signature="e#4442#4443#0" expanded="false" />
-            <element signature="e#4482#4483#0" expanded="false" />
-            <element signature="e#4521#4522#0" expanded="false" />
-            <element signature="e#4556#4557#0" expanded="false" />
-            <element signature="e#4612#4613#0" expanded="false" />
-            <element signature="e#4660#4661#0" expanded="false" />
-            <element signature="e#4697#4698#0" expanded="false" />
-            <element signature="e#4730#4731#0" expanded="false" />
-            <element signature="e#4782#4783#0" expanded="false" />
-            <element signature="e#4826#4827#0" expanded="false" />
-            <element signature="e#4870#4871#0" expanded="false" />
-            <element signature="e#4910#4911#0" expanded="false" />
-            <element signature="e#4976#4977#0" expanded="false" />
-            <element signature="e#5034#5035#0" expanded="false" />
-            <element signature="e#5072#5073#0" expanded="false" />
-            <element signature="e#5105#5106#0" expanded="false" />
-            <element signature="e#5158#5159#0" expanded="false" />
-            <element signature="e#5202#5203#0" expanded="false" />
-            <element signature="e#5238#5239#0" expanded="false" />
-            <element signature="e#5270#5271#0" expanded="false" />
-            <element signature="e#5320#5321#0" expanded="false" />
-            <element signature="e#5362#5363#0" expanded="false" />
-            <element signature="e#5399#5400#0" expanded="false" />
-            <element signature="e#5432#5433#0" expanded="false" />
-            <element signature="e#5484#5485#0" expanded="false" />
-            <element signature="e#5528#5529#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/resources/log4j.properties" />
-    <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/transactionschannel/TransactionsToBank.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="21" lean-forward="false" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/compas-transaction/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1394">
-          <caret line="82" column="20" lean-forward="false" selection-start-line="82" selection-start-column="20" selection-end-line="82" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/restservice/RestServiceConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="44" column="39" lean-forward="false" selection-start-line="44" selection-start-column="39" selection-end-line="44" selection-end-column="39" />
-          <folding>
-            <element signature="e#17443#17444#0" expanded="false" />
-            <element signature="e#17494#17495#0" expanded="false" />
-            <element signature="e#18215#18216#0" expanded="false" />
-            <element signature="e#18266#18267#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="71" column="36" lean-forward="true" selection-start-line="71" selection-start-column="36" selection-end-line="71" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/authentications/ValidateTransactions.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="122" column="56" lean-forward="false" selection-start-line="122" selection-start-column="56" selection-end-line="122" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/resources/logging.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="68" lean-forward="false" selection-start-line="1" selection-start-column="68" selection-end-line="1" selection-end-column="68" />
-          <folding />
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/ApplicationService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="22" column="35" lean-forward="false" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
+        <state relative-caret-position="136">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="20" selection-end-column="70" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/transaction/TransactionController.java">
+    <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/device/DeviceRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="114" column="40" lean-forward="false" selection-start-line="114" selection-start-column="40" selection-end-line="114" selection-end-column="40" />
+        <state relative-caret-position="340">
+          <caret line="26" column="6" lean-forward="false" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/src/main/java/compas/models/Issued_Device.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="3" lean-forward="false" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/agent/AgentResponse.java" />
+    <entry file="file://$PROJECT_DIR$/models/src/main/java/compas/models/apiresponse/AgentResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#750#751#0" expanded="false" />
+            <element signature="e#779#780#0" expanded="false" />
+            <element signature="e#823#824#0" expanded="false" />
+            <element signature="e#859#860#0" expanded="false" />
+            <element signature="e#906#907#0" expanded="false" />
+            <element signature="e#942#943#0" expanded="false" />
+            <element signature="e#1007#1008#0" expanded="false" />
+            <element signature="e#1057#1058#0" expanded="false" />
+            <element signature="e#1088#1089#0" expanded="false" />
+            <element signature="e#1116#1117#0" expanded="false" />
+            <element signature="e#1157#1158#0" expanded="false" />
+            <element signature="e#1191#1192#0" expanded="false" />
+            <element signature="e#1222#1223#0" expanded="false" />
+            <element signature="e#1250#1251#0" expanded="false" />
+            <element signature="e#1291#1292#0" expanded="false" />
+            <element signature="e#1325#1326#0" expanded="false" />
+            <element signature="e#1354#1355#0" expanded="false" />
+            <element signature="e#1381#1382#0" expanded="false" />
+            <element signature="e#1419#1420#0" expanded="false" />
+            <element signature="e#1451#1452#0" expanded="false" />
+            <element signature="e#1489#1490#0" expanded="false" />
+            <element signature="e#1518#1519#0" expanded="false" />
+            <element signature="e#1567#1568#0" expanded="false" />
+            <element signature="e#1603#1604#0" expanded="false" />
+            <element signature="e#1645#1646#0" expanded="false" />
+            <element signature="e#1676#1677#0" expanded="false" />
+            <element signature="e#1731#1732#0" expanded="false" />
+            <element signature="e#1771#1772#0" expanded="false" />
+            <element signature="e#1831#1832#0" expanded="false" />
+            <element signature="e#1871#1872#0" expanded="false" />
+            <element signature="e#2071#2072#0" expanded="false" />
+            <element signature="e#2111#2112#0" expanded="false" />
+            <element signature="e#2181#2182#0" expanded="false" />
+            <element signature="e#2226#2227#0" expanded="false" />
+            <element signature="e#2576#2577#0" expanded="false" />
+            <element signature="e#2608#2609#0" expanded="false" />
+            <element signature="e#2667#2668#0" expanded="false" />
+            <element signature="e#2709#2710#0" expanded="false" />
+            <element signature="e#2755#2756#0" expanded="false" />
+            <element signature="e#2788#2789#0" expanded="false" />
+            <element signature="e#2849#2850#0" expanded="false" />
+            <element signature="e#2893#2894#0" expanded="false" />
+            <element signature="e#2938#2939#0" expanded="false" />
+            <element signature="e#2971#2972#0" expanded="false" />
+            <element signature="e#3031#3032#0" expanded="false" />
+            <element signature="e#3075#3076#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/agent/AgentController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1938">
+          <caret line="139" column="58" lean-forward="false" selection-start-line="139" selection-start-column="58" selection-end-line="139" selection-end-column="58" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/authentications/ValidateTransactions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2941">
+          <caret line="190" column="19" lean-forward="false" selection-start-line="190" selection-start-column="19" selection-end-line="190" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/device/Issued_DeviceRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="23" column="77" lean-forward="false" selection-start-line="23" selection-start-column="77" selection-end-line="23" selection-end-column="77" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/Application.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="40" column="43" lean-forward="false" selection-start-line="40" selection-start-column="43" selection-end-line="40" selection-end-column="43" />
+        <state relative-caret-position="765">
+          <caret line="63" column="55" lean-forward="false" selection-start-line="63" selection-start-column="55" selection-end-line="63" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/src/main/java/compas/models/OTP.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="21" column="27" lean-forward="true" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/src/main/java/compas/models/Device.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="20" column="4" lean-forward="false" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/src/main/java/compas/models/bankoperations/reversals/ReversalRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/src/main/java/compas/models/bankoperations/reversals/ReversalRequestData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/src/main/java/compas/models/bankoperations/sms/SmsRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-45">
+          <caret line="10" column="20" lean-forward="false" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
+          <folding>
+            <element signature="e#312#313#0" expanded="true" />
+            <element signature="e#343#344#0" expanded="true" />
+            <element signature="e#391#392#0" expanded="true" />
+            <element signature="e#426#427#0" expanded="true" />
+            <element signature="e#459#460#0" expanded="true" />
+            <element signature="e#488#489#0" expanded="true" />
+            <element signature="e#532#533#0" expanded="true" />
+            <element signature="e#563#564#0" expanded="true" />
+            <element signature="e#591#592#0" expanded="true" />
+            <element signature="e#618#619#0" expanded="true" />
+            <element signature="e#655#656#0" expanded="true" />
+            <element signature="e#682#683#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/transactionschannel/TransactionsToBank.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2236">
+          <caret line="181" column="37" lean-forward="false" selection-start-line="181" selection-start-column="27" selection-end-line="181" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/restservice/RestServiceConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="255" column="142" lean-forward="false" selection-start-line="255" selection-start-column="136" selection-end-line="255" selection-end-column="142" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/transaction/passwordpolicy/OTPController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1418">
+          <caret line="194" column="27" lean-forward="false" selection-start-line="194" selection-start-column="15" selection-end-line="194" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/src/main/java/compas/models/bankoperations/Inquiries/InquiriesResponseData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/src/main/java/compas/models/apiresponse/SmsData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding>
+            <element signature="e#230#231#0" expanded="true" />
+            <element signature="e#263#264#0" expanded="true" />
+            <element signature="e#315#316#0" expanded="true" />
+            <element signature="e#354#355#0" expanded="true" />
+            <element signature="e#388#389#0" expanded="true" />
+            <element signature="e#418#419#0" expanded="true" />
+            <element signature="e#464#465#0" expanded="true" />
+            <element signature="e#497#498#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/src/main/java/compas/models/apiresponse/MasterDataResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="33" lean-forward="false" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/src/main/java/compas/models/apiresponse/SmsResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="24" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="24" />
+          <folding>
+            <element signature="e#319#320#0" expanded="true" />
+            <element signature="e#346#347#0" expanded="true" />
+            <element signature="e#387#388#0" expanded="true" />
+            <element signature="e#419#420#0" expanded="true" />
+            <element signature="e#459#460#0" expanded="true" />
+            <element signature="e#495#496#0" expanded="true" />
+            <element signature="e#553#554#0" expanded="true" />
+            <element signature="e#603#604#0" expanded="true" />
+            <element signature="e#646#647#0" expanded="true" />
+            <element signature="e#685#686#0" expanded="true" />
+            <element signature="e#749#750#0" expanded="true" />
+            <element signature="e#805#806#0" expanded="true" />
+            <element signature="e#837#838#0" expanded="true" />
+            <element signature="e#864#865#0" expanded="true" />
+            <element signature="e#905#906#0" expanded="true" />
+            <element signature="e#932#933#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/src/main/java/compas/models/apiresponse/ApiResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/src/main/java/compas/models/Transactions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2533">
+          <caret line="258" column="5" lean-forward="false" selection-start-line="258" selection-start-column="5" selection-end-line="258" selection-end-column="5" />
+          <folding>
+            <element signature="e#5699#5700#0" expanded="true" />
+            <element signature="e#5727#5728#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/src/main/java/compas/models/SMS.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="15" column="50" lean-forward="false" selection-start-line="15" selection-start-column="50" selection-end-line="15" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/MongoConfig/MongoConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compas-transaction/src/main/java/compas/transaction/TransactionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="283" column="45" lean-forward="true" selection-start-line="283" selection-start-column="45" selection-end-line="283" selection-end-column="45" />
           <folding />
         </state>
       </provider>

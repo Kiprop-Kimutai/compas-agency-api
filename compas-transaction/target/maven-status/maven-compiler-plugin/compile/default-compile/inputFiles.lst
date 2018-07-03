@@ -54,7 +54,6 @@ D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\repositori
 D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\accounts\AccountsRepository.java
 D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\ApplicationService.java
 D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\tariffs\TariffsController.java
-D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\agent\AgentResponse.java
 D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\transactionschannel\TransactionsToBank.java
 D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\customer\CustomerRDBMSRepository.java
 D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\MongoConfig\MongoConfiguration.java

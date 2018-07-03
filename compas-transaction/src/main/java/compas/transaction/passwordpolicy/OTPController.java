@@ -3,10 +3,12 @@ package compas.transaction.passwordpolicy;
 import com.google.gson.Gson;
 import compas.device.Issued_DeviceRepository;
 import compas.models.OTP;
+import compas.models.SMS;
 import compas.models.Transactions;
 import compas.models.apiresponse.ApiResponse;
 import compas.models.apiresponse.Message;
 import compas.restservice.RestServiceConfig;
+import compas.transaction.TransactionController;
 import compas.transaction.TransactionRDBMSRepository;
 import compas.transaction.TransactionRepository;
 import compas.transactionschannel.TransactionsToBank;
@@ -40,7 +42,8 @@ public class OTPController {
     @Autowired
     private TransactionsToBank transactionsToBank;
     private TransactionRepository transactionRepository = new TransactionRepository();
-
+    @Autowired
+    private TransactionController transactionController;
     /*********CBS BRIGDE CONFIG****************/
     @Value("${api.username}")
     private String API_USERNAME;
@@ -72,14 +75,12 @@ public class OTPController {
 
 
 
+
     @RequestMapping(path="/generateOTP",method = RequestMethod.POST,produces = "application/json",consumes = "application/json")
     @ResponseBody
     public ResponseEntity generateOTP(@RequestBody String otpRequestString){
         Date request_time = new Date();
         OTP otp = gson.fromJson(otpRequestString,OTP.class);
-        //otp.setTransaction_type("cash_transaction");
-       // otp.setOperation_id(transaction.get);
-        //otp.setPassword(generateOTPPassword());
         otp.setRequest_time(request_time);
         otp.setActive(true);
         String validOTP = otpRepository.savePassword(otp).getPassword();
@@ -91,26 +92,39 @@ public class OTPController {
     @RequestMapping(path = "/verifyOTP",method  = RequestMethod.POST,consumes = "application/json",produces = "application/json")
     @ResponseBody
     public ResponseEntity verifyOTP(@RequestBody String otpString) {
+        logger.info("<<<<<OTP request>>>>>"+otpString);
         //verify OTP
         OTP otp = gson.fromJson(otpString, OTP.class);
+        logger.info(gson.toJson(otp));
         Optional<Integer> x;
         List<OTP> verifiedOTP;
-        logger.info("PASSWORD::" + otp.getPassword());
+        /*****************************************************************************************/
+       /* logger.info("PASSWORD::" + otp.getPassword());
         List<OTP> updatedOTP = otpRepository.updateOTPStatus(otp.getPassword());
         logger.info("About to fail .....");
         logger.info("Record size::" + updatedOTP.size());
         if (updatedOTP.size() == 0) {
                 responseMessage.setMessage("INVALID OTP");
-                return ResponseEntity.status(400).body(gson.toJson(responseMessage));
-        } else {
+                apiResponse.setCode(110);
+                apiResponse.setMessage("INVALID OTP SUPPLIED");
+                //return ResponseEntity.status(400).body(gson.toJson(responseMessage));
+              return ResponseEntity.status(201).body(gson.toJson(apiResponse));
+        } else {*/
+        /******************************************************************************************/
             //get successfull OTP by receipt_number
-            verifiedOTP = otpRepository.getSuccessfulOTPByReceiptNumber(updatedOTP.get(0).getReceipt_number());
+            //verifiedOTP = otpRepository.getSuccessfulOTPByReceiptNumber(updatedOTP.get(0).getReceipt_number());
+            verifiedOTP = otpRepository.findActiveMatchingOTP(otp);
 
         if (verifiedOTP.size() == 0) {
-            logger.info("size" + verifiedOTP.size());
-            responseMessage.setMessage("INVALID OTP");
-            logger.info(responseMessage.getMessage());
-            return ResponseEntity.status(400).body(gson.toJson(responseMessage));
+            logger.info("size:::" + verifiedOTP.size());
+            //responseMessage.setMessage("INVALID OTP");
+            ApiResponse apiResponse = new ApiResponse();
+            apiResponse.setCode(110);
+            apiResponse.setMessage("INVALID OTP");
+            logger.info("***********");
+            //logger.info(responseMessage.getMessage());
+            //return ResponseEntity.status(400).body(gson.toJson(responseMessage));
+            return ResponseEntity.status(201).body(apiResponse);
         } else {
             //match receipt_number and update flag in RDDM and cache repositories
             verifiedOTP.forEach((successfulOTP) -> {
@@ -127,30 +141,29 @@ public class OTPController {
                     /**===========================CALL COMPAS BRIDGE REST SERVICE TO PUSH TRANSACTIONS TO CBS MIDDLEWARE ====================================**/
                     String responseData =  restServiceConfig.RestServiceConfiguration(protocol,SERVICE_IP,SERVICE_PORT,SERVICE_ENDPOINT,"POST",transactionsToBank.prepareTransactionsToBank(verifiedOTPTxn,API_USERNAME),verifiedOTPTxn.getReceipt_number(),transactionOperationsRepository.findTransaction_OperationActionById(verifiedOTPTxn.getOperational_id()));
                     logger.info(responseData);
-                    //apiResponse = gson.fromJson(restServiceConfig.RestServiceConfiguration("/api/OTP","POST",transactionsToBank.prepareTransactionsToBank(verifiedOTPTxn,apiUsername),verifiedOTPTxn.getReceipt_number(),transactionOperationsRepository.findTransaction_OperationActionById(verifiedOTPTxn.getOperational_id())),ApiResponse.class);
-                    if(apiResponse.getCode() ==201){
-                        transactionRDBMSRepository.updateProcessedTransactionsByReceiptNumber(verifiedOTPTxn.getReceipt_number());
-                        transactionRepository.updateProcessedTransaction(verifiedOTPTxn.getReceipt_number());
-                        verifiedTransactions = verifiedOTPTxn;
-                        //return ResponseEntity.status(201).body(gson.toJson(verifiedOTPTxn));
+                    apiResponse = gson.fromJson(responseData,ApiResponse.class);
+                    switch(apiResponse.getCode()){
+                        case 201:
+                            apiResponse = transactionController.ProcessCBSResponse(verifiedOTPTxn.getReceipt_number(),apiResponse,"");
+                            break;
+                            default:
+                                apiResponse.setMessage(String.format("%s TRANSACTION WITH TRANSID %s FAILED",verifiedOTPTxn.getNarration().toUpperCase(),verifiedOTPTxn.getReceipt_number()));
+                                logger.info(gson.toJson(apiResponse));
                     }
-                    else{
-                        verifiedTransactions = new Transactions();
-                    }
-                    //verifiedTransactions = verifiedOTPTxn;
+                    /*********ESTABLISH IF IT IS OK TO DELETE *****************************/
                 });
             });
-            return ResponseEntity.status(201).body(gson.toJson(verifiedTransactions));
+            return ResponseEntity.status(201).body(gson.toJson(apiResponse));
         }
-    }
+   // }
 
-       // return ResponseEntity.status(201).body(gson.toJson(verifiedTransactions));
     }
 
     public String generateOTPPassword(Transactions transactions, String receipt_number){
         SESSION_RECEIPT_NUMBER = receipt_number;
         logger.info("Init...");
         OTP otp = new OTP();
+        SMS sms = new SMS();
        Date requestedDate = new Date();
         Long requestedDateLong = requestedDate.getTime();
         System.out.println(requestedDateLong);
@@ -162,9 +175,7 @@ public class OTPController {
        otp.setAccount_to(transactions.getAccount_to());
        otp.setAgentId(transactions.getAgent_id());
        logger.info("<<>>"+ transactions.getAgent_id());
-       //List<Issued_Device> issued_devices = issued_deviceRepository.findIssued_DeviceByAgentId(transactions.getAgent_id());
        Integer deviceId = issued_deviceRepository.findIssued_DeviceByAgent_id(transactions.getAgent_id());
-       //otp.setDeviceId(issued_deviceRepository.findIssued_DeviceByAgent_id(transactions.getAgent_id()));
         otp.setDeviceId(deviceId);
        otp.setActive(true);
        otp.setSuccess(false);
@@ -172,9 +183,15 @@ public class OTPController {
        otp.setOperation_id(transactions.getOperational_id());
        otp.setPassword(password);
        otpRepository.savePassword(otp);
-       String responseBody = restServiceConfig.RestServiceConfiguration(otp_protocol,OTP_SERVER_IP,OTP_SERVER_PORT,OTP_SERVER_ENDPOINT,"POST",gson.toJson(otp),"","");
-       logger.info("<<<<<<<<<<<<<<<<<<<<<<<<<<CHECK POINT>>>>>>>>>>>>>>>>>>>>>>>>>");
-       logger.info(responseBody);
+
+       //build SMS request here
+        sms.setPhoneNo(transactions.getPhone());
+        sms.setNarration("OTP");
+       //String responseBody = restServiceConfig.RestServiceConfiguration(otp_protocol,OTP_SERVER_IP,OTP_SERVER_PORT,OTP_SERVER_ENDPOINT,"POST",gson.toJson(sms),"","");
+        //String responseBody = restServiceConfig.RestServiceConfiguration(otp_protocol,OTP_SERVER_IP,OTP_SERVER_PORT,OTP_SERVER_ENDPOINT,"POST",gson.toJson(sms),"","");
+        String responseBody =  restServiceConfig.RestServiceConfiguration(otp_protocol,SERVICE_IP,SERVICE_PORT,SERVICE_ENDPOINT,"POST",transactionsToBank.prepareTransactionsToBank(transactions,API_USERNAME,sms),"","SMS");
+        logger.info("<<<<<<<<<<<<<<<<<<<<<<<<<<CHECK POINT>>>>>>>>>>>>>>>>>>>>>>>>>");
+       //logger.info(responseBody);
         return responseBody;
     }
 

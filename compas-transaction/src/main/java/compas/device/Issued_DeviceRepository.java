@@ -21,13 +21,15 @@ public interface Issued_DeviceRepository extends CrudRepository<Issued_Device,Lo
     @Query("select issued_device from Issued_Device issued_device where issued_device.deviceId = :deviceId and issued_device.agent_id = :agent_id")
     public List<Issued_Device> findIssued_DeviceByDeviceIdAndAgentId(@Param("deviceId") Integer deviceId,@Param("agent_id") Integer agent_id);
 
-   @Query(value = "select device.deviceId from Issued_Device device where device.agent_id = :agent_id")
+    /***ADD QUERY CONDITION WITH DEVICE ID>=1 TO CAPTURE RETURNED DEVICES***/
+    @Query(value = "select device.deviceId from Issued_Device device where device.agent_id = :agent_id and device.deviceId>=1")
     Integer findIssued_DeviceByAgent_id(@Param("agent_id") Integer agent_id);
 
     @Query("select issued_device from Issued_Device  issued_device where issued_device.agent_id=:agent_id")
     List<Issued_Device> findIssued_DeviceByAgentId(@Param("agent_id") Integer agent_id);
 
-    @Query("select issued_device from Issued_Device  issued_device where issued_device.agent_id =:agent_id")
+    /***ADD QUERY CONDITION WITH DEVICE ID>=1 TO CAPTURE RETURNED DEVICES***/
+    @Query("select issued_device from Issued_Device  issued_device where issued_device.agent_id =:agent_id and issued_device.deviceId>=1")
     Issued_Device  findOneIssued_DeviceByAgent_id(@Param("agent_id")Integer agent_id);
 
 }

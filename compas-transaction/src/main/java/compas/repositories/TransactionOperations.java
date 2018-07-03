@@ -53,8 +53,8 @@ public class TransactionOperations {
         return  transactionRepository.updateTransactionFlagWithMatchingReceipt(receipt_number,authentication);
     }
 
-    public Transactions updateProcessedTransaction(String receipt_number){
-        return transactionRepository.updateProcessedTransaction(receipt_number);
+    public Transactions updateProcessedTransaction(String receipt_number,String cbs_trans_id){
+        return transactionRepository.updateProcessedTransaction(receipt_number,cbs_trans_id);
     }
 
     public Double selectCashInTotalsByAgentId(Integer Id){
@@ -69,8 +69,8 @@ public class TransactionOperations {
         transactionRDBMSRepository.updateAuthenticatedTransactionsByReceiptNumber(receipt_number);
     }
 
-    public void updateProcessedTransactionsByReceiptNumber(String receipt_number){
-         transactionRDBMSRepository.updateProcessedTransactionsByReceiptNumber(receipt_number);
+    public void updateProcessedTransactionsByReceiptNumber(String receipt_number,String cbs_trans_id){
+         transactionRDBMSRepository.updateProcessedTransactionsByReceiptNumber(receipt_number,cbs_trans_id);
     }
 
     public Transaction_Operation findTransaction_OperationById(Integer Id){
@@ -111,8 +111,8 @@ public class TransactionOperations {
         return transactionTypeRepository.findAll();
     }
 
-    public void updateSuccessfulInquiryRequestData(String TransId){
-        inquiriesRequestDataRepository.updateSuccessfulInquiryRequestData(TransId);
+    public void updateSuccessfulInquiryRequestData(String TransId,String cbs_trans_id){
+        inquiriesRequestDataRepository.updateSuccessfulInquiryRequestData(TransId,cbs_trans_id);
     }
 
 

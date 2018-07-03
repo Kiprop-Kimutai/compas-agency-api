@@ -9,6 +9,9 @@ import compas.currency.CurrencyRepository;
 import compas.device.DeviceRepository;
 import compas.device.Issued_DeviceRepository;
 import compas.models.*;
+import compas.models.apiresponse.AgentResponse;
+import compas.models.apiresponse.ApiResponse;
+import compas.models.apiresponse.MasterDataResponse;
 import compas.txn_params.TransactionModeRepository;
 import compas.txn_params.TransactionOperationController;
 import compas.txn_params.TransactionTypeRepository;
@@ -17,14 +20,11 @@ import compas.utilities.UtilitiesController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
-import java.awt.print.Pageable;
 import java.util.List;
 
 /**
@@ -73,6 +73,8 @@ public class AgentController {
     public ResponseEntity getAgent(@RequestBody String queryString){
         logger.info(queryString);
         Device device = gson.fromJson(queryString,Device.class);
+        ApiResponse apiResponse = new ApiResponse();
+        MasterDataResponse masterDataResponse = new MasterDataResponse();
         /*
         -extract Device from DeviceRepository using  mac address
         -fetch Issued_Device details using device_id from Device
@@ -87,10 +89,16 @@ public class AgentController {
         -fetch currencies
         -finally build an Agent  response to with all Agent matrix members
         */
-        Device requestedDevice = deviceRepository.findByMacAddress(device.getMacAddress());
+        Device requestedDevice = deviceRepository.findByMacAddress(device.getMacAddress()) !=null ? deviceRepository.findByMacAddress(device.getMacAddress()) :new Device("xxx","",false,0);
         logger.info((requestedDevice.getString()));
-       Issued_Device issued_device = issued_deviceRepository.findByDeviceId(requestedDevice.getId());
+       Issued_Device issued_device = issued_deviceRepository.findByDeviceId(requestedDevice.getId()) !=null ? issued_deviceRepository.findByDeviceId(requestedDevice.getId()): new Issued_Device(0,0,0,0);
        logger.info(issued_device.getString());
+        /**IF DEVICE IS NOT REGISTERED**/
+        if(requestedDevice.getMacAddress().equalsIgnoreCase("") && !requestedDevice.getStatus()){
+            apiResponse.setCode(302);
+            apiResponse.setMessage("device is not registered or is inactive");
+            return ResponseEntity.status(201).body(gson.toJson(apiResponse));
+        }
        //String agentString = agentRepository.findAgentById(issued_device.getAgent_id());
         //         Agent agent = agentRepository.findById(issued_device.getAgent_id());
         Agent agent = agentRepository.findById(issued_device.getAgent_id());
@@ -127,7 +135,12 @@ public class AgentController {
         agentResponse.setUtilities(utilities);
         agentResponse.setAuth_modes(auth_modes);
         agentResponse.setCurrencies(currencies);
-        return ResponseEntity.status(201).body(gson.toJson(agentResponse));
+        /***BUILD MASTER DATA RESPONSE**/
+        masterDataResponse.setCode(400);
+        masterDataResponse.setResponse_message("SUCCESS");
+        masterDataResponse.setData(agentResponse);
+        logger.info("<<<<<MASTER DATA RESPONSE>>>>>");
+        return ResponseEntity.status(201).body(gson.toJson(masterDataResponse));
     }
 
     @RequestMapping(path="/addAgent",produces = "application/json",consumes = "application/json")

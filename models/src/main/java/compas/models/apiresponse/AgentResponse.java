@@ -1,4 +1,4 @@
-package compas.agent;
+package compas.models.apiresponse;
 
 import compas.models.*;
 
@@ -8,7 +8,7 @@ import java.util.List;
  * Created by CLLSDJACKT013 on 10/05/2018.
  */
 public class AgentResponse {
-    private  Device device;
+    private Device device;
     private Issued_Device issued_device;
     private Agent agent;
     private Users users;

@@ -63,6 +63,19 @@ public class OTPRepository  {
         return new ArrayList<>();
     }
 
+    public List<OTP> findActiveMatchingOTP(OTP otp){
+        try{
+            List<OTP>activeOTPs = mongoOperations.find(new Query(Criteria.where("password").is(otp.getPassword()).and("active").is(true).and("success").is(false)),OTP.class);
+            mongoOperations.updateFirst(new Query(Criteria.where("password").is(otp.getPassword())),Update.update("active",false),OTP.class);
+            mongoOperations.updateFirst(new Query(Criteria.where("password").is(otp.getPassword())),Update.update("success",true),OTP.class);
+            return activeOTPs;
+        }
+        catch (MongoException e){
+            e.printStackTrace();
+        }
+        return new ArrayList<>();
+    }
+
     public void updateUnusedOTPs(OTP otp){
         try{
             mongoOperations.updateFirst(new Query(Criteria.where("receipt_number").is(otp.getReceipt_number())),Update.update("success",false),OTP.class);

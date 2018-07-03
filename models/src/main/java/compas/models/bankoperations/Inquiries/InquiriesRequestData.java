@@ -12,6 +12,8 @@ public class InquiriesRequestData {
     public Integer Id;
     @Column(name= "transId")
     public String transId;
+    @Column(name = "cbs_trans_id")
+    public String cbs_trans_id;
     @Column(name="narration")
     public String Narration;
     @Column(name="account")
@@ -43,6 +45,14 @@ public class InquiriesRequestData {
 
     public void setTransId(String transId) {
         this.transId = transId;
+    }
+
+    public String getCbs_trans_id() {
+        return cbs_trans_id;
+    }
+
+    public void setCbs_trans_id(String cbs_trans_id) {
+        this.cbs_trans_id = cbs_trans_id;
     }
 
     public String getNarration() {

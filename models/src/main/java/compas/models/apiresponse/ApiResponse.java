@@ -1,11 +1,19 @@
 package compas.models.apiresponse;
 
+import compas.models.*;
+import compas.models.bankoperations.Inquiries.InquiriesResponseData;
+
+import java.util.List;
+
 /**
  * Created by CLLSDJACKT013 on 23/05/2018.
  */
 public class ApiResponse {
     private Integer code;
-    private String message;
+    private String response_code;
+    private String response_message;
+    private InquiriesResponseData Data;
+
 
     public Integer getCode() {
         return code;
@@ -16,10 +24,39 @@ public class ApiResponse {
     }
 
     public String getMessage() {
-        return message;
+        return response_message;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setMessage(String response_message) {
+        this.response_message = response_message;
     }
+
+    public String getResponse_code() {
+        return response_code;
+    }
+
+    public void setResponse_code(String response_code) {
+        this.response_code = response_code;
+    }
+
+    public String getResponse_message() {
+        return response_message;
+    }
+
+    public void setResponse_message(String response_message) {
+        this.response_message = response_message;
+    }
+
+    public InquiriesResponseData getData() {
+        return Data;
+    }
+
+    public void setData(InquiriesResponseData data) {
+        Data = data;
+    }
+
+    public String getString(){
+        return String.format("");
+    }
+
 }
