@@ -16,6 +16,7 @@ compas\device\DeviceController.class
 compas\restservice\ServerResponse.class
 compas\repositories\UtilitiesOperations.class
 compas\accounts\AccountsController.class
+compas\tariffs\Transaction_Charge_Repository.class
 compas\utilities\UtilitiesRepository.class
 compas\customer\CustomerRDBMSRepository.class
 compas\transaction\TransactionAuth.class
@@ -65,6 +66,7 @@ compas\repositories\RepositoryOperations.class
 compas\repositories\CurrencyOperations.class
 compas\repositories\TransactionOperations.class
 compas\accounts\AccountsRepository.class
+compas\tariffs\PreferredTariffRepository.class
 compas\repositories\RepositoryOperations$UtilitiesOperationsRepository.class
 compas\utilities\UtilitiesController.class
 compas\customer\FingerPrintRepository.class
@@ -75,6 +77,7 @@ compas\repositories\DeviceOperations.class
 compas\txn_params\TransactionParamsCenter.class
 compas\currency\CurrencyRepository.class
 compas\repositories\NextofKinOperations.class
+compas\tariffs\Transaction_Charge_Types_Repository.class
 compas\repositories\AgentOperations.class
 compas\txn_params\TransactionOperationController.class
 compas\transaction\TransactionController.class

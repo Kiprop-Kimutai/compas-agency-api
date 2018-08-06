@@ -20,5 +20,8 @@ public interface UtilitiesRepository extends CrudRepository<Utilities,Long> {
     @Query("select '*' from Utilities ")
     List<Utilities>fetchAllUtilities();
 
+    @Query("select utility from Utilities utility where utility.utility_code =:utility_code")
+    Utilities findUtilityByUtility_code(@Param("utility_code") String utility_code);
+
     List<Utilities> findAll();
 }

@@ -7,6 +7,9 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDateTime;
+import java.util.Date;
+
 /**
  * Created by CLLSDJACKT013 on 15/05/2018.
  */
@@ -28,4 +31,16 @@ public interface TransactionRDBMSRepository extends CrudRepository<Transactions,
     @Modifying
     @Query("update Transactions transactions set transactions.status ='F' where transactions.receipt_number =:receipt_number")
     int updateFailedTransactions(@Param("receipt_number") String receipt_number);
+
+    @Query(value = "select COALESCE(sum(transactions.amount),0) from Transactions  transactions where transactions.status = 'S' and transactions.agent_id = :agent_id and transactions.transaction_date between :fromDate and :toDate")
+    Double totalDailyTransactions(@Param("fromDate")String fromDate, @Param("toDate")String toDate, @Param("agent_id")Integer agent_id);
+
+    @Query( value = "select COALESCE(sum(transaction.amount),0) from Transactions  transaction where transaction.status = 'S' and transaction.agent_id = :agent_id and  transaction.transaction_date between :fromDate and :toDate ")
+    Double totalWeeklyTransactions(@Param("fromDate")String fromDate,@Param("toDate")String toDate,@Param("agent_id")Integer agent_id);
+
+    @Query(value = "select COALESCE(sum(transactions.amount),0) from Transactions  transactions where transactions.status = 'S' and transactions.agent_id = :agent_id and transactions.transaction_date between :fromDate and :toDate")
+    Double totalMonthlyTransactions(@Param("fromDate")String fromDate, @Param("toDate")String toDate, @Param("agent_id")Integer agent_id);
+
+    @Query(value = "select COALESCE(sum(transaction.amount),0) from Transactions transaction where transaction.status = 'S' and  transaction.agent_id = :agent_id and transaction.transaction_date between :fromDate and :toDate")
+    Double totalQuarterlyTransactions(@Param("fromDate") String fromDate,@Param("toDate")String toDate,@Param("agent_id")Integer agent_id);
 }

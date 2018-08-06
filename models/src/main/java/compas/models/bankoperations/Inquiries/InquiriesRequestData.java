@@ -27,7 +27,7 @@ public class InquiriesRequestData {
     @Column(name = "customerName")
     public String CustomerName;
     public String status;
-
+    public String [] Charges;
     //default constructor
     public InquiriesRequestData(){}
 
@@ -113,5 +113,13 @@ public class InquiriesRequestData {
 
     public String getString(){
         return String.format("inquiriesRequest[transid = %s  account = %s narration = %s  deviceid = %s branchid = %s  tellerid = %s]",transId,Account,Narration,DeviceId,BranchId,TellerId);
+    }
+
+    public String[] getCharges() {
+        return Charges;
+    }
+
+    public void setCharges(String[] charges) {
+        Charges = charges;
     }
 }

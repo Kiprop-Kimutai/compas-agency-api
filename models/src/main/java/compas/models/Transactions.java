@@ -5,6 +5,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -40,6 +41,7 @@ public class Transactions {
     public String longitude;
     public String macaddress;
     public String phone;
+    public String utility_code;
     private Integer created_by;
     @Column(updatable = true)
     public String  status;
@@ -266,7 +268,17 @@ public class Transactions {
         this.macaddress = macaddress;
     }
 
+    public String getUtility_code() {
+        return utility_code;
+    }
+
+    public void setUtility_code(String utility_code) {
+        this.utility_code = utility_code;
+    }
+
     public String getString(){
         return String.format("[transaction[operational_id = %d account_to = %s  account_from  = %s agent_id  = %d receipt_number = %s]",operational_id,account_to,account_from,agent_id,receipt_number);
     }
+
+
 }

@@ -7,7 +7,11 @@ import compas.models.SMS;
 import compas.models.Transactions;
 import compas.models.apiresponse.ApiResponse;
 import compas.models.apiresponse.Message;
+import compas.models.apiresponse.SmsResponse;
+import compas.models.bankoperations.AccountInquiry.ACResponseData;
+import compas.models.bankoperations.AccountInquiry.AccountInquiryResponse;
 import compas.restservice.RestServiceConfig;
+import compas.tariffs.TariffManager;
 import compas.transaction.TransactionController;
 import compas.transaction.TransactionRDBMSRepository;
 import compas.transaction.TransactionRepository;
@@ -44,6 +48,8 @@ public class OTPController {
     private TransactionRepository transactionRepository = new TransactionRepository();
     @Autowired
     private TransactionController transactionController;
+
+    private TariffManager tariffManager = new TariffManager();
     /*********CBS BRIGDE CONFIG****************/
     @Value("${api.username}")
     private String API_USERNAME;
@@ -92,7 +98,7 @@ public class OTPController {
     @RequestMapping(path = "/verifyOTP",method  = RequestMethod.POST,consumes = "application/json",produces = "application/json")
     @ResponseBody
     public ResponseEntity verifyOTP(@RequestBody String otpString) {
-        logger.info("<<<<<OTP request>>>>>"+otpString);
+        logger.info(String.format("OTP request["+otpString+"]"));
         //verify OTP
         OTP otp = gson.fromJson(otpString, OTP.class);
         logger.info(gson.toJson(otp));
@@ -116,12 +122,10 @@ public class OTPController {
             verifiedOTP = otpRepository.findActiveMatchingOTP(otp);
 
         if (verifiedOTP.size() == 0) {
-            logger.info("size:::" + verifiedOTP.size());
-            //responseMessage.setMessage("INVALID OTP");
             ApiResponse apiResponse = new ApiResponse();
             apiResponse.setCode(110);
             apiResponse.setMessage("INVALID OTP");
-            logger.info("***********");
+            logger.info(apiResponse.getString());
             //logger.info(responseMessage.getMessage());
             //return ResponseEntity.status(400).body(gson.toJson(responseMessage));
             return ResponseEntity.status(201).body(apiResponse);
@@ -132,27 +136,37 @@ public class OTPController {
                 //verifiedTransactions = transactionRDBMSRepository.updateAuthenticatedTransactionByReceiptNumber(successfulOTP.getReceipt_number());
                 List<Transactions> verifiedCacheTransactions = transactionRepository.updateTransactionFlagWithMatchingReceipt(successfulOTP.getReceipt_number(), otp.getPassword());
                 verifiedCacheTransactions.forEach((verifiedOTPTxn) -> {
-                    logger.info("Matching transactions:::>>>>");
-                    logger.info(verifiedOTPTxn.getString());
-                    transactionRDBMSRepository.save(verifiedOTPTxn);
+                    //logger.info(verifiedOTPTxn.getString());
+                    /***SET TRANSACTION CHARGES HERE ****/
+                    logger.info("checker....");
+                    logger.info(gson.toJson(verifiedOTPTxn,Transactions.class));
+                    Transactions processedTransaction = tariffManager.setCharges(verifiedOTPTxn);
+                    logger.info("<-----------check charges here---------->");
+                    logger.info(String.format("processed transaction["+gson.toJson(processedTransaction)+"]"));
+                    transactionRDBMSRepository.save(processedTransaction);
                                     //SEND TRANSACTION TO BANK REST SERVICE
                     //apiResponse = gson.fromJson(restServiceConfig.RestServiceConfiguration("/api/OTP","POST",gson.toJson(verifiedOTP)),ApiResponse.class);
 
                     /**===========================CALL COMPAS BRIDGE REST SERVICE TO PUSH TRANSACTIONS TO CBS MIDDLEWARE ====================================**/
-                    String responseData =  restServiceConfig.RestServiceConfiguration(protocol,SERVICE_IP,SERVICE_PORT,SERVICE_ENDPOINT,"POST",transactionsToBank.prepareTransactionsToBank(verifiedOTPTxn,API_USERNAME),verifiedOTPTxn.getReceipt_number(),transactionOperationsRepository.findTransaction_OperationActionById(verifiedOTPTxn.getOperational_id()));
+                    String responseData =  restServiceConfig.RestServiceConfiguration(protocol,SERVICE_IP,SERVICE_PORT,SERVICE_ENDPOINT,"POST",transactionsToBank.prepareTransactionsToBank(processedTransaction,API_USERNAME),verifiedOTPTxn.getReceipt_number(),transactionOperationsRepository.findTransaction_OperationActionById(verifiedOTPTxn.getOperational_id()));
                     logger.info(responseData);
                     apiResponse = gson.fromJson(responseData,ApiResponse.class);
                     switch(apiResponse.getCode()){
                         case 201:
                             apiResponse = transactionController.ProcessCBSResponse(verifiedOTPTxn.getReceipt_number(),apiResponse,"");
+                            apiResponse.getData().setReceipt_number(processedTransaction.getReceipt_number());
+                            apiResponse.getData().setAgent_commission(processedTransaction.getAgent_commision());
+                            apiResponse.getData().setBank_income(processedTransaction.getBank_income());
+                            apiResponse.getData().setExercise_duty(processedTransaction.getExcise_duty());
                             break;
                             default:
-                                apiResponse.setMessage(String.format("%s TRANSACTION WITH TRANSID %s FAILED",verifiedOTPTxn.getNarration().toUpperCase(),verifiedOTPTxn.getReceipt_number()));
+                                apiResponse.setMessage(String.format("%s TRANSACTION WITH TRANSACTION ID %s FAILED",verifiedOTPTxn.getNarration().toUpperCase(),verifiedOTPTxn.getReceipt_number()));
                                 logger.info(gson.toJson(apiResponse));
                     }
-                    /*********ESTABLISH IF IT IS OK TO DELETE *****************************/
+
                 });
             });
+            logger.info("TRANSACTION_RESPONSE{"+apiResponse.getString()+"}");
             return ResponseEntity.status(201).body(gson.toJson(apiResponse));
         }
    // }
@@ -174,7 +188,7 @@ public class OTPController {
        otp.setAccount_from(transactions.getAccount_from());
        otp.setAccount_to(transactions.getAccount_to());
        otp.setAgentId(transactions.getAgent_id());
-       logger.info("<<>>"+ transactions.getAgent_id());
+       logger.info("<<agent-id>>"+ transactions.getAgent_id());
        Integer deviceId = issued_deviceRepository.findIssued_DeviceByAgent_id(transactions.getAgent_id());
         otp.setDeviceId(deviceId);
        otp.setActive(true);
@@ -183,15 +197,30 @@ public class OTPController {
        otp.setOperation_id(transactions.getOperational_id());
        otp.setPassword(password);
        otpRepository.savePassword(otp);
-
+        /**** PERFORM ACCT INQUIRY TO GET PHONE NUMBER******/
+        String acctInquiryResponse = transactionController.performAcctInquiry(gson.toJson(transactions));
+        logger.info("check acct inquiry response here<<<<<<<<<<!!!!!!!!!!!!!!!!!!!!>>>>>>>>>>");
+        logger.info(acctInquiryResponse);
+        //AccountInquiryResponse accountInquiryResponse = gson.fromJson(acctInquiryResponse,AccountInquiryResponse.class);
+        ApiResponse accountInquiryResponse = gson.fromJson(acctInquiryResponse,ApiResponse.class);
+        logger.info("phone::"+accountInquiryResponse.getData().getPhone());
+        logger.info("email::"+gson.toJson(accountInquiryResponse.getData().getEmail()));
+        if(accountInquiryResponse.getData().getPhone() == null){
+            SmsResponse smsResponse = new SmsResponse();
+            smsResponse.setCode(311);
+            smsResponse.setResponse_code("000");
+            return gson.toJson(smsResponse);
+        }
        //build SMS request here
-        sms.setPhoneNo(transactions.getPhone());
-        sms.setNarration("OTP");
+        //sms.setPhoneNo(transactions.getPhone());
+        sms.setPhoneNo(accountInquiryResponse.getData().getPhone());
+        sms.setNarration(password);
+        sms.setTransId(password);
        //String responseBody = restServiceConfig.RestServiceConfiguration(otp_protocol,OTP_SERVER_IP,OTP_SERVER_PORT,OTP_SERVER_ENDPOINT,"POST",gson.toJson(sms),"","");
         //String responseBody = restServiceConfig.RestServiceConfiguration(otp_protocol,OTP_SERVER_IP,OTP_SERVER_PORT,OTP_SERVER_ENDPOINT,"POST",gson.toJson(sms),"","");
-        String responseBody =  restServiceConfig.RestServiceConfiguration(otp_protocol,SERVICE_IP,SERVICE_PORT,SERVICE_ENDPOINT,"POST",transactionsToBank.prepareTransactionsToBank(transactions,API_USERNAME,sms),"","SMS");
+        String responseBody =  restServiceConfig.RestServiceConfiguration(otp_protocol,SERVICE_IP,SERVICE_PORT,SERVICE_ENDPOINT,"POST",transactionsToBank.prepareTransactionsToBank(transactions,API_USERNAME,sms),password,"SMS");
         logger.info("<<<<<<<<<<<<<<<<<<<<<<<<<<CHECK POINT>>>>>>>>>>>>>>>>>>>>>>>>>");
-       //logger.info(responseBody);
+        logger.info(responseBody);
         return responseBody;
     }
 

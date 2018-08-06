@@ -14,13 +14,7 @@ public class TariffsOperations {
     @Autowired
     private TariffsRepository tariffsRepository;
 
-    public Tariff findTransactionTariffByTransaction_type_idAndAmount(Integer transaction_type_id,  Double amount){
-        return tariffsRepository.findTransactionTariffByTransaction_type_idAndAmount(transaction_type_id,amount);
-    }
 
-    public Tariff findTransactionTariffByOperation_idAndAmount(Integer operation_id,Double amount){
-        return  tariffsRepository.findTransactionTariffByOperation_idAndAmount(operation_id,amount);
-    }
 
 
 }

@@ -23,6 +23,7 @@ import compas.models.bankoperations.transfers.TransferRequestData;
 import compas.models.bankoperations.withdrawal.WithdrawalRequest;
 import compas.models.bankoperations.withdrawal.WithdrawalRequestData;
 import compas.txn_params.TransactionOperationsRepository;
+import compas.utilities.UtilitiesRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,13 +52,17 @@ public class TransactionsToBank {
     private AgentRepository agentRepository;
     @Autowired
     private AccountsRepository accountsRepository;
+    @Autowired
+    private UtilitiesRepository utilitiesRepository;
 
     public String prepareTransactionsToBank(Transactions transactions, String Username) {
+        logger.info(gson.toJson(transactions));
         //guery action from transactions operation for posted transactions
         logger.info("Operational ID::" + transactions.getOperational_id());
         logger.info("Cash flow id" + transactionOperationRepository.selectCashFlowId(transactions.getOperational_id()));
-        transactionOperationRepository.findTransaction_OperationById(transactions.getOperational_id());
+        //transactionOperationRepository.findTransaction_OperationById(transactions.getOperational_id());
         Transaction_Operation transaction_operation = transactionOperationRepository.findTransaction_OperationById(transactions.getOperational_id());
+        String [] transaction_charges = {transactions.getBank_income().toString(),transactions.getAgent_commision().toString(),transactions.getExcise_duty().toString()};
         //try switch here
 
         switch (transaction_operation.getAction().toUpperCase()) {
@@ -69,6 +74,7 @@ public class TransactionsToBank {
                 inquiriesRequestData.setTellerId(transactions.getAgent_id().toString());
                 inquiriesRequestData.setBranchId(agentRepository.findBranchIdByAgentId(transactions.getAgent_id()));
                 inquiriesRequestData.setCustomerName("Jonah Hexx");
+                inquiriesRequestData.setCharges(transaction_charges);
                 //BUILD FINAL Inquiries data
                 inquiriesRequest.setUsername(Username);
                 inquiriesRequest.setAction(transaction_operation.getAction());
@@ -82,6 +88,7 @@ public class TransactionsToBank {
                 inquiriesRequestData.setTellerId(transactions.getAgent_id().toString());
                 inquiriesRequestData.setBranchId(agentRepository.findBranchIdByAgentId(transactions.getAgent_id()));
                 inquiriesRequestData.setCustomerName("Martin Chirchir");
+                inquiriesRequestData.setCharges(transaction_charges);
                 //BUILD FINAL REQUEST
                 inquiriesRequest.setUsername(Username);
                 inquiriesRequest.setAction(transaction_operation.getAction());
@@ -98,13 +105,14 @@ public class TransactionsToBank {
                 transferRequestData.setFromAccount(transactions.getAccount_from());
                 transferRequestData.setToAccount(transactions.getAccount_to());
                 transferRequestData.setAmount(transactions.getAmount().toString());
+                transferRequestData.setCharges(transaction_charges);
                 //BUILD FINAL Request
                 transferRequest.setUsername(Username);
                 transferRequest.setAction(transaction_operation.getAction());
                 transferRequest.setData(transferRequestData);
                 return gson.toJson(transferRequest);
 
-            case "REVERSAL":
+            case "REVERSAL":   //NO CHARGES
                 ReversalRequestData reversalRequestData = new ReversalRequestData();
                 ReversalRequest reversalRequest = new ReversalRequest();
                 reversalRequestData.setTransId(transactions.getReceipt_number());
@@ -134,6 +142,7 @@ public class TransactionsToBank {
                 transferRequestData.setToAccount(transactions.getAccount_from());
                 transferRequestData.setFromAccount(accountsRepository.findAccountByIdNumber(agentRepository.findById(transactions.getAgent_id()).getAgent_id_number()));
                 transferRequestData.setAmount(transactions.getAmount().toString());
+                transferRequestData.setCharges(transaction_charges);
                 //BUILD FINAL Request
                 transferRequest.setUsername(Username);
                 //transferRequest.setAction(transaction_operation.getAction());
@@ -152,6 +161,7 @@ public class TransactionsToBank {
                 transferRequestData.setFromAccount(transactions.getAccount_from());
                 transferRequestData.setToAccount(accountsRepository.findAccountByIdNumber(agentRepository.findById(transactions.getAgent_id()).getAgent_id_number()));
                 transferRequestData.setAmount(transactions.getAmount().toString());
+                transferRequestData.setCharges(transaction_charges);
                 //BUILD FINAL Request
                 transferRequest.setUsername(Username);
                 //transferRequest.setAction(transaction_operation.getAction());
@@ -159,16 +169,41 @@ public class TransactionsToBank {
                 transferRequest.setData(transferRequestData);
                 return gson.toJson(transferRequest);
 
-            case "ACCT_INQUIRY":
+            case "ACCT_INQUIRY":   //NO CHARGES HERE
                 AccountInquiryRequest accountInquiryRequest = new AccountInquiryRequest();
                 ACRequestData acRequestData = new ACRequestData();
                 acRequestData.setAccount(transactions.getAccount_from());
+                acRequestData.setRequestId(transactions.getReceipt_number());
+                acRequestData.setDeviceId(issued_deviceRepository.findOneIssued_DeviceByAgent_id(transactions.getAgent_id()).getDeviceId().toString());
+                acRequestData.setTellerId(transactions.getAgent_id().toString());
+                acRequestData.setBranchId(agentRepository.findBranchIdByAgentId(transactions.getAgent_id()).toString());
                 //BUILD FINAL REQUEST HERE
                 accountInquiryRequest.setAction(transaction_operation.getAction());
+                //accountInquiryRequest.setAction("ACCT_INQUIRY");
                 accountInquiryRequest.setUsername(Username);
                 accountInquiryRequest.setData(acRequestData);
-                return gson.toJson(acRequestData);
+                logger.info(gson.toJson(accountInquiryRequest));
+                return gson.toJson(accountInquiryRequest);
 
+            case "UTILITIES":
+                transferRequestData.setTransId(transactions.getReceipt_number());
+                transferRequestData.setNarration(utilitiesRepository.findUtilityByUtility_code(transactions.getUtility_code()) + " " +transaction_operation.getName());
+                transferRequestData.setDeviceId(issued_deviceRepository.findOneIssued_DeviceByAgent_id(transactions.getAgent_id()).getDeviceId().toString());
+                transferRequestData.setTellerId(transactions.getAgent_id().toString());
+                //transferRequestData.setTellerId("");
+                transferRequestData.setBranchId(agentRepository.findBranchIdByAgentId(transactions.getAgent_id()).toString());
+                transferRequestData.setCustomerName("Jonah Hexx");
+                transferRequestData.setFromAccount(transactions.getAccount_from());
+                transferRequestData.setToAccount(transactions.getAccount_to());
+                transferRequestData.setReferenceAccount(transactions.getReference_account());
+                transferRequestData.setAmount(transactions.getAmount().toString());
+                transferRequestData.setCharges(transaction_charges);
+                //BUILD FINAL Request
+                transferRequest.setUsername(Username);
+                //transferRequest.setAction(transaction_operation.getAction());
+                transferRequest.setAction("TRANSFER");
+                transferRequest.setData(transferRequestData);
+                return gson.toJson(transferRequest);
         }
         /************************************ADD OTHER TRANSACTION OPERATIONS HERE *********************************/
         return "";
@@ -180,6 +215,44 @@ public class TransactionsToBank {
         smsRequest.setUsername(username);
         smsRequest.setData(sms);
         return gson.toJson(smsRequest);
+    }
+
+    public String prepareTransactionsToBank(Transactions modifiedTransaction,Transactions originalTransaction,String username){
+        logger.info("Operational ID::" + modifiedTransaction.getOperational_id());
+        logger.info("Cash flow id" + transactionOperationRepository.selectCashFlowId(modifiedTransaction.getOperational_id()));
+        Transaction_Operation transaction_operation =transactionOperationRepository.findTransaction_OperationById(modifiedTransaction.getOperational_id());
+        Transaction_Operation original_transaction_operation = transactionOperationRepository.findTransaction_OperationById(originalTransaction.getOperational_id());
+        String [] transaction_charges = {modifiedTransaction.getBank_income().toString(),modifiedTransaction.getAgent_commision().toString(),modifiedTransaction.getExcise_duty().toString()};
+
+        switch (transaction_operation.getAction().toUpperCase()){
+            case "ACCT_INQUIRY":
+                AccountInquiryRequest accountInquiryRequest = new AccountInquiryRequest();
+                ACRequestData acRequestData = new ACRequestData();
+                switch (original_transaction_operation.getAction().toUpperCase()){
+                    case "TRANSFER":
+                        acRequestData.setAccount(modifiedTransaction.getAccount_to());
+                    case "DEPOSIT":
+                        acRequestData.setAccount(modifiedTransaction.getAccount_to());
+                    case "WITHDRAW":
+                        acRequestData.setAccount(modifiedTransaction.getAccount_from());
+                    case "UTILITIES":
+                        acRequestData.setAccount(modifiedTransaction.getAccount_to());
+
+                }
+                //acRequestData.setAccount(modifiedTransaction.getAccount_from());
+                acRequestData.setRequestId(modifiedTransaction.getReceipt_number());
+                acRequestData.setDeviceId(issued_deviceRepository.findOneIssued_DeviceByAgent_id(modifiedTransaction.getAgent_id()).getDeviceId().toString());
+                acRequestData.setTellerId(modifiedTransaction.getAgent_id().toString());
+                acRequestData.setBranchId(agentRepository.findBranchIdByAgentId(modifiedTransaction.getAgent_id()).toString());
+                //BUILD FINAL REQUEST HERE
+                accountInquiryRequest.setAction(transaction_operation.getAction());
+                //accountInquiryRequest.setAction("ACCT_INQUIRY");
+                accountInquiryRequest.setUsername(username);
+                accountInquiryRequest.setData(acRequestData);
+                logger.info(gson.toJson(accountInquiryRequest));
+                return gson.toJson(accountInquiryRequest);
+        }
+        return "";
     }
 
 }

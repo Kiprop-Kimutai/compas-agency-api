@@ -34,5 +34,7 @@ public interface TransactionOperationsRepository extends  CrudRepository<Transac
     @Query("select transaction_operation.action from Transaction_Operation transaction_operation where transaction_operation.id =:Id")
     String findTransaction_OperationActionById(@Param("Id")Integer Id);
 
+    @Query("select transaction_operation.id from Transaction_Operation transaction_operation where transaction_operation.action =:action")
+    Integer findTransaction_OperationIdByAction(@Param("action")String action);
 
 }

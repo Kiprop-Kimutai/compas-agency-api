@@ -69,6 +69,6 @@ public class Issued_Device {
 
 
     public String getString(){
-        return String.format("issued_device[device_id = %d agent_id = %d branch = %d]",deviceId,agent_id,branch_id);
+        return String.format("issued_device[id = %d device_id = %d agent_id = %d branch = %d created by = %d]",Id,deviceId,agent_id,branch_id,createdBy);
     }
 }

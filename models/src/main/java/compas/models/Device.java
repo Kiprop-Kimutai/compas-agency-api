@@ -68,6 +68,6 @@ public class Device {
     }
 
     public String getString(){
-        return String.format("device[serial = %s macaddress = %s status = %s]",serial_no,macAddress,status);
+        return String.format("device[id = %d  serial = %s macaddress = %s status = %s created_by = %d]",Id,serial_no,macAddress,status,created_by);
     }
 }

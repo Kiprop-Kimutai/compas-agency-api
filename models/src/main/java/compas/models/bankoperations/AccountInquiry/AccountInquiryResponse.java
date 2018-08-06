@@ -4,9 +4,9 @@ package compas.models.bankoperations.AccountInquiry;
  * Created by CLLSDJACKT013 on 30/05/2018.
  */
 public class AccountInquiryResponse {
-    private String response_code;
-    private Boolean response_status;
-    private ACResponseData Data;
+    public String response_code;
+    public Boolean response_status;
+    public ACResponseData Data;
 
     //default constructor
     public AccountInquiryResponse(){}

@@ -3,18 +3,21 @@ package compas.authentications;
 import compas.agent.AgentRepository;
 import compas.device.DeviceRepository;
 import compas.device.Issued_DeviceRepository;
-import compas.models.Agent;
-import compas.models.Customer;
-import compas.models.Device;
-import compas.models.Issued_Device;
+import compas.models.*;
 import compas.transaction.TransactionRDBMSRepository;
 import compas.txn_params.TransactionOperationsRepository;
+import org.apache.tomcat.jni.Local;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Controller;
 
+import java.text.SimpleDateFormat;
+import java.time.DateTimeException;
+import java.time.LocalDateTime;
+import java.time.Month;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -36,14 +39,15 @@ public class ValidateTransactions implements ValidateTransactionsInterface {
     private TransactionRDBMSRepository transactionRDBMSRepository;
 
     public Boolean authenticateDevice(Integer deviceId){
-        logger.info("Authenticate device init..");
+        logger.info("Authenticating device ...");
         try {
             List<Device> activeDevice = deviceRepository.findActiveDeviceById(deviceId);
             if(activeDevice.size() == 1){
+                activeDevice.forEach(active_device ->logger.info(active_device.getString()));
                 return true;
             }
             else{
-                logger.info("AUTH FAILURE:::Device[%d] is INACTIVE or NOT registered");
+                logger.info(String.format("AUTH FAILURE:::device [%d] is INACTIVE or NOT registered"));
                 return false;
             }
         }
@@ -54,15 +58,16 @@ public class ValidateTransactions implements ValidateTransactionsInterface {
     }
 
     public Boolean authenticateIssuedDevice(Integer deviceId,Integer agentId){
-        logger.info("Authenticate isued device init...");
+        logger.info("Authenticating issued device ...");
         try{
             List<Issued_Device> issued_devices = issued_deviceRepository.findIssued_DeviceByDeviceIdAndAgentId(deviceId,agentId);
             if(issued_devices.size() > 0 ){
-                logger.info("Found ::>>[%d]"+issued_devices.size());
+                logger.info(String.format("Found %d devices",issued_devices.size()));
+                issued_devices.forEach(issued_device ->logger.info(issued_device.getString()));
                 return true;
             }
             else{
-                logger.info("AUTH FAILURE::: Device[%d] not issued to Agent[%d]",deviceId,agentId);
+                logger.info(String.format("Authentication failure::: Device[%d] not issued to Agent[%d]",deviceId,agentId));
                 return false;
             }
         }
@@ -72,19 +77,16 @@ public class ValidateTransactions implements ValidateTransactionsInterface {
         return false;
     }
     public Boolean authenticateAgent(Integer agentId){
-        logger.info("authenticate agent init...");
-        logger.info(""+agentId);
+        logger.info("Authenticating agent...");
         try {
             List<Agent> activeAgents = agentRepository.findActiveAgentById(agentId);
-                activeAgents.forEach((agent -> {logger.info(agent.getAgent_description());}));
-                logger.info("size><"+activeAgents.size());
+                activeAgents.forEach((agent -> logger.info(String.format(agent.getString()))));
+                logger.info(String.format("Found %d agents",activeAgents.size()));
             if (activeAgents.size()>0) {
-                logger.info(">>>>");
                 return true;
             }
             else{
                 logger.info("AUTH FAILURE::: AGENT == %d  inactive or NOT registered",agentId);
-                logger.info("<<<>>>");
                 return false;
             }
         }
@@ -95,9 +97,9 @@ public class ValidateTransactions implements ValidateTransactionsInterface {
         return false;
     }
     public Boolean authenticateAccount(String account){
+        logger.info("Authenticating  account....");
         logger.info("account length::"+account.length());
-        logger.info("Authenticate account");
-        //get string length of account number. Shoulf be 13 in length
+        //get string length of account number. Should be 13 in length
         if( account.length() > 0 && account.length() != 13){
             logger.info("AUTH FAILURE:::Invalid account number Length");
             return false;
@@ -108,7 +110,7 @@ public class ValidateTransactions implements ValidateTransactionsInterface {
                     return true;
                 }
                 else{
-                    logger.info("VALIDATION FAILURE::Invalid character memmber for account[%s]",account);
+                    logger.info(String.format("VALIDATION FAILURE::Invalid character member for account[%s]",account));
                     return false;
                 }
             }
@@ -120,8 +122,8 @@ public class ValidateTransactions implements ValidateTransactionsInterface {
         return false;
 
     }
-    public Boolean authenticateTransactionLimits(Double amount,Integer operationId,Integer agentId){
-        logger.info("authenticate double limits");
+    public Boolean authenticateDailyTransactionLimits(Double amount,Integer operationId,Integer agentId){
+        logger.info("Validate   limits ....");
         logger.info("Amount"+amount);
         logger.info("Operation ID"+operationId);
         logger.info("Agent ID"+agentId);
@@ -135,24 +137,28 @@ public class ValidateTransactions implements ValidateTransactionsInterface {
             if(cash_flow_id == 1){
                 //compare limits
                 if(agentRepository.findAgentDepositLimitsByAgentId(agentId) < transactionRDBMSRepository.selectCashInTotalsByAgentId(agentId)  + amount){
-                    logger.info("AUTH FAILURE::CASH IN Transactions Limits for agent[%d] exceeded",agentId);
+                    logger.info(String.format("VALIDATION FAILURE::CASH IN transactions limit for agent[%d] exceeded",agentId));
+                    logger.info("false");
                     return false;
                 }
                 else{
+                    logger.info("true");
                     return true;
                 }
             }
             else if(cash_flow_id ==2){
                 if((agentRepository.findAgentWithdrawalLimitsByAgentId(agentId) < (transactionRDBMSRepository.selectCashOutTotalsByAgentId(agentId))  + amount)){
-                    logger.info("AUTH FAILURE::CASH OUT Transactions Limits for agent[%d] exceeded",agentId);
+                    logger.info(String.format("AUTH FAILURE::CASH OUT Transactions Limits for agent[%d] exceeded",agentId));
+                    logger.info("false");
                     return false;
                 }
                 else{
+                    logger.info("true");
                     return true;
                 }
             }
             else{
-                logger.info("AUTH FAILURE::Invalid cash_flow id[%D]",cash_flow_id);
+                logger.info(String.format("AUTH FAILURE::Invalid cash_flow id[%d]",cash_flow_id));
                 return false;
             }
         }
@@ -201,5 +207,225 @@ public class ValidateTransactions implements ValidateTransactionsInterface {
         }
         return false;
     }
+
+    public Boolean validateDailyTransactionLimit(Transactions transaction){
+        logger.info("Validating daily transaction limit init ..");
+        LocalDateTime fromDate,toDate,localDateTime = LocalDateTime.now();
+        fromDate = localDateTime.withHour(0).withMinute(0).withSecond(0);
+        toDate = localDateTime.withHour(23).withMinute(59).withSecond(59);
+        Double totalDailyTransactions = 0.0;
+        Double agentDailyTransactionLimit= agentRepository.agentDailyTransactionLimit(transaction.getAgent_id());
+        totalDailyTransactions += transactionRDBMSRepository.totalDailyTransactions(fromDate.toString().replace("T"," "),toDate.toString().replace("T"," "),transaction.getAgent_id());
+        logger.info("Total Daily transactions::"+totalDailyTransactions);
+        //totalDailyTransactions += transactionRDBMSRepository.totalDailyTransactions(fromDate,toDate,transaction.getAgent_id());
+        if(totalDailyTransactions >=agentDailyTransactionLimit){
+            logger.info(String.format("AGENT %d HAS EXCEEDED DAILY TRANSACTION LIMIT",transaction.getAgent_id()));
+            return false;
+        }
+        if(totalDailyTransactions +transaction.getAmount() >agentDailyTransactionLimit) {
+            logger.info(String.format("AGENT %d has %s daily transacting balance", +(agentDailyTransactionLimit - totalDailyTransactions)));
+            return false;
+        }
+
+        return true;
+    }
+
+    public Boolean authenticateWeeklyTransactionLimits(Transactions transaction){
+        logger.info("Validating weekly transaction limit init ..");
+        //get day of the month from date
+        LocalDateTime localDateTime = LocalDateTime.now();
+        LocalDateTime fromDate;
+        LocalDateTime toDate;
+        Double totalweeklytransactions =0.0;
+
+        try{
+            switch (classifyDaysIntoWeeks()){
+                case 'a':
+                    fromDate = localDateTime.withDayOfMonth(1).withHour(0).withMinute(0).withSecond(0);
+                    toDate = localDateTime.withDayOfMonth(7).withHour(23).withMinute(59).withSecond(59);
+                    logger.info(fromDate.toString());
+                    logger.info(toDate.toString());
+                    //select sum(coalesce,0) from transactions where transactions.created_at between 'fromDate' and 'toDate'
+                    totalweeklytransactions = transactionRDBMSRepository.totalWeeklyTransactions(fromDate.toString().replace("T"," "),toDate.toString().replace("T"," "),transaction.getAgent_id());
+                    //totalweeklytransactions = transactionRDBMSRepository.totalWeeklyTransactions(fromDate,toDate,transaction.getAgent_id());
+                    break;
+                case 'b':
+                     fromDate = localDateTime.withDayOfMonth(8).withHour(0).withMinute(0).withSecond(0);
+                     toDate = localDateTime.withDayOfMonth(14).withHour(23).withMinute(59).withSecond(59);
+                    //try converting SimpleDateFormat to yyyyMMdd
+                    //select sum(coalesce,0) from  transactions where transactions.created_at between 'fromDate'
+                    totalweeklytransactions = transactionRDBMSRepository.totalWeeklyTransactions(fromDate.toString(),toDate.toString(),transaction.getAgent_id());
+                    break;
+                case 'c':
+                    fromDate = localDateTime.withDayOfMonth(8).withHour(0).withMinute(0).withSecond(0);
+                    toDate = localDateTime.withDayOfMonth(14).withHour(23).withMinute(59).withSecond(59);
+                    totalweeklytransactions = transactionRDBMSRepository.totalWeeklyTransactions(fromDate.toString(),toDate.toString(),transaction.getAgent_id());
+                    break;
+                case 'd':
+                    fromDate = localDateTime.withDayOfMonth(8).withHour(0).withMinute(0).withSecond(0);
+                    toDate = localDateTime.withDayOfMonth(14).withHour(23).withMinute(59).withSecond(59);
+                    totalweeklytransactions = transactionRDBMSRepository.totalWeeklyTransactions(fromDate.toString(),toDate.toString(),transaction.getAgent_id());
+                    break;
+                case 'e':
+                    fromDate = localDateTime.withDayOfMonth(8).withHour(0).withMinute(0).withSecond(0);
+                    toDate = localDateTime.withDayOfMonth(14).withHour(23).withMinute(59).withSecond(59);
+                    totalweeklytransactions = transactionRDBMSRepository.totalWeeklyTransactions(fromDate.toString(),toDate.toString(),transaction.getAgent_id());
+                    break;
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+
+        /*****QUERY FOR AGENT'S LIMITS*********/
+        logger.info("Total weekly transactions::"+totalweeklytransactions);
+        if(totalweeklytransactions>=agentRepository.agentWeeklyTransactionLimit(transaction.getAgent_id())){
+            logger.info(String.format("AGENT %d HAS EXCEEDED WEEKLY TRANSACTION LIMIT",transaction.getAgent_id()));
+            return false;
+        }
+        return true;
+    }
+    public Boolean authenticateMonthlyTransactionLimits(Transactions transaction){
+        logger.info("Validating monthly transaction limit init ..");
+        LocalDateTime fromDate,toDate,localDateTime = LocalDateTime.now();
+        fromDate = localDateTime.withDayOfMonth(1).withHour(0).withMinute(0).withSecond(0);
+        Double totalMonthlyTransactions = 0.0;
+        switch (getDaysOfMonth(localDateTime.getMonthValue())){
+            case 'a':
+                toDate = localDateTime.withDayOfMonth(31).withHour(23).withMinute(59).withSecond(59);
+                totalMonthlyTransactions = transactionRDBMSRepository.totalMonthlyTransactions(fromDate.toString().replace("T"," "),toDate.toString().replace("T"," "),transaction.getAgent_id());
+                //totalMonthlyTransactions = transactionRDBMSRepository.totalMonthlyTransactions(fromDate,toDate,transaction.getAgent_id());
+                break;
+            case 'b':
+                try{
+                    toDate = localDateTime.withDayOfMonth(28).withHour(23).withMinute(59).withSecond(59);
+                }
+                catch(DateTimeException e){
+                    toDate = localDateTime.withDayOfMonth(29).withHour(23).withMinute(59).withSecond(59);
+                }
+                totalMonthlyTransactions = transactionRDBMSRepository.totalMonthlyTransactions(fromDate.toString(),toDate.toString(),transaction.getAgent_id());
+                break;
+            case 'c':
+                toDate = localDateTime.withDayOfMonth(30).withHour(23).withMinute(59).withSecond(59);
+                totalMonthlyTransactions = transactionRDBMSRepository.totalMonthlyTransactions(fromDate.toString(),toDate.toString(),transaction.getAgent_id());
+                break;
+        }
+        logger.info("Total monthly transactions::"+totalMonthlyTransactions);
+        if(totalMonthlyTransactions >= agentRepository.agentMonthlyTransactionLimit(transaction.getAgent_id())){
+            logger.info(String.format("AGENT %d HAS EXCEEDED MONTHLY TRANSACTION LIMIT",transaction.getAgent_id()));
+            return false;
+        }
+        return true;
+    }
+    public Boolean authenticateQuarterlyTransactionLimits(Transactions transaction){
+        logger.info("Validating quarterly transaction limit init ..");
+        LocalDateTime fromDate,toDate,localDateTime = LocalDateTime.now();
+        Double totalQuarterlyTransactions = 0.0;
+        Month month = localDateTime.getMonth();
+        switch (clasifyDaysIntoMonths(month.getValue())){
+            case 'a':
+                fromDate = localDateTime.withMonth(0).withDayOfMonth(1).withHour(0).withMinute(0).withSecond(0);
+                toDate = localDateTime.withMonth(2).withDayOfMonth(31).withHour(23).withMinute(59).withSecond(59);
+                totalQuarterlyTransactions = transactionRDBMSRepository.totalQuarterlyTransactions(fromDate.toString().replace("T"," "),toDate.toString().replace("T"," "),transaction.getAgent_id());
+                //totalQuarterlyTransactions = transactionRDBMSRepository.totalQuarterlyTransactions(fromDate,toDate,transaction.getAgent_id());
+                break;
+            case 'b':
+                fromDate = localDateTime.withMonth(3).withDayOfMonth(1).withHour(0).withMinute(0).withSecond(0);
+                toDate = localDateTime.withMonth(5).withDayOfMonth(30).withHour(23).withMinute(59).withSecond(59);
+                totalQuarterlyTransactions = transactionRDBMSRepository.totalQuarterlyTransactions(fromDate.toString(),toDate.toString(),transaction.getAgent_id());
+                break;
+            case 'c':
+                fromDate = localDateTime.withMonth(6).withDayOfMonth(1).withHour(0).withMinute(0).withSecond(0);
+                toDate = localDateTime.withMonth(8).withDayOfMonth(30).withHour(23).withMinute(59).withSecond(59);
+                totalQuarterlyTransactions = transactionRDBMSRepository.totalQuarterlyTransactions(fromDate.toString(),toDate.toString(),transaction.getAgent_id());
+                break;
+            case 'd':
+                fromDate = localDateTime.withMonth(9).withDayOfMonth(1).withHour(0).withMinute(0).withSecond(0);
+                toDate = localDateTime.withMonth(11).withDayOfMonth(31).withHour(23).withMinute(59).withSecond(59);
+                totalQuarterlyTransactions = transactionRDBMSRepository.totalQuarterlyTransactions(fromDate.toString(),toDate.toString(),transaction.getAgent_id());
+        }
+        logger.info("Total quarterly transactions::"+totalQuarterlyTransactions);
+        if(totalQuarterlyTransactions>=agentRepository.agentQuarterlyTransactionLimit(transaction.getAgent_id())){
+            logger.info(String.format("AGENT %d HAS EXCEEDED QUARTERLY TRANSACTION LIMIT",transaction.getAgent_id()));
+            return false;
+        }
+        return true;
+    }
+
+    public char classifyDaysIntoWeeks() throws Exception{
+        LocalDateTime localDateTime = LocalDateTime.now();
+        Integer day = localDateTime.getDayOfMonth();
+        if(day>=1 && day <=7){
+            return 'a';
+        }
+        else if(day>=8 && day <=14){
+            return 'b';
+        }
+        else if(day>=15 && day <=21){
+            return 'c';
+        }
+        else if(day>=22 && day <=28){
+            return 'd';
+        }
+        else if(day>=29 && day <=31) {
+            return 'e';
+        }
+        else {
+            return 'e';
+        }
+    }
+
+    public char clasifyDaysIntoMonths(Integer monthValue){
+        if(monthValue >=0 && monthValue <=2){
+            return 'a';
+        }
+        else if(monthValue >=3 && monthValue <=5){
+            return 'b';
+        }
+        else if(monthValue >=6 && monthValue <=8){
+            return 'c';
+        }
+        else{
+            return 'd';
+        }
+    }
+
+    public char getDaysOfMonth(Integer monthValue){
+        if(monthValue == 0 || monthValue == 2 || monthValue == 4 || monthValue == 6 || monthValue == 7 || monthValue == 9 || monthValue == 11){
+            return  'a';
+        }
+        if(monthValue == 1){
+            return 'b';
+        }
+        else{
+            return 'c';
+        }
+    }
+
+
+    //@Credit LGPLv3.
+    private double distanceFromBranch(double lat1, double lon1, double lat2, double lon2, String unit) {
+        double theta = lon1 - lon2;
+        double dist = Math.sin(deg2rad(lat1)) * Math.sin(deg2rad(lat2)) + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.cos(deg2rad(theta));
+        dist = Math.acos(dist);
+        dist = rad2deg(dist);
+        dist = dist * 60 * 1.1515;
+        if (unit == "K") {
+            dist = dist * 1.609344;
+        } else if (unit == "N") {
+            dist = dist * 0.8684;
+        }
+        return (dist);
+    }
+    //function converts decimal degrees to radians
+    private double deg2rad(double deg) {
+        return (deg * Math.PI / 180.0);
+    }
+    //function converts radians to decimal degrees
+    private double rad2deg(double rad) {
+        return (rad * 180.0 / Math.PI);
+    }
+
 
 }

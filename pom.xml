@@ -14,8 +14,8 @@
         <module>test</module>
         <module>app</module>
         <module>models</module>
-        <module>compas-transaction</module>
         <module>compas-rest-service</module>
+        <module>compas-transaction</module>
         <!--  <module>compas-mongo-config</module>-->
     </modules>
     <parent>

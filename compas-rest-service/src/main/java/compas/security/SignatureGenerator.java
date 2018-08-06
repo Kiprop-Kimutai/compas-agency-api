@@ -18,11 +18,11 @@ public class SignatureGenerator {
     private static  Logger logger = LoggerFactory.getLogger(SignatureGenerator.class);
     public static String generateSignature(String username, String password, String TransId, String action, String apiKey) {
         logger.info("******************SIGNATURE GENERATION INIT.....*******......");
-        logger.info(username);
-        logger.info(password);
+        //logger.info(username);
+        //logger.info(password);
         logger.info(TransId);
         logger.info(action);
-        logger.info(apiKey);
+        //logger.info(apiKey);
         String signature;
         try {
             String msg = username + SHA1(password) + TransId + action;

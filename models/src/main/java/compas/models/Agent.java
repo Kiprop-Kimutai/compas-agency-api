@@ -26,6 +26,10 @@ public class Agent {
     private Boolean status;
     private Double deposit_limit;
     private Double withdrawal_limit;
+    private Double daily_limit;
+    private Double weekly_limit;
+    private Double monthly_limit;
+    private Double quarterly_limit;
     private Integer  created_by;
     private Integer verified_by;
     private Boolean verified;
@@ -163,7 +167,39 @@ public class Agent {
         this.gender = gender;
     }
 
+    public Double getDaily_limit() {
+        return daily_limit;
+    }
+
+    public void setDaily_limit(Double daily_limit) {
+        this.daily_limit = daily_limit;
+    }
+
+    public Double getWeekly_limit() {
+        return weekly_limit;
+    }
+
+    public void setWeekly_limit(Double weekly_limit) {
+        this.weekly_limit = weekly_limit;
+    }
+
+    public Double getMonthly_limit() {
+        return monthly_limit;
+    }
+
+    public void setMonthly_limit(Double monthly_limit) {
+        this.monthly_limit = monthly_limit;
+    }
+
+    public Double getQuarterly_limit() {
+        return quarterly_limit;
+    }
+
+    public void setQuarterly_limit(Double quarterly_limit) {
+        this.quarterly_limit = quarterly_limit;
+    }
+
     public String getString(){
-        return String.format("agent[agent_code = %s description = %s  agent_id_number]",agent_code,agent_description);
+        return String.format("agent[agent_code = %s description = %s  agent_id_number = %s branch id = %d, postal address = %s town =%s]",agent_code,agent_description,agent_id_number,branch_id,postal_address,town);
     }
 }

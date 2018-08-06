@@ -15,6 +15,7 @@ public class SMS {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer Id;
+    public String TransId;
     public String PhoneNo;
     public String Narration;
 
@@ -23,9 +24,26 @@ public class SMS {
 
     }
 
-    public SMS(String phoneNo, String narration) {
+    public SMS(String transId,String phoneNo, String narration) {
+        TransId = transId;
         PhoneNo = phoneNo;
         Narration = narration;
+    }
+
+    public Integer getId() {
+        return Id;
+    }
+
+    public void setId(Integer id) {
+        Id = id;
+    }
+
+    public String getTransId() {
+        return TransId;
+    }
+
+    public void setTransId(String transId) {
+        TransId = transId;
     }
 
     public String getPhoneNo() {

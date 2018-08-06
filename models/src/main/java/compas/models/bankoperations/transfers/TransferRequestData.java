@@ -12,7 +12,9 @@ public class TransferRequestData {
     private String CustomerName;
     private String FromAccount;
     private String ToAccount;
+    private String ReferenceAccount;
     private String Amount;
+    private String [] Charges;
 
     //default constructror
     public TransferRequestData(){}
@@ -87,5 +89,21 @@ public class TransferRequestData {
 
     public void setAmount(String amount) {
         Amount = amount;
+    }
+
+    public String getReferenceAccount() {
+        return ReferenceAccount;
+    }
+
+    public void setReferenceAccount(String referenceAccount) {
+        ReferenceAccount = referenceAccount;
+    }
+
+    public String[] getCharges() {
+        return Charges;
+    }
+
+    public void setCharges(String[] charges) {
+        Charges = charges;
     }
 }

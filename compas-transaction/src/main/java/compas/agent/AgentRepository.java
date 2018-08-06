@@ -33,6 +33,18 @@ public interface AgentRepository extends CrudRepository<Agent,Long>{
      @Query(value = "select agent.withdrawal_limit from Agent agent where agent.id = :Id")
      Double findAgentWithdrawalLimitsByAgentId(@Param("Id")Integer Id);
 
+     @Query(value = "select agent.daily_limit from Agent agent where agent.id = :Id")
+     Double agentDailyTransactionLimit(@Param("Id")Integer Id);
+
+     @Query(value = "select agent.weekly_limit from Agent agent where agent.id = :Id")
+     Double agentWeeklyTransactionLimit(@Param("Id") Integer Id);
+
+     @Query(value = "select agent.monthly_limit from Agent agent where agent.id = :Id")
+     Double agentMonthlyTransactionLimit(@Param("Id")Integer Id);
+
+     @Query(value = "select agent.quarterly_limit from Agent agent where agent.id =:Id")
+     Double agentQuarterlyTransactionLimit(@Param("Id")Integer Id);
+
      @Query("select agent.branch_id from Agent agent where agent.id =:Id")
      Integer findBranchIdByAgentId(@Param("Id")Integer Id);
 

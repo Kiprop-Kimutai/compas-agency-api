@@ -1,6 +1,7 @@
 D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\authentications\AuthenticationModeRepository.java
 D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\repositories\BankOperations.java
 D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\repositories\UtilitiesOperations.java
+D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\tariffs\PreferredTariffRepository.java
 D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\utilities\UtilitiesRepository.java
 D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\customer\CustomerController.java
 D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\tariffs\TariffsRepository.java
@@ -16,6 +17,7 @@ D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\repositori
 D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\repositories\CustomerOperations.java
 D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\transaction\agencyreceipt\ReceiptManager.java
 D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\bank\BranchRepository.java
+D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\tariffs\Transaction_Charge_Types_Repository.java
 D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\txn_params\TransactionTypeRepository.java
 D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\accounts\GenerateAccountNumber.java
 D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\txn_params\TransactionOperationsRepository.java
@@ -37,6 +39,7 @@ D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\agent\Tran
 D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\user\Application.java
 D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\user\TransactionEnum.java
 D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\currency\CurrencyRepository.java
+D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\tariffs\Transaction_Charge_Repository.java
 D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\device\DeviceController.java
 D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\agent\AgentController.java
 D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\repositories\AuthenticationOperations.java

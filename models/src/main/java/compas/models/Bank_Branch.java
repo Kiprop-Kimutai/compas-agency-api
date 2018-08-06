@@ -21,6 +21,8 @@ public class Bank_Branch {
         private String phone;
         private String address;
         private Integer  location_id;
+        private String latitude;
+        private String longitude;
         private Integer created_by;
 
         //default constructor

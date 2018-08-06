@@ -4,17 +4,23 @@ package compas.models.bankoperations.AccountInquiry;
  * Created by CLLSDJACKT013 on 30/05/2018.
  */
 public class ACResponseData {
-    private String TransId;
-    private String Account;
-    private String Amount;
-    private String AcctName;
-    private String ImageData;
-    private String Schemecode;
-    private String ActiveStatus;
-    private String SolID;
-    private String PBUNo;
+    public String TransId;
+    public String Account;
+    public String Amount;
+    String Email;
+    String Phone;
+    String AcctName;
+    public String ImageData;
+    public String Schemecode;
+    public String ActiveStatus;
+    public String SolID;
+    public String PBUNo;
 
-    public ACResponseData(){}
+    //public ACResponseData(){}
+
+
+    public ACResponseData() {
+    }
 
     public String getTransId() {
         return TransId;
@@ -38,6 +44,22 @@ public class ACResponseData {
 
     public void setAmount(String amount) {
         Amount = amount;
+    }
+
+    public String getEmail() {
+        return Email;
+    }
+
+    public void setEmail(String email) {
+        Email = email;
+    }
+
+    public String getPhone() {
+        return Phone;
+    }
+
+    public void setPhone(String phone) {
+        Phone = phone;
     }
 
     public String getAcctName() {

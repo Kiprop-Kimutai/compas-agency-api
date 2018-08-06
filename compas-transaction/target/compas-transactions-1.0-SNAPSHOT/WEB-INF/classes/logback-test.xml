@@ -1,0 +1,55 @@
+<configuration scan = "true">
+<!--    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <target>System.err</target>
+    </appender>-->
+
+    <!--<property name="USER_HOME" value="C:\\Program Files\\apache-tomcat-8.5.20\\conf\\"/> -->
+    <property name="filePath" value="C:\\Program Files\\apache-tomcat-8.5.20\\conf\\"></property>
+	 <property name="LOG_PATH" value="C:\\Program Files\\apache-tomcat-8.5.20\\agencylogs"/>
+	 <property name="LOG_ARCHIVE" value="${LOG_PATH}\\info\\"/>
+	 	 <property name="ROOT_LEVEL_LOGS" value="${LOG_PATH}\\root-level-info\\"/>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <root level="info">
+        <appender-ref ref="STDOUT" />
+    </root>
+    <appender name="rollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+           <!-- <file>${filePath}log-%d{yyyy-MM-dd}.log</file>-->
+			 <!--<file>${LOG_PATH}rollingfile.log</file>-->
+            <!--<fileNamePattern>C:\\Program Files\\apache-tomcat-8.5.20\\conf\\tms_files\\log-%d{yyyy-MM-dd}.log</fileNamePattern>-->
+            <!--<fileNamePattern>${filePath}log-%d{yyyy-MM-dd}.log</fileNamePattern>-->
+			<fileNamePattern>${LOG_ARCHIVE}infolog-%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>365</maxHistory>
+            <totalSizeCap>30GB</totalSizeCap>
+        </rollingPolicy>
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <maxFileSize>500MB</maxFileSize>
+        </triggeringPolicy>
+        <encoder>
+           <!-- <pattern>%d %green([%thread]) %highlight(%level) %logger{50} - %msg%n</pattern>-->
+
+             /***DATE***THREAD*****LEVEL***LOGGER***MESSAGE*****/
+             <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+		#test for logging root level errors
+		<appender name="rootLevelLogFile" class="ch.qos.logback.core.FileAppender">
+		<file>${ROOT_LEVEL_LOGS}/$root-level-info.log</file>
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+		</encoder>
+	</appender>
+	<!--<logger name="compas" level="info" additivity="false">
+		<appender-ref ref="rollingFile" />
+	</logger>-->
+    <root level = "info">
+        <appender-ref ref = "rollingFile"/>
+    </root>
+	<!--<root level = "info">
+        <appender-ref ref = "rootLevelLogFile"/>
+    </root>-->
+</configuration>

@@ -45,9 +45,7 @@ public class RestServiceConfig {
     private SignatureGenerator signatureGenerator = new SignatureGenerator();
 
     public String RestServiceConfiguration(String protocol,String IP,String PORT,String endpoint,String requestMethod,String input,String transId,String action){
-   /*     if(protocol.equalsIgnoreCase("http")){
-            disableSslVerification();
-        }*/
+
         disableSslVerification();
         logger.info("POST REQUEST PAYLOAD::::"+input);
         String fullURL = String.format(protocol+"://"+IP.concat(":").concat(PORT)+""+endpoint);
@@ -83,17 +81,13 @@ public class RestServiceConfig {
                 httpsURLConnection = (HttpsURLConnection) connection;
                 httpsURLConnection.setRequestMethod(requestMethod);
                     //SET REQUEST HEADERS HERE
-                //httpsURLConnection.setRequestProperty("owner","kimutai");
                 httpsURLConnection.setRequestProperty("security_key",""+security_key);
                 //httpsURLConnection.setRequestProperty("signature",generateSignature.generateTransactionSignature(api_key,api_username,api_password,transId,action));
                 httpsURLConnection.setRequestProperty("signature",signatureGenerator.generateSignature(api_username.trim(),api_password.trim(),transId.trim(),action.trim(),api_key.trim()));
                 if(requestMethod == "GET"){
-                    logger.info("-----------------HATHAWAY-----------------");
+                    logger.info("-----------------HATHAWAY GET-----------------");
                     if(httpsURLConnection.getResponseCode() <200 && httpsURLConnection.getResponseCode() >299){
-                        //throw new RuntimeException("Failed: Http Error code::"+httpURLConnection.getResponseCode());
-                        logger.info("HTTP CALL FAILED:::CODE"+httpsURLConnection.getResponseCode());
-/*                        serverResponse.setCode(httpsURLConnection.getResponseCode());
-                        serverResponse.setMessage(httpsURLConnection.getResponseMessage());*/
+                        logger.info("HTTPS CALL FAILED:::CODE"+httpsURLConnection.getResponseCode());
                         apiResponse.setCode(httpsURLConnection.getResponseCode());
                         apiResponse.setMessage(httpsURLConnection.getResponseMessage());
                         return gson.toJson(apiResponse);
@@ -104,27 +98,21 @@ public class RestServiceConfig {
                         System.out.println(current);
                         responseString += current;
                     }
-                    logger.info("Response from URL >>>" +responseString);
+                    logger.info("Response from URL:::" +responseString);
                     httpsURLConnection.disconnect();
                     return responseString;
 
                 }
                 else if(requestMethod == "POST"){
                     logger.info("--------------HATHAWAY POST---------------");
-                    //httpsURLConnection.setRequestProperty("Content-Type","application/json");
                     OutputStream os = httpsURLConnection.getOutputStream();
                     os.write(input.getBytes());
                     os.flush();
-                    logger.info("****CHECKER*********");
 
                     if(httpsURLConnection.getResponseCode() <200 ||  httpsURLConnection.getResponseCode() >299){
-                        //throw new RuntimeException("Failed::Http Error code::" +httpURLConnection.getResponseCode());
                         logger.info("HTTPS CALL FAILED:::"+httpsURLConnection.getResponseCode());
-/*                        serverResponse.setCode(httpsURLConnection.getResponseCode());
-                        serverResponse.setMessage(httpsURLConnection.getResponseMessage());*/
                         apiResponse.setCode(httpsURLConnection.getResponseCode());
                         serverResponse.setMessage(httpsURLConnection.getResponseMessage());
-                       // return gson.toJson(serverResponse);
                         return gson.toJson(apiResponse);
 
                     }
@@ -132,23 +120,17 @@ public class RestServiceConfig {
                     while((current = dataIn.readLine()) != null){
                         responseString += current;
                     }
-                    logger.info("Response from URL >>>>>" +responseString);
+                    logger.info("Response from URL:::" +responseString);
                     httpsURLConnection.disconnect();
-/*                    serverResponse.setCode(201);
-                    serverResponse.setMessage(responseString);
-                    return gson.toJson(serverResponse);*/
                     apiResponse = gson.fromJson(responseString,ApiResponse.class);
                     apiResponse.setCode(201);
                     return gson.toJson(apiResponse);
-                    //return responseString;
                 }
                 httpsURLConnection.disconnect();
-                //return responseString;
             }
             else if(connection instanceof  HttpURLConnection){
                 httpURLConnection =(HttpURLConnection)connection;
                 httpURLConnection.setRequestMethod(requestMethod);
-                httpURLConnection.setRequestProperty("owner","kimutai");
                 httpURLConnection.setRequestProperty("security_key",""+security_key);
                 //httpURLConnection.setRequestProperty("signature",generateSignature.generateTransactionSignature(api_key,api_username,api_password,transId,action));
                 httpURLConnection.setRequestProperty("signature",signatureGenerator.generateSignature(api_username,api_password,transId,action,api_key));
@@ -161,7 +143,6 @@ public class RestServiceConfig {
                         serverResponse.setCode(httpURLConnection.getResponseCode());
                         serverResponse.setMessage(httpURLConnection.getResponseMessage());
                         return gson.toJson(serverResponse);
-                        //return ""+httpsURLConnection.getResponseCode()+"".concat(httpsURLConnection.getResponseMessage());
                     }
 
                     BufferedReader dataIn = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
@@ -174,7 +155,6 @@ public class RestServiceConfig {
                     serverResponse.setCode(201);
                     serverResponse.setMessage(responseString);
                     return  gson.toJson(serverResponse);
-                    //return responseString;
 
                 }
                 else if(requestMethod == "POST"){
@@ -183,13 +163,8 @@ public class RestServiceConfig {
                     OutputStream os = httpURLConnection.getOutputStream();
                     os.write(input.getBytes());
                     os.flush();
-                    //httpURLConnection.getResponseCode() != HttpURLConnection.HTTP_CREATED
-                   // httpsURLConnection.getResponseCode() <200 ||  httpsURLConnection.getResponseCode() >299
                     if(httpURLConnection.getResponseCode() <200 ||  httpURLConnection.getResponseCode() >299){
                         logger.info("HTTP CALL FAILED::CODE"+httpURLConnection.getResponseCode());
-/*                        serverResponse.setCode(httpURLConnection.getResponseCode());;
-                        serverResponse.setMessage(httpURLConnection.getResponseMessage());
-                        return gson.toJson(serverResponse);*/
                         apiResponse.setCode(httpURLConnection.getResponseCode());
                         apiResponse.setMessage(httpURLConnection.getResponseMessage());
                         return gson.toJson(apiResponse);
@@ -200,9 +175,6 @@ public class RestServiceConfig {
                     }
                     logger.info("Response from URL >>>>>" +responseString);
                     httpURLConnection.disconnect();
-/*                    serverResponse.setCode(201);
-                    serverResponse.setMessage(responseString);*/
-                    //return gson.toJson(serverResponse);
                     apiResponse = gson.fromJson(responseString,ApiResponse.class);
                     apiResponse.setCode(201);
                     return gson.toJson(apiResponse);

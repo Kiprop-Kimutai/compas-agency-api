@@ -11,6 +11,19 @@ public class InquiriesResponseData {
     private String FromAccount;
     private String ToAccount;
     private String [] Transactions;
+    private String receipt_number;
+    private Double agent_commission;
+    private Double bank_income;
+    private Double exercise_duty;
+
+    public String Phone;
+    public String AcctName;
+    public String Email;
+    public String ImageData;
+    public String Schemecode;
+    public String ActiveStatus;
+    public String SolID;
+    public String PBUNo;
 
     //default constructor
     public InquiriesResponseData(){}
@@ -71,7 +84,104 @@ public class InquiriesResponseData {
         ToAccount = toAccount;
     }
 
+    public String getReceipt_number() {
+        return receipt_number;
+    }
+
+    public void setReceipt_number(String receipt_number) {
+        this.receipt_number = receipt_number;
+    }
+
+    public Double getAgent_commission() {
+        return agent_commission;
+    }
+
+    public void setAgent_commission(Double agent_commission) {
+        this.agent_commission = agent_commission;
+    }
+
+    public Double getBank_income() {
+        return bank_income;
+    }
+
+    public void setBank_income(Double bank_income) {
+        this.bank_income = bank_income;
+    }
+
+    public Double getExercise_duty() {
+        return exercise_duty;
+    }
+
+    public void setExercise_duty(Double exercise_duty) {
+        this.exercise_duty = exercise_duty;
+    }
+
+
+    public String getPhone() {
+        return Phone;
+    }
+
+    public void setPhone(String phone) {
+        Phone = phone;
+    }
+
+    public String getAcctName() {
+        return AcctName;
+    }
+
+    public void setAcctName(String acctName) {
+        AcctName = acctName;
+    }
+
+    public String getEmail() {
+        return Email;
+    }
+
+    public void setEmail(String email) {
+        Email = email;
+    }
+
+    public String getImageData() {
+        return ImageData;
+    }
+
+    public void setImageData(String imageData) {
+        ImageData = imageData;
+    }
+
+    public String getSchemecode() {
+        return Schemecode;
+    }
+
+    public void setSchemecode(String schemecode) {
+        Schemecode = schemecode;
+    }
+
+    public String getActiveStatus() {
+        return ActiveStatus;
+    }
+
+    public void setActiveStatus(String activeStatus) {
+        ActiveStatus = activeStatus;
+    }
+
+    public String getSolID() {
+        return SolID;
+    }
+
+    public void setSolID(String solID) {
+        SolID = solID;
+    }
+
+    public String getPBUNo() {
+        return PBUNo;
+    }
+
+    public void setPBUNo(String PBUNo) {
+        this.PBUNo = PBUNo;
+    }
+
     public String getString(){
-        return String.format("responseData[TransId = %s  Balance = %s  Account = %s ]",TransId,Balance,Account);
+        return String.format("responseData{TransId:%s  Balance:%s  Account:%s  Amount :%s from :%s  to :%s}",TransId,Balance,Account,Amount,FromAccount,ToAccount);
     }
 }

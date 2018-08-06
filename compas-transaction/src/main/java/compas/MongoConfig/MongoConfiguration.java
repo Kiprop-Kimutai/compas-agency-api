@@ -32,11 +32,8 @@ public class MongoConfiguration {
     @Bean
     public MongoTemplate mongoTemplate() throws Exception{
          org.slf4j.Logger logger = LoggerFactory.getLogger(MongoConfiguration.class);
-       // rootLogger.setLevel(Level.ERROR);
         //MongoTemplate mongoTemplate = new MongoTemplate(new MongoClient("192.168.137.89"),"agency_pbu");
-        logger.info("MONGO HOST::::"+mongodb_host);
-        logger.info("MONGO PORT>>>>>>>"+mongodb_port);
-        logger.info("MONGO DATABASE<<<<<>>>>>"+mongo_database);
+        logger.info(String.format("MONGO HOST = %s MONGO PORT = %s MONGO DATABASE = %s",mongodb_host,mongodb_port,mongo_database));
         MongoTemplate mongoTemplate = new MongoTemplate(new MongoClient(mongodb_host,Integer.parseInt(mongodb_port)),mongo_database);
         return mongoTemplate;
     }

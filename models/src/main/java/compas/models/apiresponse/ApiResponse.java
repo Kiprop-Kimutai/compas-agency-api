@@ -1,5 +1,6 @@
 package compas.models.apiresponse;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import compas.models.*;
 import compas.models.bankoperations.Inquiries.InquiriesResponseData;
 
@@ -12,6 +13,7 @@ public class ApiResponse {
     private Integer code;
     private String response_code;
     private String response_message;
+    //private Boolean response_status;
     private InquiriesResponseData Data;
 
 
@@ -56,7 +58,7 @@ public class ApiResponse {
     }
 
     public String getString(){
-        return String.format("");
+        return String.format("api_response{code:%d response_code:%s response_message:%s data:%s}",code,response_code,response_message,Data.getString());
     }
 
 }
