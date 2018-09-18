@@ -13,8 +13,9 @@ public class UserOperations {
     @Autowired
     private UserRepository userRepository;
 
-    public Users findByAgentId(Integer agentId){
-        return userRepository.findByAgentId(agentId);
-    }
+  /*  public Users findByAgentId(String agentcode){
+        //return userRepository.findUsersByAgentCode(agentcode);
+
+    }*/
 
 }

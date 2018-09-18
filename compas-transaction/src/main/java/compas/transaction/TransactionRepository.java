@@ -37,6 +37,8 @@ public class TransactionRepository {
     }
 
     public List<Transactions> updateTransactionFlagWithMatchingReceipt(String receipt_number, String authentication){
+        logger.info("insider....>>>>");
+        logger.info(receipt_number+"password"+authentication);
         Query query = new Query();
         Transactions modelTransactions = new Transactions();
         modelTransactions.setReceipt_number(receipt_number);

@@ -36,6 +36,7 @@ public class Application  extends SpringBootServletInitializer{
     private OTPRepository otpRepository = new OTPRepository();
     private static Logger logger = LoggerFactory.getLogger(Application.class);
 
+
     public static void main(String [] args) throws Exception{
         Properties p = System.getProperties();
         //System.setProperty(ContextInitializer.CONFIG_FILE_PROPERTY, /path/to/config.xml); //TRY THIS PROP
@@ -46,7 +47,10 @@ public class Application  extends SpringBootServletInitializer{
         p.setProperty("logging.level.org.springframework.data","INFO");
         p.setProperty("logging.file","C:\\Program Files\\apache-tomcat-8.5.20\\conf\\testing.log");
         p.setProperty("logging.config","${catalina.home}\\conf\\logback-test.xml");
+        ApplicationService.logConfigs();
         SpringApplication.run(Application.class,args);
+        System.out.println(p.getProperty("server.port"));
+        ApplicationService.logConfigs();
 
 
 /*        Date localDate = new SimpleDateFormat("yyyy-MM-dd").parse("2018-06-12 16:15:32.000");
@@ -65,7 +69,13 @@ public class Application  extends SpringBootServletInitializer{
         LocalDateTime localDateTime1 = LocalDateTime.now();
         logger.info("Day::"+localDateTime1.getDayOfMonth());
         LocalDateTime fastforward = localDateTime1.withMonth(4).withDayOfMonth(30);
-        logger.info("Fast forward::"+fastforward.toString());*/
+        logger.info("Fast forward::"+fastforward.toString());
+        LocalDateTime now  =  LocalDateTime.now();
+        logger.info("MonthValue::"+now.getMonthValue());
+        LocalDateTime lastMonth = now.minusMonths(8);
+        logger.info(">>"+lastMonth);
+        logger.info("BBB"+lastMonth.getMonthValue());
+        logger.info("NN"+lastMonth.getMonth());*/
 
     }
     public void managePasswordPolicy(){

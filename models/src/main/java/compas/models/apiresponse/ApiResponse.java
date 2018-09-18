@@ -13,9 +13,19 @@ public class ApiResponse {
     private Integer code;
     private String response_code;
     private String response_message;
-    //private Boolean response_status;
-    private InquiriesResponseData Data;
+    private Boolean response_status;
+    public InquiriesResponseData Data;
 
+    //default constructor
+    public ApiResponse(){}
+
+    public ApiResponse(Integer code, String response_code, String response_message, Boolean response_status, InquiriesResponseData data) {
+        this.code = code;
+        this.response_code = response_code;
+        this.response_message = response_message;
+        this.response_status = response_status;
+        Data = data;
+    }
 
     public Integer getCode() {
         return code;
@@ -47,6 +57,14 @@ public class ApiResponse {
 
     public void setResponse_message(String response_message) {
         this.response_message = response_message;
+    }
+
+    public Boolean getResponse_status() {
+        return response_status;
+    }
+
+    public void setResponse_status(Boolean response_status) {
+        this.response_status = response_status;
     }
 
     public InquiriesResponseData getData() {

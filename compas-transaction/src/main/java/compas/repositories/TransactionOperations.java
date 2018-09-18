@@ -57,20 +57,14 @@ public class TransactionOperations {
         return transactionRepository.updateProcessedTransaction(receipt_number,cbs_trans_id);
     }
 
-    public Double selectCashInTotalsByAgentId(Integer Id){
-        return transactionRDBMSRepository.selectCashInTotalsByAgentId(Id);
-    }
 
-    public Double  selectCashOutTotalsByAgentId(Integer Id){
-        return transactionRDBMSRepository.selectCashOutTotalsByAgentId(Id);
-    }
 
     public void updateAuthenticatedTransactionsByReceiptNumber(String receipt_number){
         transactionRDBMSRepository.updateAuthenticatedTransactionsByReceiptNumber(receipt_number);
     }
 
-    public void updateProcessedTransactionsByReceiptNumber(String receipt_number,String cbs_trans_id){
-         transactionRDBMSRepository.updateProcessedTransactionsByReceiptNumber(receipt_number,cbs_trans_id);
+    public void updateProcessedTransactionsByReceiptNumber(String receipt_number,String cbs_trans_id,String finnacle_response_message){
+         transactionRDBMSRepository.updateProcessedTransactionsByReceiptNumber(receipt_number,cbs_trans_id,finnacle_response_message);
     }
 
     public Transaction_Operation findTransaction_OperationById(Integer Id){
@@ -111,8 +105,8 @@ public class TransactionOperations {
         return transactionTypeRepository.findAll();
     }
 
-    public void updateSuccessfulInquiryRequestData(String TransId,String cbs_trans_id){
-        inquiriesRequestDataRepository.updateSuccessfulInquiryRequestData(TransId,cbs_trans_id);
+    public void updateSuccessfulInquiryRequestData(String TransId,String cbs_trans_id,String finnacle_response_message){
+        inquiriesRequestDataRepository.updateSuccessfulInquiryRequestData(TransId,cbs_trans_id,finnacle_response_message);
     }
 
 

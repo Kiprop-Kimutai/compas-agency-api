@@ -13,4 +13,6 @@ import java.util.List;
 @Repository
 public interface TransactionTypeRepository extends CrudRepository<Transaction_Type,Long> {
     public List<Transaction_Type> findAll();
+
+
 }

@@ -11,8 +11,11 @@ public class AgentResponse {
     private Device device;
     private Issued_Device issued_device;
     private Agent agent;
-    private Users users;
+    private Merchant merchant;
+    private List<AgentContactPersons> agentContactPersons;
+    private List<Users> users;
     private Bank bank;
+    private List<Schemes> schemes;
     private Bank_Branch branch;
     private List<Account> accounts;
     private List<Transaction_Type>transaction_types;
@@ -49,12 +52,28 @@ public class AgentResponse {
         this.agent = agent;
     }
 
-    public Users getUsers() {
+    public Merchant getMerchant() {
+        return merchant;
+    }
+
+    public void setMerchant(Merchant merchant) {
+        this.merchant = merchant;
+    }
+
+    public List<Users> getUsers() {
         return users;
     }
 
-    public void setUsers(Users users) {
+    public void setUsers(List<Users> users) {
         this.users = users;
+    }
+
+    public List<AgentContactPersons> getAgentContactPersons() {
+        return agentContactPersons;
+    }
+
+    public void setAgentContactPersons(List<AgentContactPersons> agentContactPersons) {
+        this.agentContactPersons = agentContactPersons;
     }
 
     public Bank getBank() {
@@ -63,6 +82,14 @@ public class AgentResponse {
 
     public void setBank(Bank bank) {
         this.bank = bank;
+    }
+
+    public List<Schemes> getSchemes() {
+        return schemes;
+    }
+
+    public void setSchemes(List<Schemes> schemes) {
+        this.schemes = schemes;
     }
 
     public Bank_Branch getBranch() {

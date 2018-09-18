@@ -11,7 +11,7 @@ import java.util.ArrayList;
  */
 //@Document(collection = "agent")
 @Entity
-public class Agent {
+public class Agent1 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer Id;
@@ -34,7 +34,7 @@ public class Agent {
     private Integer verified_by;
     private Boolean verified;
     //default constructor
-    public Agent() {
+    public Agent1() {
     }
 
 

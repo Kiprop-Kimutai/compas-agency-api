@@ -15,9 +15,7 @@ import compas.models.apiresponse.Message;
 import compas.models.apiresponse.SmsResponse;
 import compas.models.bankoperations.AccountInquiry.AccountInquiryRequest;
 import compas.models.bankoperations.AccountInquiry.AccountInquiryResponse;
-import compas.models.bankoperations.Inquiries.InquiriesRequestData;
-import compas.models.bankoperations.Inquiries.InquiriesResponse;
-import compas.models.bankoperations.Inquiries.InquiriesResponseData;
+import compas.models.bankoperations.Inquiries.*;
 import compas.models.bankoperations.OperationEnums;
 import compas.models.bankoperations.deposit.DepositResponse;
 import compas.models.bankoperations.reversals.ReversalResponse;
@@ -134,24 +132,22 @@ public class TransactionController {
         try{
             wildDevice.setId(0);
             List<Issued_Device>issued_devices = issued_deviceRepository.findIssued_DeviceByAgentId(transactions.getAgent_id());
-             logger.info("Issued devices::"+issued_devices.size());
-             if(issued_devices.size()>0){
-                 issued_devices.forEach((x) ->{
-                     issued_device = x;
-                     logger.info(x.getString());
-                     device = deviceRepository.findDeviceById(issued_device.getDeviceId())!=null ? deviceRepository.findDeviceById(issued_device.getDeviceId()) :wildDevice;
-                     logger.info(device.getString());
+            logger.info("Issued devices::"+issued_devices.size());
+            if(issued_devices.size()>0){
+                issued_devices.forEach((x) ->{
+                    issued_device = x;
+                    logger.info(x.getString());
+                    device = deviceRepository.findDeviceById(issued_device.getDeviceId())!=null ? deviceRepository.findDeviceById(issued_device.getDeviceId()) :wildDevice;
+                    logger.info(device.getString());
 
-                 });
-             }
-             else{
-                // responseMessage.setMessage("DEVICE ISSUANCE ERROR.Device not issued to agent");
-                 apiResponse.setCode(301);
-                 apiResponse.setMessage("DEVICE IS  NOT ISSUED TO AGENT");
-                 //logger.info(responseMessage.getMessage());
-                 logger.info(gson.toJson(apiResponse));
-                 return ResponseEntity.status(201).body(apiResponse);
-             }
+                });
+            }
+            else{
+                apiResponse.setCode(301);
+                apiResponse.setMessage("DEVICE IS  NOT ISSUED TO AGENT");
+                logger.info(gson.toJson(apiResponse));
+                return ResponseEntity.status(201).body(apiResponse);
+            }
         }
         catch (Exception e){
             e.printStackTrace();
@@ -159,7 +155,7 @@ public class TransactionController {
         }
 
 
-                    //FIRST CHECKPOINT>>>>>>VALIDATE TRANSACTION
+        //FIRST CHECKPOINT>>>>>>VALIDATE TRANSACTION
         if(!validateTransactions.authenticateAgent(transactions.getAgent_id())){
             String message = String.format("Agent %d  is INACTIVE or NOT registered", transactions.getAgent_id());
             responseMessage.setMessage(message);
@@ -185,14 +181,7 @@ public class TransactionController {
             logger.info(gson.toJson(apiResponse));
             return ResponseEntity.status(201).body(apiResponse);
         }
-/*        if(!validateTransactions.authenticateDailyTransactionLimits(transactions.getAmount()+0.0, transactions.getOperational_id(), transactions.getAgent_id())){
-            responseMessage.setMessage(String.format("Transaction limits for operation type %s exceeded",transactionOperationsRepository.findTransaction_OperationById(transactions.getOperational_id()).getAction()));
-            logger.info(responseMessage.getMessage());
-            apiResponse.setCode(303);
-            apiResponse.setMessage(responseMessage.getMessage());
-            logger.info(gson.toJson(apiResponse));
-            return ResponseEntity.status(201).body(apiResponse);
-        }*/
+
         if(!validateTransactions.validateDailyTransactionLimit(transactions)){
             responseMessage.setMessage(String.format("Daily Transaction limit has been attained"));
             logger.info(responseMessage.getMessage());
@@ -232,93 +221,74 @@ public class TransactionController {
             return ResponseEntity.status(201).body(apiResponse);
 
         }
-
-                    //GENERATE receipt_number
+        //GENERATE receipt_number
         receipt_number = receiptManager.generateReceiptNumber(transactions.getAgent_id());
-                    //SET receipt number and narration
+        //SET receipt number and narration
         transactions.setReceipt_number(receipt_number);
         transactions.setNarration(transactionOperationsRepository.findTransaction_OperationById(transactions.getOperational_id()).getAction());
-
-                    //DETERMINE AND SET CASH INS and CASH OUTS
-        Integer cash_flow_id = transactionOperationsRepository.selectCashFlowId(transactions.getOperational_id());
-        if(cash_flow_id == 1){
-            transactions.setCash_in(transactions.amount+0.0);
-            transactions.setCash_out(0.0);
+        transactions.setTransaction_type_id(transactionOperationsRepository.findTransactionTypeIdByTransactionOperationId(transactions.getOperational_id()));
+        //SET customer name for transaction
+        ApiResponse accountInquiryResponse = gson.fromJson(performAcctInquiry(gson.toJson(transactions)),ApiResponse.class);
+        if(accountInquiryResponse.getData()!=null){
+            transactions.setCustomer_name(accountInquiryResponse.getData().getAcctName());
         }
-        else if(cash_flow_id == 2){
-            transactions.setCash_out(transactions.amount+0.0);
-            transactions.setCash_in(0.0);
+        else{
+            //proceed with transaction
+            transactions.setCustomer_name("");
         }
-                    //CHECK TRANSACTION AUTH MODE
+        //CHECK TRANSACTION AUTH MODE
         String transactionMode = authenticationModeRepository.findAuth_ModeById(transactions.getAuth_mode()).getMode();
         logger.info("AUTHENTICATION:::"+transactionMode);
         if(transactionMode.equalsIgnoreCase("OTP")){
             //NOW GENERATE OTP and send to CBS
             String response = otpController.generateOTPPassword(transactions,receipt_number);
-            //check response status
-            //apiResponse = gson.fromJson(response,ApiResponse.class);
             smsResponse = gson.fromJson(response,SmsResponse.class);
             /***ARREST MARTIN HERE******/
-            if(!smsResponse.getResponse_code().equals("000")/*201*/){
-
+            if(smsResponse.getResponse_code() == null && !smsResponse.getResponse_code().equals("000")/*201*/){
                 smsResponse.setCode(100);
                 smsResponse.setResponse_message("OTP MESSAGE SERVER FAILED");
-                //responseMessage.setMessage("OTP GENERATION FAILED");
                 logger.info(gson.toJson(smsResponse));
                 return ResponseEntity.status(201).body(smsResponse);
             }
-            if(smsResponse.getCode() == 311){
+            if(!smsResponse.getResponse_code().equals("000")){
                 smsResponse.setResponse_message("Phone number not found for account");
                 logger.info(gson.toJson(smsResponse));
                 return ResponseEntity.status(201).body(smsResponse);
             }
-
-/*            if(!smsResponse.getCode().equals("150")*//*201*//*){
-                smsResponse.setCode(100);
-                smsResponse.setResponse_message("OTP MESSAGE SERVER FAILED");
-                //responseMessage.setMessage("OTP GENERATION FAILED");
-                logger.info(gson.toJson(smsResponse));
-                return ResponseEntity.status(201).body(smsResponse);
-            }*/
             //update flag to "P"
             transactions.setStatus("P");
             /***calculate tariffs and get processed transactions***/
             //Transactions processedTransactions = tariffManager.setTariffCharges(transactions);
             Transactions processedTransactions = tariffManager.setCharges(transactions);
             transactionRepository.saveTransaction(processedTransactions);
-            //Transactions validatedTransaction = transactionRDBMSRepository.save(processedTransactions);
             apiResponse.setCode(101);
             apiResponse.setMessage("OTP GENERATION SUCCESS");
-            //responseMessage.setMessage("OTP generation success");
-            //return ResponseEntity.status(201).body(gson.toJson(responseMessage));
             return ResponseEntity.status(201).body(apiResponse);
 
         }
         else if(transactionMode.equalsIgnoreCase("PIN")){
             transactions.setStatus("I");
             Transactions processedTransactions = tariffManager.setCharges(transactions);
-                            ///AUTHENTICATE TRANSACTION AT THIS POINT
+            ///AUTHENTICATE TRANSACTION AT THIS POINT
             if(!validateTransactions.processAuthentication(transactions.getAuth_mode(),transactions.getAuthentication(),transactions.getAccount_from())){
                 responseMessage.setMessage(String.format("PIN AUTHENTICATION FAILED FOR TRANSACTION %s FROM AGENT %s FOR ACCOUNT %s",transactions.getNarration(),agentRepository.findTransactingAgentById(transactions.getAgent_id()).getAgent_description(),transactions.getAccount_from()));
-                //logger.info(responseMessage.getMessage());
                 apiResponse.setCode(305);
                 apiResponse.setMessage(responseMessage.getMessage());
-                //logger.info(gson.toJson(apiResponse));
                 logger.info(String.format("TRANSACTION RESPONSE{"+apiResponse.getString()+"}"));
                 return ResponseEntity.status(201).body(apiResponse);
             }
             transactionRepository.saveTransaction(processedTransactions);
             transactionRDBMSRepository.save(processedTransactions);
 
-               /**===========================CALL COMPAS BRIDGE REST SERVICE TO PUSH TRANSACTIONS TO CBS MIDDLEWARE ====================================**/
+            /**===========================CALL COMPAS BRIDGE REST SERVICE TO PUSH TRANSACTIONS TO CBS MIDDLEWARE ====================================**/
             String responseData =  restServiceConfiguration.RestServiceConfiguration(protocol,SERVICE_IP,SERVICE_PORT,SERVICE_ENDPOINT,"POST",transactionsToBank.prepareTransactionsToBank(processedTransactions,API_USERNAME),processedTransactions.getReceipt_number(),transactionOperationsRepository.findTransaction_OperationActionById(processedTransactions.getOperational_id()));
             logger.info(responseData);
-           // apiResponse = gson.fromJson(restServiceConfiguration.RestServiceConfiguration("/api/mockTransactions","POST",gson.toJson(processedTransactions),processedTransactions.getReceipt_number(),transactionOperationsRepository.findTransaction_OperationActionById(processedTransactions.getOperational_id())),ApiResponse.class);
             apiResponse = gson.fromJson(responseData,ApiResponse.class);
             if(apiResponse.getCode() == 201){
                 apiResponse = ProcessCBSResponse(processedTransactions.getReceipt_number(),apiResponse,"");
                 if(apiResponse.getData()!=null) {
-                    apiResponse.getData().setReceipt_number(processedTransactions.getReceipt_number());
+                    apiResponse.getData().setAcctName(processedTransactions.getCustomer_name());
+                    apiResponse.getData().setReceipt_number((processedTransactions.getReceipt_number()));
                     apiResponse.getData().setAgent_commission(processedTransactions.getAgent_commision());
                     apiResponse.getData().setBank_income(processedTransactions.getBank_income());
                     apiResponse.getData().setExercise_duty(processedTransactions.getExcise_duty());
@@ -328,7 +298,7 @@ public class TransactionController {
                 return ResponseEntity.status(201).body(apiResponse);
             }
             /***UPDATE TRANSACTION AS FAILED TRANSACTION*/
-            transactionRDBMSRepository.updateFailedTransactions(processedTransactions.getReceipt_number());
+            transactionRDBMSRepository.updateFailedTransactions(processedTransactions.getReceipt_number(),apiResponse.getResponse_message());
             logger.info(String.format("TRANSACTION RESPONSE{"+gson.toJson(apiResponse)+"}"));
             return ResponseEntity.status(201).body(apiResponse);
 
@@ -336,43 +306,42 @@ public class TransactionController {
         else if(transactionMode.equalsIgnoreCase("BIO")){
             transactions.setStatus("I");
             Transactions processedTransactions = tariffManager.setCharges(transactions);
-                            //AUTHENTICATE TRANSACTION AT THIS POINT
+            //AUTHENTICATE TRANSACTION AT THIS POINT
             if(!validateTransactions.processAuthentication(transactions.getAuth_mode(),transactions.getAuthentication(),transactions.getAccount_from())){
                 responseMessage.setMessage(String.format("BIO AUTHENTICATION FAILED FOR TRANSACTION %s FROM AGENT %s FOR ACCOUNT %s",transactions.getNarration(),agentRepository.findTransactingAgentById(transactions.getAgent_id()).getAgent_description(),transactions.getAccount_from()));
                 logger.info(responseMessage.getMessage());
                 apiResponse.setCode(306);
                 apiResponse.setMessage(responseMessage.getMessage());
-                //return ResponseEntity.status(201).body(responseMessage.getMessage());
-                //return ResponseEntity.status(201).body(gson.toJson(apiResponse));
                 return ResponseEntity.status(201).body(apiResponse);
             }
             transactionRepository.saveTransaction(processedTransactions);
             transactionRDBMSRepository.save(processedTransactions);
-            //Transactions successfulTransaction = gson.fromJson(restServiceConfiguration.RestServiceConfiguration("/api/mockTransactions","POST",gson.toJson(processedTransactions)),Transactions.class);
 
             /**===========================CALL COMPAS BRIDGE REST SERVICE TO PUSH TRANSACTIONS TO CBS MIDDLEWARE ====================================**/
             String responseData =  restServiceConfiguration.RestServiceConfiguration(protocol,SERVICE_IP,SERVICE_PORT,SERVICE_ENDPOINT,"POST",transactionsToBank.prepareTransactionsToBank(processedTransactions,API_USERNAME),processedTransactions.getReceipt_number(),transactionOperationsRepository.findTransaction_OperationActionById(processedTransactions.getOperational_id()));
             logger.info(responseData);
-            //apiResponse = gson.fromJson(restServiceConfiguration.RestServiceConfiguration("/api/mockTransactions","POST",transactionsToBank.prepareTransactionsToBank(processedTransactions,API_USERNAME),processedTransactions.getReceipt_number(),transactionOperationsRepository.findTransaction_OperationActionById(processedTransactions.getOperational_id())),ApiResponse.class);
             apiResponse = gson.fromJson(responseData,ApiResponse.class);
             if(apiResponse.getCode() ==201){
                 apiResponse = ProcessCBSResponse(processedTransactions.getReceipt_number(),apiResponse,"");
-                apiResponse.getData().setReceipt_number(processedTransactions.getReceipt_number());
-                apiResponse.getData().setAgent_commission(processedTransactions.getAgent_commision());
-                apiResponse.getData().setBank_income(processedTransactions.getBank_income());
-                apiResponse.getData().setExercise_duty(processedTransactions.getExcise_duty());
-                logger.info(String.format("TRANSACTION RESPONSE{"+apiResponse.getString()+"}"));
+                if(apiResponse.getData()!=null) {
+                    apiResponse.getData().setAcctName(processedTransactions.getCustomer_name());
+                    apiResponse.getData().setReceipt_number(processedTransactions.getReceipt_number());
+                    apiResponse.getData().setAgent_commission(processedTransactions.getAgent_commision());
+                    apiResponse.getData().setBank_income((processedTransactions.getBank_income()));
+                    apiResponse.getData().setExercise_duty(processedTransactions.getExcise_duty());
+                }
+                logger.info(String.format("TRANSACTION RESPONSE{"+gson.toJson(apiResponse)+"}"));
                 return ResponseEntity.status(201).body(apiResponse);
 
             }
             else{
-                logger.info(String.format("TRANSACTION RESPONSE{"+apiResponse.getString()+"}"));
-                transactionRDBMSRepository.updateFailedTransactions(processedTransactions.getReceipt_number());
+                logger.info(String.format("TRANSACTION RESPONSE{"+gson.toJson(apiResponse)+"}"));
+                transactionRDBMSRepository.updateFailedTransactions(processedTransactions.getReceipt_number(),apiResponse.getResponse_message());
                 return ResponseEntity.status(201).body(gson.toJson(apiResponse));
             }
         }
         else{
-                //transactions needing no AUTHENTICATION i.e cash deposits and Inquiries
+            //transactions needing no AUTHENTICATION i.e cash deposits and Inquiries
             Transactions processedTransactions = tariffManager.setCharges(transactions);
             transactionRepository.saveTransaction(processedTransactions);
             Transactions returnTx = transactionRDBMSRepository.save(processedTransactions);
@@ -386,17 +355,21 @@ public class TransactionController {
             //apiResponse = gson.fromJson(restServiceConfiguration.RestServiceConfiguration("/api/mockTransactions","POST",transactionsToBank.prepareTransactionsToBank(processedTransactions,API_USERNAME),processedTransactions.getReceipt_number(),transactionOperationsRepository.findTransaction_OperationActionById(processedTransactions.getOperational_id())),ApiResponse.class);
             if(apiResponse.getCode() == 201){
                 apiResponse = ProcessCBSResponse(processedTransactions.getReceipt_number(),apiResponse,"");
-                apiResponse.getData().setReceipt_number(processedTransactions.getReceipt_number());
-                apiResponse.getData().setAgent_commission(processedTransactions.getAgent_commision());
-                apiResponse.getData().setBank_income(processedTransactions.getBank_income());
-                apiResponse.getData().setExercise_duty(processedTransactions.getExcise_duty());
-                logger.info(String.format("TRANSACTION RESPONSE{"+apiResponse.getString()+"}"));
+                if(apiResponse.getData()!=null) {
+                    apiResponse.getData().setAcctName(processedTransactions.getCustomer_name());
+                    apiResponse.getData().setReceipt_number(processedTransactions.getReceipt_number());
+                    apiResponse.getData().setAgent_commission(processedTransactions.getAgent_commision());
+                    apiResponse.getData().setBank_income(processedTransactions.getBank_income());
+                    apiResponse.getData().setExercise_duty(processedTransactions.getExcise_duty());
+                }
+                //logger.info(String.format("TRANSACTION RESPONSE{"+apiResponse.getString()+"}"));
+                logger.info("TRANSACTION RESPONSE ["+gson.toJson(apiResponse)+"]");
                 return ResponseEntity.status(201).body(gson.toJson(apiResponse));
 
             }
             else{
-                logger.info(String.format("TRANSACTION RESPONSE{"+apiResponse.getString()+"}"));
-                transactionRDBMSRepository.updateFailedTransactions(processedTransactions.getReceipt_number());
+                logger.info("TRANSACTION RESPONSE{"+gson.toJson(apiResponse)+"}");
+                transactionRDBMSRepository.updateFailedTransactions(processedTransactions.getReceipt_number(),apiResponse.getResponse_message());
                 return ResponseEntity.status(201).body(gson.toJson(apiResponse));
             }
 
@@ -407,10 +380,12 @@ public class TransactionController {
     @RequestMapping(path="/inquiries",method = RequestMethod.POST,consumes = "application/json",produces="application/json")
     @ResponseBody
     public ResponseEntity postInquiries(@RequestBody String TransactionRequest){
-        logger.info(String.format("INQUIRIES REQUEST[",TransactionRequest+"]"));
-               /****===============Model inquiries request data from Transaction Payload==============**/
+        logger.info(String.format("INQUIRIES REQUEST["+TransactionRequest+"]"));
+        /****===============Model inquiries request data from Transaction Payload==============**/
         Transactions transaction  = gson.fromJson(TransactionRequest,Transactions.class);
         TransactionOperations transactionOperations = new TransactionOperations();
+        /***SET TRANSACTION DATE HERE*********/
+        transaction.setTransaction_date(LocalDateTime.now().toString());
         try{
             List<Issued_Device>issued_devices = issued_deviceRepository.findIssued_DeviceByAgentId(transaction.getAgent_id());
             if(issued_devices.size()>0){
@@ -436,7 +411,7 @@ public class TransactionController {
             logger.info(gson.toJson(apiResponse));
             return ResponseEntity.status(201).body(apiResponse);
         }
-                    //ACTION POINTS
+        //ACTION POINTS
         /*
         -Generate customer from transactions String
         -validate authentication
@@ -446,13 +421,10 @@ public class TransactionController {
         -authenticate customer
         */
 
-                    /**********************SKIP IMPORTANT ACTION POINTS HERE. Revert once details are available***********************************************/
-        //Account requestedAccount = accountsController.findActiveAccountByAccountNumber(transaction.getAccount_from()) != null ? accountsController.findActiveAccountByAccountNumber(transaction.getAccount_from()) : fallBackAccount;
-        //Customer transactingCustomer = customerController.findActiveCustomerByIdNumber(requestedAccount.getCustomer_id_number())!=null ? customerController.findActiveCustomerByIdNumber(requestedAccount.getCustomer_id_number()):fallBackCustomer;
+        /**********************SKIP IMPORTANT ACTION POINTS HERE. Revert once details are available***********************************************/
         if(!validateTransactions.authenticateAgent(transaction.getAgent_id())){
-            String message = String.format("Agent %d  is INACTIVE or NOT registered", agentRepository.findTransactingAgentById(transaction.getAgent_id()).getAgent_description());
+            String message = String.format("Agent1 %d  is INACTIVE or NOT registered", agentRepository.findTransactingAgentById(transaction.getAgent_id()).getAgent_description());
             responseMessage.setMessage(message);
-            //logger.info(responseMessage.getMessage());
             apiResponse.setCode(300);
             apiResponse.setMessage(message);
             logger.info(gson.toJson(apiResponse));
@@ -461,12 +433,9 @@ public class TransactionController {
         if(!validateTransactions.authenticateIssuedDevice(issued_device.getDeviceId(),issued_device.getAgent_id())){
             String message = String.format("Device  = %d  is not issued to agent %s ",issued_device.getDeviceId(),agentRepository.findActiveAgentDescritpionById(issued_device.getAgent_id()));
             responseMessage.setMessage(message);
-            //logger.info(responseMessage.getMessage());
             apiResponse.setCode(301);
             apiResponse.setMessage(message);
             logger.info(gson.toJson(apiResponse));
-            //logger.info(String.format("INQUIRIES RESPONSE["+apiResponse.getString()+"]"));
-            //return ResponseEntity.status(201).body(gson.toJson(responseMessage.getMessage()));
             return ResponseEntity.status(201).body(apiResponse);
 
         }
@@ -476,83 +445,151 @@ public class TransactionController {
             apiResponse.setMessage(message);
             apiResponse.setCode(302);
             logger.info(gson.toJson(apiResponse));
-            //logger.info(responseMessage.getMessage());
-            //return ResponseEntity.status(300).body(gson.toJson(responseMessage.getMessage()));
             return ResponseEntity.status(201).body(gson.toJson(apiResponse));
         }
-                    /**SKIP THIS FOR NOW, NO ACCOUNT DETAILS***/
-/*        if(!validateTransactions.authenticateAccount(transaction.getAccount_from())){
-            String message = String.format("Account  %s is not registered or is inactive",transaction.getAccount_from());
-            responseMessage.setMessage(message);
-            logger.info(responseMessage.getMessage());
-            return ResponseEntity.status(300).body(gson.toJson(responseMessage.getMessage()));
-        }*/
-/*        if(!validateTransactions.authenticateCustomer(transactingCustomer)){
-            String message = String.format("Customer  %s is not registered or is inactive",transactingCustomer.getFirst_name());
-            responseMessage.setMessage(message);
-            logger.info(responseMessage.getMessage());
-            return ResponseEntity.status(300).body(gson.toJson(responseMessage.getMessage()));
-        }*/
-                /**GENERATE RECEIPT NUMBER AND SET NARRATION TYPE**/
-        transaction.setNarration(transactionOperationsRepository.findTransaction_OperationById(transaction.getOperational_id()).getAction());
-        transaction.setReceipt_number(receiptManager.generateReceiptNumber(transaction.getAgent_id()));
-                /**SET TRANSACTION CHARGES HERE *****/
-        Transactions processedTransactions = tariffManager.setTariffCharges(transaction);
 
-        /**===============MAP TRANSACTION TO INQUIRIES REQUEST AND SEND TO COMPAS BRIDGE  ==================*******/
-        //InquiriesRequestData inquiriesRequestData = mapTransactionsToInquiriesRequest(transaction);
+        /**GENERATE RECEIPT NUMBER AND SET NARRATION TYPE**/
+        transaction.setNarration(transactionOperationsRepository.findTransaction_OperationById(transaction.getOperational_id()).getAction());
+        receipt_number = receiptManager.generateReceiptNumber(transaction.getAgent_id());
+        transaction.setReceipt_number(receipt_number);
+        transaction.setTransaction_type_id(transactionOperationsRepository.findTransactionTypeIdByTransactionOperationId(transaction.getOperational_id()));
+
+        /**SET TRANSACTION CHARGES HERE *****/
+        Transactions processedTransactions = tariffManager.setCharges(transaction);
+
+        /***CHECK AUTHENTICATION HERE **/
+        if(processedTransactions.auth_mode == null){
+            apiResponse.setCode(314);
+            apiResponse.setMessage("TRANSACTION IS NOT VALIDLY AUTHENTICATED");
+            return ResponseEntity.status(201).body(gson.toJson(apiResponse));
+        }
+        String transactionMode = authenticationModeRepository.findAuth_ModeById(processedTransactions.getAuth_mode()).getMode();
+
+        if(transactionMode.equalsIgnoreCase("OTP")){
+            String response = otpController.generateOTPPassword(processedTransactions,receipt_number);
+            smsResponse = gson.fromJson(response,SmsResponse.class);
+            /***ARREST MARTIN HERE******/
+            if(smsResponse.getResponse_code() == null && !smsResponse.getResponse_code().equals("000")/*201*/){
+
+                smsResponse.setCode(100);
+                smsResponse.setResponse_message("OTP MESSAGE SERVER FAILEDD");
+                logger.info(gson.toJson(smsResponse));
+                return ResponseEntity.status(201).body(smsResponse);
+            }
+            if(!smsResponse.getResponse_code().equals("000")){
+                smsResponse.setResponse_message("Phone number not found for account");
+                logger.info(gson.toJson(smsResponse));
+                return ResponseEntity.status(201).body(smsResponse);
+            }
+
+            processedTransactions.setStatus("P");
+            transactionRepository.saveTransaction(processedTransactions);
+            apiResponse.setCode(101);
+            apiResponse.setMessage("OTP GENERATION SUCCESS");
+            return ResponseEntity.status(201).body(apiResponse);
+        }
+        else if(transactionMode.equalsIgnoreCase("PIN")){
+            logger.info("PIN authentication");
+            apiResponse = processAuthenticatedInquiry(processedTransactions);
+            if(apiResponse.Data!=null) {
+                apiResponse.getData().setExercise_duty(processedTransactions.getExcise_duty());
+                apiResponse.getData().setBank_income(processedTransactions.getBank_income());
+                apiResponse.getData().setAgent_commission(processedTransactions.getAgent_commision());
+            }
+            return ResponseEntity.status(201).body(apiResponse);
+
+        }
+        else if(transactionMode.equalsIgnoreCase("BIO")){
+            apiResponse = processAuthenticatedInquiry(processedTransactions);
+            if(apiResponse.Data!=null) {
+                apiResponse.getData().setExercise_duty(processedTransactions.getExcise_duty());
+                apiResponse.getData().setBank_income(processedTransactions.getBank_income());
+                apiResponse.getData().setAgent_commission(processedTransactions.getAgent_commision());
+            }
+            return ResponseEntity.status(201).body(apiResponse);
+        }
+        else{
+            //invalid authentication mode
+            ApiResponse apiResponse = new ApiResponse();
+            apiResponse.setCode(314);
+            apiResponse.setMessage("TRANSACTION IS NOT VALIDLY AUTHENTICATED");
+        }
+        ApiResponse apiResponse = new ApiResponse();
+        apiResponse.setCode(314);
+        apiResponse.setMessage("TRANSACTION IS NOT VALIDLY AUTHENTICATED");
+        return ResponseEntity.status(201).body(apiResponse);
+    }
+
+    public ApiResponse processAuthenticatedInquiry(Transactions processedTransactions){
         InquiriesRequestData inquiriesRequestData = mapTransactionsToInquiriesRequest(processedTransactions);
         /**================SEND TRANSACTIONS TO COMPAS BRIDGE =================================**/
-        //String responseData = restServiceConfiguration.RestServiceConfiguration(protocol,SERVICE_IP,SERVICE_PORT,SERVICE_ENDPOINT,"POST",transactionsToBank.prepareTransactionsToBank(transaction,API_USERNAME),transaction.getReceipt_number(),transactionOperationsRepository.findTransaction_OperationActionById(transaction.getOperational_id()));
         String responseData = restServiceConfiguration.RestServiceConfiguration(protocol,SERVICE_IP,SERVICE_PORT,SERVICE_ENDPOINT,"POST",transactionsToBank.prepareTransactionsToBank(processedTransactions,API_USERNAME),processedTransactions.getReceipt_number(),transactionOperationsRepository.findTransaction_OperationActionById(processedTransactions.getOperational_id()));
         logger.info("******"+responseData);
-        logger.info("PASSING TO OperationEnums");
-       classifyFinnacleBridgeResponse(responseData);
-        logger.info(mapFinnacleBridgeResponseToCompasResponse(classifyFinnacleBridgeResponse(responseData),responseData));
         apiResponse = gson.fromJson(responseData,ApiResponse.class);
-        logger.info(apiResponse.getMessage());
-        logger.info("*****-----******");
-        //apiResponse = gson.fromJson(restServiceConfiguration.RestServiceConfiguration("/thirdparty/PbuThirdPartyAcess.aspx","POST",transactionsToBank.prepareTransactionsToBank(transaction,API_USERNAME),transaction.getReceipt_number(),transactionOperationsRepository.findTransaction_OperationActionById(transaction.getOperational_i)d()),ApiResponse.class);
         if(apiResponse.getCode() != 201){
             responseMessage.setMessage(String.format("%s INQUIRY WITH TRANSID %s FAILED",inquiriesRequestData.getNarration().toUpperCase(),inquiriesRequestData.getTransId()));
-            //logger.info(responseMessage.getMessage());
-            //logger.info(gson.toJson(apiResponse));
-            logger.info("INQUIRY RESPONSE["+apiResponse.getString()+"]");
-            return ResponseEntity.status(201).body(apiResponse);
-            //return ResponseEntity.status(400).body(gson.toJson(responseMessage.getMessage()));
+            return apiResponse;
+        }
+        if(apiResponse.Data!=null){
+            //apiResponse.getData().setAcctName(processedTransactions.getCustomer_name());
+            apiResponse.getData().setAcctName(inquiriesRequestData.getCustomerName());
         }
 
         /**===========================PROCESS API RESPONSE=======================================*/
         apiResponse = ProcessCBSResponse(inquiriesRequestData.getTransId(),apiResponse,"  INQUIRY");
-                /**===============UPDATE inquiries request data status to 'S' ============================**/
-/*                logger.info("*********TRANSID[%s]***************************",inquiriesRequestData.getTransId());
-               // logger.info(inquiriesRequestData.getTransId());
-        inquiriesRequestDataRepository.updateSuccessfulInquiryRequestData(inquiriesRequestData.getTransId(),apiResponse.getData().getTransId());
-        apiResponse.setCode(150);
-        //apiResponse.setMessage(gson.fromJson(responseData,ApiResponse.class).getMessage().replaceAll("\\\\",""));*/
         logger.info("INQUIRY RESPONSE{"+gson.toJson(apiResponse)+"}");
-        return ResponseEntity.status(201).body(apiResponse);
-
+        return apiResponse;
     }
 
     public InquiriesRequestData mapTransactionsToInquiriesRequest(Transactions transaction){
         TransactionOperations transactionOperations = new TransactionOperations();
+        Transaction_Operation transaction_operation = transactionOperationsRepository.findTransaction_OperationById(transaction.getOperational_id());
         InquiriesRequestData inquiriesRequestData = new InquiriesRequestData();
         inquiriesRequestData.setTransId(transaction.getReceipt_number());
         inquiriesRequestData.setNarration(transaction.getNarration());
-        inquiriesRequestData.setAccount(transaction.getAccount_from());
         inquiriesRequestData.setDeviceId(transaction.getMacaddress());
         inquiriesRequestData.setTellerId(transaction.getAgent_id().toString());
-        inquiriesRequestData.setBranchId(agentRepository.findBranchIdByAgentId(transaction.getAgent_id()));
+        inquiriesRequestData.setCustomerName(transaction.getCustomer_name());
+        inquiriesRequestData.setBranchId(agentRepository.findBranchIdByAgentId(transaction.getAgent_id()).toString());
         inquiriesRequestData.setStatus("I");
-        //inquiriesRequestData.setCustomerName(accountsController.findActiveAccountByAccountNumber(transaction.account_from).getAccount_name());
-                    /***===========SAVE TO INQUIRIES REQUEST TABLE======================*/
+        //perform account inquiry on account number
+        if(transaction_operation.getAction().toUpperCase().equals("BAL_LIST")){
+            inquiriesRequestData.setAccountsList(transaction.getAccounts_list());
+        }
+        else {
+            logger.info(">>>>>>>>>>");
+            inquiriesRequestData.setAccount(transaction.getAccount_from());
+            ApiResponse accountInquiryResponse = gson.fromJson(performAcctInquiry(gson.toJson(transaction)), ApiResponse.class);
+            logger.info(gson.toJson(accountInquiryResponse));
+            if (apiResponse.getData() == null) {
+                //proceed with transaction
+                inquiriesRequestData.setCustomerName("OKURA RONALD");
+            }
+            else if(apiResponse.Data!=null){
+                logger.info("check....");
+                logger.info("account name::"+accountInquiryResponse.getData().getAcctName());
+                inquiriesRequestData.setCustomerName(accountInquiryResponse.getData().getAcctName());
+            }
+        }
+        /***===========SAVE TO INQUIRIES REQUEST TABLE======================*/
         inquiriesRequestDataRepository.save(inquiriesRequestData);
         return  inquiriesRequestData;
     }
 
+    public Transactions mapInquiriesRequestToTransaction(InquiriesRequestData inquiriesRequestData){
+        Transactions transaction = new Transactions();
+        transaction.setAccount_from(inquiriesRequestData.getAccount());
+        transaction.setCbs_trans_id(inquiriesRequestData.getCbs_trans_id());
+        transaction.setReceipt_number(inquiriesRequestData.getTransId());
+        transaction.setAmount((Integer.parseInt(inquiriesRequestData.getCharges()[0]))+(Integer.parseInt(inquiriesRequestData.getCharges()[1]))+(Integer.parseInt(inquiriesRequestData.getCharges()[2])));
+        transaction.setAgent_id(Integer.parseInt(inquiriesRequestData.getTellerId()));
+        transaction.setCustomer_name(inquiriesRequestData.getCustomerName());
+        transaction.setOperational_id(transactionOperationsRepository.findTransaction_OperationIdByAction(inquiriesRequestData.getNarration()));
+        return transaction;
+    }
+
     public OperationEnums  classifyFinnacleBridgeResponse(String finnacleResponse){
-                logger.info("Init...");
+        logger.info("Init...");
         if(gson.fromJson(finnacleResponse,WithdrawalResponse.class)!=null){
             logger.info(opsenums.WITHDRAWAL.toString());
             return opsenums.WITHDRAWAL;
@@ -605,77 +642,78 @@ public class TransactionController {
         isInquiry = intent!=null;
         switch(apiResponse.getResponse_code()){
             case "000":
-                if(isInquiry){inquiriesRequestDataRepository.updateSuccessfulInquiryRequestData(transId,apiResponse.getData().getTransId());}
-                transactionRDBMSRepository.updateProcessedTransactionsByReceiptNumber(transId,apiResponse.getData().getTransId());
+                if(isInquiry){inquiriesRequestDataRepository.updateSuccessfulInquiryRequestData(transId,apiResponse.getData().getTransId(),apiResponse.getResponse_message());}
+                transactionRDBMSRepository.updateProcessedTransactionsByReceiptNumber(transId,apiResponse.getData().getTransId(),apiResponse.getResponse_message());
                 apiResponse.setCode(150);
+                apiResponse.getData().setReceipt_number(transId);
                 logger.info(gson.toJson(apiResponse));
                 break;
             case "303":
-                if(isInquiry){inquiriesRequestDataRepository.updateFailedInquiryRequestData(transId);}
-                transactionRDBMSRepository.updateFailedTransactions(transId);
+                if(isInquiry){inquiriesRequestDataRepository.updateFailedInquiryRequestData(transId,apiResponse.getResponse_message()!=null ?apiResponse.getResponse_message():""+apiResponse.getResponse_status());}
+                transactionRDBMSRepository.updateFailedTransactions(transId,apiResponse.getResponse_message() !=null?apiResponse.getResponse_message():""+apiResponse.getResponse_status());
                 apiResponse.setCode(153);
                 apiResponse.setMessage("General error");
                 logger.info(gson.toJson(apiResponse));
                 break;
             case "155":
-                if(isInquiry){inquiriesRequestDataRepository.updateFailedInquiryRequestData(transId);}
-                transactionRDBMSRepository.updateFailedTransactions(transId);
+                if(isInquiry){inquiriesRequestDataRepository.updateFailedInquiryRequestData(transId,apiResponse.getResponse_message()!=null ?apiResponse.getResponse_message() :""+apiResponse.getResponse_status());}
+                transactionRDBMSRepository.updateFailedTransactions(transId,apiResponse.getResponse_message()!=null ? apiResponse.getResponse_message():""+apiResponse.getResponse_status());
                 apiResponse.setCode(154);
                 apiResponse.setMessage("INTEGRITY FAILURE");
                 logger.info(gson.toJson(apiResponse));
                 break;
             case "404":
-                if(isInquiry){inquiriesRequestDataRepository.updateFailedInquiryRequestData(transId);}
-                transactionRDBMSRepository.updateFailedTransactions(transId);
+                if(isInquiry){inquiriesRequestDataRepository.updateFailedInquiryRequestData(transId,apiResponse.getResponse_message()!=null ?apiResponse.getResponse_message():""+apiResponse.getResponse_status());}
+                transactionRDBMSRepository.updateFailedTransactions(transId,apiResponse.getResponse_message()!=null ?apiResponse.getResponse_message():""+apiResponse.getResponse_status());
                 apiResponse.setCode(155);
                 apiResponse.setMessage("UNKNOWN TRANSACTION REQUEST");
                 logger.info(gson.toJson(apiResponse));
                 break;
             case "114":
-                if(isInquiry){inquiriesRequestDataRepository.updateFailedInquiryRequestData(transId);}
-                transactionRDBMSRepository.updateFailedTransactions(transId);
+                if(isInquiry){inquiriesRequestDataRepository.updateFailedInquiryRequestData(transId,apiResponse.getResponse_message()!=null ?apiResponse.getResponse_message():""+apiResponse.getResponse_status());}
+                transactionRDBMSRepository.updateFailedTransactions(transId,apiResponse.getResponse_message()!=null ? apiResponse.getResponse_message() :""+apiResponse.getResponse_status());
                 apiResponse.setCode(156);
                 apiResponse.setMessage("INSUFFICIENT FUNDS");
                 logger.info(gson.toJson(apiResponse));
                 break;
             case "911":
-                if(isInquiry){inquiriesRequestDataRepository.updateFailedInquiryRequestData(transId);}
-                transactionRDBMSRepository.updateFailedTransactions(transId);
+                if(isInquiry){inquiriesRequestDataRepository.updateFailedInquiryRequestData(transId,apiResponse.getResponse_message()!=null ?apiResponse.getResponse_message():""+apiResponse.getResponse_status());}
+                transactionRDBMSRepository.updateFailedTransactions(transId,apiResponse.getResponse_message()!=null ?apiResponse.getResponse_message() :""+apiResponse.getResponse_status());
                 apiResponse.setCode(157);
                 apiResponse.setMessage("TRANSACTION TIME OUT");
                 logger.info(gson.toJson(apiResponse));
                 break;
             case "154":
-                if(isInquiry){inquiriesRequestDataRepository.updateFailedInquiryRequestData(transId);}
-                transactionRDBMSRepository.updateFailedTransactions(transId);
+                if(isInquiry){inquiriesRequestDataRepository.updateFailedInquiryRequestData(transId,apiResponse.getResponse_message()!=null?apiResponse.getResponse_message():""+apiResponse.getResponse_status());}
+                transactionRDBMSRepository.updateFailedTransactions(transId,apiResponse.getResponse_message()!=null?apiResponse.getResponse_message():""+apiResponse.getResponse_status());
                 apiResponse.setCode(158);
                 apiResponse.setMessage("TRANSACTION NOT FOUND");
                 logger.info(gson.toJson(apiResponse));
                 break;
             case "156":
-                if(isInquiry){inquiriesRequestDataRepository.updateFailedInquiryRequestData(transId);}
-                transactionRDBMSRepository.updateFailedTransactions(transId);
+                if(isInquiry){inquiriesRequestDataRepository.updateFailedInquiryRequestData(transId,apiResponse.getResponse_message()!=null?apiResponse.getResponse_message():""+apiResponse.getResponse_status());}
+                transactionRDBMSRepository.updateFailedTransactions(transId,apiResponse.getResponse_message()!=null?apiResponse.getResponse_message():""+apiResponse.getResponse_status());
                 apiResponse.setCode(159);
                 apiResponse.setMessage("MALFORMED TRANSACTION");
                 logger.info(gson.toJson(apiResponse));
                 break;
             case "157":
-                if(isInquiry){inquiriesRequestDataRepository.updateFailedInquiryRequestData(transId);}
-                transactionRDBMSRepository.updateFailedTransactions(transId);
+                if(isInquiry){inquiriesRequestDataRepository.updateFailedInquiryRequestData(transId,apiResponse.getResponse_message()!=null?apiResponse.getResponse_message():""+apiResponse.getResponse_status());}
+                transactionRDBMSRepository.updateFailedTransactions(transId,apiResponse.getResponse_message()!=null?apiResponse.getResponse_message():""+apiResponse.getResponse_status());
                 apiResponse.setCode(160);
                 apiResponse.setMessage("TRANSACTION FAILED");
                 logger.info(gson.toJson(apiResponse));
                 break;
             case "149":
-                if(isInquiry){inquiriesRequestDataRepository.updateFailedInquiryRequestData(transId);}
-                transactionRDBMSRepository.updateFailedTransactions(transId);
+                if(isInquiry){inquiriesRequestDataRepository.updateFailedInquiryRequestData(transId,apiResponse.getResponse_message()!=null?apiResponse.getResponse_message():""+apiResponse.getResponse_status());}
+                transactionRDBMSRepository.updateFailedTransactions(transId,apiResponse.getResponse_message()!=null?apiResponse.getResponse_message():""+apiResponse.getResponse_status());
                 apiResponse.setCode(161);
                 apiResponse.setMessage("DUPLICATE TRANSACTION ID");
                 logger.info(gson.toJson(apiResponse));
                 break;
             case "200":
-                if(isInquiry){inquiriesRequestDataRepository.updateFailedInquiryRequestData(transId);}
-                transactionRDBMSRepository.updateFailedTransactions(transId);
+                if(isInquiry){inquiriesRequestDataRepository.updateFailedInquiryRequestData(transId,apiResponse.getResponse_message()!=null?apiResponse.getResponse_message():""+apiResponse.getResponse_status());}
+                transactionRDBMSRepository.updateFailedTransactions(transId,apiResponse.getResponse_message()!=null?apiResponse.getResponse_message():""+apiResponse.getResponse_status());
                 apiResponse.setCode(162);
                 apiResponse.setMessage("PENDING TRANSACTION");
                 logger.info(gson.toJson(apiResponse));
@@ -691,40 +729,39 @@ public class TransactionController {
         transactions.add(transaction);
         String evaluation ="" ;
         Transactions txn = transactions.get(0);
-        //transactions.forEach(txn ->{
-            if(txn.getAmount() ==null){
-                logger.info(("INVALID TRANSACTION PAYLOAD. AMOUNT MISSING"));
-                evaluation = evaluation+"1";
-            }
-            if(txn.getAgent_id() == null){
-                logger.info(("INVALID TRANSACTION PAYLOAD. AGENT ID MISSING"));
-                evaluation = evaluation+"2";
-            }
-            if(txn.getAuth_mode() ==null){
-                logger.info(("INVALID TRANSACTION PAYLOAD. AUTH MODE MISSING"));
-                evaluation = evaluation+"3";
-            }
-            if(txn.getMode_id() == null){
-                logger.info(("INVALID TRANSACTION PAYLOAD. TRANSACTION MODE MISSING"));
-                evaluation = evaluation+"4";
-            }
-            if(txn.getOperational_id() == null){
-                logger.info(("INVALID TRANSACTION PAYLOAD. OPERATION  ID MISSING"));
-                evaluation = evaluation+"5";
-            }
-            if(txn.getCurrency_id() == null){
-                logger.info(("INVALID TRANSACTION PAYLOAD. CURRENCY ID MISSING"));
-                evaluation = evaluation+"6";
-            }
-            if(txn.getAccount_from() == null) {
-                logger.info(("INVALID TRANSACTION PAYLOAD. ACCOUNT FROM MISSING"));
-                evaluation = evaluation+"7";
-            }
-            if(txn.getAccount_to() == null){
-                logger.info(("INVALID TRANSACTION PAYLOAD. ACCOUNT TO MISSING"));
-                evaluation = evaluation+"8";
-            }
-        //});
+        if(txn.getAmount() ==null){
+            logger.info(("INVALID TRANSACTION PAYLOAD. AMOUNT MISSING"));
+            evaluation = evaluation+"1";
+        }
+        if(txn.getAgent_id() == null){
+            logger.info(("INVALID TRANSACTION PAYLOAD. AGENT ID MISSING"));
+            evaluation = evaluation+"2";
+        }
+        if(txn.getAuth_mode() ==null){
+            logger.info(("INVALID TRANSACTION PAYLOAD. AUTH MODE MISSING"));
+            evaluation = evaluation+"3";
+        }
+        if(txn.getMode_id() == null){
+            logger.info(("INVALID TRANSACTION PAYLOAD. TRANSACTION MODE MISSING"));
+            evaluation = evaluation+"4";
+        }
+        if(txn.getOperational_id() == null){
+            logger.info(("INVALID TRANSACTION PAYLOAD. OPERATION  ID MISSING"));
+            evaluation = evaluation+"5";
+        }
+        if(txn.getCurrency_id() == null){
+            logger.info(("INVALID TRANSACTION PAYLOAD. CURRENCY ID MISSING"));
+            evaluation = evaluation+"6";
+        }
+        if(txn.getAccount_from() == null) {
+            logger.info(("INVALID TRANSACTION PAYLOAD. ACCOUNT FROM MISSING"));
+            evaluation = evaluation+"7";
+        }
+        if(txn.getAccount_to() == null){
+            logger.info(("INVALID TRANSACTION PAYLOAD. ACCOUNT TO MISSING"));
+            evaluation = evaluation+"8";
+        }
+
         logger.info(evaluation);
         return evaluation;
     }
@@ -761,24 +798,6 @@ public class TransactionController {
             else if(c=='8'){
                 responseMessage = responseMessage+"ACCOUNT TO MISSING.";
             }
-/*            switch (c){
-                case '1':
-                    responseMessage = responseMessage+"INVALID TRANSACTION PAYLOAD. AMOUNT MISSING.";
-                case '2':
-                    responseMessage = responseMessage+("INVALID TRANSACTION PAYLOAD. AGENT ID MISSING.");
-                case '3':
-                    responseMessage = responseMessage+("INVALID TRANSACTION PAYLOAD. AUTH MODE MISSING.");
-                case '4':
-                    responseMessage = responseMessage+("INVALID TRANSACTION PAYLOAD. TRANSACTION MODE MISSING.");
-                case '5':
-                    responseMessage = responseMessage+("INVALID TRANSACTION PAYLOAD. OPERATION MISSING.");
-                case '6':
-                    responseMessage = responseMessage+("INVALID TRANSACTION PAYLOAD. CURRENCY ID MISSING.");
-                case '7':
-                    responseMessage = responseMessage+("INVALID TRANSACTION PAYLOAD. ACCOUNT FROM MISSING.");
-                case '8':
-                    responseMessage = responseMessage+"INVALID TRANSACTION PAYLOAD. ACCOUNT TO MISSING.";
-            }*/
         }
 
         invalidResponse.setMessage(responseMessage);
@@ -804,8 +823,91 @@ public class TransactionController {
     @RequestMapping(path = "/confirm_account",method = RequestMethod.POST,consumes = "application/json",produces = "application/json")
     public ResponseEntity confirmTransactingAccount(@RequestBody String transaction){
         ApiResponse account_inquiry_response = gson.fromJson(performAcctInquiry(transaction),ApiResponse.class);
-        account_inquiry_response.getData().setImageData("");
+        if(account_inquiry_response.getData()!=null){
+            if(account_inquiry_response.getData().getImageData()!=null) {
+                account_inquiry_response.getData().setImageData("");
+            }
+        }
+        logger.info("checker.....");
         return ResponseEntity.status(201).body(gson.toJson(account_inquiry_response));
+    }
+
+    @ResponseBody
+    @CrossOrigin(origins = "http://172.32.93.111:2200")
+    //@CrossOrigin(origins = "http://172.32.93.111:2200")
+    @RequestMapping(path="/otc_account_inquiry",method = RequestMethod.POST,consumes = "application/json",produces = "application/json")
+    public ResponseEntity perfomAccInquiryForOTC(@RequestBody String otcacct_inquiry){
+        OtcAcctInquiry otcAcctInquiry = gson.fromJson(otcacct_inquiry,OtcAcctInquiry.class);
+        logger.info(otcacct_inquiry);
+        logger.info(gson.toJson(otcAcctInquiry));
+        Transactions transactions = new Transactions();
+        transactions.setOperational_id(transactionOperationsRepository.findTransaction_OperationIdByAction("ACCT_INQUIRY"));
+        transactions.setBank_income(0.0);
+        transactions.setAgent_commision(0.0);
+        transactions.setExcise_duty(0.0);
+        transactions.setAgent_id(1);
+        transactions.setAccount_from(otcAcctInquiry.getAccount_number());
+        transactions.setReceipt_number(LocalDateTime.now().toString().replace(":","").replace(".","").replace("-",""));
+        AccountInquiryResponse accountInquiryResponse = gson.fromJson(restServiceConfiguration.RestServiceConfiguration(protocol,SERVICE_IP,SERVICE_PORT,SERVICE_ENDPOINT,"POST",transactionsToBank.prepareTransactionsToBank(transactions,API_USERNAME),transactions.getReceipt_number(),"ACCT_INQUIRY"),AccountInquiryResponse.class);
+
+        return ResponseEntity.status(201).body(gson.toJson(accountInquiryResponse));
+
+    }
+
+    @ResponseBody
+    @RequestMapping(method = RequestMethod.POST,path = "/reverse",consumes = "application/json",produces = "application/json")
+    public ResponseEntity performTransactionReversal(@RequestBody String terminal_transId) {
+        ReversalRequest reversalRequest = gson.fromJson(terminal_transId, ReversalRequest.class);
+        Transactions transactionToReverse = transactionRDBMSRepository.findTimeOutTransactionByTerminal_trans_id(reversalRequest.getTerminal_trans_id()) != null ? transactionRDBMSRepository.findTimeOutTransactionByTerminal_trans_id(reversalRequest.getTerminal_trans_id()) : new Transactions();
+                    /**REVERSAL ON TRANSACTION *****/
+        if (transactionToReverse.terminal_trans_id != null) {
+            ReversalResponse reversalResponse = new ReversalResponse();
+            if (transactionToReverse.getStatus().equalsIgnoreCase("F")) {
+                reversalResponse.setResponse_code("250");
+                reversalResponse.setResponse_mesage("Transaction failed");
+
+            } else {
+                String receipt_number = receiptManager.generateReceiptNumber(transactionToReverse.getAgent_id());
+                transactionToReverse.setReceipt_number(receipt_number);
+                /****CALL COMPAS REST SERVICE TO SEND TRANSACTION TO FINNACLE***/
+                String responseData = restServiceConfiguration.RestServiceConfiguration(protocol, SERVICE_IP, SERVICE_PORT, SERVICE_ENDPOINT, "POST", transactionsToBank.prepareTransactionsToBank(transactionToReverse, API_USERNAME), transactionToReverse.getReceipt_number(), transactionOperationsRepository.findTransaction_OperationActionById(transactionToReverse.getOperational_id()));
+                     reversalResponse = gson.fromJson(responseData, ReversalResponse.class);
+                if (reversalResponse.getResponse_code().equalsIgnoreCase("000")) {
+                    //update reversed transaction to status 'R'
+                    transactionRDBMSRepository.updateReversedTransaction(transactionToReverse.getTerminal_trans_id());
+
+                } else {
+                    //do nothing
+                }
+            }
+            return ResponseEntity.status(201).body(reversalResponse);
+
+        }
+            /***REVERSAL ON INQUIRY ******/
+        else{
+            ReversalResponse reversalResponse = new ReversalResponse();
+            InquiriesRequestData inquiriesRequestToReverse = inquiriesRequestDataRepository.findInquiriesRequestDataByTerminal_trans_id(reversalRequest.getTerminal_trans_id());
+            if(inquiriesRequestToReverse.getStatus().equalsIgnoreCase("S")){
+                reversalResponse.setResponse_code("250");
+                reversalResponse.setResponse_mesage("TransactionFailed");
+            }
+            else{
+                String receipt_number = receiptManager.generateReceiptNumber(Integer.parseInt(inquiriesRequestToReverse.getTellerId()));
+                inquiriesRequestToReverse.setTransId(receipt_number);
+                Transactions transactions = mapInquiriesRequestToTransaction(inquiriesRequestToReverse);
+                /****CALL COMPAS REST SERVICE TO REVERSE TRANSACTION*************/
+                String responseData = restServiceConfiguration.RestServiceConfiguration(protocol, SERVICE_IP, SERVICE_PORT, SERVICE_ENDPOINT, "POST", transactionsToBank.prepareTransactionsToBank(transactions, API_USERNAME), transactions.getReceipt_number(), transactionOperationsRepository.findTransaction_OperationActionById(transactions.getOperational_id()));
+                reversalResponse = gson.fromJson(responseData,ReversalResponse.class);
+                if (reversalResponse.getResponse_code().equalsIgnoreCase("000")) {
+                    //update reversed transaction to status 'R'
+                    inquiriesRequestDataRepository.updateReversedInquiriesRequestData(inquiriesRequestToReverse.getTerminal_trans_id());
+                } else {
+                    //do nothing
+                }
+            }
+            return ResponseEntity.status(201).body(reversalResponse);
+        }
+
     }
 
 }

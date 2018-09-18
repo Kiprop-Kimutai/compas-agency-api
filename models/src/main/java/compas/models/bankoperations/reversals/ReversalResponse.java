@@ -12,6 +12,13 @@ public class ReversalResponse {
     //default constructor
     public ReversalResponse(){}
 
+    public ReversalResponse(String response_code, Boolean response_status, String response_mesage, ReversalResponseData data) {
+        this.response_code = response_code;
+        this.response_status = response_status;
+        this.response_mesage = response_mesage;
+        Data = data;
+    }
+
     public String getResponse_code() {
         return response_code;
     }

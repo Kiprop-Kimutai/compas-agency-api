@@ -24,7 +24,7 @@ public class MongoConfiguration {
     //static Logger rootLogger = (Logger) LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
 
     @Value("${mongodb.host}")
-    public String mongodb_host;
+    public   String mongodb_host;
     @Value("${mongodb.port}")
     public String mongodb_port;
     @Value("${mongodb.datasource}")
@@ -37,4 +37,18 @@ public class MongoConfiguration {
         MongoTemplate mongoTemplate = new MongoTemplate(new MongoClient(mongodb_host,Integer.parseInt(mongodb_port)),mongo_database);
         return mongoTemplate;
     }
+
+    public void logConfigs(){
+        System.out.println(mongodb_host);
+        System.out.println(mongodb_port);
+        System.out.println(mongo_database);
+
+    }
+
+    public static void main(String [] args){
+        MongoConfiguration mongoConfiguration = new MongoConfiguration();
+        mongoConfiguration.logConfigs();
+    }
+
+
 }

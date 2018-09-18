@@ -22,15 +22,13 @@ public class Users {
     private String email;
     private String phone;
     private String group_id;
-    @Column(name = "agent_id",unique = true)
-    private Integer agentId;
+    private String  agent_code;
     private Boolean status;
     private Integer created_by;
     private Integer  type_id;
     private Integer pos_user_level;
-    @Column(nullable = false, updatable = false)
-    @CreationTimestamp
-    public Date created_at;
+    private Integer verified_by;
+    private String verified;
 
     //defult constructor
     public Users(){}
@@ -115,12 +113,12 @@ public class Users {
         this.group_id = group_id;
     }
 
-    public Integer getAgentId() {
-        return agentId;
+    public String getAgent_code() {
+        return agent_code;
     }
 
-    public void setAgentId(Integer agentId) {
-        this.agentId = agentId;
+    public void setAgent_code(String agent_code) {
+        this.agent_code = agent_code;
     }
 
     public Boolean getStatus() {
@@ -154,6 +152,27 @@ public class Users {
     public void setPos_user_levels(Integer pos_user_level) {
         this.pos_user_level = pos_user_level;
     }
+
+    public void setPos_user_level(Integer pos_user_level) {
+        this.pos_user_level = pos_user_level;
+    }
+
+    public Integer getVerified_by() {
+        return verified_by;
+    }
+
+    public void setVerified_by(Integer verified_by) {
+        this.verified_by = verified_by;
+    }
+
+    public String getVerified() {
+        return verified;
+    }
+
+    public void setVerified(String verified) {
+        this.verified = verified;
+    }
+
     public String getString(){
         return String.format("user[username = %s  surname = %s email= %s phone = %s]",username,surname,email,phone);
     }

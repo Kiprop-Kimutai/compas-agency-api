@@ -2,10 +2,9 @@ package compas.repositories;
 
 import compas.agent.AgentRepository;
 import compas.models.Agent;
+import compas.models.Agent1;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -28,20 +27,20 @@ public class AgentOperations {
     public String findActiveAgentDescriptionById(Integer Id){
         return agentRepository.findActiveAgentDescritpionById(Id);
     }
-
+/*
     public Double  findAgentDepositLimitsByAgentId(Integer Id){
         return agentRepository.findAgentDepositLimitsByAgentId(Id);
     }
 
     public Double findAgentWithdrawalLimitsByAgentId(Integer Id){
         return agentRepository.findAgentWithdrawalLimitsByAgentId(Id);
-    }
+    }*/
 
     public Integer findBranchIdByAgentId(Integer Id){
         return agentRepository.findBranchIdByAgentId(Id);
     }
 
-    public  Agent findTransactingAgentById(Integer Id){
+    public Agent findTransactingAgentById(Integer Id){
         return agentRepository.findTransactingAgentById(Id);
     }
 

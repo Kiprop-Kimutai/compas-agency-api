@@ -1,13 +1,5 @@
 package compas.repositories;
 
-import compas.accounts.AccountsRepository;
-import compas.models.Account;
-import compas.models.Agent;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-
-import java.util.List;
-
 /**
  * Created by CLLSDJACKT013 on 09/06/2018.
  */

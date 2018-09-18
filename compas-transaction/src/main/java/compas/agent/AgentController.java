@@ -5,6 +5,7 @@ import compas.accounts.AccountsRepository;
 import compas.authentications.AuthenticationModeRepository;
 import compas.bank.BankRepository;
 import compas.bank.BranchRepository;
+import compas.bank.SchemesRepository;
 import compas.currency.CurrencyRepository;
 import compas.device.DeviceRepository;
 import compas.device.Issued_DeviceRepository;
@@ -25,6 +26,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -32,7 +34,7 @@ import java.util.List;
  */
 
 @RestController
-@RequestMapping(path="/agent")
+@RequestMapping(path="/compas/agent")
 @Component
 @Repository
 public class AgentController {
@@ -40,6 +42,8 @@ public class AgentController {
     private Gson gson = new Gson();
     @Autowired
     private AgentRepository agentRepository;
+    @Autowired
+    private MerchantRepository merchantRepository;
     @Autowired
     private DeviceRepository deviceRepository;
     @Autowired
@@ -50,6 +54,8 @@ public class AgentController {
     private BranchRepository branchRepository;
     @Autowired
     private BankRepository bankRepository;
+    @Autowired
+    private SchemesRepository schemesRepository;
     @Autowired
     private AccountsRepository accountsRepository;
     @Autowired
@@ -66,6 +72,10 @@ public class AgentController {
     private CurrencyRepository currencyRepository;
     @Autowired
     private UtilitiesController utilitiesController;
+    @Autowired
+    private AgentContactPersonRepository agentContactPersonRepository;
+    @Autowired
+    private Agent_OperationsRepository agent_operationsRepository;
 
     private TransactionOperationController transactionOperationController =  new TransactionOperationController();
 
@@ -79,15 +89,17 @@ public class AgentController {
         -extract Device from DeviceRepository using  mac address
         -fetch Issued_Device details using device_id from Device
         -fetch Agent using agent_id from Issued_Device
-        -fetch Users using agent_id from Agent
-        -fetch branch from Agent using Agent.branchId
+        -fetch contact persons using agent_code
+        -fetch Users using agent_id from Agent1
+        -fetch branch from Agent1 using Agent1.branchId
         -fetch Bank from Branch using Bank_Branch.bank_id
         -fetch all accounts for agent using agent_id_number
         -fetch all transaction types
+        -fetch all transaction operations for an agent
         -fetch Utility payments
         -fetch  authentication modes
         -fetch currencies
-        -finally build an Agent  response to with all Agent matrix members
+        -finally build an Agent1  response to with all Agent1 matrix members
         */
         Device requestedDevice = deviceRepository.findByMacAddress(device.getMacAddress()) !=null ? deviceRepository.findByMacAddress(device.getMacAddress()) :new Device("xxx","",false,0);
         logger.info((requestedDevice.getString()));
@@ -99,21 +111,41 @@ public class AgentController {
             apiResponse.setMessage("device is not registered or is inactive");
             return ResponseEntity.status(201).body(gson.toJson(apiResponse));
         }
-       //String agentString = agentRepository.findAgentById(issued_device.getAgent_id());
-        //         Agent agent = agentRepository.findById(issued_device.getAgent_id());
+        //Agent1 agent = agentRepository.findById(issued_device.getAgent_id());
         Agent agent = agentRepository.findById(issued_device.getAgent_id());
-       logger.info(agent.getString());
-        Users users = userRepository.findByAgentId(agent.getId());
-        logger.info(users.getString());
+        logger.info(gson.toJson(agent));
+        if(agent==null){
+            apiResponse.setCode(312);
+            apiResponse.setMessage("agent is not registered  or is inactive");
+            return ResponseEntity.status(201).body(gson.toJson(apiResponse));
+        }
+        logger.info(agent.getString());
+        Merchant merchant = merchantRepository.findMerchantByMerchantId(agent.getMerchant_id());
+        if(merchant == null){
+            apiResponse.setCode(313);
+            apiResponse.setMessage("Merchant is not registered or is inactive");
+            return ResponseEntity.status(201).body(gson.toJson(apiResponse));
+        }
+        //Users users = userRepository.findByAgentId(agent.getId());
+        List<AgentContactPersons> agentContactPersons = agentContactPersonRepository.findContactPersonsByAgentCode(agent.getAgent_code());
+        List<Users> users = userRepository.findUsersByAgentCode(agent.getAgent_code());
+        users.forEach((user)->{logger.info(user.getString());});
         Bank_Branch branch = branchRepository.findBankById(agent.getBranch_id());
         logger.info(branch.getString());
         Bank bank = bankRepository.findBankById(branch.getBankId());
+        List<Schemes> schemes = schemesRepository.findSchemesByBankId(bank.getId());
         logger.info(bank.getString());
-        List<Account> accounts = accountsRepository.findByIdNumber(agent.getAgent_id_number());
+        List<Account> accounts = accountsRepository.findByIdNumber(agent.getAgent_code());
         accounts.forEach((acc) ->{logger.info(acc.getString());});
         List<Transaction_Type> transaction_types = transactionTypeRepository.findAll();
         transaction_types.forEach((txn) ->{logger.info(txn.getString());});
-        List<Transaction_Operation> transaction_operations = transOpRepository.findAll();
+        //List<Transaction_Operation> transaction_operations = transOpRepository.findAll();
+        List<Transaction_Operation> transaction_operations = new ArrayList<>();
+        List<Agent_Operations> agent_operations = agent_operationsRepository.findAgent_OperationsByAgent_id(agent.getId());
+        agent_operations.forEach((agent_operation)->{
+            //Transaction_Operation transaction_operation = transOpRepository.findTransaction_OperationById(agent_operation.getTransaction_operation_id());
+            transaction_operations.add(transOpRepository.findTransaction_OperationById(agent_operation.getTransaction_operation_id()));
+        });
         //List<Transaction_Operation> transaction_operations = transactionOperationController.findAllTransactionOperations();
         //transaction_operations.forEach((ops) ->{logger.info(ops.logString());});
         List<Transaction_Mode> transaction_modes = transactionModeRepository.findAll();
@@ -124,10 +156,15 @@ public class AgentController {
         AgentResponse agentResponse = new AgentResponse();
         agentResponse.setAccounts(accounts);
         agentResponse.setAgent(agent);
+        if(merchant!=null) {
+            agentResponse.setMerchant(merchant);
+        }
         agentResponse.setBank(bank);
+        agentResponse.setSchemes(schemes);
         agentResponse.setBranch(branch);
         agentResponse.setDevice(device);
         agentResponse.setIssued_device(issued_device);
+        agentResponse.setAgentContactPersons(agentContactPersons);
         agentResponse.setUsers(users);
         agentResponse.setTransaction_types(transaction_types);
         agentResponse.setTransaction_operations(transaction_operations);

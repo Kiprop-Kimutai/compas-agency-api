@@ -18,6 +18,7 @@ public class Card_Scheme {
     private Integer Id;
     private String name;
 
+
     //default constructor
     public Card_Scheme(){}
 

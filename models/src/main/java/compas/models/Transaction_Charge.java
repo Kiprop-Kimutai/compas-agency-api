@@ -18,6 +18,7 @@ public class Transaction_Charge {
     private Double min_amount;
     private Double max_amount;
     private Double charge;
+    private Integer charge_burden;
 
 
     //default constructor
@@ -31,6 +32,7 @@ public class Transaction_Charge {
         this.min_amount = min_amount;
         this.max_amount = max_amount;
         this.charge = charge;
+
 
     }
 
@@ -84,4 +86,11 @@ public class Transaction_Charge {
         this.charge = charge;
     }
 
+    public Integer getCharge_burden() {
+        return charge_burden;
+    }
+
+    public void setCharge_burden(Integer charge_burden) {
+        this.charge_burden = charge_burden;
+    }
 }

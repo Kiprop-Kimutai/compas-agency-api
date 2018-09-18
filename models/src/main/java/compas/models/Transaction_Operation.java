@@ -17,6 +17,7 @@ public class Transaction_Operation {
     public Integer transaction_type_id;
     private Integer cash_flow_id;
     private String action;
+    private String status;
 
     //default constructor
     public Transaction_Operation(){}
@@ -62,5 +63,13 @@ public class Transaction_Operation {
     }
     public String logString(){
         return String.format("trans_operation[Id::: = %d   name = %s]",Id,name);
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

@@ -30,22 +30,9 @@ public class TariffManager {
     private Logger logger = LoggerFactory.getLogger(TariffManager.class);
     private Tariff applicableTariff = new Tariff();
     private Tariff fallBackTariff = new Tariff();
-     List<Transaction_Charge>  undefined_transaction_charges = new ArrayList<>();
-    //undefined_transaction_charges.add(new Transaction_Charge(0,0,0.00,0.0,0.0));
+    List<Transaction_Charge>  undefined_transaction_charges = new ArrayList<>();
 
     public Transactions setTariffCharges(Transactions incomingTransactions){
-/*        fallBackTariff.setAgent_income(0.0);
-        fallBackTariff.setBank_income(0.0);
-        fallBackTariff.setExcise_duty(0.0);
-        logger.info(incomingTransactions.getString());
-        logger.info("Amount::"+ incomingTransactions.getAmount());
-        logger.info("Transactions Id::"+ incomingTransactions.getOperational_id());
-        //Tariff applicableTariff = tariffsRepository.findTransactionTariffByTransaction_type_idAndAmount(transactionOperationsRepository.findTransactionTypeIdByTransactionOperationId(incomingTransactions.getOperational_id()), incomingTransactions.getAmount());
-         applicableTariff = tariffsRepository.findTransactionTariffByOperation_idAndAmount(incomingTransactions.getOperational_id(), incomingTransactions.getAmount()+0.0) != null ? tariffsRepository.findTransactionTariffByOperation_idAndAmount(incomingTransactions.getOperational_id(), incomingTransactions.getAmount()+0.0) : fallBackTariff;
-        logger.info(""+applicableTariff.agent_income +" "+applicableTariff.getBank_income());
-        incomingTransactions.setAgent_commision(((applicableTariff.getAgent_income())/100) * incomingTransactions.getAmount());
-        incomingTransactions.setBank_income(((applicableTariff.getBank_income())/100)* incomingTransactions.getAmount());
-        incomingTransactions.setExcise_duty((((applicableTariff.getExcise_duty())/100)* incomingTransactions.getAmount()));*/
         return incomingTransactions;
     }
 
@@ -77,9 +64,9 @@ public class TariffManager {
             case "variable":
                 charge_amount = transaction_charge_repository.findVariableTransaction_ChargeByTransactionOperationAndAmount(incomingTransaction.getAmount().doubleValue(),incomingTransaction.getOperational_id());
                 break;
-                default:
-                    charge_amount = 0.0;
-                    break;
+            default:
+                charge_amount = 0.0;
+                break;
         }
 
         /**SET RESPECTIVE SHARES OF TRANSACTION_CHARGE and return the processed transaction**/
@@ -89,9 +76,12 @@ public class TariffManager {
     public Transactions setRespectiveIncomes(Transactions incomingTransaction,Double charge_amount){
         Gson gson = new Gson();
         Tariff applicableTariff = tariffsRepository.findTariffbyTransactionOperationId(incomingTransaction.getOperational_id());
+        logger.info("applicable::"+gson.toJson(applicableTariff));
         Preferential_Tariff preferred_tariff = AgentIsPreferredForTransactionOperation(incomingTransaction);
+        Integer charge_burden = transaction_charge_repository.findTransaction_ChargeBurdenByTransaction_operation_id(incomingTransaction.getOperational_id());
+        logger.info("Burden:"+charge_burden);
         logger.info("************PREFERRED TARIFF*********"+gson.toJson(preferred_tariff));
-            /**IF AGENT IS PREFERRED,calculate preferential rates here **/
+        /**IF AGENT IS PREFERRED,calculate preferential rates here **/
         if(preferred_tariff.getAgent_id()!=0){
             incomingTransaction.setAgent_commision((charge_amount * (applicableTariff.getAgent_portion()+preferred_tariff.getFavoured_percentage()))/100);
             incomingTransaction.setBank_income((charge_amount * (applicableTariff.getBank_portion()-preferred_tariff.getFavoured_percentage()))/100);
@@ -103,6 +93,16 @@ public class TariffManager {
             incomingTransaction.setBank_income((charge_amount * applicableTariff.getBank_portion())/100);
             incomingTransaction.setExcise_duty((applicableTariff.getExcise_duty()*incomingTransaction.getBank_income())/100);
             logger.info("Excise duty::"+incomingTransaction.getExcise_duty());
+        }
+        if(charge_burden ==1){
+            //do nothing. customer bears charge burden
+        }
+        else if(charge_burden ==2){
+            Double newAgentCommission = incomingTransaction.getAgent_commision()+incomingTransaction.getBank_income();
+            Double newBankIncome = (-1*incomingTransaction.getBank_income());
+            incomingTransaction.setAgent_commision(newAgentCommission);
+            incomingTransaction.setBank_income(newBankIncome);
+            incomingTransaction.setExcise_duty(0.0);
         }
         return incomingTransaction;
     }

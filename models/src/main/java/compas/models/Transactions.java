@@ -18,9 +18,11 @@ public class Transactions {
     @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer Id;
     public Integer operational_id;
+    public Integer transaction_type_id;
     public Integer mode_id;
     public String account_from;
     public String account_to;
+    public String customer_name;
     public String reference_account;
     public Integer amount;
     public Double agent_commision;
@@ -35,13 +37,20 @@ public class Transactions {
     public String cbs_trans_id;
     public String narration;
     public Integer currency_id;
-    public Double cash_in;
-    public Double cash_out;
     public String latitude;
     public String longitude;
     public String macaddress;
     public String phone;
+    private String finnacle_response_message;
+    private String [] accounts_list;
+    @Column(name = "from_date")
+    public String From;
+    @Column(name = "to_date")
+    public String To;
+    public String SchemeCode;
     public String utility_code;
+    public String original_transId;
+    public String terminal_trans_id;
     private Integer created_by;
     @Column(updatable = true)
     public String  status;
@@ -58,6 +67,14 @@ public class Transactions {
 
     public Integer getOperational_id() {
         return operational_id;
+    }
+
+    public Integer getTransaction_type_id() {
+        return transaction_type_id;
+    }
+
+    public void setTransaction_type_id(Integer transaction_type_id) {
+        this.transaction_type_id = transaction_type_id;
     }
 
     public Integer getCurrency_id() {
@@ -88,6 +105,14 @@ public class Transactions {
         this.amount = amount;
     }
 
+    public String getCustomer_name() {
+        return customer_name;
+    }
+
+    public void setCustomer_name(String customer_name) {
+        this.customer_name = customer_name;
+    }
+
     public String getCard_iccid() {
         return card_iccid;
     }
@@ -100,7 +125,7 @@ public class Transactions {
         return agent_id;
     }
 
-    public void setAgent_id(Integer agent_Id) {
+    public void setAgent_id(Integer agent_id) {
         this.agent_id = agent_id;
     }
 
@@ -196,21 +221,6 @@ public class Transactions {
         this.authentication = authentication;
     }
 
-    public Double getCash_in() {
-        return cash_in;
-    }
-
-    public void setCash_in(Double cash_in) {
-        this.cash_in = cash_in;
-    }
-
-    public Double getCash_out() {
-        return cash_out;
-    }
-
-    public void setCash_out(Double cash_out) {
-        this.cash_out = cash_out;
-    }
 
     public String getAccount_from() {
         return account_from;
@@ -264,6 +274,14 @@ public class Transactions {
         this.phone = phone;
     }
 
+    public String getFinnacle_response_message() {
+        return finnacle_response_message;
+    }
+
+    public void setFinnacle_response_message(String finnacle_response_message) {
+        this.finnacle_response_message = finnacle_response_message;
+    }
+
     public void setMacaddress(String macaddress) {
         this.macaddress = macaddress;
     }
@@ -274,6 +292,54 @@ public class Transactions {
 
     public void setUtility_code(String utility_code) {
         this.utility_code = utility_code;
+    }
+
+    public String[] getAccounts_list() {
+        return accounts_list;
+    }
+
+    public void setAccounts_list(String[] accounts_list) {
+        this.accounts_list = accounts_list;
+    }
+
+    public String getFrom() {
+        return From;
+    }
+
+    public void setFrom(String from) {
+        From = from;
+    }
+
+    public String getTo() {
+        return To;
+    }
+
+    public void setTo(String to) {
+        To = to;
+    }
+
+    public String getSchemeCode() {
+        return SchemeCode;
+    }
+
+    public void setSchemeCode(String schemeCode) {
+        SchemeCode = schemeCode;
+    }
+
+    public String getOriginal_transId() {
+        return original_transId;
+    }
+
+    public void setOriginal_transId(String original_transId) {
+        this.original_transId = original_transId;
+    }
+
+    public String getTerminal_trans_id() {
+        return terminal_trans_id;
+    }
+
+    public void setTerminal_trans_id(String terminal_trans_id) {
+        this.terminal_trans_id = terminal_trans_id;
     }
 
     public String getString(){

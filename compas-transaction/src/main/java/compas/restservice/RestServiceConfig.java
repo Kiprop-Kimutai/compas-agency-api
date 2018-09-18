@@ -36,13 +36,15 @@ public class RestServiceConfig {
     private String api_key;
     @Value("${api.security.key}")
     private String security_key;
-
+    @Value("${api.server.timeout}")
+    private String timeout;
     ServerResponse serverResponse = new ServerResponse();
     ApiResponse apiResponse = new ApiResponse();
     private Logger logger= LoggerFactory.getLogger(RestServiceConfig.class);
     private Gson gson = new Gson();
     private GenerateSignature  generateSignature = new GenerateSignature();
     private SignatureGenerator signatureGenerator = new SignatureGenerator();
+
 
     public String RestServiceConfiguration(String protocol,String IP,String PORT,String endpoint,String requestMethod,String input,String transId,String action){
 
@@ -79,8 +81,10 @@ public class RestServiceConfig {
 
             if(connection instanceof HttpsURLConnection){
                 httpsURLConnection = (HttpsURLConnection) connection;
+                //set timeout
+                httpsURLConnection.setConnectTimeout(Integer.parseInt(timeout));
                 httpsURLConnection.setRequestMethod(requestMethod);
-                    //SET REQUEST HEADERS HERE
+                //SET REQUEST HEADERS HERE
                 httpsURLConnection.setRequestProperty("security_key",""+security_key);
                 //httpsURLConnection.setRequestProperty("signature",generateSignature.generateTransactionSignature(api_key,api_username,api_password,transId,action));
                 httpsURLConnection.setRequestProperty("signature",signatureGenerator.generateSignature(api_username.trim(),api_password.trim(),transId.trim(),action.trim(),api_key.trim()));
@@ -130,6 +134,7 @@ public class RestServiceConfig {
             }
             else if(connection instanceof  HttpURLConnection){
                 httpURLConnection =(HttpURLConnection)connection;
+                httpURLConnection.setConnectTimeout(Integer.parseInt(timeout));
                 httpURLConnection.setRequestMethod(requestMethod);
                 httpURLConnection.setRequestProperty("security_key",""+security_key);
                 //httpURLConnection.setRequestProperty("signature",generateSignature.generateTransactionSignature(api_key,api_username,api_password,transId,action));
@@ -182,6 +187,12 @@ public class RestServiceConfig {
                 httpURLConnection.disconnect();
                 //return responseString;
             }
+        }
+        catch (java.net.SocketTimeoutException e){
+            logger.info("Server Timeout");
+            apiResponse.setCode(151);
+            apiResponse.setMessage("Transaction Timeout");
+            return gson.toJson(apiResponse);
         }
         catch (Exception e){
             //e.printStackTrace();

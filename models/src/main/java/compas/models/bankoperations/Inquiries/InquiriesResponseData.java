@@ -22,8 +22,11 @@ public class InquiriesResponseData {
     public String ImageData;
     public String Schemecode;
     public String ActiveStatus;
+    public String ClosingStatus;
     public String SolID;
     public String PBUNo;
+
+    private BatchBalances[] Balances;
 
     //default constructor
     public InquiriesResponseData(){}
@@ -165,6 +168,14 @@ public class InquiriesResponseData {
         ActiveStatus = activeStatus;
     }
 
+    public String getClosingStatus() {
+        return ClosingStatus;
+    }
+
+    public void setClosingStatus(String closingStatus) {
+        ClosingStatus = closingStatus;
+    }
+
     public String getSolID() {
         return SolID;
     }
@@ -179,6 +190,14 @@ public class InquiriesResponseData {
 
     public void setPBUNo(String PBUNo) {
         this.PBUNo = PBUNo;
+    }
+
+    public BatchBalances[] getBalances() {
+        return Balances;
+    }
+
+    public void setBalances(BatchBalances[] balances) {
+        Balances = balances;
     }
 
     public String getString(){

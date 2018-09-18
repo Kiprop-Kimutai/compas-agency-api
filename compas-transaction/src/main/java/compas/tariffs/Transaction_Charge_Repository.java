@@ -22,4 +22,7 @@ public interface Transaction_Charge_Repository extends CrudRepository<Transactio
 
     @Query("select transaction_charge from Transaction_Charge transaction_charge where transaction_charge.min_amount <= :amount and transaction_charge.max_amount >= :amount and transaction_charge.transaction_operation_id = :transaction_operation_id")
     Transaction_Charge findTransaction_ChargeByLimitsAndTransaction_operation_id(@Param("amount") Double amount,@Param("transaction_operation_id")Integer transaction_operation_id);
+
+    @Query("select charge_burden from Transaction_Charge transaction_charge where transaction_charge.transaction_operation_id =:transaction_operation_id")
+    Integer findTransaction_ChargeBurdenByTransaction_operation_id(@Param("transaction_operation_id")Integer transaction_operation_id);
 }

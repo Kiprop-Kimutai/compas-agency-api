@@ -17,6 +17,8 @@ public class Tariff {
     private Double bank_portion;
     private Double agent_portion;
     private Double excise_duty;
+    private Integer status;
+    private Integer created_by;
 
     //default constructor
     public Tariff(){
@@ -68,5 +70,21 @@ public class Tariff {
 
     public void setExcise_duty(Double excise_duty) {
         this.excise_duty = excise_duty;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public Integer getCreated_by() {
+        return created_by;
+    }
+
+    public void setCreated_by(Integer created_by) {
+        this.created_by = created_by;
     }
 }

@@ -14,6 +14,7 @@ public class InquiriesRequestData {
     public String transId;
     @Column(name = "cbs_trans_id")
     public String cbs_trans_id;
+    public String terminal_trans_id;
     @Column(name="narration")
     public String Narration;
     @Column(name="account")
@@ -23,11 +24,19 @@ public class InquiriesRequestData {
     @Column(name="tellerId")
     public String   TellerId;
     @Column(name="branchId")
-    public  Integer BranchId;
+    //public  Integer BranchId;
+    public String BranchId;
     @Column(name = "customerName")
     public String CustomerName;
     public String status;
     public String [] Charges;
+    public String finnacle_response_message;
+    public String [] AccountsList;
+    @Column(name = "from_date")
+    public String From;
+    @Column(name = "to_date")
+    public String To;
+    public String SchemeCode;
     //default constructor
     public InquiriesRequestData(){}
 
@@ -71,6 +80,14 @@ public class InquiriesRequestData {
         this.Account = Account;
     }
 
+    public String[] getAccountsList() {
+        return AccountsList;
+    }
+
+    public void setAccountsList(String[] accountsList) {
+        AccountsList = accountsList;
+    }
+
     public String getDeviceId() {
         return DeviceId;
     }
@@ -87,11 +104,11 @@ public class InquiriesRequestData {
         this.TellerId = TellerId;
     }
 
-    public Integer getBranchId() {
+    public String getBranchId() {
         return BranchId;
     }
 
-    public void setBranchId(Integer BranchId) {
+    public void setBranchId(String BranchId) {
         this.BranchId = BranchId;
     }
 
@@ -119,7 +136,47 @@ public class InquiriesRequestData {
         return Charges;
     }
 
+    public String getFinnacle_response_message() {
+        return finnacle_response_message;
+    }
+
+    public void setFinnacle_response_message(String finnacle_response_message) {
+        this.finnacle_response_message = finnacle_response_message;
+    }
+
+    public String getFrom() {
+        return From;
+    }
+
+    public void setFrom(String from) {
+        From = from;
+    }
+
+    public String getTo() {
+        return To;
+    }
+
+    public void setTo(String to) {
+        To = to;
+    }
+
+    public String getSchemeCode() {
+        return SchemeCode;
+    }
+
+    public void setSchemeCode(String schemeCode) {
+        SchemeCode = schemeCode;
+    }
+
     public void setCharges(String[] charges) {
         Charges = charges;
+    }
+
+    public String getTerminal_trans_id() {
+        return terminal_trans_id;
+    }
+
+    public void setTerminal_trans_id(String terminal_trans_id) {
+        this.terminal_trans_id = terminal_trans_id;
     }
 }
