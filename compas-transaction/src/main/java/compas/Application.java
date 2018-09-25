@@ -1,6 +1,10 @@
 package compas;
 
+import com.google.gson.Gson;
 import compas.models.OTP;
+import compas.models.utilities.DSTV;
+import compas.models.utilities.GOTV;
+import compas.models.utilities.UMEME;
 import compas.transaction.passwordpolicy.OTPRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -47,10 +51,7 @@ public class Application  extends SpringBootServletInitializer{
         p.setProperty("logging.level.org.springframework.data","INFO");
         p.setProperty("logging.file","C:\\Program Files\\apache-tomcat-8.5.20\\conf\\testing.log");
         p.setProperty("logging.config","${catalina.home}\\conf\\logback-test.xml");
-        ApplicationService.logConfigs();
-        SpringApplication.run(Application.class,args);
-        System.out.println(p.getProperty("server.port"));
-        ApplicationService.logConfigs();
+        //SpringApplication.run(Application.class,args);
 
 
 /*        Date localDate = new SimpleDateFormat("yyyy-MM-dd").parse("2018-06-12 16:15:32.000");
@@ -76,6 +77,10 @@ public class Application  extends SpringBootServletInitializer{
         logger.info(">>"+lastMonth);
         logger.info("BBB"+lastMonth.getMonthValue());
         logger.info("NN"+lastMonth.getMonth());*/
+
+        logger.info(new Gson().toJson(new GOTV()));
+        logger.info(new Gson().toJson(new DSTV()));
+        logger.info(new Gson().toJson(new UMEME()));
 
     }
     public void managePasswordPolicy(){

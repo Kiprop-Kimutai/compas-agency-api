@@ -23,6 +23,7 @@ compas\customer\CustomerController.class
 compas\repositories\RepositoryOperations$BankOperationsRepository.class
 compas\customer\CustomerRepository.class
 compas\user\UserController.class
+compas\utilities\UtilitiesRestController.class
 compas\authentications\AuthenticationModeRepository.class
 compas\transaction\agencyreceipt\ReceiptManager.class
 compas\txn_params\TransactionOperationsRepository.class
@@ -41,6 +42,7 @@ compas\repositories\NextofKinOperations.class
 compas\agent\MerchantRepository.class
 compas\txn_params\TransactionOperationController.class
 compas\transaction\TransactionController.class
+compas\utilities\UtilitiesRequestDataRepository.class
 compas\tariffs\TariffsController.class
 compas\MongoConfig\MongoConfiguration.class
 compas\Application.class
