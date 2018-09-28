@@ -31,6 +31,7 @@ import compas.transaction.passwordpolicy.OTPController;
 import compas.transactionschannel.TransactionsToBank;
 import compas.txn_params.InquiriesRequestDataRepository;
 import compas.txn_params.TransactionOperationsRepository;
+import compas.user.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -77,6 +78,8 @@ public class TransactionController {
     private InquiriesRequestDataRepository inquiriesRequestDataRepository;
     @Autowired
     private AgentRepository agentRepository;
+    @Autowired
+    private UserRepository userRepository;
     @Autowired
     private TransactionsToBank transactionsToBank;
     private AccountsController accountsController = new AccountsController();
@@ -908,6 +911,31 @@ public class TransactionController {
             return ResponseEntity.status(201).body(reversalResponse);
         }
 
+    }
+
+    @ResponseBody
+    @RequestMapping(path = "/passwordpolicy", method = RequestMethod.POST,consumes = "application/json",produces = "application/json")
+    public ResponseEntity passwordPolicy(@RequestBody String loginpolicy){
+        LoginPolicy loginPolicy = gson.fromJson(loginpolicy,LoginPolicy.class);
+        switch(loginPolicy.getOperationId()){
+            case 0:
+                //normal login
+                List<Users> user = userRepository.processUserLogin(loginPolicy.getAgent_code(),loginPolicy.getUsername(),loginPolicy.getPassword());
+                if(user.size()==1){
+                    return ResponseEntity.status(201).body("Login successful");
+                }
+                else{
+                    //login unsuccessful
+                    return ResponseEntity.status(201).body("Login failed");
+                }
+            case 1:
+                //change password
+                userRepository.updateUserPassword(loginPolicy.getAgent_code(),loginPolicy.getUsername(),loginPolicy.getPassword());
+                return ResponseEntity.status(201).body("password update successfull");
+                //otherwise handle unsuccessful login
+            default:
+                return ResponseEntity.status(201).body("");
+        }
     }
 
 }

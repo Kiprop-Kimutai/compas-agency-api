@@ -96,6 +96,7 @@ D:\projects\compas-agency-api\models\src\main\java\compas\models\bankoperations\
 D:\projects\compas-agency-api\models\src\main\java\compas\models\LocalDateTimeConverter.java
 D:\projects\compas-agency-api\models\src\main\java\compas\models\apiresponse\AgentResponse.java
 D:\projects\compas-agency-api\models\src\main\java\compas\models\bankoperations\deposit\DepositResponseData.java
+D:\projects\compas-agency-api\models\src\main\java\compas\models\LoginPolicy.java
 D:\projects\compas-agency-api\models\src\main\java\compas\models\utilities\nwsc\NwscPaymentResponse.java
 D:\projects\compas-agency-api\models\src\main\java\compas\models\Users.java
 D:\projects\compas-agency-api\models\src\main\java\compas\models\utilities\umeme\UmemeValidateResponse.java

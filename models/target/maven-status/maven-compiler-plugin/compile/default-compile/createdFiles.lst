@@ -61,6 +61,7 @@ compas\models\Tariff.class
 compas\models\Card.class
 compas\models\bankoperations\Inquiries\InquiriesResponse.class
 compas\models\District.class
+compas\models\LoginPolicy.class
 compas\models\AgentType.class
 compas\models\bankoperations\reversals\ReversalResponse.class
 compas\models\apiresponse\BiosResponse.class
