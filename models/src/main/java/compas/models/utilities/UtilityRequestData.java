@@ -1,9 +1,6 @@
 package compas.models.utilities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by CLLSDJACKT013 on 9/20/2018.
@@ -21,7 +18,7 @@ public class UtilityRequestData {
     private String TransId;
     private String TransrefNo;
     private String AreaId;
-    private Extras Extras;
+    //private compas.models.utilities.Extras Extras;
     private String PackageId;
     private String TellerId;
     private String CustomerName;
@@ -99,13 +96,13 @@ public class UtilityRequestData {
         AreaId = areaId;
     }
 
-    public compas.models.utilities.Extras getExtras() {
-        return Extras;
-    }
-
-    public void setExtras(compas.models.utilities.Extras extras) {
-        Extras = extras;
-    }
+//    public compas.models.utilities.Extras getExtras() {
+//        return Extras;
+//    }
+//
+//    public void setBxtras(compas.models.utilities.Extras extras) {
+//        Extras = extras;
+//    }
 
     public String getPackageId() {
         return PackageId;

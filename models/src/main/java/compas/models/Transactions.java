@@ -54,6 +54,8 @@ public class Transactions {
     private Integer created_by;
     @Column(updatable = true)
     public String  status;
+    @Column(name = "TellerId")
+    public String TellerId;
 
     public Transactions(){}
 
@@ -272,6 +274,14 @@ public class Transactions {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getTellerId() {
+        return TellerId;
+    }
+
+    public void setTellerId(String TellerId) {
+        this.TellerId = TellerId;
     }
 
     public String getFinnacle_response_message() {

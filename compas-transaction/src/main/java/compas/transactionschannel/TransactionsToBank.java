@@ -276,6 +276,26 @@ public class TransactionsToBank {
                 airtimeRequest.setAction("AIRTIME");
                 airtimeRequest.setData(airtimeRequestData);
                 return gson.toJson(airtimeRequest);
+            case "TELLER_ACCT":
+                //{"Username":"THIRDPAXXXAction":"TELLER_ACCT","Data":{"RequestId":"q69","TellerId":"51365","BranchId":"0002"}}
+                logger.info("TELLER ID HERE::"+transactions.getTellerId());
+                AccountInquiryRequest TellerRequest = new AccountInquiryRequest();
+                ACRequestData TellerRequestData = new ACRequestData();
+                TellerRequestData.setRequestId(transactions.getReceipt_number());
+//                if(issued_deviceRepository.findOneIssued_DeviceByAgent_id(transactions.getAgent_id())!=null){
+//                    TellerRequestData.setDeviceId(issued_deviceRepository.findOneIssued_DeviceByAgent_id(transactions.getAgent_id()).getDeviceId().toString());
+//                }
+//                else{
+//                    TellerRequestData.setDeviceId("1");
+//                }
+                TellerRequestData.setTellerId(transactions.getTellerId().toString());
+                TellerRequestData.setBranchId("000"+agentRepository.findBranchIdByAgentId(transactions.getAgent_id()).toString());
+                //BUILD FINAL REQUEST HERE
+                TellerRequest.setAction(transaction_operation.getAction());
+                //accountInquiryRequest.setAction("ACCT_INQUIRY");
+                TellerRequest.setUsername(Username);
+                TellerRequest.setData(TellerRequestData);
+                logger.info(gson.toJson(TellerRequest));
 
             case "BAL_LISTT":
                 BatchAccountBalanceInquiry batchAccountBalanceInquiry = new BatchAccountBalanceInquiry();

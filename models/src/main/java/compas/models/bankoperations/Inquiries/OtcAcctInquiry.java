@@ -5,6 +5,7 @@ package compas.models.bankoperations.Inquiries;
  */
 public class OtcAcctInquiry {
     public String account_number;
+    public String teller_Id;
 
     //default constructor
     public  OtcAcctInquiry(){}
@@ -18,5 +19,13 @@ public class OtcAcctInquiry {
 
     public void setAccount_number(String account_number) {
         this.account_number = account_number;
+    }
+
+    public String getTeller_Id() {
+        return teller_Id;
+    }
+
+    public void setTeller_Id(String account_number) {
+        this.teller_Id = teller_Id;
     }
 }

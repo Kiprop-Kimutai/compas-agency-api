@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <excludeFromCompile>
-      <file url="file://$PROJECT_DIR$/.idea/libraries/SBT__aopalliance_aopalliance_1_0_jar.xml" />
-    </excludeFromCompile>
     <annotationProcessing>
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -11,28 +8,19 @@
         <outputRelativeToContentRoot value="true" />
         <module name="app" />
         <module name="compas-rest-service" />
-        <module name="compas-transaction" />
+        <module name="compas-transactions" />
         <module name="librarry" />
         <module name="models" />
         <module name="test" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="AgencyBal" target="1.5" />
-      <module name="AgencyModels" target="1.5" />
-      <module name="AgencyOperations" target="1.5" />
-      <module name="AgencyService" target="1.5" />
       <module name="app" target="1.6" />
-      <module name="application" target="1.6" />
       <module name="compas-agency-api" target="1.6" />
-      <module name="compas-models" target="1.6" />
-      <module name="compas-mongo-config" target="1.6" />
       <module name="compas-rest-service" target="1.7" />
-      <module name="compas-transaction" target="1.8" />
+      <module name="compas-transactions" target="1.8" />
       <module name="librarry" target="1.6" />
-      <module name="library" target="1.6" />
       <module name="models" target="1.6" />
-      <module name="PBU_Agency" target="1.6" />
       <module name="test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
