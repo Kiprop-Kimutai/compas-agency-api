@@ -15,6 +15,9 @@ public class InquiriesResponseData {
     private Double agent_commission;
     private Double bank_income;
     private Double exercise_duty;
+    private String workClass;
+    private String tellerLimit;
+    private String tellerAcct;
 
     public String Phone;
     public String AcctName;
@@ -198,6 +201,30 @@ public class InquiriesResponseData {
 
     public void setBalances(BatchBalances[] balances) {
         Balances = balances;
+    }
+
+    public String getWorkClass() {
+        return workClass;
+    }
+
+    public void setWorkClass(String workClass) {
+        this.workClass = workClass;
+    }
+
+    public String getTellerLimit() {
+        return tellerLimit;
+    }
+
+    public void setTellerLimit(String tellerLimit) {
+        this.tellerLimit = tellerLimit;
+    }
+
+    public String getTellerAcct() {
+        return tellerAcct;
+    }
+
+    public void setTellerAcct(String tellerAcct) {
+        this.tellerAcct = tellerAcct;
     }
 
     public String getString(){

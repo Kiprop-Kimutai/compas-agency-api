@@ -92,7 +92,7 @@ public class OTPController {
         otp.setRequest_time(request_time);
         otp.setActive(true);
         String validOTP = otpRepository.savePassword(otp).getPassword();
-        String responseBody = restServiceConfig.RestServiceConfiguration(otp_protocol,OTP_SERVER_IP,OTP_SERVER_PORT,OTP_SERVER_ENDPOINT,"POST",gson.toJson(otp),"","");
+        String responseBody = restServiceConfig.RestServiceConfiguration(otp_protocol,OTP_SERVER_IP,OTP_SERVER_PORT,OTP_SERVER_ENDPOINT,"POST",gson.toJson(otp),"","",true);
         return ResponseEntity.status(201).body(responseBody);
     }
 
@@ -146,7 +146,7 @@ public class OTPController {
                         logger.info(String.format("processed transaction[" + gson.toJson(processedTransaction) + "]"));
                         transactionRDBMSRepository.save(processedTransaction);
                         /**===========================CALL COMPAS BRIDGE REST SERVICE TO PUSH TRANSACTIONS TO CBS MIDDLEWARE ====================================**/
-                        String responseData = restServiceConfig.RestServiceConfiguration(protocol, SERVICE_IP, SERVICE_PORT, SERVICE_ENDPOINT, "POST", transactionsToBank.prepareTransactionsToBank(processedTransaction, API_USERNAME), verifiedOTPTxn.getReceipt_number(), transactionOperationsRepository.findTransaction_OperationActionById(verifiedOTPTxn.getOperational_id()));
+                        String responseData = restServiceConfig.RestServiceConfiguration(protocol, SERVICE_IP, SERVICE_PORT, SERVICE_ENDPOINT, "POST", transactionsToBank.prepareTransactionsToBank(processedTransaction, API_USERNAME), verifiedOTPTxn.getReceipt_number(), transactionOperationsRepository.findTransaction_OperationActionById(verifiedOTPTxn.getOperational_id()),true);
                         logger.info(responseData);
                         apiResponse = gson.fromJson(responseData, ApiResponse.class);
                         switch (apiResponse.getCode()) {
@@ -223,7 +223,7 @@ public class OTPController {
         sms.setPhoneNo(accountInquiryResponse.getData().getPhone() != null ? accountInquiryResponse.getData().getPhone() : "");
         sms.setNarration("Your one time password for "+transaction_operation.getAction().toUpperCase() +" is " +password +". You can use it at any PostBank agent point");
         sms.setTransId(password);
-        String responseBody = restServiceConfig.RestServiceConfiguration(otp_protocol, SERVICE_IP, SERVICE_PORT, SERVICE_ENDPOINT, "POST", transactionsToBank.prepareTransactionsToBank(transactions, API_USERNAME, sms), password, "SMS");
+        String responseBody = restServiceConfig.RestServiceConfiguration(otp_protocol, SERVICE_IP, SERVICE_PORT, SERVICE_ENDPOINT, "POST", transactionsToBank.prepareTransactionsToBank(transactions, API_USERNAME, sms), password, "SMS",true);
         logger.info("<<<<<<<<<<<<<<<<<<<<<<<<<<CHECK POINT>>>>>>>>>>>>>>>>>>>>>>>>>");
         logger.info(responseBody);
         return responseBody;
@@ -243,6 +243,22 @@ public class OTPController {
                 logger.info("   WATCH TIMER");
             }
         },1000,1000);
+    }
+
+    @ResponseBody
+    @RequestMapping(path="/generateSMS",consumes = "application/json",produces = "application/json", method = RequestMethod.POST)
+    public ResponseEntity sendSMS(@RequestBody String smsRequest){
+        Date requestedDate = new Date();
+        Long requestedDateLong = requestedDate.getTime();
+        SMS sms =gson.fromJson(smsRequest,SMS.class);
+        Integer lastThreeRandomNos = generateLastThreeRandomNumbers(1000,100).intValue();
+        String password = requestedDateLong.toString().substring(requestedDateLong.toString().length()-3,requestedDateLong.toString().length()).concat(lastThreeRandomNos.toString());
+        sms.setTransId(password);
+        String responseBody = restServiceConfig.RestServiceConfiguration(otp_protocol, SERVICE_IP, SERVICE_PORT, SERVICE_ENDPOINT, "POST", transactionsToBank.prepareTransactionsToBank(new Transactions(), API_USERNAME, sms), password, "SMS",true);
+        logger.info("<<<<<<<<<<<<<<<<<<<<<<<<<<CHECK POINT>>>>>>>>>>>>>>>>>>>>>>>>>");
+        logger.info(responseBody);
+        //return responseBody;
+        return ResponseEntity.status(201).body(responseBody);
     }
 
 }

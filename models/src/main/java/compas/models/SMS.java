@@ -19,6 +19,7 @@ public class SMS {
     public String PhoneNo;
     public String Narration;
 
+
     //default constructor
     public SMS(){
 

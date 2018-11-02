@@ -46,7 +46,7 @@ public class RestServiceConfig {
     private SignatureGenerator signatureGenerator = new SignatureGenerator();
 
 
-    public String RestServiceConfiguration(String protocol,String IP,String PORT,String endpoint,String requestMethod,String input,String transId,String action){
+    public String RestServiceConfiguration(String protocol,String IP,String PORT,String endpoint,String requestMethod,String input,String transId,String action,boolean returnJson){
 
         disableSslVerification();
         logger.info("POST REQUEST PAYLOAD::::"+input);
@@ -92,6 +92,7 @@ public class RestServiceConfig {
                     logger.info("-----------------HATHAWAY GET-----------------");
                     if(httpsURLConnection.getResponseCode() <200 && httpsURLConnection.getResponseCode() >299){
                         logger.info("HTTPS CALL FAILED:::CODE"+httpsURLConnection.getResponseCode());
+                        apiResponse = new ApiResponse();
                         apiResponse.setCode(httpsURLConnection.getResponseCode());
                         apiResponse.setMessage(httpsURLConnection.getResponseMessage());
                         return gson.toJson(apiResponse);
@@ -115,6 +116,7 @@ public class RestServiceConfig {
 
                     if(httpsURLConnection.getResponseCode() <200 ||  httpsURLConnection.getResponseCode() >299){
                         logger.info("HTTPS CALL FAILED:::"+httpsURLConnection.getResponseCode());
+                        apiResponse = new ApiResponse();
                         apiResponse.setCode(httpsURLConnection.getResponseCode());
                         serverResponse.setMessage(httpsURLConnection.getResponseMessage());
                         return gson.toJson(apiResponse);
@@ -126,9 +128,14 @@ public class RestServiceConfig {
                     }
                     logger.info("Response from URL:::" +responseString);
                     httpsURLConnection.disconnect();
-                    apiResponse = gson.fromJson(responseString,ApiResponse.class);
-                    apiResponse.setCode(201);
-                    return gson.toJson(apiResponse);
+                    if(returnJson) {
+                        apiResponse = gson.fromJson(responseString, ApiResponse.class);
+                        apiResponse.setCode(201);
+                        return gson.toJson(apiResponse);
+                    }
+                    else{
+                        return responseString;
+                    }
                 }
                 httpsURLConnection.disconnect();
             }
@@ -139,7 +146,7 @@ public class RestServiceConfig {
                 httpURLConnection.setRequestProperty("security_key",""+security_key);
                 //httpURLConnection.setRequestProperty("signature",generateSignature.generateTransactionSignature(api_key,api_username,api_password,transId,action));
                 httpURLConnection.setRequestProperty("signature",signatureGenerator.generateSignature(api_username,api_password,transId,action,api_key));
-
+                serverResponse = new ServerResponse();
                 if(requestMethod == "GET"){
                     logger.info("----------------HATHAWAY----------------");
 
@@ -180,9 +187,14 @@ public class RestServiceConfig {
                     }
                     logger.info("Response from URL >>>>>" +responseString);
                     httpURLConnection.disconnect();
-                    apiResponse = gson.fromJson(responseString,ApiResponse.class);
-                    apiResponse.setCode(201);
-                    return gson.toJson(apiResponse);
+                    if(returnJson) {
+                        apiResponse = gson.fromJson(responseString, ApiResponse.class);
+                        apiResponse.setCode(201);;
+                        return gson.toJson(apiResponse);
+                    }
+                    else{
+                        return responseString;
+                    }
                 }
                 httpURLConnection.disconnect();
                 //return responseString;

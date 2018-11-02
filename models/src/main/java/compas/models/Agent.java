@@ -15,6 +15,7 @@ public class Agent {
     private Integer Id;
     private Integer agent_type_id;
     private Integer merchant_id;
+    private Integer psp_id;
     private String agent_code;
     private String agent_description;
     private String crb_certificate;
@@ -59,6 +60,14 @@ public class Agent {
 
     public void setMerchant_id(Integer merchant_id) {
         this.merchant_id = merchant_id;
+    }
+
+    public Integer getPsp_id() {
+        return psp_id;
+    }
+
+    public void setPsp_id(Integer psp_id) {
+        this.psp_id = psp_id;
     }
 
     public String getAgent_code() {

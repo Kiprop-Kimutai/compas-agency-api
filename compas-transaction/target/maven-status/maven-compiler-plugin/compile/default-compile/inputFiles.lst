@@ -1,3 +1,4 @@
+D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\authentications\ApiKeyRepository.java
 D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\utilities\UtilitiesRequestDataRepository.java
 D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\authentications\AuthenticationModeRepository.java
 D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\repositories\BankOperations.java
@@ -6,6 +7,7 @@ D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\repositori
 D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\tariffs\PreferredTariffRepository.java
 D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\utilities\UtilitiesRepository.java
 D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\customer\CustomerController.java
+D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\security\CompasSecurityController.java
 D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\tariffs\TariffsRepository.java
 D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\tariffs\TariffManager.java
 D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\user\UserController.java
@@ -16,6 +18,7 @@ D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\transactio
 D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\restservice\HttpClientconfig.java
 D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\next_of_kin\NextOfKinRepository.java
 D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\repositories\UserOperations.java
+D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\security\CompasSignatureGenerator.java
 D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\repositories\CustomerOperations.java
 D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\transaction\agencyreceipt\ReceiptManager.java
 D:\projects\compas-agency-api\compas-transaction\src\main\java\compas\bank\BranchRepository.java

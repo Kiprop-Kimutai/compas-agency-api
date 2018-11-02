@@ -5,6 +5,8 @@ import compas.models.OTP;
 import compas.models.utilities.DSTV;
 import compas.models.utilities.GOTV;
 import compas.models.utilities.UMEME;
+import compas.models.utilities.UtilityPayment;
+import compas.security.CompasSignatureGenerator;
 import compas.transaction.passwordpolicy.OTPRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,7 +23,11 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
+import javax.xml.bind.DatatypeConverter;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.*;
@@ -33,13 +39,12 @@ import java.util.*;
 @EnableConfigurationProperties(ApplicationService.class)
 /*@EnableAutoConfiguration*/
 @EntityScan("compas.models")
-@EnableJpaRepositories(basePackages = {"compas.agent","compas.device","compas.accounts","compas.user","compas.bank","compas.txn_params","compas.utilities","compas.currency","compas.authentications","compas.transaction","compas.tariffs","compas.transactionschannel","compas.customer","compas.next_of_kin"})
+@EnableJpaRepositories(basePackages = {"compas.agent","compas.device","compas.accounts","compas.user","compas.bank","compas.txn_params","compas.utilities","compas.currency","compas.authentications","compas.transaction","compas.tariffs","compas.transactionschannel","compas.customer","compas.next_of_kin","compas.security"})
 public class Application  extends SpringBootServletInitializer{
     @Autowired
     private ApplicationService applicationService;
     private OTPRepository otpRepository = new OTPRepository();
     private static Logger logger = LoggerFactory.getLogger(Application.class);
-
 
     public static void main(String [] args) throws Exception{
         Properties p = System.getProperties();
@@ -51,7 +56,8 @@ public class Application  extends SpringBootServletInitializer{
         p.setProperty("logging.level.org.springframework.data","INFO");
         p.setProperty("logging.file","C:\\Program Files\\apache-tomcat-8.5.20\\conf\\testing.log");
         p.setProperty("logging.config","${catalina.home}\\conf\\logback-test.xml");
-        //SpringApplication.run(Application.class,args);
+        //String base64tring = DatatypeConverter.printBase64Binary();
+        SpringApplication.run(Application.class,args);
 
 
 /*        Date localDate = new SimpleDateFormat("yyyy-MM-dd").parse("2018-06-12 16:15:32.000");
@@ -78,10 +84,21 @@ public class Application  extends SpringBootServletInitializer{
         logger.info("BBB"+lastMonth.getMonthValue());
         logger.info("NN"+lastMonth.getMonth());*/
 
-        logger.info(new Gson().toJson(new GOTV()));
+/*        logger.info(new Gson().toJson(new GOTV()));
         logger.info(new Gson().toJson(new DSTV()));
-        logger.info(new Gson().toJson(new UMEME()));
+        logger.info(new Gson().toJson(new UMEME()));*/
 
+    }
+
+
+    @Bean
+    public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurerAdapter() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/**");
+            }
+        };
     }
     public void managePasswordPolicy(){
         //applicationService.printApplicationProperties();

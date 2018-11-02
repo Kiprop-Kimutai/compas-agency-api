@@ -25,6 +25,7 @@ import compas.models.bankoperations.withdrawal.WithdrawalResponse;
 import compas.repositories.RepositoryOperations;
 import compas.repositories.TransactionOperations;
 import compas.restservice.RestServiceConfig;
+import compas.security.CompasSecurityController;
 import compas.tariffs.TariffManager;
 import compas.transaction.agencyreceipt.ReceiptManager;
 import compas.transaction.passwordpolicy.OTPController;
@@ -41,9 +42,11 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.xml.bind.annotation.XmlType;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -82,6 +85,8 @@ public class TransactionController {
     private UserRepository userRepository;
     @Autowired
     private TransactionsToBank transactionsToBank;
+    @Autowired
+    private CompasSecurityController compasSecurityController;
     private AccountsController accountsController = new AccountsController();
     private CustomerController customerController = new CustomerController();
     private TransactionRepository transactionRepository = new TransactionRepository();
@@ -284,7 +289,7 @@ public class TransactionController {
             transactionRDBMSRepository.save(processedTransactions);
 
             /**===========================CALL COMPAS BRIDGE REST SERVICE TO PUSH TRANSACTIONS TO CBS MIDDLEWARE ====================================**/
-            String responseData =  restServiceConfiguration.RestServiceConfiguration(protocol,SERVICE_IP,SERVICE_PORT,SERVICE_ENDPOINT,"POST",transactionsToBank.prepareTransactionsToBank(processedTransactions,API_USERNAME),processedTransactions.getReceipt_number(),transactionOperationsRepository.findTransaction_OperationActionById(processedTransactions.getOperational_id()));
+            String responseData =  restServiceConfiguration.RestServiceConfiguration(protocol,SERVICE_IP,SERVICE_PORT,SERVICE_ENDPOINT,"POST",transactionsToBank.prepareTransactionsToBank(processedTransactions,API_USERNAME),processedTransactions.getReceipt_number(),transactionOperationsRepository.findTransaction_OperationActionById(processedTransactions.getOperational_id()),true);
             logger.info(responseData);
             apiResponse = gson.fromJson(responseData,ApiResponse.class);
             if(apiResponse.getCode() == 201){
@@ -321,7 +326,7 @@ public class TransactionController {
             transactionRDBMSRepository.save(processedTransactions);
 
             /**===========================CALL COMPAS BRIDGE REST SERVICE TO PUSH TRANSACTIONS TO CBS MIDDLEWARE ====================================**/
-            String responseData =  restServiceConfiguration.RestServiceConfiguration(protocol,SERVICE_IP,SERVICE_PORT,SERVICE_ENDPOINT,"POST",transactionsToBank.prepareTransactionsToBank(processedTransactions,API_USERNAME),processedTransactions.getReceipt_number(),transactionOperationsRepository.findTransaction_OperationActionById(processedTransactions.getOperational_id()));
+            String responseData =  restServiceConfiguration.RestServiceConfiguration(protocol,SERVICE_IP,SERVICE_PORT,SERVICE_ENDPOINT,"POST",transactionsToBank.prepareTransactionsToBank(processedTransactions,API_USERNAME),processedTransactions.getReceipt_number(),transactionOperationsRepository.findTransaction_OperationActionById(processedTransactions.getOperational_id()),true);
             logger.info(responseData);
             apiResponse = gson.fromJson(responseData,ApiResponse.class);
             if(apiResponse.getCode() ==201){
@@ -350,7 +355,7 @@ public class TransactionController {
             Transactions returnTx = transactionRDBMSRepository.save(processedTransactions);
             /**===========================CALL COMPAS BRIDGE REST SERVICE TO PUSH TRANSACTIONS TO CBS MIDDLEWARE ====================================**/
             //String responseData =  restServiceConfiguration.RestServiceConfiguration(protocol,SERVICE_IP,SERVICE_PORT,SERVICE_ENDPOINT,"POST",gson.toJson(processedTransactions),processedTransactions.getReceipt_number(),transactionOperationsRepository.findTransaction_OperationActionById(processedTransactions.getOperational_id()));
-            String responseData =  restServiceConfiguration.RestServiceConfiguration(protocol,SERVICE_IP,SERVICE_PORT,SERVICE_ENDPOINT,"POST",transactionsToBank.prepareTransactionsToBank(processedTransactions,API_USERNAME),processedTransactions.getReceipt_number(),transactionOperationsRepository.findTransaction_OperationActionById(processedTransactions.getOperational_id()));
+            String responseData =  restServiceConfiguration.RestServiceConfiguration(protocol,SERVICE_IP,SERVICE_PORT,SERVICE_ENDPOINT,"POST",transactionsToBank.prepareTransactionsToBank(processedTransactions,API_USERNAME),processedTransactions.getReceipt_number(),transactionOperationsRepository.findTransaction_OperationActionById(processedTransactions.getOperational_id()),true);
             logger.info(responseData);
             apiResponse = gson.fromJson(responseData,ApiResponse.class);
             logger.info(gson.toJson(apiResponse));
@@ -526,7 +531,7 @@ public class TransactionController {
     public ApiResponse processAuthenticatedInquiry(Transactions processedTransactions){
         InquiriesRequestData inquiriesRequestData = mapTransactionsToInquiriesRequest(processedTransactions);
         /**================SEND TRANSACTIONS TO COMPAS BRIDGE =================================**/
-        String responseData = restServiceConfiguration.RestServiceConfiguration(protocol,SERVICE_IP,SERVICE_PORT,SERVICE_ENDPOINT,"POST",transactionsToBank.prepareTransactionsToBank(processedTransactions,API_USERNAME),processedTransactions.getReceipt_number(),transactionOperationsRepository.findTransaction_OperationActionById(processedTransactions.getOperational_id()));
+        String responseData = restServiceConfiguration.RestServiceConfiguration(protocol,SERVICE_IP,SERVICE_PORT,SERVICE_ENDPOINT,"POST",transactionsToBank.prepareTransactionsToBank(processedTransactions,API_USERNAME),processedTransactions.getReceipt_number(),transactionOperationsRepository.findTransaction_OperationActionById(processedTransactions.getOperational_id()),true);
         logger.info("******"+responseData);
         apiResponse = gson.fromJson(responseData,ApiResponse.class);
         if(apiResponse.getCode() != 201){
@@ -818,7 +823,7 @@ public class TransactionController {
         transaction.setAgent_commision(0.0);
         transaction.setExcise_duty(0.0);
         transaction.setReceipt_number(LocalDateTime.now().toString().replace(":","").replace(".","").replace("-",""));
-        String responseData = restServiceConfiguration.RestServiceConfiguration(protocol,SERVICE_IP,SERVICE_PORT,SERVICE_ENDPOINT,"POST",transactionsToBank.prepareTransactionsToBank(transaction,originalTransaction,API_USERNAME),transaction.getReceipt_number(),transactionOperationsRepository.findTransaction_OperationActionById(transaction.getOperational_id()));
+        String responseData = restServiceConfiguration.RestServiceConfiguration(protocol,SERVICE_IP,SERVICE_PORT,SERVICE_ENDPOINT,"POST",transactionsToBank.prepareTransactionsToBank(transaction,originalTransaction,API_USERNAME),transaction.getReceipt_number(),transactionOperationsRepository.findTransaction_OperationActionById(transaction.getOperational_id()),true);
         return responseData;
     }
 
@@ -839,7 +844,13 @@ public class TransactionController {
     @CrossOrigin(origins = "http://172.32.93.111:2200")
     //@CrossOrigin(origins = "http://172.32.93.111:2200")
     @RequestMapping(path="/otc_account_inquiry",method = RequestMethod.POST,consumes = "application/json",produces = "application/json")
-    public ResponseEntity perfomAccInquiryForOTC(@RequestBody String otcacct_inquiry){
+    public ResponseEntity perfomAccInquiryForOTC(HttpServletRequest request,@RequestBody String otcacct_inquiry){
+        if(!compasSecurityController.isValidApiKey(request)){
+            ApiResponse apiResponse = new ApiResponse();
+            apiResponse.setCode(307);;
+            apiResponse.setResponse_message("Invalid API Key");
+            return ResponseEntity.status(201).body(apiResponse);
+        }
         OtcAcctInquiry otcAcctInquiry = gson.fromJson(otcacct_inquiry,OtcAcctInquiry.class);
         logger.info(otcacct_inquiry);
         logger.info(gson.toJson(otcAcctInquiry));
@@ -851,12 +862,38 @@ public class TransactionController {
         transactions.setAgent_id(1);
         transactions.setAccount_from(otcAcctInquiry.getAccount_number());
         transactions.setReceipt_number(LocalDateTime.now().toString().replace(":","").replace(".","").replace("-",""));
-        AccountInquiryResponse accountInquiryResponse = gson.fromJson(restServiceConfiguration.RestServiceConfiguration(protocol,SERVICE_IP,SERVICE_PORT,SERVICE_ENDPOINT,"POST",transactionsToBank.prepareTransactionsToBank(transactions,API_USERNAME),transactions.getReceipt_number(),"ACCT_INQUIRY"),AccountInquiryResponse.class);
+        AccountInquiryResponse accountInquiryResponse = gson.fromJson(restServiceConfiguration.RestServiceConfiguration(protocol,SERVICE_IP,SERVICE_PORT,SERVICE_ENDPOINT,"POST",transactionsToBank.prepareTransactionsToBank(transactions,API_USERNAME),transactions.getReceipt_number(),"ACCT_INQUIRY",true),AccountInquiryResponse.class);
 
         return ResponseEntity.status(201).body(gson.toJson(accountInquiryResponse));
 
     }
-
+    @ResponseBody
+    @CrossOrigin(origins = "*")
+    @RequestMapping(path="/teller_account_details",method = RequestMethod.POST,consumes = "application/json",produces = "application/json")
+    public ResponseEntity performTellerAccountDetails(HttpServletRequest request,@RequestBody String teller_account_request){
+        if(!compasSecurityController.isValidApiKey(request)){
+            ApiResponse apiResponse = new ApiResponse();
+            apiResponse.setCode(307);
+            apiResponse.setResponse_message("Invalid API Key");
+            return ResponseEntity.status(201).body(apiResponse);
+        }
+        logger.info("performing teller account details inquiry......");
+        OTPController otpController = new OTPController();
+        Date requestedDate = new Date();
+        Long requestedDateLong = requestedDate.getTime();
+        TellerAccountInquiryData tellerAccountInquiryData = gson.fromJson(teller_account_request,TellerAccountInquiryData.class);
+        Integer lastThreeRandomNos = otpController.generateLastThreeRandomNumbers(1000,100).intValue();
+        String password = requestedDateLong.toString().substring(requestedDateLong.toString().length()-3,requestedDateLong.toString().length()).concat(lastThreeRandomNos.toString());
+        tellerAccountInquiryData.setBranchId("MAIN");
+        tellerAccountInquiryData.setRequestId(password);
+        TellerAccountInquiryRequest tellerAccountInquiryRequest = new TellerAccountInquiryRequest();
+        tellerAccountInquiryRequest.setUsername(API_USERNAME);
+        tellerAccountInquiryRequest.setData(tellerAccountInquiryData);
+        tellerAccountInquiryRequest.setAction("TELLER_ACCT");
+        String responseData = restServiceConfiguration.RestServiceConfiguration(protocol, SERVICE_IP, SERVICE_PORT, SERVICE_ENDPOINT, "POST", gson.toJson(tellerAccountInquiryRequest), tellerAccountInquiryRequest.getData().getRequestId(), tellerAccountInquiryRequest.getAction(),true);
+        logger.info("Teller account details:::[=======]+"+responseData);
+        return ResponseEntity.status(201).body(responseData);
+    }
     @ResponseBody
     @RequestMapping(method = RequestMethod.POST,path = "/reverse",consumes = "application/json",produces = "application/json")
     public ResponseEntity performTransactionReversal(@RequestBody String terminal_transId) {
@@ -873,7 +910,7 @@ public class TransactionController {
                 String receipt_number = receiptManager.generateReceiptNumber(transactionToReverse.getAgent_id());
                 transactionToReverse.setReceipt_number(receipt_number);
                 /****CALL COMPAS REST SERVICE TO SEND TRANSACTION TO FINNACLE***/
-                String responseData = restServiceConfiguration.RestServiceConfiguration(protocol, SERVICE_IP, SERVICE_PORT, SERVICE_ENDPOINT, "POST", transactionsToBank.prepareTransactionsToBank(transactionToReverse, API_USERNAME), transactionToReverse.getReceipt_number(), transactionOperationsRepository.findTransaction_OperationActionById(transactionToReverse.getOperational_id()));
+                String responseData = restServiceConfiguration.RestServiceConfiguration(protocol, SERVICE_IP, SERVICE_PORT, SERVICE_ENDPOINT, "POST", transactionsToBank.prepareTransactionsToBank(transactionToReverse, API_USERNAME), transactionToReverse.getReceipt_number(), transactionOperationsRepository.findTransaction_OperationActionById(transactionToReverse.getOperational_id()),true);
                      reversalResponse = gson.fromJson(responseData, ReversalResponse.class);
                 if (reversalResponse.getResponse_code().equalsIgnoreCase("000")) {
                     //update reversed transaction to status 'R'
@@ -899,7 +936,7 @@ public class TransactionController {
                 inquiriesRequestToReverse.setTransId(receipt_number);
                 Transactions transactions = mapInquiriesRequestToTransaction(inquiriesRequestToReverse);
                 /****CALL COMPAS REST SERVICE TO REVERSE TRANSACTION*************/
-                String responseData = restServiceConfiguration.RestServiceConfiguration(protocol, SERVICE_IP, SERVICE_PORT, SERVICE_ENDPOINT, "POST", transactionsToBank.prepareTransactionsToBank(transactions, API_USERNAME), transactions.getReceipt_number(), transactionOperationsRepository.findTransaction_OperationActionById(transactions.getOperational_id()));
+                String responseData = restServiceConfiguration.RestServiceConfiguration(protocol, SERVICE_IP, SERVICE_PORT, SERVICE_ENDPOINT, "POST", transactionsToBank.prepareTransactionsToBank(transactions, API_USERNAME), transactions.getReceipt_number(), transactionOperationsRepository.findTransaction_OperationActionById(transactions.getOperational_id()),true);
                 reversalResponse = gson.fromJson(responseData,ReversalResponse.class);
                 if (reversalResponse.getResponse_code().equalsIgnoreCase("000")) {
                     //update reversed transaction to status 'R'
@@ -931,7 +968,7 @@ public class TransactionController {
             case 1:
                 //change password
                 userRepository.updateUserPassword(loginPolicy.getAgent_code(),loginPolicy.getUsername(),loginPolicy.getPassword());
-                return ResponseEntity.status(201).body("password update successfull");
+                return ResponseEntity.status(201).body("password update successful");
                 //otherwise handle unsuccessful login
             default:
                 return ResponseEntity.status(201).body("");

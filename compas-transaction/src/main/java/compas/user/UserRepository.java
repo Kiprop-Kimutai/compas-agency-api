@@ -22,6 +22,6 @@ public interface  UserRepository extends CrudRepository<Users,Long> {
     @Query("select user from Users user where user.agent_code = :agent_code and user.username = :username and user.password =:password")
     List<Users> processUserLogin(@Param("agent_code")String agent_code,@Param("username")String username,@Param("password")String password);
 
-    @Query("update Users user set user.password = :password where user.agent_code = :agent_code and user.username =:username")
+    @Query("update Users user set user.password = :password,user. where user.agent_code =:agent_code and user.username =:username")
     void updateUserPassword(@Param("agent_code")String agent_code,@Param("username")String username,@Param("password")String password);
 }

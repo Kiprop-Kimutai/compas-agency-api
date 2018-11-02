@@ -17,6 +17,7 @@ public class Tariff {
     private Double bank_portion;
     private Double agent_portion;
     private Double excise_duty;
+    private Double psp_portion;
     private Integer status;
     private Integer created_by;
 
@@ -25,11 +26,12 @@ public class Tariff {
 
     }
 
-    public Tariff(Integer transaction_operation_id, Double bank_portion, Double agent_portion, Double excise_duty) {
+    public Tariff(Integer transaction_operation_id, Double bank_portion, Double agent_portion, Double excise_duty,Double psp_portion) {
         this.transaction_operation_id = transaction_operation_id;
         this.bank_portion = bank_portion;
         this.agent_portion = agent_portion;
         this.excise_duty = excise_duty;
+        this.psp_portion = psp_portion;
     }
 
     public Integer getId() {
@@ -70,6 +72,14 @@ public class Tariff {
 
     public void setExcise_duty(Double excise_duty) {
         this.excise_duty = excise_duty;
+    }
+
+    public Double getPsp_portion() {
+        return psp_portion;
+    }
+
+    public void setPsp_portion(Double psp_portion) {
+        this.psp_portion = psp_portion;
     }
 
     public Integer getStatus() {

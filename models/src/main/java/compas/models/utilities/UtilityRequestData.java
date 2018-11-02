@@ -1,9 +1,6 @@
 package compas.models.utilities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by CLLSDJACKT013 on 9/20/2018.
@@ -21,12 +18,13 @@ public class UtilityRequestData {
     private String TransId;
     private String TransrefNo;
     private String AreaId;
+    @Transient
     private Extras Extras;
     private String PackageId;
     private String TellerId;
     private String CustomerName;
     private  Integer SchoolCode;
-    private String device_transaction_id;
+    private String terminal_transaction_id;
 
     //default constructor
     public UtilityRequestData(){
@@ -139,11 +137,11 @@ public class UtilityRequestData {
         SchoolCode = schoolCode;
     }
 
-    public String getDevice_transaction_id() {
-        return device_transaction_id;
+    public String getTerminal_transaction_id() {
+        return terminal_transaction_id;
     }
 
-    public void setDevice_transaction_id(String device_transaction_id) {
-        this.device_transaction_id = device_transaction_id;
+    public void setTerminal_transaction_id(String device_transaction_id) {
+        this.terminal_transaction_id = terminal_transaction_id;
     }
 }

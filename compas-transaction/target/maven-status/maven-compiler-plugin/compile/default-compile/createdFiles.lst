@@ -32,6 +32,7 @@ compas\transaction\TransactionRDBMSRepository.class
 compas\repositories\RepositoryOperations$AccountRepositoryOperations.class
 compas\repositories\RepositoryOperations.class
 compas\repositories\CurrencyOperations.class
+compas\security\CompasSecurityController.class
 compas\accounts\AccountsRepository.class
 compas\tariffs\PreferredTariffRepository.class
 compas\utilities\UtilitiesController.class
@@ -73,6 +74,7 @@ compas\repositories\UserOperations.class
 compas\agent\AgentController.class
 compas\bank\BankController.class
 compas\bank\BankRepository.class
+compas\authentications\ApiKeyRepository.class
 compas\repositories\CustomerOperations.class
 compas\user\UserRepository.class
 compas\restservice\RestServiceConfig.class
@@ -97,7 +99,9 @@ compas\transaction\TransactionEnum.class
 compas\ApplicationService.class
 compas\tariffs\TariffsRepository.class
 compas\restservice\WebConfig.class
+compas\security\CompasSignatureGenerator.class
 compas\accounts\GenerateAccountNumber.class
 compas\repositories\RepositoryOperations$CustomerOperationsRepository.class
 compas\repositories\RepositoryOperations$TariffsOperationsRepository.class
+compas\Application$2.class
 compas\authentications\ValidateTransactionsInterface.class

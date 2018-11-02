@@ -28,6 +28,7 @@ public class Transactions {
     public Double agent_commision;
     public Double bank_income;
     public Double excise_duty;
+    private Double psp_income;
     public String card_iccid;
     public Integer agent_id;
     public Integer auth_mode;
@@ -191,6 +192,14 @@ public class Transactions {
 
     public void setExcise_duty(Double excise_duty) {
         this.excise_duty = excise_duty;
+    }
+
+    public Double getPsp_income() {
+        return psp_income;
+    }
+
+    public void setPsp_income(Double psp_income) {
+        this.psp_income = psp_income;
     }
 
     public String getStatus() {

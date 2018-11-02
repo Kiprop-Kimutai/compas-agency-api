@@ -202,7 +202,8 @@ public class TransactionsToBank {
                 }
                 //acRequestData.setDeviceId(issued_deviceRepository.findOneIssued_DeviceByAgent_id(transactions.getAgent_id()).getDeviceId().toString()!=null ? issued_deviceRepository.findOneIssued_DeviceByAgent_id(transactions.getAgent_id()).getDeviceId().toString():"1");
                 acRequestData.setTellerId(transactions.getAgent_id().toString());
-                acRequestData.setBranchId(agentRepository.findBranchIdByAgentId(transactions.getAgent_id()).toString());
+                //acRequestData.setBranchId(agentRepository.findBranchIdByAgentId(transactions.getAgent_id()).toString());
+                acRequestData.setBranchId("0001");
                 //BUILD FINAL REQUEST HERE
                 accountInquiryRequest.setAction(transaction_operation.getAction());
                 //accountInquiryRequest.setAction("ACCT_INQUIRY");
