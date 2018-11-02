@@ -19,8 +19,8 @@ import org.springframework.stereotype.Service;
  */
 
 @Service
-//@PropertySource({"file:C:\\Program Files\\apache-tomcat-8.5.20\\conf\\application.properties"})
-@PropertySource("file:${catalina.home}\\conf\\application.properties")
+@PropertySource({"file:D:/Projects/PBU/SourceCode/logs/application.properties"})
+//@PropertySource("file:${catalina.home}\\conf\\application.properties")
 @ConfigurationProperties
     public class ApplicationService
     {

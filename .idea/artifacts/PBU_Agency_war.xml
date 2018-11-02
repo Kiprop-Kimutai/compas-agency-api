@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="PBU_Agency:war">
-    <output-path>$PROJECT_DIR$/application/target</output-path>
-    <root id="archive" name="PBU_Agency-1.0-SNAPSHOT.war">
-      <element id="artifact" artifact-name="PBU_Agency:war exploded" />
-    </root>
-  </artifact>
-</component>

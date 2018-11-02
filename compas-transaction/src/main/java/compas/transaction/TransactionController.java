@@ -868,6 +868,7 @@ public class TransactionController {
 
     }
     @ResponseBody
+<<<<<<< HEAD
     @CrossOrigin(origins = "*")
     @RequestMapping(path="/teller_account_details",method = RequestMethod.POST,consumes = "application/json",produces = "application/json")
     public ResponseEntity performTellerAccountDetails(HttpServletRequest request,@RequestBody String teller_account_request){
@@ -894,6 +895,28 @@ public class TransactionController {
         logger.info("Teller account details:::[=======]+"+responseData);
         return ResponseEntity.status(201).body(responseData);
     }
+=======
+    //@CrossOrigin(origins = "http://172.32.93.111:2200")
+    //@CrossOrigin(origins = "http://172.32.93.111:2200")
+    @RequestMapping(path="/otc_cbsuser_inquiry",method = RequestMethod.POST,consumes = "application/json",produces = "application/json")
+    public ResponseEntity perfomTellerInquiryForOTC(@RequestBody String otc_cbsuser_inquiry){
+        OtcAcctInquiry Otc_cbsuser_inquiry = gson.fromJson(otc_cbsuser_inquiry,OtcAcctInquiry.class);
+        logger.info(otc_cbsuser_inquiry);
+        logger.info(gson.toJson(otc_cbsuser_inquiry));
+        Transactions transactions = new Transactions();
+        transactions.setOperational_id(transactionOperationsRepository.findTransaction_OperationIdByAction("TELLER_ACCT"));
+        transactions.setBank_income(0.0);
+        transactions.setAgent_commision(0.0);
+        transactions.setExcise_duty(0.0);
+        transactions.setAgent_id(1);
+        transactions.setTellerId(Otc_cbsuser_inquiry.getTeller_Id());
+        transactions.setReceipt_number(LocalDateTime.now().toString().replace(":","").replace(".","").replace("-",""));
+        AccountInquiryResponse accountInquiryResponse = gson.fromJson(restServiceConfiguration.RestServiceConfiguration(protocol,SERVICE_IP,SERVICE_PORT,SERVICE_ENDPOINT,"POST",transactionsToBank.prepareTransactionsToBank(transactions,API_USERNAME),transactions.getReceipt_number(),"TELLER_ACCT"),AccountInquiryResponse.class);
+        return ResponseEntity.status(201).body(gson.toJson(accountInquiryResponse));
+
+    }
+
+>>>>>>> e935b1541eed472e988ae9bec1577ed567636090
     @ResponseBody
     @RequestMapping(method = RequestMethod.POST,path = "/reverse",consumes = "application/json",produces = "application/json")
     public ResponseEntity performTransactionReversal(@RequestBody String terminal_transId) {
@@ -953,25 +976,60 @@ public class TransactionController {
     @ResponseBody
     @RequestMapping(path = "/passwordpolicy", method = RequestMethod.POST,consumes = "application/json",produces = "application/json")
     public ResponseEntity passwordPolicy(@RequestBody String loginpolicy){
+        ReversalResponse reversalResponse = new ReversalResponse();
         LoginPolicy loginPolicy = gson.fromJson(loginpolicy,LoginPolicy.class);
+        logger.info("Operation: "+loginPolicy.getOperationId());
         switch(loginPolicy.getOperationId()){
             case 0:
                 //normal login
                 List<Users> user = userRepository.processUserLogin(loginPolicy.getAgent_code(),loginPolicy.getUsername(),loginPolicy.getPassword());
                 if(user.size()==1){
-                    return ResponseEntity.status(201).body("Login successful");
+                    reversalResponse.setResponse_code("150");
+                    reversalResponse.setResponse_mesage("Login successful");
+                    return ResponseEntity.status(201).body(reversalResponse);
                 }
                 else{
                     //login unsuccessful
+                    reversalResponse.setResponse_code("153");
+                    reversalResponse.setResponse_mesage("Login successful");
                     return ResponseEntity.status(201).body("Login failed");
                 }
             case 1:
                 //change password
+<<<<<<< HEAD
                 userRepository.updateUserPassword(loginPolicy.getAgent_code(),loginPolicy.getUsername(),loginPolicy.getPassword());
                 return ResponseEntity.status(201).body("password update successful");
                 //otherwise handle unsuccessful login
+=======
+                List<Users> checkuser = userRepository.CheckUserExists(loginPolicy.getUsername(),loginPolicy.getAgent_code());
+                if(checkuser.size()>0){
+                    userRepository.updateUserPassword(loginPolicy.getAgent_code(), loginPolicy.getUsername(), loginPolicy.getPassword());
+                    reversalResponse.setResponse_code("150");
+                    reversalResponse.setResponse_mesage("Password update successful");
+                    return ResponseEntity.status(201).body(reversalResponse);
+                }else {
+                    reversalResponse.setResponse_code("153");
+                    reversalResponse.setResponse_mesage("User or Agent does not exist");
+                    return ResponseEntity.status(201).body(reversalResponse);
+                }
+            case 2:
+                //Lock user
+                List<Users> userexists = userRepository.CheckUserExists(loginPolicy.getUsername(),loginPolicy.getAgent_code());
+                if(userexists.size()>0){
+                    userRepository.LockUser(loginPolicy.getAgent_code(), loginPolicy.getUsername());
+                    reversalResponse.setResponse_code("150");
+                    reversalResponse.setResponse_mesage("User Locked successful");
+                    return ResponseEntity.status(201).body(reversalResponse);
+                }else {
+                    reversalResponse.setResponse_code("153");
+                    reversalResponse.setResponse_mesage("User or Agent does not exist");
+                    return ResponseEntity.status(201).body(reversalResponse);
+                }
+>>>>>>> e935b1541eed472e988ae9bec1577ed567636090
             default:
-                return ResponseEntity.status(201).body("");
+                reversalResponse.setResponse_code("153");
+                reversalResponse.setResponse_mesage("Invalid Parameters supplied");
+                return ResponseEntity.status(201).body(reversalResponse);
         }
     }
 

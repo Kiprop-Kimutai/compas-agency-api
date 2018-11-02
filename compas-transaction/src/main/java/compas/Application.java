@@ -47,6 +47,7 @@ public class Application  extends SpringBootServletInitializer{
     private static Logger logger = LoggerFactory.getLogger(Application.class);
 
     public static void main(String [] args) throws Exception{
+<<<<<<< HEAD
         Properties p = System.getProperties();
         //System.setProperty(ContextInitializer.CONFIG_FILE_PROPERTY, /path/to/config.xml); //TRY THIS PROP
         p.setProperty("logging.level.compas.transaction","INFO");
@@ -57,6 +58,17 @@ public class Application  extends SpringBootServletInitializer{
         p.setProperty("logging.file","C:\\Program Files\\apache-tomcat-8.5.20\\conf\\testing.log");
         p.setProperty("logging.config","${catalina.home}\\conf\\logback-test.xml");
         //String base64tring = DatatypeConverter.printBase64Binary();
+=======
+//        Properties p = System.getProperties();
+//        //System.setProperty(ContextInitializer.CONFIG_FILE_PROPERTY, /path/to/config.xml); //TRY THIS PROP
+//        p.setProperty("logging.level.compas.transaction","INFO");
+//        //p.setProperty("spring.output.ansi.enabled","ALWAYS");
+//        //p.setProperty("logging.level.compas.MongoConfig","SEVERE");
+//        p.setProperty("logging.level.org.springframework.data","ERROR");
+//        p.setProperty("logging.level.org.springframework.data","INFO");
+//        p.setProperty("logging.file","C:\\Program Files\\Apache\\apache-tomcat-8.5.31\\logs\\testing.log");
+//        p.setProperty("logging.config","C:\\Program Files\\Apache\\apache-tomcat-8.5.31\\conf\\logback-test.xml");
+>>>>>>> e935b1541eed472e988ae9bec1577ed567636090
         SpringApplication.run(Application.class,args);
 
 
@@ -84,12 +96,18 @@ public class Application  extends SpringBootServletInitializer{
         logger.info("BBB"+lastMonth.getMonthValue());
         logger.info("NN"+lastMonth.getMonth());*/
 
+<<<<<<< HEAD
 /*        logger.info(new Gson().toJson(new GOTV()));
         logger.info(new Gson().toJson(new DSTV()));
         logger.info(new Gson().toJson(new UMEME()));*/
 
     }
 
+=======
+        //logger.info(new Gson().toJson(new GOTV()));
+        //logger.info(new Gson().toJson(new DSTV()));
+        //logger.info(new Gson().toJson(new UMEME()));
+>>>>>>> e935b1541eed472e988ae9bec1577ed567636090
 
     @Bean
     public WebMvcConfigurer corsConfigurer() {

@@ -18,8 +18,12 @@ public class UtilityRequestData {
     private String TransId;
     private String TransrefNo;
     private String AreaId;
+<<<<<<< HEAD
     @Transient
     private Extras Extras;
+=======
+    //private compas.models.utilities.Extras Extras;
+>>>>>>> e935b1541eed472e988ae9bec1577ed567636090
     private String PackageId;
     private String TellerId;
     private String CustomerName;
@@ -97,13 +101,13 @@ public class UtilityRequestData {
         AreaId = areaId;
     }
 
-    public compas.models.utilities.Extras getExtras() {
-        return Extras;
-    }
-
-    public void setExtras(compas.models.utilities.Extras extras) {
-        Extras = extras;
-    }
+//    public compas.models.utilities.Extras getExtras() {
+//        return Extras;
+//    }
+//
+//    public void setBxtras(compas.models.utilities.Extras extras) {
+//        Extras = extras;
+//    }
 
     public String getPackageId() {
         return PackageId;

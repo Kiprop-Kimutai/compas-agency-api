@@ -17,8 +17,13 @@ import ch.qos.logback.classic.Level;
 /**
  * Created by CLLSDJACKT013 on 07/05/2018.
  */
+<<<<<<< HEAD
 //@PropertySource({"file:C:\\Program Files\\apache-tomcat-8.5.20\\conf\\application.properties"})
 @PropertySource("file:${catalina.home}\\conf\\application.properties")
+=======
+@PropertySource({"file:D:/Projects/PBU/SourceCode/logs/application.properties"})
+//@PropertySource("file:${catalina.home}\\conf\\application.properties")
+>>>>>>> e935b1541eed472e988ae9bec1577ed567636090
 @Configuration
 public class MongoConfiguration {
     //static Logger rootLogger = (Logger) LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);

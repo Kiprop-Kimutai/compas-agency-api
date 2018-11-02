@@ -3,7 +3,6 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/compas-models" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/compas-mongo-config" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/compas-rest-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/compas-transaction" charset="UTF-8" />

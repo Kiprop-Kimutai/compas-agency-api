@@ -29,6 +29,9 @@ public class Users {
     private Integer pos_user_level;
     private Integer verified_by;
     private String verified;
+    private Boolean locked;
+    private Boolean password_expired;
+    private Boolean firstlogin;
 
     //defult constructor
     public Users(){}
@@ -171,6 +174,30 @@ public class Users {
 
     public void setVerified(String verified) {
         this.verified = verified;
+    }
+
+    public Boolean getLocked() {
+        return locked;
+    }
+
+    public void setLocked(Boolean locked) {
+        this.locked = locked;
+    }
+
+    public Boolean getPassword_expired() {
+        return password_expired;
+    }
+
+    public void setPassword_expired(Boolean password_expired) {
+        this.password_expired = password_expired;
+    }
+
+    public Boolean getFirstlogin() {
+        return firstlogin;
+    }
+
+    public void setFirstlogin(Boolean firstlogin) {
+        this.firstlogin = firstlogin;
     }
 
     public String getString(){

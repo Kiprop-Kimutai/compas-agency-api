@@ -5,7 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/compas-agency-api.iml" filepath="$PROJECT_DIR$/compas-agency-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/compas-rest-service/compas-rest-service.iml" filepath="$PROJECT_DIR$/compas-rest-service/compas-rest-service.iml" />
-      <module fileurl="file://$PROJECT_DIR$/compas-transaction/compas-transaction.iml" filepath="$PROJECT_DIR$/compas-transaction/compas-transaction.iml" />
+      <module fileurl="file://$PROJECT_DIR$/compas-transaction/compas-transactions.iml" filepath="$PROJECT_DIR$/compas-transaction/compas-transactions.iml" />
       <module fileurl="file://$PROJECT_DIR$/librarry/librarry.iml" filepath="$PROJECT_DIR$/librarry/librarry.iml" />
       <module fileurl="file://$PROJECT_DIR$/models/models.iml" filepath="$PROJECT_DIR$/models/models.iml" />
       <module fileurl="file://$PROJECT_DIR$/test/test.iml" filepath="$PROJECT_DIR$/test/test.iml" />
