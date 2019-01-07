@@ -22,6 +22,7 @@ compas\models\utilities\ura\PenaltyTypeRequest.class
 compas\models\utilities\nwsc\NwscAreasRequestData.class
 compas\models\bankoperations\reversals\ReversalRequest.class
 compas\models\utilities\ura\BranchRequestResponse.class
+compas\models\AccountRequest.class
 compas\models\bankoperations\transfers\TransferResponse.class
 compas\models\OTP.class
 compas\models\utilities\ura\ValidateWithPRNRequest.class

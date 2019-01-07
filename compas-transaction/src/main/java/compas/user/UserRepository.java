@@ -19,23 +19,24 @@ public interface  UserRepository extends CrudRepository<Users,Long> {
     @Query("select user from Users user where user.agent_code =:agent_code")
     List<Users> findUsersByAgentCode(@Param("agent_code")String agent_code);
 
-    @Query("select user from Users user where user.agent_code = :agent_code and user.username = :username and user.password =:password")
+    @Query("select user from Users user where user.agent_code =:agent_code and user.username =:username")
+    List<Users> findUserByUsernameAndAgent_code(@Param("username")String username,@Param("agent_code")String agent_code);
+
+    @Query("select user from Users user where user.agent_code = :agent_code and user.username = :username and user.password =:password and user.password_expired =false and user.locked = false ")
     List<Users> processUserLogin(@Param("agent_code")String agent_code,@Param("username")String username,@Param("password")String password);
 
-<<<<<<< HEAD
-    @Query("update Users user set user.password = :password,user. where user.agent_code =:agent_code and user.username =:username")
-=======
+    //@Query("update Users user set user.password = :password,user. where user.agent_code =:agent_code and user.username =:username")
+
     @Query("select user from Users user where user.username = :username and user.agent_code = :agent_code")
     List<Users> CheckUserExists(@Param("username")String username,@Param("agent_code")String agent_code);
     //Update Password
     @Transactional
     @Modifying
-    @Query("update Users user set user.password = :password,firstlogin='0' where user.agent_code = :agent_code and user.username =:username")
->>>>>>> e935b1541eed472e988ae9bec1577ed567636090
+    @Query("update Users user set user.password = :password,user.password_expired = false , user.firstlogin = false where user.agent_code = :agent_code and user.username =:username")
     void updateUserPassword(@Param("agent_code")String agent_code,@Param("username")String username,@Param("password")String password);
     //Lock user
     @Transactional
     @Modifying
-    @Query("update Users user set user.locked= '1' where user.agent_code = :agent_code and user.username =:username")
+    @Query("update Users user set user.locked= true where user.agent_code = :agent_code and user.username =:username")
     void LockUser(@Param("agent_code") String agent_code,@Param("username") String username);
 }

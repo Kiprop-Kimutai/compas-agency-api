@@ -1,7 +1,7 @@
 .idea
 /app/target/*
 /compas-rest-service/target/*
-/compas-transactions/target/*
+/compas-transaction/target/*
 /librarry/target/*
 /models/target/*
 /test/target/*

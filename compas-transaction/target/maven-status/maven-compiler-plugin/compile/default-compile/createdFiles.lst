@@ -87,6 +87,7 @@ compas\transaction\TransactionRepository.class
 compas\transaction\TransactionEnum$TransactionTypes.class
 compas\repositories\AccountsOperations.class
 compas\repositories\TransactionOperations.class
+compas\RestConfigs.class
 compas\agent\AgentContactPersonRepository.class
 compas\repositories\RepositoryOperations$UtilitiesOperationsRepository.class
 compas\customer\FingerPrintRepository.class
@@ -95,6 +96,7 @@ compas\transaction\passwordpolicy\OTPController$1.class
 compas\repositories\DeviceOperations.class
 compas\tariffs\Transaction_Charge_Types_Repository.class
 compas\repositories\AgentOperations.class
+compas\accounts\AccountRequestRepository.class
 compas\transaction\TransactionEnum.class
 compas\ApplicationService.class
 compas\tariffs\TariffsRepository.class

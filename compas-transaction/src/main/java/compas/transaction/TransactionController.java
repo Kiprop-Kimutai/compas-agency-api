@@ -269,9 +269,12 @@ public class TransactionController {
             //Transactions processedTransactions = tariffManager.setTariffCharges(transactions);
             Transactions processedTransactions = tariffManager.setCharges(transactions);
             transactionRepository.saveTransaction(processedTransactions);
-            apiResponse.setCode(101);
-            apiResponse.setMessage("OTP GENERATION SUCCESS");
-            return ResponseEntity.status(201).body(apiResponse);
+            ApiResponse apiResponse1 = new ApiResponse();
+            apiResponse1.setCode(101);
+            apiResponse1.setMessage("OTP GENERATION SUCCESS");
+            logger.info("-------watch here-------");
+            logger.info(gson.toJson(apiResponse1));
+            return ResponseEntity.status(201).body(apiResponse1);
 
         }
         else if(transactionMode.equalsIgnoreCase("PIN")){
@@ -533,9 +536,10 @@ public class TransactionController {
         /**================SEND TRANSACTIONS TO COMPAS BRIDGE =================================**/
         String responseData = restServiceConfiguration.RestServiceConfiguration(protocol,SERVICE_IP,SERVICE_PORT,SERVICE_ENDPOINT,"POST",transactionsToBank.prepareTransactionsToBank(processedTransactions,API_USERNAME),processedTransactions.getReceipt_number(),transactionOperationsRepository.findTransaction_OperationActionById(processedTransactions.getOperational_id()),true);
         logger.info("******"+responseData);
+        ApiResponse apiResponse = new ApiResponse();
         apiResponse = gson.fromJson(responseData,ApiResponse.class);
         if(apiResponse.getCode() != 201){
-            responseMessage.setMessage(String.format("%s INQUIRY WITH TRANSID %s FAILED",inquiriesRequestData.getNarration().toUpperCase(),inquiriesRequestData.getTransId()));
+            //responseMessage.setMessage(String.format("%s INQUIRY WITH TRANSID %s FAILED",inquiriesRequestData.getNarration().toUpperCase(),inquiriesRequestData.getTransId()));
             return apiResponse;
         }
         if(apiResponse.Data!=null){
@@ -841,16 +845,16 @@ public class TransactionController {
     }
 
     @ResponseBody
-    @CrossOrigin(origins = "http://172.32.93.111:2200")
     //@CrossOrigin(origins = "http://172.32.93.111:2200")
+    //@CrossOrigin(origins = "http://localhost:8080")
     @RequestMapping(path="/otc_account_inquiry",method = RequestMethod.POST,consumes = "application/json",produces = "application/json")
     public ResponseEntity perfomAccInquiryForOTC(HttpServletRequest request,@RequestBody String otcacct_inquiry){
-        if(!compasSecurityController.isValidApiKey(request)){
+/*        if(!compasSecurityController.isValidApiKey(request)){
             ApiResponse apiResponse = new ApiResponse();
             apiResponse.setCode(307);;
             apiResponse.setResponse_message("Invalid API Key");
             return ResponseEntity.status(201).body(apiResponse);
-        }
+        }*/
         OtcAcctInquiry otcAcctInquiry = gson.fromJson(otcacct_inquiry,OtcAcctInquiry.class);
         logger.info(otcacct_inquiry);
         logger.info(gson.toJson(otcAcctInquiry));
@@ -868,10 +872,10 @@ public class TransactionController {
 
     }
     @ResponseBody
-<<<<<<< HEAD
-    @CrossOrigin(origins = "*")
+    //@CrossOrigin(origins = "*")
     @RequestMapping(path="/teller_account_details",method = RequestMethod.POST,consumes = "application/json",produces = "application/json")
     public ResponseEntity performTellerAccountDetails(HttpServletRequest request,@RequestBody String teller_account_request){
+        logger.info("Init.....");
         if(!compasSecurityController.isValidApiKey(request)){
             ApiResponse apiResponse = new ApiResponse();
             apiResponse.setCode(307);
@@ -895,9 +899,9 @@ public class TransactionController {
         logger.info("Teller account details:::[=======]+"+responseData);
         return ResponseEntity.status(201).body(responseData);
     }
-=======
     //@CrossOrigin(origins = "http://172.32.93.111:2200")
     //@CrossOrigin(origins = "http://172.32.93.111:2200")
+    @ResponseBody
     @RequestMapping(path="/otc_cbsuser_inquiry",method = RequestMethod.POST,consumes = "application/json",produces = "application/json")
     public ResponseEntity perfomTellerInquiryForOTC(@RequestBody String otc_cbsuser_inquiry){
         OtcAcctInquiry Otc_cbsuser_inquiry = gson.fromJson(otc_cbsuser_inquiry,OtcAcctInquiry.class);
@@ -909,14 +913,13 @@ public class TransactionController {
         transactions.setAgent_commision(0.0);
         transactions.setExcise_duty(0.0);
         transactions.setAgent_id(1);
-        transactions.setTellerId(Otc_cbsuser_inquiry.getTeller_Id());
+        //transactions.setTellerId(Otc_cbsuser_inquiry.getTeller_Id());
         transactions.setReceipt_number(LocalDateTime.now().toString().replace(":","").replace(".","").replace("-",""));
-        AccountInquiryResponse accountInquiryResponse = gson.fromJson(restServiceConfiguration.RestServiceConfiguration(protocol,SERVICE_IP,SERVICE_PORT,SERVICE_ENDPOINT,"POST",transactionsToBank.prepareTransactionsToBank(transactions,API_USERNAME),transactions.getReceipt_number(),"TELLER_ACCT"),AccountInquiryResponse.class);
+        AccountInquiryResponse accountInquiryResponse = gson.fromJson(restServiceConfiguration.RestServiceConfiguration(protocol,SERVICE_IP,SERVICE_PORT,SERVICE_ENDPOINT,"POST",transactionsToBank.prepareTransactionsToBank(transactions,API_USERNAME),transactions.getReceipt_number(),"TELLER_ACCT",true),AccountInquiryResponse.class);
         return ResponseEntity.status(201).body(gson.toJson(accountInquiryResponse));
 
     }
 
->>>>>>> e935b1541eed472e988ae9bec1577ed567636090
     @ResponseBody
     @RequestMapping(method = RequestMethod.POST,path = "/reverse",consumes = "application/json",produces = "application/json")
     public ResponseEntity performTransactionReversal(@RequestBody String terminal_transId) {
@@ -976,60 +979,62 @@ public class TransactionController {
     @ResponseBody
     @RequestMapping(path = "/passwordpolicy", method = RequestMethod.POST,consumes = "application/json",produces = "application/json")
     public ResponseEntity passwordPolicy(@RequestBody String loginpolicy){
-        ReversalResponse reversalResponse = new ReversalResponse();
+        logger.info("password policy init...");
         LoginPolicy loginPolicy = gson.fromJson(loginpolicy,LoginPolicy.class);
+        logger.info(gson.toJson(loginPolicy));
         logger.info("Operation: "+loginPolicy.getOperationId());
+        ApiResponse apiResponse = new ApiResponse();
         switch(loginPolicy.getOperationId()){
             case 0:
                 //normal login
                 List<Users> user = userRepository.processUserLogin(loginPolicy.getAgent_code(),loginPolicy.getUsername(),loginPolicy.getPassword());
                 if(user.size()==1){
-                    reversalResponse.setResponse_code("150");
-                    reversalResponse.setResponse_mesage("Login successful");
-                    return ResponseEntity.status(201).body(reversalResponse);
+/*                    reversalResponse.setResponse_code("150");
+                    reversalResponse.setResponse_mesage("Login successful");*/
+                    apiResponse.setResponse_code("150");
+                    apiResponse.setResponse_message("Login successful");
+                    return ResponseEntity.status(201).body(apiResponse);
                 }
                 else{
                     //login unsuccessful
-                    reversalResponse.setResponse_code("153");
-                    reversalResponse.setResponse_mesage("Login successful");
-                    return ResponseEntity.status(201).body("Login failed");
+/*                    reversalResponse.setResponse_code("153");
+                    reversalResponse.setResponse_mesage("Login successful");*/
+                    apiResponse.setResponse_code("153");
+                    apiResponse.setResponse_message("Login failed");
+                    return ResponseEntity.status(201).body(apiResponse);
                 }
             case 1:
                 //change password
-<<<<<<< HEAD
-                userRepository.updateUserPassword(loginPolicy.getAgent_code(),loginPolicy.getUsername(),loginPolicy.getPassword());
-                return ResponseEntity.status(201).body("password update successful");
-                //otherwise handle unsuccessful login
-=======
                 List<Users> checkuser = userRepository.CheckUserExists(loginPolicy.getUsername(),loginPolicy.getAgent_code());
                 if(checkuser.size()>0){
                     userRepository.updateUserPassword(loginPolicy.getAgent_code(), loginPolicy.getUsername(), loginPolicy.getPassword());
-                    reversalResponse.setResponse_code("150");
-                    reversalResponse.setResponse_mesage("Password update successful");
-                    return ResponseEntity.status(201).body(reversalResponse);
+/*                    reversalResponse.setResponse_code("150");
+                    reversalResponse.setResponse_mesage("Password update successful");*/
+                    apiResponse.setResponse_code("150");
+                    apiResponse.setResponse_message("Password update successful");
+                    return ResponseEntity.status(201).body(apiResponse);
                 }else {
-                    reversalResponse.setResponse_code("153");
-                    reversalResponse.setResponse_mesage("User or Agent does not exist");
-                    return ResponseEntity.status(201).body(reversalResponse);
+                    apiResponse.setResponse_code("153");
+                    apiResponse.setResponse_message("User or Agent does not exist");
+                    return ResponseEntity.status(201).body(apiResponse);
                 }
             case 2:
                 //Lock user
                 List<Users> userexists = userRepository.CheckUserExists(loginPolicy.getUsername(),loginPolicy.getAgent_code());
                 if(userexists.size()>0){
                     userRepository.LockUser(loginPolicy.getAgent_code(), loginPolicy.getUsername());
-                    reversalResponse.setResponse_code("150");
-                    reversalResponse.setResponse_mesage("User Locked successful");
-                    return ResponseEntity.status(201).body(reversalResponse);
+                    apiResponse.setResponse_code("150");
+                    apiResponse.setResponse_message("User Locked successful");
+                    return ResponseEntity.status(201).body(apiResponse);
                 }else {
-                    reversalResponse.setResponse_code("153");
-                    reversalResponse.setResponse_mesage("User or Agent does not exist");
-                    return ResponseEntity.status(201).body(reversalResponse);
+                    apiResponse.setResponse_code("153");
+                    apiResponse.setResponse_message("User or Agent does not exist");
+                    return ResponseEntity.status(201).body(apiResponse);
                 }
->>>>>>> e935b1541eed472e988ae9bec1577ed567636090
             default:
-                reversalResponse.setResponse_code("153");
-                reversalResponse.setResponse_mesage("Invalid Parameters supplied");
-                return ResponseEntity.status(201).body(reversalResponse);
+                apiResponse.setResponse_code("153");
+                apiResponse.setResponse_message("Invalid Parameters supplied");
+                return ResponseEntity.status(201).body(apiResponse);
         }
     }
 

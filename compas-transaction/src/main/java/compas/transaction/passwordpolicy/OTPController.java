@@ -169,6 +169,7 @@ public class OTPController {
                             default:
                                 apiResponse.setMessage(String.format("%s TRANSACTION WITH TRANSACTION ID %s FAILED", verifiedOTPTxn.getNarration().toUpperCase(), verifiedOTPTxn.getReceipt_number()));
                                 logger.info(gson.toJson(apiResponse));
+                                break;
                         }
 
                     }

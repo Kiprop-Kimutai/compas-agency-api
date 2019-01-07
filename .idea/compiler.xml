@@ -9,7 +9,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="app" />
+        <module name="compas-rest-service" />
         <module name="compas-transactions" />
+        <module name="librarry" />
+        <module name="models" />
+        <module name="test" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

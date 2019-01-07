@@ -76,8 +76,8 @@ public class TransactionsToBank {
                 inquiriesRequestData.setDeviceId(issued_deviceRepository.findOneIssued_DeviceByAgent_id(transactions.getAgent_id()).getDeviceId().toString());
                 inquiriesRequestData.setTellerId(transactions.getAgent_id().toString());
                 inquiriesRequestData.setBranchId("000"+agentRepository.findBranchIdByAgentId(transactions.getAgent_id()).toString());
-                inquiriesRequestData.setCustomerName("OKURA RONALD");
-                //inquiriesRequestData.setCustomerName(transactions.getCustomer_name());
+                //inquiriesRequestData.setCustomerName("OKURA RONALD");
+                inquiriesRequestData.setCustomerName(transactions.getCustomer_name());
                 //inquiriesRequestData.setCharges(transaction_charges);
                 //BUILD FINAL Inquiries data
                 inquiriesRequest.setUsername(Username);
@@ -256,7 +256,8 @@ public class TransactionsToBank {
                 Bank2WalletRequest bank2WalletRequest = new Bank2WalletRequest();
                 Bank2WalletRequestData bank2WalletRequestData = new Bank2WalletRequestData();
                 bank2WalletRequestData.setAmount(transactions.getAmount().toString());
-                bank2WalletRequestData.setTransrefNo(transactions.getReceipt_number());
+                //bank2WalletRequestData.setTransrefNo(transactions.getReceipt_number());
+                bank2WalletRequestData.setTransrefNo(transactions.getOriginal_transId());
                 bank2WalletRequestData.setNarration("Bank to Wallet");
                 bank2WalletRequestData.setPhoneNo(transactions.getPhone());
                 //BUILD final request here
@@ -279,7 +280,7 @@ public class TransactionsToBank {
                 return gson.toJson(airtimeRequest);
             case "TELLER_ACCT":
                 //{"Username":"THIRDPAXXXAction":"TELLER_ACCT","Data":{"RequestId":"q69","TellerId":"51365","BranchId":"0002"}}
-                logger.info("TELLER ID HERE::"+transactions.getTellerId());
+               // logger.info("TELLER ID HERE::"+transactions.getTellerId());
                 AccountInquiryRequest TellerRequest = new AccountInquiryRequest();
                 ACRequestData TellerRequestData = new ACRequestData();
                 TellerRequestData.setRequestId(transactions.getReceipt_number());
@@ -289,7 +290,7 @@ public class TransactionsToBank {
 //                else{
 //                    TellerRequestData.setDeviceId("1");
 //                }
-                TellerRequestData.setTellerId(transactions.getTellerId().toString());
+                //TellerRequestData.setTellerId(transactions.getTellerId().toString());
                 TellerRequestData.setBranchId("000"+agentRepository.findBranchIdByAgentId(transactions.getAgent_id()).toString());
                 //BUILD FINAL REQUEST HERE
                 TellerRequest.setAction(transaction_operation.getAction());
@@ -331,29 +332,35 @@ public class TransactionsToBank {
                         logger.info("AccountFrom"+modifiedTransaction.getAccount_from());
                         logger.info("AccountTo"+modifiedTransaction.getAccount_to());
                         acRequestData.setAccount(modifiedTransaction.getAccount_to());
+                        break;
                     case "DEPOSIT":
                         logger.info("AccountFrom"+modifiedTransaction.getAccount_from());
                         logger.info("AccountTo"+modifiedTransaction.getAccount_to());
                         acRequestData.setAccount(modifiedTransaction.getAccount_to());
+                        break;
                     case "WITHDRAW":
                         logger.info("AccountFrom"+modifiedTransaction.getAccount_from());
                         logger.info("AccountTo"+modifiedTransaction.getAccount_to());
                         acRequestData.setAccount(modifiedTransaction.getAccount_from());
+                        break;
                     case "UTILITIES":
                         logger.info("AccountFrom"+modifiedTransaction.getAccount_from());
                         logger.info("AccountTo"+modifiedTransaction.getAccount_to());
                         acRequestData.setAccount(modifiedTransaction.getAccount_to());
+                        break;
                     case "BAL":
                         logger.info("AccountFrom"+modifiedTransaction.getAccount_from());
-                        logger.info("AccountTo"+modifiedTransaction.getAccount_to());
+                        //logger.info("AccountTo"+modifiedTransaction.getAccount_to());
                         acRequestData.setAccount(modifiedTransaction.getAccount_from());
+                        break;
                     case "MINI":
                         logger.info("AccountFrom"+modifiedTransaction.getAccount_from());
-                        logger.info("AccountTo"+modifiedTransaction.getAccount_to());
+                        //logger.info("AccountTo"+modifiedTransaction.getAccount_to());
                         acRequestData.setAccount(modifiedTransaction.getAccount_from());
+                        break;
                     case "FULL":
                         acRequestData.setAccount(modifiedTransaction.getAccount_from());
-
+                        break;
 
                 }
                 //acRequestData.setAccount(modifiedTransaction.getAccount_from());

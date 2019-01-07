@@ -22,7 +22,7 @@ import java.util.List;
 public class OTPRepository  {
     ApplicationContext context = new AnnotationConfigApplicationContext(MongoConfiguration.class);
     MongoOperations mongoOperations = (MongoOperations) context.getBean("mongoTemplate");
-    private Logger logger = LoggerFactory.getLogger(TransactionRepository.class);
+    private Logger logger = LoggerFactory.getLogger(OTPRepository.class);
 
     public OTP savePassword(OTP otp){
         try{
